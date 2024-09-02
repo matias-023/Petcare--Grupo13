@@ -37,10 +37,12 @@
             menuProveedores = new FontAwesome.Sharp.IconMenuItem();
             menuReportes = new FontAwesome.Sharp.IconMenuItem();
             menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
-            menuTitulo = new MenuStrip();
-            sistemaDeVentasToolStripMenuItem = new ToolStripMenuItem();
             contenedor = new Panel();
+            sistemaDeVentasToolStripMenuItem = new ToolStripMenuItem();
+            menuTitulo = new MenuStrip();
+            label1 = new Label();
             menu.SuspendLayout();
+            contenedor.SuspendLayout();
             menuTitulo.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,10 +51,10 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuCompras, menuClientes, menuProveedores, menuReportes, menuAcercaDe });
-            menu.Location = new Point(0, 52);
+            menu.Location = new Point(0, 69);
             menu.Name = "menu";
-            menu.Padding = new Padding(5, 2, 0, 2);
-            menu.Size = new Size(1088, 76);
+            menu.Padding = new Padding(6, 3, 0, 3);
+            menu.Size = new Size(1243, 78);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -112,7 +114,7 @@
             menuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuClientes.ImageScaling = ToolStripItemImageScaling.None;
             menuClientes.Name = "menuClientes";
-            menuClientes.Size = new Size(132, 72);
+            menuClientes.Size = new Size(152, 72);
             menuClientes.Text = "Clientes";
             menuClientes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -152,52 +154,63 @@
             menuAcercaDe.Text = "Acerca de";
             menuAcercaDe.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
-            // menuTitulo
+            // contenedor
             // 
-            menuTitulo.AutoSize = false;
-            menuTitulo.BackColor = Color.SpringGreen;
-            menuTitulo.ImageScalingSize = new Size(20, 20);
-            menuTitulo.Items.AddRange(new ToolStripItem[] { sistemaDeVentasToolStripMenuItem });
-            menuTitulo.Location = new Point(0, 0);
-            menuTitulo.Name = "menuTitulo";
-            menuTitulo.Padding = new Padding(5, 2, 0, 2);
-            menuTitulo.RightToLeft = RightToLeft.No;
-            menuTitulo.Size = new Size(1088, 52);
-            menuTitulo.TabIndex = 1;
-            menuTitulo.Text = "menuStrip2";
+            contenedor.Controls.Add(label1);
+            contenedor.Dock = DockStyle.Fill;
+            contenedor.Location = new Point(0, 147);
+            contenedor.Name = "contenedor";
+            contenedor.Size = new Size(1243, 396);
+            contenedor.TabIndex = 2;
             // 
             // sistemaDeVentasToolStripMenuItem
             // 
             sistemaDeVentasToolStripMenuItem.AutoSize = false;
+            sistemaDeVentasToolStripMenuItem.ForeColor = Color.White;
             sistemaDeVentasToolStripMenuItem.Name = "sistemaDeVentasToolStripMenuItem";
             sistemaDeVentasToolStripMenuItem.Size = new Size(152, 65);
             sistemaDeVentasToolStripMenuItem.Text = "Sistema de ventas";
             sistemaDeVentasToolStripMenuItem.Click += sistemaDeVentasToolStripMenuItem_Click;
             // 
-            // contenedor
+            // menuTitulo
             // 
-            contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 128);
-            contenedor.Margin = new Padding(3, 2, 3, 2);
-            contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1088, 279);
-            contenedor.TabIndex = 2;
+            menuTitulo.AutoSize = false;
+            menuTitulo.BackColor = Color.SaddleBrown;
+            menuTitulo.ImageScalingSize = new Size(20, 20);
+            menuTitulo.Items.AddRange(new ToolStripItem[] { sistemaDeVentasToolStripMenuItem });
+            menuTitulo.Location = new Point(0, 0);
+            menuTitulo.Name = "menuTitulo";
+            menuTitulo.Padding = new Padding(6, 3, 0, 3);
+            menuTitulo.RightToLeft = RightToLeft.No;
+            menuTitulo.Size = new Size(1243, 69);
+            menuTitulo.TabIndex = 1;
+            menuTitulo.Text = "menuStrip2";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(415, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(182, 20);
+            label1.TabIndex = 0;
+            label1.Text = "No anda no anda no anda";
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1088, 407);
+            ClientSize = new Size(1243, 543);
             Controls.Add(contenedor);
             Controls.Add(menu);
             Controls.Add(menuTitulo);
             MainMenuStrip = menu;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            contenedor.ResumeLayout(false);
+            contenedor.PerformLayout();
             menuTitulo.ResumeLayout(false);
             menuTitulo.PerformLayout();
             ResumeLayout(false);
@@ -207,9 +220,7 @@
         #endregion
 
         private MenuStrip menu;
-        private MenuStrip menuTitulo;
         private FontAwesome.Sharp.IconMenuItem menuUsuario;
-        private ToolStripMenuItem sistemaDeVentasToolStripMenuItem;
         private FontAwesome.Sharp.IconMenuItem menuReabastecedor;
         private FontAwesome.Sharp.IconMenuItem menuVentas;
         private FontAwesome.Sharp.IconMenuItem menuCompras;
@@ -218,5 +229,8 @@
         private FontAwesome.Sharp.IconMenuItem menuReportes;
         private FontAwesome.Sharp.IconMenuItem menuAcercaDe;
         private Panel contenedor;
+        private ToolStripMenuItem sistemaDeVentasToolStripMenuItem;
+        private MenuStrip menuTitulo;
+        private Label label1;
     }
 }

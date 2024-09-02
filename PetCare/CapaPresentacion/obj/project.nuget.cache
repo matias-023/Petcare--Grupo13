@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hrz0V43/XDU=",
+  "dgSpecHash": "1NlntKY6OBs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+  "projectFilePath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\NoxiePC\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
+    "C:\\Users\\usuario\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
   ],
   "logs": []
 }
