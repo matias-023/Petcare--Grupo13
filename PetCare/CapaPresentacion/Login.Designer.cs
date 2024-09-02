@@ -46,18 +46,18 @@
             label1.Dock = DockStyle.Left;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(231, 236);
+            label1.Size = new Size(264, 315);
             label1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.SaddleBrown;
-            label2.Font = new Font("Montserrat", 30F);
+            label2.Font = new Font("Microsoft Sans Serif", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(23, 164);
+            label2.Location = new Point(26, 219);
             label2.Name = "label2";
-            label2.Size = new Size(184, 49);
+            label2.Size = new Size(209, 58);
             label2.TabIndex = 1;
             label2.Text = "PetCare";
             // 
@@ -67,45 +67,48 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ShieldDog;
             iconPictureBox1.IconColor = Color.White;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 120;
-            iconPictureBox1.Location = new Point(54, 41);
+            iconPictureBox1.IconSize = 137;
+            iconPictureBox1.Location = new Point(62, 55);
+            iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(120, 120);
+            iconPictureBox1.Size = new Size(137, 160);
             iconPictureBox1.TabIndex = 2;
             iconPictureBox1.TabStop = false;
             // 
             // TDocumento
             // 
             TDocumento.BackColor = SystemColors.Control;
-            TDocumento.Location = new Point(261, 53);
+            TDocumento.Location = new Point(298, 71);
+            TDocumento.Margin = new Padding(3, 4, 3, 4);
             TDocumento.Name = "TDocumento";
-            TDocumento.Size = new Size(232, 23);
+            TDocumento.Size = new Size(265, 27);
             TDocumento.TabIndex = 3;
             // 
             // TContraseña
             // 
             TContraseña.BackColor = SystemColors.Control;
-            TContraseña.Location = new Point(261, 115);
+            TContraseña.Location = new Point(298, 153);
+            TContraseña.Margin = new Padding(3, 4, 3, 4);
             TContraseña.Name = "TContraseña";
             TContraseña.PasswordChar = '*';
-            TContraseña.Size = new Size(232, 23);
+            TContraseña.Size = new Size(265, 27);
             TContraseña.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(261, 35);
+            label3.Location = new Point(298, 47);
             label3.Name = "label3";
-            label3.Size = new Size(133, 15);
+            label3.Size = new Size(166, 20);
             label3.TabIndex = 5;
             label3.Text = "Número de Documento";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(261, 97);
+            label4.Location = new Point(298, 129);
             label4.Name = "label4";
-            label4.Size = new Size(67, 15);
+            label4.Size = new Size(83, 20);
             label4.TabIndex = 6;
             label4.Text = "Contraseña";
             // 
@@ -120,9 +123,10 @@
             BIngresar.IconColor = Color.White;
             BIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BIngresar.IconSize = 30;
-            BIngresar.Location = new Point(261, 175);
+            BIngresar.Location = new Point(298, 233);
+            BIngresar.Margin = new Padding(3, 4, 3, 4);
             BIngresar.Name = "BIngresar";
-            BIngresar.Size = new Size(100, 40);
+            BIngresar.Size = new Size(114, 53);
             BIngresar.TabIndex = 7;
             BIngresar.Text = "Ingresar";
             BIngresar.TextAlign = ContentAlignment.MiddleRight;
@@ -141,9 +145,10 @@
             BCancelar.IconColor = Color.White;
             BCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BCancelar.IconSize = 30;
-            BCancelar.Location = new Point(393, 175);
+            BCancelar.Location = new Point(449, 233);
+            BCancelar.Margin = new Padding(3, 4, 3, 4);
             BCancelar.Name = "BCancelar";
-            BCancelar.Size = new Size(100, 40);
+            BCancelar.Size = new Size(114, 53);
             BCancelar.TabIndex = 8;
             BCancelar.Text = "Cancelar";
             BCancelar.TextAlign = ContentAlignment.MiddleRight;
@@ -153,10 +158,10 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(532, 236);
+            ClientSize = new Size(608, 315);
             Controls.Add(BCancelar);
             Controls.Add(BIngresar);
             Controls.Add(label4);
@@ -167,6 +172,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
