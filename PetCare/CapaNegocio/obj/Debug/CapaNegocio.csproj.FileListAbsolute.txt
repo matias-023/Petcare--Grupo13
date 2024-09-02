@@ -1,0 +1,6 @@
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaNegocio\obj\Debug\CapaNegocio.pdb

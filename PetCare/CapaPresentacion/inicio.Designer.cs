@@ -49,9 +49,10 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuCompras, menuClientes, menuProveedores, menuReportes, menuAcercaDe });
-            menu.Location = new Point(0, 69);
+            menu.Location = new Point(0, 52);
             menu.Name = "menu";
-            menu.Size = new Size(1243, 76);
+            menu.Padding = new Padding(5, 2, 0, 2);
+            menu.Size = new Size(1088, 76);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -63,8 +64,8 @@
             menuUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuUsuario.ImageScaling = ToolStripItemImageScaling.None;
             menuUsuario.Name = "menuUsuario";
-            menuUsuario.Size = new Size(152, 72);
-            menuUsuario.Text = "Usuario";
+            menuUsuario.Size = new Size(132, 72);
+            menuUsuario.Text = "Usuarios";
             menuUsuario.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // menuReabastecedor
@@ -75,7 +76,7 @@
             menuReabastecedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuReabastecedor.ImageScaling = ToolStripItemImageScaling.None;
             menuReabastecedor.Name = "menuReabastecedor";
-            menuReabastecedor.Size = new Size(152, 72);
+            menuReabastecedor.Size = new Size(132, 72);
             menuReabastecedor.Text = "Reabastecedor";
             menuReabastecedor.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -87,7 +88,7 @@
             menuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuVentas.ImageScaling = ToolStripItemImageScaling.None;
             menuVentas.Name = "menuVentas";
-            menuVentas.Size = new Size(152, 72);
+            menuVentas.Size = new Size(132, 72);
             menuVentas.Text = "Ventas";
             menuVentas.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -99,7 +100,7 @@
             menuCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuCompras.ImageScaling = ToolStripItemImageScaling.None;
             menuCompras.Name = "menuCompras";
-            menuCompras.Size = new Size(152, 72);
+            menuCompras.Size = new Size(132, 72);
             menuCompras.Text = "Compras";
             menuCompras.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -111,7 +112,7 @@
             menuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuClientes.ImageScaling = ToolStripItemImageScaling.None;
             menuClientes.Name = "menuClientes";
-            menuClientes.Size = new Size(152, 72);
+            menuClientes.Size = new Size(132, 72);
             menuClientes.Text = "Clientes";
             menuClientes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -123,7 +124,7 @@
             menuProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuProveedores.ImageScaling = ToolStripItemImageScaling.None;
             menuProveedores.Name = "menuProveedores";
-            menuProveedores.Size = new Size(152, 72);
+            menuProveedores.Size = new Size(132, 72);
             menuProveedores.Text = "Proveedores";
             menuProveedores.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -135,7 +136,7 @@
             menuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuReportes.ImageScaling = ToolStripItemImageScaling.None;
             menuReportes.Name = "menuReportes";
-            menuReportes.Size = new Size(152, 72);
+            menuReportes.Size = new Size(132, 72);
             menuReportes.Text = "Reportes";
             menuReportes.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -147,7 +148,7 @@
             menuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuAcercaDe.ImageScaling = ToolStripItemImageScaling.None;
             menuAcercaDe.Name = "menuAcercaDe";
-            menuAcercaDe.Size = new Size(152, 72);
+            menuAcercaDe.Size = new Size(132, 72);
             menuAcercaDe.Text = "Acerca de";
             menuAcercaDe.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -159,8 +160,9 @@
             menuTitulo.Items.AddRange(new ToolStripItem[] { sistemaDeVentasToolStripMenuItem });
             menuTitulo.Location = new Point(0, 0);
             menuTitulo.Name = "menuTitulo";
+            menuTitulo.Padding = new Padding(5, 2, 0, 2);
             menuTitulo.RightToLeft = RightToLeft.No;
-            menuTitulo.Size = new Size(1243, 69);
+            menuTitulo.Size = new Size(1088, 52);
             menuTitulo.TabIndex = 1;
             menuTitulo.Text = "menuStrip2";
             // 
@@ -175,21 +177,24 @@
             // contenedor
             // 
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 145);
+            contenedor.Location = new Point(0, 128);
+            contenedor.Margin = new Padding(3, 2, 3, 2);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1243, 398);
+            contenedor.Size = new Size(1088, 279);
             contenedor.TabIndex = 2;
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 543);
+            ClientSize = new Size(1088, 407);
             Controls.Add(contenedor);
             Controls.Add(menu);
             Controls.Add(menuTitulo);
             MainMenuStrip = menu;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             menu.ResumeLayout(false);
             menu.PerformLayout();

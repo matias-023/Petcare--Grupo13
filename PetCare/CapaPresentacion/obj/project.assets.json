@@ -41,19 +41,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\NoxiePC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\CapaPresentacion\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\usuario\\source\\repos\\CapaPresentacion\\CapaPresentacion\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\source\\repos\\CapaPresentacion\\CapaPresentacion\\obj\\",
+      "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\NoxiePC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NoxiePC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
