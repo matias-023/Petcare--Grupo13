@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PetCare",
-    "\\PetCare\\CapaEntidad",
-    "\\PetCare\\CapaNegocio",
-    "\\PetCare\\CapaPresentacion"
+    "\\PetCare"
   ],
-  "SelectedNode": "\\PetCare\\CapaPresentacion\\Login.cs",
+  "SelectedNode": "\\PetCare\\Sistema Petcare.sln",
   "PreviewInSolutionExplorer": false
 }
