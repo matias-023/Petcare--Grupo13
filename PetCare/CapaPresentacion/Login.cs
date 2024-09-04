@@ -35,7 +35,7 @@ namespace CapaPresentacion
                     Usuario objUsuario = new CN_Usuario().listar().Where(u => u.documento == documento && u.clave == contraseña).FirstOrDefault();
                     if (objUsuario != null)
                     {
-                        inicio form = new inicio();
+                        inicio form = new inicio(objUsuario);
                         form.Show();
                         this.Hide();
 

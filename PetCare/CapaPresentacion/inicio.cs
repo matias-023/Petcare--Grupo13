@@ -1,9 +1,20 @@
+using CapaEntidad;
+using FontAwesome.Sharp;
+using System.Security.Cryptography;
+
 namespace CapaPresentacion
 {
     public partial class inicio : Form
     {
-        public inicio()
+
+        private static Usuario usuarioActual;
+        private static IconMenuItem menuActivo = null;
+        private static Form formularioActivo = null;
+
+        public inicio(Usuario objUsuario)
         {
+            usuarioActual = objUsuario;
+
             InitializeComponent();
         }
 
@@ -15,6 +26,73 @@ namespace CapaPresentacion
         private void sistemaDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void inicio_Load(object sender, EventArgs e)
+        {
+            LUsuario.Text = usuarioActual.nombreCompleto;
+        }
+
+
+        private void abrirFormulario(IconMenuItem menu, Form formulario)
+        {
+            if (menuActivo != null)
+            {
+                menuActivo.BackColor = Color.White;
+            }
+
+            menu.BackColor = Color.Silver;
+            menuActivo = menu;
+
+            if (formularioActivo != null)
+            {
+                formularioActivo.Close();
+            }
+
+            formularioActivo = formulario;
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+            formulario.BackColor = Color.SandyBrown;
+
+            contenedor.Controls.Add(formulario);
+            formulario.Show();
+        }
+
+        private void menuUsuario_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmUsuario());
+        }
+
+        private void subMenuCategorias_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuReabastecedor, new frmCategorias());
+        }
+
+        private void subMenuProductos_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuReabastecedor, new frmProductos());
+        }
+
+        private void subMenuRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuVentas, new frmVentas());
+
+        }
+
+        private void subMenuVerDetalleVenta_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuVentas, new frmDetalleVenta());
+        }
+
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmClientes());
+        }
+
+        private void menuReportes_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmReportes());
         }
     }
 }
