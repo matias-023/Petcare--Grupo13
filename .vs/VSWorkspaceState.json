@@ -2,6 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\PetCare",
+    "\\PetCare\\CapaDatos",
+    "\\PetCare\\CapaNegocio",
     "\\PetCare\\CapaPresentacion"
   ],
   "SelectedNode": "\\PetCare\\CapaPresentacion\\inicio.cs",

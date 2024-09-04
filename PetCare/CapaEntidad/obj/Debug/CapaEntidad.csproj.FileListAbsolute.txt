@@ -4,3 +4,6 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\C
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\bin\Debug\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\bin\Debug\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date

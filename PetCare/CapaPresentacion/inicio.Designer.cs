@@ -38,12 +38,12 @@
             menuReportes = new FontAwesome.Sharp.IconMenuItem();
             menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
             contenedor = new Panel();
-            sistemaDeVentasToolStripMenuItem = new ToolStripMenuItem();
-            menuTitulo = new MenuStrip();
-            label1 = new Label();
+            panel1 = new Panel();
+            LTitulo = new Label();
+            panel2 = new Panel();
             menu.SuspendLayout();
             contenedor.SuspendLayout();
-            menuTitulo.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // menu
@@ -51,10 +51,10 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuCompras, menuClientes, menuProveedores, menuReportes, menuAcercaDe });
-            menu.Location = new Point(0, 69);
+            menu.Location = new Point(0, 70);
             menu.Name = "menu";
-            menu.Padding = new Padding(6, 3, 0, 3);
-            menu.Size = new Size(1243, 78);
+            menu.Padding = new Padding(5, 2, 0, 2);
+            menu.Size = new Size(1088, 76);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -66,7 +66,7 @@
             menuUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuUsuario.ImageScaling = ToolStripItemImageScaling.None;
             menuUsuario.Name = "menuUsuario";
-            menuUsuario.Size = new Size(132, 72);
+            menuUsuario.Size = new Size(122, 72);
             menuUsuario.Text = "Usuarios";
             menuUsuario.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
@@ -156,65 +156,62 @@
             // 
             // contenedor
             // 
-            contenedor.Controls.Add(label1);
+            contenedor.Controls.Add(menu);
+            contenedor.Controls.Add(panel1);
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 147);
+            contenedor.Location = new Point(0, 0);
+            contenedor.Margin = new Padding(3, 2, 3, 2);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1243, 396);
+            contenedor.Size = new Size(1088, 407);
             contenedor.TabIndex = 2;
             // 
-            // sistemaDeVentasToolStripMenuItem
+            // panel1
             // 
-            sistemaDeVentasToolStripMenuItem.AutoSize = false;
-            sistemaDeVentasToolStripMenuItem.ForeColor = Color.White;
-            sistemaDeVentasToolStripMenuItem.Name = "sistemaDeVentasToolStripMenuItem";
-            sistemaDeVentasToolStripMenuItem.Size = new Size(152, 65);
-            sistemaDeVentasToolStripMenuItem.Text = "Sistema de ventas";
-            sistemaDeVentasToolStripMenuItem.Click += sistemaDeVentasToolStripMenuItem_Click;
+            panel1.BackColor = Color.SaddleBrown;
+            panel1.Controls.Add(LTitulo);
+            panel1.Controls.Add(panel2);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1088, 70);
+            panel1.TabIndex = 0;
             // 
-            // menuTitulo
+            // LTitulo
             // 
-            menuTitulo.AutoSize = false;
-            menuTitulo.BackColor = Color.SaddleBrown;
-            menuTitulo.ImageScalingSize = new Size(20, 20);
-            menuTitulo.Items.AddRange(new ToolStripItem[] { sistemaDeVentasToolStripMenuItem });
-            menuTitulo.Location = new Point(0, 0);
-            menuTitulo.Name = "menuTitulo";
-            menuTitulo.Padding = new Padding(6, 3, 0, 3);
-            menuTitulo.RightToLeft = RightToLeft.No;
-            menuTitulo.Size = new Size(1243, 69);
-            menuTitulo.TabIndex = 1;
-            menuTitulo.Text = "menuStrip2";
+            LTitulo.AutoSize = true;
+            LTitulo.Font = new Font("Montserrat", 20F);
+            LTitulo.ForeColor = Color.White;
+            LTitulo.Location = new Point(30, 19);
+            LTitulo.Name = "LTitulo";
+            LTitulo.Size = new Size(267, 33);
+            LTitulo.TabIndex = 2;
+            LTitulo.Text = "Sistema de Ventas";
             // 
-            // label1
+            // panel2
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(415, 93);
-            label1.Name = "label1";
-            label1.Size = new Size(182, 20);
-            label1.TabIndex = 0;
-            label1.Text = "No anda no anda no anda";
+            panel2.Location = new Point(1072, 70);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(16, 76);
+            panel2.TabIndex = 1;
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 543);
+            ClientSize = new Size(1088, 407);
             Controls.Add(contenedor);
-            Controls.Add(menu);
-            Controls.Add(menuTitulo);
             MainMenuStrip = menu;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Sistema PetCare";
             menu.ResumeLayout(false);
             menu.PerformLayout();
             contenedor.ResumeLayout(false);
             contenedor.PerformLayout();
-            menuTitulo.ResumeLayout(false);
-            menuTitulo.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -229,8 +226,8 @@
         private FontAwesome.Sharp.IconMenuItem menuReportes;
         private FontAwesome.Sharp.IconMenuItem menuAcercaDe;
         private Panel contenedor;
-        private ToolStripMenuItem sistemaDeVentasToolStripMenuItem;
-        private MenuStrip menuTitulo;
-        private Label label1;
+        private Panel panel1;
+        private Panel panel2;
+        private Label LTitulo;
     }
 }

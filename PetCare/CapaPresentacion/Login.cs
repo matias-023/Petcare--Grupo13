@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using CapaEntidad;
+using CapaNegocio;
+
 namespace CapaPresentacion
 {
     public partial class Login : Form
@@ -29,15 +32,24 @@ namespace CapaPresentacion
             {
                 if (validarNum(documento))
                 {
-                    inicio form = new inicio();
-                    form.Show();
-                    this.Hide();
+                    Usuario objUsuario = new CN_Usuario().listar().Where(u => u.documento == documento && u.clave == contraseña).FirstOrDefault();
+                    if (objUsuario != null)
+                    {
+                        inicio form = new inicio();
+                        form.Show();
+                        this.Hide();
 
-                    form.FormClosing += frm_closing;
+                        form.FormClosing += frm_closing;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar solo números", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe completar los campos correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             else
