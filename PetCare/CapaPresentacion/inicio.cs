@@ -11,21 +11,15 @@ namespace CapaPresentacion
         private static IconMenuItem menuActivo = null;
         private static Form formularioActivo = null;
 
-        public inicio(Usuario objUsuario)
+        public inicio(Usuario objUsuario = null)
         {
-            usuarioActual = objUsuario;
+            if (objUsuario == null) //
+                usuarioActual = new Usuario() { nombreCompleto = "Usuario predefinido", idUsuario = 1 };
+            else
+                usuarioActual = objUsuario;
+
 
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sistemaDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void inicio_Load(object sender, EventArgs e)
@@ -94,5 +88,16 @@ namespace CapaPresentacion
         {
             abrirFormulario((IconMenuItem)sender, new frmReportes());
         }
+
+        private void menuBackup_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmBackup());
+        }
+
+        private void menuAcercaDe_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmAcercaDe());
+        }
+
     }
 }

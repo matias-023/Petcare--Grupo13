@@ -39,6 +39,8 @@
             menuClientes = new FontAwesome.Sharp.IconMenuItem();
             menuReportes = new FontAwesome.Sharp.IconMenuItem();
             menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
+            menuBackup = new FontAwesome.Sharp.IconMenuItem();
+            container = new Panel();
             contenedor = new Panel();
             panel1 = new Panel();
             LUsuario = new Label();
@@ -46,7 +48,7 @@
             LTitulo = new Label();
             panel2 = new Panel();
             menu.SuspendLayout();
-            contenedor.SuspendLayout();
+            container.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,8 +56,8 @@
             // 
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuClientes, menuReportes, menuAcercaDe });
-            menu.Location = new Point(0, 70);
+            menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuClientes, menuReportes, menuAcercaDe, menuBackup });
+            menu.Location = new Point(0, 66);
             menu.Name = "menu";
             menu.Padding = new Padding(5, 2, 0, 2);
             menu.Size = new Size(1088, 76);
@@ -178,17 +180,40 @@
             menuAcercaDe.Size = new Size(132, 72);
             menuAcercaDe.Text = "Acerca de";
             menuAcercaDe.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuAcercaDe.Click += menuAcercaDe_Click;
+            // 
+            // menuBackup
+            // 
+            menuBackup.AutoSize = false;
+            menuBackup.IconChar = FontAwesome.Sharp.IconChar.CloudDownload;
+            menuBackup.IconColor = Color.Black;
+            menuBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuBackup.ImageScaling = ToolStripItemImageScaling.None;
+            menuBackup.Name = "menuBackup";
+            menuBackup.Size = new Size(132, 72);
+            menuBackup.Text = "Backup";
+            menuBackup.TextImageRelation = TextImageRelation.ImageAboveText;
+            menuBackup.Click += menuBackup_Click;
+            // 
+            // container
+            // 
+            container.Controls.Add(contenedor);
+            container.Controls.Add(menu);
+            container.Controls.Add(panel1);
+            container.Dock = DockStyle.Fill;
+            container.Location = new Point(0, 0);
+            container.Margin = new Padding(3, 2, 3, 2);
+            container.Name = "container";
+            container.Size = new Size(1088, 407);
+            container.TabIndex = 2;
             // 
             // contenedor
             // 
-            contenedor.Controls.Add(menu);
-            contenedor.Controls.Add(panel1);
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 0);
-            contenedor.Margin = new Padding(3, 2, 3, 2);
+            contenedor.Location = new Point(0, 142);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1088, 407);
-            contenedor.TabIndex = 2;
+            contenedor.Size = new Size(1088, 265);
+            contenedor.TabIndex = 1;
             // 
             // panel1
             // 
@@ -200,24 +225,26 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1088, 70);
+            panel1.Size = new Size(1088, 66);
             panel1.TabIndex = 0;
             // 
             // LUsuario
             // 
+            LUsuario.Font = new Font("Segoe UI", 11F);
             LUsuario.ForeColor = Color.White;
-            LUsuario.Location = new Point(781, 30);
+            LUsuario.Location = new Point(771, 30);
             LUsuario.Name = "LUsuario";
-            LUsuario.Size = new Size(178, 13);
+            LUsuario.Size = new Size(185, 19);
             LUsuario.TabIndex = 4;
             LUsuario.Text = "LUsuario";
             // 
             // label1
             // 
+            label1.Font = new Font("Segoe UI", 11F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(727, 30);
+            label1.Location = new Point(714, 30);
             label1.Name = "label1";
-            label1.Size = new Size(142, 13);
+            label1.Size = new Size(142, 19);
             label1.TabIndex = 3;
             label1.Text = "Usuario:";
             // 
@@ -226,7 +253,7 @@
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Microsoft Sans Serif", 20F);
             LTitulo.ForeColor = Color.White;
-            LTitulo.Location = new Point(30, 19);
+            LTitulo.Location = new Point(22, 18);
             LTitulo.Name = "LTitulo";
             LTitulo.Size = new Size(241, 31);
             LTitulo.TabIndex = 2;
@@ -244,17 +271,18 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1088, 407);
-            Controls.Add(contenedor);
+            Controls.Add(container);
             MainMenuStrip = menu;
             Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema PetCare";
+            WindowState = FormWindowState.Maximized;
             Load += inicio_Load;
             menu.ResumeLayout(false);
             menu.PerformLayout();
-            contenedor.ResumeLayout(false);
-            contenedor.PerformLayout();
+            container.ResumeLayout(false);
+            container.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -269,7 +297,7 @@
         private FontAwesome.Sharp.IconMenuItem menuClientes;
         private FontAwesome.Sharp.IconMenuItem menuReportes;
         private FontAwesome.Sharp.IconMenuItem menuAcercaDe;
-        private Panel contenedor;
+        private Panel container;
         private Panel panel1;
         private Panel panel2;
         private Label LTitulo;
@@ -279,5 +307,7 @@
         private FontAwesome.Sharp.IconMenuItem subMenuProductos;
         private FontAwesome.Sharp.IconMenuItem subMenuRegistrarVenta;
         private FontAwesome.Sharp.IconMenuItem subMenuVerDetalleVenta;
+        private FontAwesome.Sharp.IconMenuItem menuBackup;
+        private Panel contenedor;
     }
 }

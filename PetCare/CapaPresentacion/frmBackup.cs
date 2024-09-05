@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmUsuario : Form
+    public partial class frmBackup : Form
     {
-        public frmUsuario()
+        public frmBackup()
         {
             InitializeComponent();
         }
-
     }
 }
