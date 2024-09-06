@@ -55,7 +55,7 @@
             label2.BackColor = Color.SaddleBrown;
             label2.Font = new Font("Microsoft Sans Serif", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(26, 219);
+            label2.Location = new Point(38, 217);
             label2.Name = "label2";
             label2.Size = new Size(209, 58);
             label2.TabIndex = 1;
@@ -68,7 +68,7 @@
             iconPictureBox1.IconColor = Color.White;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 137;
-            iconPictureBox1.Location = new Point(62, 55);
+            iconPictureBox1.Location = new Point(62, 47);
             iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(137, 160);
