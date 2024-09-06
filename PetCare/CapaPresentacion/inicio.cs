@@ -1,4 +1,5 @@
 using CapaEntidad;
+using CapaNegocio;
 using FontAwesome.Sharp;
 using System.Security.Cryptography;
 
@@ -24,6 +25,18 @@ namespace CapaPresentacion
 
         private void inicio_Load(object sender, EventArgs e)
         {
+            List<Permiso> listaPermisos = new CN_Permiso().listar(usuarioActual.idUsuario);
+
+            foreach(IconMenuItem iconMenu in menu.Items)
+            {
+                bool encontrado = listaPermisos.Any(m => m.nombreMenu == iconMenu.Name);
+                if (!encontrado)
+                {
+                    iconMenu.Visible = false;
+                } 
+
+            }
+
             LUsuario.Text = usuarioActual.nombreCompleto;
         }
 

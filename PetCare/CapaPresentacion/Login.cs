@@ -45,7 +45,7 @@ namespace CapaPresentacion
                     {
                         MessageBox.Show("No se encontró el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    
+
                 }
                 else
                 {
@@ -76,5 +76,6 @@ namespace CapaPresentacion
         {
             return string.IsNullOrEmpty(p);
         }
+
     }
 }
