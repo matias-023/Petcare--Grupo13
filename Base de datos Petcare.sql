@@ -1,4 +1,4 @@
-CREATE DATABASE PETCARE
+ï»¿CREATE DATABASE PETCARE
 
 GO
 
@@ -166,8 +166,55 @@ go
 SELECT * FROM PERMISO
 go
 
---codigo para buscar permisos según un usuario, implementado en el codigo de la aplicación
+--codigo para buscar permisos segï¿½n un usuario, implementado en el codigo de la aplicaciï¿½n
 SELECT p.idRol, p.nombreMenu FROM PERMISO p
 inner join ROL r on r.idRol = p.idRol
 inner join USUARIO u on u.idRol = r.idRol
 WHERE u.idUsuario = 4
+
+/* cambios 8/9 */
+
+CREATE TABLE PROVEEDOR(
+	idProveedor INT PRIMARY KEY IDENTITY,
+	documento VARCHAR(50),
+	razonSocial VARCHAR(50),
+	correo VARCHAR(100),
+	telefono VARCHAR(50),
+	estado BIT DEFAULT 1,
+	fechaRegistro DATETIME DEFAULT getdate()
+
+)
+go
+
+CREATE TABLE COMPRA(
+	idCompra INT PRIMARY KEY IDENTITY,
+	idUsuario INT REFERENCES USUARIO (idUsuario),
+	idProveedor INT REFERENCES PROVEEDOR(idProveedor),
+	tipoDocumento VARCHAR(50),
+	numeroDocumento VARCHAR(100),
+	montoTotal DECIMAL(10,2),
+	fechaRegistro DATETIME DEFAULT getdate()
+)
+go
+
+CREATE TABLE DETALLE_COMPRA(
+	idDetalleCompra INT PRIMARY KEY IDENTITY,
+	idCompra INT REFERENCES COMPRA(idCompra),
+	idProducto INT REFERENCES PRODUCTO(idProducto),
+	precioCompra DECIMAL(10,2) DEFAULT 0,
+	precioVenta DECIMAL(10,2) DEFAULT 0,
+	cantidad INT,
+	montoTotal DECIMAL(10,2),
+	fechaRegistro DATETIME DEFAULT getdate()
+)
+go
+
+INSERT INTO PERMISO (idRol, nombreMenu)
+VALUES (1, 'menuCompras'),
+(1, 'menuProveedores')
+go
+
+INSERT INTO PERMISO (idRol, nombreMenu)
+VALUES(2, 'menuCompras'),
+(2, 'menuProveedores')
+go

@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\capapresentacion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -43,14 +43,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmUsuario.cs [Dise\u00F1o]",
+              "Title": "frmUsuario.cs [Design]",
               "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmUsuario.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\frmUsuario.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmUsuario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmUsuario.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmUsuario.cs [Design]",
+              "RelativeToolTip": "CapaPresentacion\\frmUsuario.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-08T22:11:10.192Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -61,8 +61,7 @@
               "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\inicio.cs [Dise\u00F1o]",
               "RelativeToolTip": "CapaPresentacion\\inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T13:02:46.898Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-09-08T13:02:46.898Z"
             },
             {
               "$type": "Document",
