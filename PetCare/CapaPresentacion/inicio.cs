@@ -27,13 +27,13 @@ namespace CapaPresentacion
         {
             List<Permiso> listaPermisos = new CN_Permiso().listar(usuarioActual.idUsuario);
 
-            foreach(IconMenuItem iconMenu in menu.Items)
+            foreach (IconMenuItem iconMenu in menu.Items)
             {
                 bool encontrado = listaPermisos.Any(m => m.nombreMenu == iconMenu.Name);
                 if (!encontrado)
                 {
                     iconMenu.Visible = false;
-                } 
+                }
 
             }
 
@@ -112,5 +112,19 @@ namespace CapaPresentacion
             abrirFormulario((IconMenuItem)sender, new frmAcercaDe());
         }
 
+        private void subMenuRegistrarCompra_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuCompras, new frmCompras());
+        }
+
+        private void subMenuVerDetalleCompra_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(menuCompras, new frmDetalleCompra());
+        }
+
+        private void menuProveedores_Click(object sender, EventArgs e)
+        {
+            abrirFormulario((IconMenuItem)sender, new frmProveedores());
+        }
     }
 }
