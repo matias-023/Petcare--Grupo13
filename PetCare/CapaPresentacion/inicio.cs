@@ -14,7 +14,7 @@ namespace CapaPresentacion
 
         public inicio(Usuario objUsuario = null)
         {
-            if (objUsuario == null) //
+            if (objUsuario == null)
                 usuarioActual = new Usuario() { nombreCompleto = "Usuario predefinido", idUsuario = 1 };
             else
                 usuarioActual = objUsuario;
@@ -68,7 +68,7 @@ namespace CapaPresentacion
 
         private void menuUsuario_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconMenuItem)sender, new frmUsuario());
+            abrirFormulario((IconMenuItem)sender, new frmUsuario(usuarioActual));
         }
 
         private void subMenuCategorias_Click(object sender, EventArgs e)

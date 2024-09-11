@@ -103,48 +103,32 @@ CREATE TABLE DETALLE_VENTA(
 go
 
 INSERT INTO ROL(descripcion)
-
 VALUES('ADMINISTRADOR')
-
 go
 
 
 INSERT INTO ROL(descripcion)
-
 VALUES('REABASTECEDOR')
-
-go
-
-INSERT INTO USUARIO(documento, nombreCompleto, correo, clave, idRol, telefono)
-
-VALUES('101010', 'ADMIN', 'admin@gmail.com', '123', 1, '3794111111')
-
-go
-
-SELECT * FROM ROL
-go
-
-SELECT * FROM USUARIO
-go
-
-/*
-INSERT INTO USUARIO(documento, nombreCompleto, correo, clave, idRol, telefono)
-
-VALUES('101010', 'ADMIN', 'admin@gmail.com', '123', 2, '3794111111') */
-
-
-
-/* cambios 6/9 */
-INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, idRol, telefono)
-VALUES ('101011', 'REABASTECEDOR', 'reabastecedor@gmail.com', '123', '2', '3794222222')
 go
 
 INSERT INTO ROL (descripcion)
 VALUES ('CAJERO')
 go
 
+INSERT INTO USUARIO(documento, nombreCompleto, correo, clave, idRol, telefono)
+
+VALUES('10101010', 'ADMIN', 'admin@gmail.com', '123', 1, '3794111111')
+
+go
+
+
+/* cambios 6/9 */
 INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, idRol, telefono)
-VALUES ('202020', 'CAJERO', 'cajero@gmail.com', '123', '3', '3794343434')
+VALUES ('1010111', 'REABASTECEDOR', 'reabastecedor@gmail.com', '123', '2', '3794222222')
+go
+
+INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, idRol, telefono)
+VALUES ('20202020', 'CAJERO', 'cajero@gmail.com', '123', '3', '3794343434')
 go
 
 INSERT INTO PERMISO (idRol, nombreMenu)
@@ -218,3 +202,128 @@ INSERT INTO PERMISO (idRol, nombreMenu)
 VALUES(2, 'menuCompras'),
 (2, 'menuProveedores')
 go
+
+/* cambios 9/9 */
+
+select U.idUsuario, U.documento, U.nombreCompleto, U.correo, U.clave, U.estado, U.telefono, R.idRol, R.descripcion from USUARIO u
+inner join ROL r on r.idRol = U.idRol
+go
+
+CREATE PROC SP_REGISTRARUSUARIO(
+@documento varchar(50),
+@nombreCompleto varchar(50),
+@correo varchar(50),
+@clave varchar(50),
+@telefono varchar(25),
+@idRol int,
+@estado bit,
+@idUsuarioResultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @idUsuarioResultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from USUARIO where documento = @documento or correo = @correo or telefono = @telefono)
+	begin 
+		insert into USUARIO (documento, nombreCompleto, correo, clave, telefono, idRol, estado)
+		VALUES (@documento, @nombreCompleto, @correo, @clave, @telefono, @idRol, @estado)
+
+		set @idUsuarioResultado = SCOPE_IDENTITY()
+		set @mensaje = 'Usuario registrado con éxito!'
+
+	end 
+	else 
+		begin
+		if exists(select * from USUARIO where documento = @documento)
+			set @mensaje = 'Ya existe un usuario registrado con ese documento.'
+		else if exists(select * from USUARIO where correo = @correo)
+			set @mensaje = 'Ya existe un usuario registrado con ese correo.'
+		else if exists(select * from USUARIO where telefono = @telefono)
+			set @mensaje = 'Ya existe un usuario registrado con ese teléfono.'
+		end
+end
+go
+
+
+/*cambios 11/9 */
+
+CREATE PROC SP_EDITARUSUARIO(
+@idUsuario int,
+@documento varchar(50),
+@nombreCompleto varchar(50),
+@correo varchar(50),
+@clave varchar(50),
+@telefono varchar(25),
+@idRol int,
+@estado bit,
+@respuesta bit output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists(select * from USUARIO
+	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idUSuario != @idUsuario)
+	begin 
+		update USUARIO set
+		documento = @documento,
+		nombreCompleto = @nombreCompleto,
+		correo = @correo,
+		clave = @clave,
+		telefono = @telefono,
+		idRol = @idRol,
+		estado = @estado
+		WHERE idUSuario = @idUsuario
+
+		set @respuesta = 1
+		set @mensaje = 'Usuario: ' + @nombreCompleto + ', modificado con éxito!'
+
+	end 
+	else 
+		begin
+		if exists(select * from USUARIO where documento = @documento and idUSuario != @idUsuario)
+			set @mensaje = 'Ya existe un usuario registrado con ese documento.'
+		else if exists(select * from USUARIO where correo = @correo and idUSuario != @idUsuario)
+			set @mensaje = 'Ya existe un usuario registrado con ese correo.'
+		else if exists(select * from USUARIO where telefono = @telefono and idUSuario != @idUsuario)
+			set @mensaje = 'Ya existe un usuario registrado con ese teléfono.'
+		end
+end
+go
+
+select * from usuario
+go
+
+--restricción para numeros de documento.
+
+ALTER TABLE USUARIO
+ADD CONSTRAINT CK_DniValido
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 6)
+go
+
+--restriccion para nombres completos.
+ALTER TABLE USUARIO
+ADD CONSTRAINT CK_NombreValido
+CHECK (nombreCompleto LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and nombreCompleto NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
+go
+
+--restriccion para correos validos.
+ALTER TABLE USUARIO
+ADD CONSTRAINT CK_CorreoValido
+CHECK (
+    correo LIKE '%_@__%.__%' 
+    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
+    AND CHARINDEX(' ', correo) = 0
+);
+
+--restriccion para numeros de telefono validos
+ALTER TABLE USUARIO
+ADD CONSTRAINT CK_TelefonoValido
+CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
+go
+
+SELECT * FROM USUARIO

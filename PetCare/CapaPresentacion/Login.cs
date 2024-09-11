@@ -35,11 +35,18 @@ namespace CapaPresentacion
                     Usuario objUsuario = new CN_Usuario().listar().Where(u => u.documento == documento && u.clave == contraseña).FirstOrDefault();
                     if (objUsuario != null)
                     {
-                        inicio form = new inicio(objUsuario);
-                        form.Show();
-                        this.Hide();
+                        if (objUsuario.estado == false)
+                        {
+                            MessageBox.Show("El usuario se encuentra inactivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            inicio form = new inicio(objUsuario);
+                            form.Show();
+                            this.Hide();
 
-                        form.FormClosing += frm_closing;
+                            form.FormClosing += frm_closing;
+                        }
                     }
                     else
                     {
@@ -64,7 +71,6 @@ namespace CapaPresentacion
             this.Show();
             TDocumento.Text = "";
             TContraseña.Text = "";
-
         }
 
         private bool validarNum(string p)

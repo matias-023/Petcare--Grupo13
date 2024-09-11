@@ -61,10 +61,10 @@
             menu.BackColor = Color.White;
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { menuUsuario, menuReabastecedor, menuVentas, menuCompras, menuClientes, menuProveedores, menuReportes, menuAcercaDe, menuBackup });
-            menu.Location = new Point(0, 88);
+            menu.Location = new Point(0, 66);
             menu.Name = "menu";
-            menu.Padding = new Padding(6, 3, 0, 3);
-            menu.Size = new Size(1243, 78);
+            menu.Padding = new Padding(5, 2, 0, 2);
+            menu.Size = new Size(1088, 76);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -100,7 +100,7 @@
             subMenuCategorias.IconColor = Color.Black;
             subMenuCategorias.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuCategorias.Name = "subMenuCategorias";
-            subMenuCategorias.Size = new Size(163, 26);
+            subMenuCategorias.Size = new Size(130, 22);
             subMenuCategorias.Text = "Categorias";
             subMenuCategorias.Click += subMenuCategorias_Click;
             // 
@@ -110,7 +110,7 @@
             subMenuProductos.IconColor = Color.Black;
             subMenuProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuProductos.Name = "subMenuProductos";
-            subMenuProductos.Size = new Size(163, 26);
+            subMenuProductos.Size = new Size(130, 22);
             subMenuProductos.Text = "Productos";
             subMenuProductos.Click += subMenuProductos_Click;
             // 
@@ -133,7 +133,7 @@
             subMenuRegistrarVenta.IconColor = Color.Black;
             subMenuRegistrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuRegistrarVenta.Name = "subMenuRegistrarVenta";
-            subMenuRegistrarVenta.Size = new Size(163, 26);
+            subMenuRegistrarVenta.Size = new Size(128, 22);
             subMenuRegistrarVenta.Text = "Registrar";
             subMenuRegistrarVenta.Click += subMenuRegistrarVenta_Click;
             // 
@@ -143,7 +143,7 @@
             subMenuVerDetalleVenta.IconColor = Color.Black;
             subMenuVerDetalleVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuVerDetalleVenta.Name = "subMenuVerDetalleVenta";
-            subMenuVerDetalleVenta.Size = new Size(163, 26);
+            subMenuVerDetalleVenta.Size = new Size(128, 22);
             subMenuVerDetalleVenta.Text = "Ver detalle";
             subMenuVerDetalleVenta.Click += subMenuVerDetalleVenta_Click;
             // 
@@ -166,7 +166,7 @@
             subMenuRegistrarCompra.IconColor = Color.Black;
             subMenuRegistrarCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuRegistrarCompra.Name = "subMenuRegistrarCompra";
-            subMenuRegistrarCompra.Size = new Size(224, 26);
+            subMenuRegistrarCompra.Size = new Size(128, 22);
             subMenuRegistrarCompra.Text = "Registrar";
             subMenuRegistrarCompra.Click += subMenuRegistrarCompra_Click;
             // 
@@ -176,7 +176,7 @@
             subMenuVerDetalleCompra.IconColor = Color.Black;
             subMenuVerDetalleCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuVerDetalleCompra.Name = "subMenuVerDetalleCompra";
-            subMenuVerDetalleCompra.Size = new Size(224, 26);
+            subMenuVerDetalleCompra.Size = new Size(128, 22);
             subMenuVerDetalleCompra.Text = "Ver detalle";
             subMenuVerDetalleCompra.Click += subMenuVerDetalleCompra_Click;
             // 
@@ -252,17 +252,17 @@
             container.Controls.Add(panel1);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
+            container.Margin = new Padding(3, 2, 3, 2);
             container.Name = "container";
-            container.Size = new Size(1243, 543);
+            container.Size = new Size(1088, 407);
             container.TabIndex = 2;
             // 
             // contenedor
             // 
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(0, 166);
-            contenedor.Margin = new Padding(3, 4, 3, 4);
+            contenedor.Location = new Point(0, 142);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1243, 377);
+            contenedor.Size = new Size(1088, 265);
             contenedor.TabIndex = 1;
             // 
             // panel1
@@ -274,57 +274,56 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1243, 88);
+            panel1.Size = new Size(1088, 66);
             panel1.TabIndex = 0;
             // 
             // LUsuario
             // 
-            LUsuario.Font = new Font("Segoe UI", 11F);
+            LUsuario.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             LUsuario.ForeColor = Color.White;
-            LUsuario.Location = new Point(900, 40);
+            LUsuario.Location = new Point(788, 30);
             LUsuario.Name = "LUsuario";
-            LUsuario.Size = new Size(211, 25);
+            LUsuario.Size = new Size(185, 19);
             LUsuario.TabIndex = 4;
             LUsuario.Text = "LUsuario";
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI", 11F);
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(816, 40);
+            label1.Location = new Point(714, 30);
             label1.Name = "label1";
-            label1.Size = new Size(162, 25);
+            label1.Size = new Size(142, 19);
             label1.TabIndex = 3;
             label1.Text = "Usuario:";
             // 
             // LTitulo
             // 
             LTitulo.AutoSize = true;
-            LTitulo.Font = new Font("Microsoft Sans Serif", 20F);
+            LTitulo.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             LTitulo.ForeColor = Color.White;
-            LTitulo.Location = new Point(25, 24);
+            LTitulo.Location = new Point(22, 18);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(302, 39);
+            LTitulo.Size = new Size(258, 31);
             LTitulo.TabIndex = 2;
             LTitulo.Text = "Sistema de Ventas";
             // 
             // panel2
             // 
-            panel2.Location = new Point(1225, 93);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(1072, 70);
             panel2.Name = "panel2";
-            panel2.Size = new Size(18, 101);
+            panel2.Size = new Size(16, 76);
             panel2.TabIndex = 1;
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 543);
+            ClientSize = new Size(1088, 407);
             Controls.Add(container);
             MainMenuStrip = menu;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema PetCare";
