@@ -51,9 +51,11 @@
             label1 = new Label();
             LTitulo = new Label();
             panel2 = new Panel();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             menu.SuspendLayout();
             container.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menu
@@ -268,6 +270,7 @@
             // panel1
             // 
             panel1.BackColor = Color.SandyBrown;
+            panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(LUsuario);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(LTitulo);
@@ -303,11 +306,11 @@
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             LTitulo.ForeColor = Color.White;
-            LTitulo.Location = new Point(22, 18);
+            LTitulo.Location = new Point(80, 18);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(258, 31);
+            LTitulo.Size = new Size(121, 31);
             LTitulo.TabIndex = 2;
-            LTitulo.Text = "Sistema de Ventas";
+            LTitulo.Text = "PetCare";
             // 
             // panel2
             // 
@@ -315,6 +318,19 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(16, 76);
             panel2.TabIndex = 1;
+            // 
+            // iconPictureBox1
+            // 
+            iconPictureBox1.BackColor = Color.SandyBrown;
+            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ShieldDog;
+            iconPictureBox1.IconColor = Color.White;
+            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox1.IconSize = 50;
+            iconPictureBox1.Location = new Point(32, 13);
+            iconPictureBox1.Name = "iconPictureBox1";
+            iconPictureBox1.Size = new Size(50, 50);
+            iconPictureBox1.TabIndex = 5;
+            iconPictureBox1.TabStop = false;
             // 
             // inicio
             // 
@@ -335,6 +351,7 @@
             container.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -363,5 +380,6 @@
         private FontAwesome.Sharp.IconMenuItem menuProveedores;
         private FontAwesome.Sharp.IconMenuItem subMenuRegistrarCompra;
         private FontAwesome.Sharp.IconMenuItem subMenuVerDetalleCompra;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

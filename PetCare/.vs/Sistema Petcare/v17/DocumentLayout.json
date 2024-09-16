@@ -1,28 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmcategorias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\usuario\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,12 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -51,66 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmCategorias.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmCategorias.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmCategorias.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmCategorias.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmCategorias.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:28:39.055Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmProductos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmProductos.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmProductos.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmProductos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmProductos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:25:56.475Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmProveedores.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmProveedores.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmProveedores.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmProveedores.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmProveedores.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:15:12.574Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "inicio.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\inicio.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\inicio.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\inicio.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\inicio.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:14:28.366Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmUsuario.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmUsuario.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmUsuario.cs",
-              "ToolTip": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmUsuario.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmUsuario.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T18:16:34.951Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
