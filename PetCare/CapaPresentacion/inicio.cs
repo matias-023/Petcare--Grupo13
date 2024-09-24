@@ -43,6 +43,10 @@ namespace CapaPresentacion
 
         private void mostrarSubMenu(Panel submenu)
         {
+            int valor = 70;
+            if (submenu == panelSubMenuReabastecedor)
+                valor = 105;
+            else valor = 70;
 
             if (submenu.Visible == false)
             {
@@ -50,7 +54,7 @@ namespace CapaPresentacion
                 submenu.Visible = true;
                 if (bordeDerecho.Location.Y >= submenu.Location.Y)
                 {
-                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y + 70);
+                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y + valor);
                 }
             }
             else
@@ -58,23 +62,23 @@ namespace CapaPresentacion
                 submenu.Visible = false;
                 if (bordeDerecho.Location.Y >= submenu.Location.Y)
                 {
-                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y - 70);
+                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y - valor);
                 }
             }
-            
-            
+
+
 
         }
 
         public inicio(Usuario objUsuario = null)
         {
             if (objUsuario == null)
-                usuarioActual = new Usuario() { nombreCompleto = "Usuario predefinido", idUsuario = 1};
+                usuarioActual = new Usuario() { nombreCompleto = "Usuario predefinido", idUsuario = 1 };
             else
                 usuarioActual = objUsuario;
 
             InitializeComponent();
-            
+
             if (usuarioActual.oRol.idRol == 1)
             {
                 iconoUsuario.IconChar = IconChar.UserGear;
@@ -163,6 +167,11 @@ namespace CapaPresentacion
             abrirFormulario(menuReabastecedor, new frmCategorias());
         }
 
+        private void subMenuMarcas_Click(object sender, EventArgs e)
+        {
+            ocultarSubMenu();
+            abrirFormulario(menuReabastecedor, new frmMarcas());
+        }
         private void subMenuProductos_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
@@ -231,7 +240,7 @@ namespace CapaPresentacion
 
         private void BCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Desea salir de la aplicación?","Atención", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -264,5 +273,6 @@ namespace CapaPresentacion
                 SendMessage(this.Handle, 0x112, 0xf012, 0);
             }
         }
+
     }
 }

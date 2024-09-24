@@ -11,22 +11,22 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmCategorias : Form
+    public partial class frmMarcas : Form
     {
-        public frmCategorias()
+        public frmMarcas()
         {
             InitializeComponent();
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
         {
-            using (var modal = new mdCategorias())
+            using (var modal = new mdMarcas())
             {
                 var result = modal.ShowDialog();
-                 /* if (result == DialogResult.OK)
-                {
+                /* if (result == DialogResult.OK)
+               {
 
-                } */
+               } */
             }
         }
     }

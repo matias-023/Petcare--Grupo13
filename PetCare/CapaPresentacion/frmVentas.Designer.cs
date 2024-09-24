@@ -30,7 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            label8 = new Label();
             label1 = new Label();
             groupBox1 = new GroupBox();
             label14 = new Label();
@@ -76,17 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)TCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
-            // 
-            // label8
-            // 
-            label8.BackColor = Color.White;
-            label8.BorderStyle = BorderStyle.FixedSingle;
-            label8.Font = new Font("Segoe UI", 16F);
-            label8.Location = new Point(158, 12);
-            label8.Name = "label8";
-            label8.Size = new Size(1020, 549);
-            label8.TabIndex = 4;
-            label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -499,7 +487,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1303, 573);
+            ClientSize = new Size(1049, 636);
             Controls.Add(label13);
             Controls.Add(textBox2);
             Controls.Add(label4);
@@ -513,7 +501,6 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
-            Controls.Add(label8);
             Name = "frmVentas";
             Text = "frmVentas";
             groupBox1.ResumeLayout(false);
@@ -529,8 +516,6 @@
         }
 
         #endregion
-
-        private Label label8;
         private Label label1;
         private GroupBox groupBox1;
         private ComboBox CTipoDocumento;

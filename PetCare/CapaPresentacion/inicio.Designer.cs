@@ -49,6 +49,7 @@
             subMenuVerDetalleVenta = new FontAwesome.Sharp.IconButton();
             menuVentas = new FontAwesome.Sharp.IconButton();
             panelSubMenuReabastecedor = new Panel();
+            subMenuMarcas = new FontAwesome.Sharp.IconButton();
             subMenuProductos = new FontAwesome.Sharp.IconButton();
             subMenuCategorias = new FontAwesome.Sharp.IconButton();
             menuReabastecedor = new FontAwesome.Sharp.IconButton();
@@ -137,7 +138,7 @@
             menuBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuBackup.IconSize = 35;
             menuBackup.ImageAlign = ContentAlignment.MiddleLeft;
-            menuBackup.Location = new Point(0, 640);
+            menuBackup.Location = new Point(0, 675);
             menuBackup.Name = "menuBackup";
             menuBackup.Padding = new Padding(5, 0, 0, 0);
             menuBackup.Size = new Size(183, 45);
@@ -161,7 +162,7 @@
             menuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuAcercaDe.IconSize = 35;
             menuAcercaDe.ImageAlign = ContentAlignment.MiddleLeft;
-            menuAcercaDe.Location = new Point(0, 595);
+            menuAcercaDe.Location = new Point(0, 630);
             menuAcercaDe.Name = "menuAcercaDe";
             menuAcercaDe.Padding = new Padding(5, 0, 0, 0);
             menuAcercaDe.Size = new Size(183, 45);
@@ -178,7 +179,7 @@
             panelSubMenuReportes.Controls.Add(subMenuReportesCompras);
             panelSubMenuReportes.Controls.Add(subMenuReportesVentas);
             panelSubMenuReportes.Dock = DockStyle.Top;
-            panelSubMenuReportes.Location = new Point(0, 525);
+            panelSubMenuReportes.Location = new Point(0, 560);
             panelSubMenuReportes.Name = "panelSubMenuReportes";
             panelSubMenuReportes.Size = new Size(183, 70);
             panelSubMenuReportes.TabIndex = 11;
@@ -238,7 +239,7 @@
             menuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuReportes.IconSize = 35;
             menuReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            menuReportes.Location = new Point(0, 480);
+            menuReportes.Location = new Point(0, 515);
             menuReportes.Name = "menuReportes";
             menuReportes.Padding = new Padding(5, 0, 0, 0);
             menuReportes.Size = new Size(183, 45);
@@ -262,7 +263,7 @@
             menuProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuProveedores.IconSize = 35;
             menuProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            menuProveedores.Location = new Point(0, 435);
+            menuProveedores.Location = new Point(0, 470);
             menuProveedores.Name = "menuProveedores";
             menuProveedores.Padding = new Padding(5, 0, 0, 0);
             menuProveedores.Size = new Size(183, 45);
@@ -286,7 +287,7 @@
             menuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuClientes.IconSize = 35;
             menuClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            menuClientes.Location = new Point(0, 390);
+            menuClientes.Location = new Point(0, 425);
             menuClientes.Name = "menuClientes";
             menuClientes.Padding = new Padding(5, 0, 0, 0);
             menuClientes.Size = new Size(183, 45);
@@ -303,7 +304,7 @@
             panelSubMenuCompras.Controls.Add(subMenuVerDetalleCompra);
             panelSubMenuCompras.Controls.Add(subMenuRegistrarCompra);
             panelSubMenuCompras.Dock = DockStyle.Top;
-            panelSubMenuCompras.Location = new Point(0, 320);
+            panelSubMenuCompras.Location = new Point(0, 355);
             panelSubMenuCompras.Name = "panelSubMenuCompras";
             panelSubMenuCompras.Size = new Size(183, 70);
             panelSubMenuCompras.TabIndex = 7;
@@ -363,7 +364,7 @@
             menuCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuCompras.IconSize = 35;
             menuCompras.ImageAlign = ContentAlignment.MiddleLeft;
-            menuCompras.Location = new Point(0, 275);
+            menuCompras.Location = new Point(0, 310);
             menuCompras.Name = "menuCompras";
             menuCompras.Padding = new Padding(5, 0, 0, 0);
             menuCompras.Size = new Size(183, 45);
@@ -380,7 +381,7 @@
             panelSubMenuVentas.Controls.Add(subMenuRegistrarVenta);
             panelSubMenuVentas.Controls.Add(subMenuVerDetalleVenta);
             panelSubMenuVentas.Dock = DockStyle.Top;
-            panelSubMenuVentas.Location = new Point(0, 205);
+            panelSubMenuVentas.Location = new Point(0, 240);
             panelSubMenuVentas.Name = "panelSubMenuVentas";
             panelSubMenuVentas.Size = new Size(183, 70);
             panelSubMenuVentas.TabIndex = 5;
@@ -440,7 +441,7 @@
             menuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuVentas.IconSize = 35;
             menuVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            menuVentas.Location = new Point(0, 160);
+            menuVentas.Location = new Point(0, 195);
             menuVentas.Name = "menuVentas";
             menuVentas.Padding = new Padding(5, 0, 0, 0);
             menuVentas.Size = new Size(183, 45);
@@ -454,18 +455,40 @@
             // panelSubMenuReabastecedor
             // 
             panelSubMenuReabastecedor.BackColor = Color.FromArgb(245, 145, 73);
+            panelSubMenuReabastecedor.Controls.Add(subMenuMarcas);
             panelSubMenuReabastecedor.Controls.Add(subMenuProductos);
             panelSubMenuReabastecedor.Controls.Add(subMenuCategorias);
             panelSubMenuReabastecedor.Dock = DockStyle.Top;
             panelSubMenuReabastecedor.Location = new Point(0, 90);
             panelSubMenuReabastecedor.Name = "panelSubMenuReabastecedor";
-            panelSubMenuReabastecedor.Size = new Size(183, 70);
+            panelSubMenuReabastecedor.Size = new Size(183, 105);
             panelSubMenuReabastecedor.TabIndex = 3;
+            // 
+            // subMenuMarcas
+            // 
+            subMenuMarcas.Cursor = Cursors.Hand;
+            subMenuMarcas.Dock = DockStyle.Top;
+            subMenuMarcas.FlatAppearance.BorderSize = 0;
+            subMenuMarcas.FlatStyle = FlatStyle.Flat;
+            subMenuMarcas.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            subMenuMarcas.ForeColor = Color.White;
+            subMenuMarcas.IconChar = FontAwesome.Sharp.IconChar.None;
+            subMenuMarcas.IconColor = Color.Black;
+            subMenuMarcas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            subMenuMarcas.Location = new Point(0, 35);
+            subMenuMarcas.Name = "subMenuMarcas";
+            subMenuMarcas.Padding = new Padding(35, 0, 0, 0);
+            subMenuMarcas.Size = new Size(183, 35);
+            subMenuMarcas.TabIndex = 4;
+            subMenuMarcas.Text = "Marcas";
+            subMenuMarcas.TextAlign = ContentAlignment.MiddleLeft;
+            subMenuMarcas.UseVisualStyleBackColor = true;
+            subMenuMarcas.Click += subMenuMarcas_Click;
             // 
             // subMenuProductos
             // 
             subMenuProductos.Cursor = Cursors.Hand;
-            subMenuProductos.Dock = DockStyle.Top;
+            subMenuProductos.Dock = DockStyle.Bottom;
             subMenuProductos.FlatAppearance.BorderSize = 0;
             subMenuProductos.FlatStyle = FlatStyle.Flat;
             subMenuProductos.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -473,7 +496,7 @@
             subMenuProductos.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuProductos.IconColor = Color.Black;
             subMenuProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuProductos.Location = new Point(0, 35);
+            subMenuProductos.Location = new Point(0, 70);
             subMenuProductos.Name = "subMenuProductos";
             subMenuProductos.Padding = new Padding(35, 0, 0, 0);
             subMenuProductos.Size = new Size(183, 35);
@@ -758,5 +781,6 @@
         private PictureBox BCerrar;
         private PictureBox BRestaurar;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private FontAwesome.Sharp.IconButton subMenuMarcas;
     }
 }

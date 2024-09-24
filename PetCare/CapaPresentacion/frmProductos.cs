@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Modals;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,16 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void BAgregar_Click(object sender, EventArgs e)
         {
+            using (var modal = new mdProductos())
+            {
+                var result = modal.ShowDialog();
+                /* if (result == DialogResult.OK)
+               {
 
-        }
-
-        private void TPrecio_TextChanged(object sender, EventArgs e)
-        {
-
+               } */
+            }
         }
     }
 }
