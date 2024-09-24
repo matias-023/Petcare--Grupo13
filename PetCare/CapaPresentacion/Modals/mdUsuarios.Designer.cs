@@ -48,7 +48,7 @@
             label2 = new Label();
             TDocumento = new TextBox();
             label7 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            fechaNac = new DateTimePicker();
             TFechaNac = new Label();
             RHombre = new RadioButton();
             RMujer = new RadioButton();
@@ -256,13 +256,14 @@
             label7.TabIndex = 15;
             label7.Text = "Número de documento:";
             // 
-            // dateTimePicker1
+            // fechaNac
             // 
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            dateTimePicker1.Location = new Point(24, 317);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(222, 22);
-            dateTimePicker1.TabIndex = 5;
+            fechaNac.Font = new Font("Microsoft Sans Serif", 9.75F);
+            fechaNac.Format = DateTimePickerFormat.Short;
+            fechaNac.Location = new Point(28, 319);
+            fechaNac.Name = "fechaNac";
+            fechaNac.Size = new Size(119, 22);
+            fechaNac.TabIndex = 5;
             // 
             // TFechaNac
             // 
@@ -277,6 +278,7 @@
             // RHombre
             // 
             RHombre.AutoSize = true;
+            RHombre.Checked = true;
             RHombre.Font = new Font("Microsoft Sans Serif", 11.25F);
             RHombre.Location = new Point(28, 380);
             RHombre.Name = "RHombre";
@@ -294,7 +296,6 @@
             RMujer.Name = "RMujer";
             RMujer.Size = new Size(63, 22);
             RMujer.TabIndex = 7;
-            RMujer.TabStop = true;
             RMujer.Text = "Mujer";
             RMujer.UseVisualStyleBackColor = true;
             // 
@@ -375,7 +376,7 @@
             Controls.Add(RMujer);
             Controls.Add(RHombre);
             Controls.Add(TFechaNac);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(fechaNac);
             Controls.Add(CEstado);
             Controls.Add(LEstado);
             Controls.Add(TIdUsuario);
@@ -427,7 +428,7 @@
         private Label label2;
         private TextBox TDocumento;
         private Label label7;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker fechaNac;
         private Label TFechaNac;
         private RadioButton RHombre;
         private RadioButton RMujer;

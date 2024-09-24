@@ -52,7 +52,7 @@ namespace CapaPresentacion
                 if (user.idUsuario != 1)
                 {
 
-                    dgvData.Rows.Add(new object[] {"", user.idUsuario, user.documento, user.nombreCompleto, user.correo, user.telefono, user.clave,
+                dgvData.Rows.Add(new object[] {"", user.idUsuario, user.documento, user.nombreCompleto, user.correo, user.telefono, user.clave, user.sexo, user.fechaNacimiento,
                 user.oRol.idRol,
                 user.oRol.descripcion,
                 user.estado == true ? 1 : 0,
@@ -108,6 +108,8 @@ namespace CapaPresentacion
                             row.Cells["correo"].Value = modal.mdUsuario.correo;
                             row.Cells["telefono"].Value = modal.mdUsuario.telefono;
                             row.Cells["contraseña"].Value = modal.mdUsuario.clave;
+                            row.Cells["sexo"].Value = modal.mdUsuario.sexo;
+                            row.Cells["fechaNacimiento"].Value = modal.mdUsuario.fechaNacimiento;
                             row.Cells["idRol"].Value = modal.mdUsuario.oRol.idRol;
                             row.Cells["rol"].Value = modal.mdUsuario.oRol.descripcion;
                             row.Cells["estadoValor"].Value = modal.mdUsuario.estado == true ? 1 : 0;
@@ -150,7 +152,7 @@ namespace CapaPresentacion
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    dgvData.Rows.Add(new object[] {"", modal.mdUsuario.idUsuario, modal.mdUsuario.documento, modal.mdUsuario.nombreCompleto, modal.mdUsuario.correo, modal.mdUsuario.telefono, modal.mdUsuario.clave,
+                    dgvData.Rows.Add(new object[] {"", modal.mdUsuario.idUsuario, modal.mdUsuario.documento, modal.mdUsuario.nombreCompleto, modal.mdUsuario.correo, modal.mdUsuario.telefono, modal.mdUsuario.clave, modal.mdUsuario.sexo, modal.mdUsuario.fechaNacimiento,
                 modal.mdUsuario.oRol.idRol,
                 modal.mdUsuario.oRol.descripcion,
                 modal.mdUsuario.estado == true ? 1 : 0,

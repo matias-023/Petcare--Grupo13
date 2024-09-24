@@ -106,6 +106,8 @@ namespace CapaPresentacion.Modals
                 nombreCompleto = TNombreCompleto.Text,
                 correo = TCorreo.Text,
                 telefono = TTelefono.Text,
+                fechaNacimiento = fechaNac.Value.ToString("dd-MM-yyyy"),
+                sexo = RHombre.Checked ? "Hombre" : "Mujer",
                 clave = TContraseña.Text,
                 oRol = new Rol(){
                     idRol = Convert.ToInt32(((opcionCombo)CRol.SelectedItem).valor),
@@ -121,6 +123,7 @@ namespace CapaPresentacion.Modals
 
                 if (idUsuarioGenerado != 0)
                 {
+                    mdUsuario.idUsuario = idUsuarioGenerado;
                     MessageBox.Show(mensaje, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -190,6 +193,18 @@ namespace CapaPresentacion.Modals
             TTelefono.Text = fila.Cells["telefono"].Value.ToString();
             TContraseña.Text = fila.Cells["contraseña"].Value.ToString();
             TConfirmarContraseña.Text = fila.Cells["contraseña"].Value.ToString();
+
+            if (fila.Cells["sexo"].Value.ToString() == "Hombre")
+            {
+                RHombre.Checked = true;
+            }
+            else
+            {
+                RMujer.Checked = true;
+            }
+
+            string fechaNacString = fila.Cells["fechaNacimiento"].Value.ToString();
+            fechaNac.Value = DateTime.ParseExact(fechaNacString, "dd-MM-yyyy", null);
 
             foreach (opcionCombo oc in CRol.Items)
             {

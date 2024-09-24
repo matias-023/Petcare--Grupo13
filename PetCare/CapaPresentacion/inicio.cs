@@ -48,8 +48,21 @@ namespace CapaPresentacion
             {
                 ocultarSubMenu();
                 submenu.Visible = true;
+                if (bordeDerecho.Location.Y >= submenu.Location.Y)
+                {
+                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y + 70);
+                }
             }
-            else submenu.Visible = false;
+            else
+            {
+                submenu.Visible = false;
+                if (bordeDerecho.Location.Y >= submenu.Location.Y)
+                {
+                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y - 70);
+                }
+            }
+            
+            
 
         }
 
@@ -140,56 +153,56 @@ namespace CapaPresentacion
 
         private void menuUsuario_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconButton)sender, new frmUsuario(usuarioActual));
             ocultarSubMenu();
+            abrirFormulario((IconButton)sender, new frmUsuario(usuarioActual));
         }
 
         private void subMenuCategorias_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuReabastecedor, new frmCategorias());
             ocultarSubMenu();
+            abrirFormulario(menuReabastecedor, new frmCategorias());
         }
 
         private void subMenuProductos_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuReabastecedor, new frmProductos());
             ocultarSubMenu();
+            abrirFormulario(menuReabastecedor, new frmProductos());
         }
 
         private void subMenuRegistrarVenta_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuVentas, new frmVentas());
             ocultarSubMenu();
+            abrirFormulario(menuVentas, new frmVentas());
         }
 
         private void subMenuVerDetalleVenta_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuVentas, new frmDetalleVenta());
             ocultarSubMenu();
+            abrirFormulario(menuVentas, new frmDetalleVenta());
         }
 
         private void subMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuCompras, new frmCompras());
             ocultarSubMenu();
+            abrirFormulario(menuCompras, new frmCompras());
         }
 
         private void subMenuVerDetalleCompra_Click(object sender, EventArgs e)
         {
-            abrirFormulario(menuCompras, new frmDetalleCompra());
             ocultarSubMenu();
+            abrirFormulario(menuCompras, new frmDetalleCompra());
         }
 
         private void menuClientes_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconButton)sender, new frmClientes());
             ocultarSubMenu();
+            abrirFormulario((IconButton)sender, new frmClientes());
         }
 
         private void menuProveedores_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconButton)sender, new frmProveedores());
             ocultarSubMenu();
+            abrirFormulario((IconButton)sender, new frmProveedores());
         }
 
         private void subMenuReportesVentas_Click(object sender, EventArgs e)
@@ -206,14 +219,14 @@ namespace CapaPresentacion
 
         private void menuAcercaDe_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconButton)sender, new frmAcercaDe());
             ocultarSubMenu();
+            abrirFormulario((IconButton)sender, new frmAcercaDe());
         }
 
         private void menuBackup_Click(object sender, EventArgs e)
         {
-            abrirFormulario((IconButton)sender, new frmBackup());
             ocultarSubMenu();
+            abrirFormulario((IconButton)sender, new frmBackup());
         }
 
         private void BCerrar_Click(object sender, EventArgs e)
@@ -222,7 +235,6 @@ namespace CapaPresentacion
             {
                 this.Close();
             }
-            
         }
 
         private void BMaximizar_Click(object sender, EventArgs e)
@@ -251,7 +263,6 @@ namespace CapaPresentacion
                 ReleaseCapture();
                 SendMessage(this.Handle, 0x112, 0xf012, 0);
             }
-            
         }
     }
 }

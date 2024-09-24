@@ -577,7 +577,7 @@
             BRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BRestaurar.Cursor = Cursors.Hand;
             BRestaurar.Image = Properties.Resources.res;
-            BRestaurar.Location = new Point(1093, 7);
+            BRestaurar.Location = new Point(1090, 7);
             BRestaurar.Name = "BRestaurar";
             BRestaurar.Size = new Size(20, 20);
             BRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -591,7 +591,7 @@
             BMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BMinimizar.Cursor = Cursors.Hand;
             BMinimizar.Image = Properties.Resources.minimazar;
-            BMinimizar.Location = new Point(1066, 7);
+            BMinimizar.Location = new Point(1060, 7);
             BMinimizar.Name = "BMinimizar";
             BMinimizar.Size = new Size(20, 20);
             BMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -604,7 +604,7 @@
             BMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BMaximizar.Cursor = Cursors.Hand;
             BMaximizar.Image = Properties.Resources.maxi;
-            BMaximizar.Location = new Point(1093, 7);
+            BMaximizar.Location = new Point(1090, 7);
             BMaximizar.Name = "BMaximizar";
             BMaximizar.Size = new Size(20, 20);
             BMaximizar.SizeMode = PictureBoxSizeMode.Zoom;

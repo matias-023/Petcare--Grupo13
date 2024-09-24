@@ -31,17 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvData = new DataGridView();
-            BSeleccionar = new DataGridViewButtonColumn();
-            idUsuario = new DataGridViewTextBoxColumn();
-            documento = new DataGridViewTextBoxColumn();
-            nombreCompleto = new DataGridViewTextBoxColumn();
-            correo = new DataGridViewTextBoxColumn();
-            telefono = new DataGridViewTextBoxColumn();
-            contraseña = new DataGridViewTextBoxColumn();
-            idRol = new DataGridViewTextBoxColumn();
-            rol = new DataGridViewTextBoxColumn();
-            estadoValor = new DataGridViewTextBoxColumn();
-            estado = new DataGridViewTextBoxColumn();
             label9 = new Label();
             CBusqueda = new ComboBox();
             TBusqueda = new TextBox();
@@ -50,6 +39,19 @@
             BAgregar = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
             label7 = new Label();
+            BSeleccionar = new DataGridViewButtonColumn();
+            idUsuario = new DataGridViewTextBoxColumn();
+            documento = new DataGridViewTextBoxColumn();
+            nombreCompleto = new DataGridViewTextBoxColumn();
+            correo = new DataGridViewTextBoxColumn();
+            telefono = new DataGridViewTextBoxColumn();
+            contraseña = new DataGridViewTextBoxColumn();
+            sexo = new DataGridViewTextBoxColumn();
+            fechaNacimiento = new DataGridViewTextBoxColumn();
+            idRol = new DataGridViewTextBoxColumn();
+            rol = new DataGridViewTextBoxColumn();
+            estadoValor = new DataGridViewTextBoxColumn();
+            estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -68,7 +70,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, idRol, rol, estadoValor, estado });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, sexo, fechaNacimiento, idRol, rol, estadoValor, estado });
             dgvData.Location = new Point(23, 107);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -82,98 +84,6 @@
             dgvData.TabIndex = 1;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellPainting += dgvData_CellPainting;
-            // 
-            // BSeleccionar
-            // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
-            BSeleccionar.Name = "BSeleccionar";
-            BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 35;
-            // 
-            // idUsuario
-            // 
-            idUsuario.HeaderText = "ID";
-            idUsuario.MinimumWidth = 6;
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            idUsuario.Visible = false;
-            idUsuario.Width = 125;
-            // 
-            // documento
-            // 
-            documento.HeaderText = "Número de documento";
-            documento.MinimumWidth = 6;
-            documento.Name = "documento";
-            documento.ReadOnly = true;
-            documento.Width = 200;
-            // 
-            // nombreCompleto
-            // 
-            nombreCompleto.HeaderText = "Nombre completo";
-            nombreCompleto.MinimumWidth = 6;
-            nombreCompleto.Name = "nombreCompleto";
-            nombreCompleto.ReadOnly = true;
-            nombreCompleto.Width = 200;
-            // 
-            // correo
-            // 
-            correo.HeaderText = "Correo";
-            correo.MinimumWidth = 6;
-            correo.Name = "correo";
-            correo.ReadOnly = true;
-            correo.Width = 250;
-            // 
-            // telefono
-            // 
-            telefono.HeaderText = "Teléfono";
-            telefono.MinimumWidth = 6;
-            telefono.Name = "telefono";
-            telefono.ReadOnly = true;
-            telefono.Width = 150;
-            // 
-            // contraseña
-            // 
-            contraseña.HeaderText = "Contraseña";
-            contraseña.MinimumWidth = 6;
-            contraseña.Name = "contraseña";
-            contraseña.ReadOnly = true;
-            contraseña.Visible = false;
-            contraseña.Width = 150;
-            // 
-            // idRol
-            // 
-            idRol.HeaderText = "idRol";
-            idRol.MinimumWidth = 6;
-            idRol.Name = "idRol";
-            idRol.ReadOnly = true;
-            idRol.Visible = false;
-            idRol.Width = 125;
-            // 
-            // rol
-            // 
-            rol.HeaderText = "Rol";
-            rol.MinimumWidth = 6;
-            rol.Name = "rol";
-            rol.ReadOnly = true;
-            rol.Width = 150;
-            // 
-            // estadoValor
-            // 
-            estadoValor.HeaderText = "estadoValor";
-            estadoValor.MinimumWidth = 6;
-            estadoValor.Name = "estadoValor";
-            estadoValor.ReadOnly = true;
-            estadoValor.Visible = false;
-            estadoValor.Width = 125;
-            // 
-            // estado
-            // 
-            estado.HeaderText = "Estado";
-            estado.MinimumWidth = 6;
-            estado.Name = "estado";
-            estado.ReadOnly = true;
-            estado.Width = 125;
             // 
             // label9
             // 
@@ -299,6 +209,110 @@
             label7.TabIndex = 0;
             label7.Text = "Lista de usuarios:";
             // 
+            // BSeleccionar
+            // 
+            BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.Name = "BSeleccionar";
+            BSeleccionar.ReadOnly = true;
+            BSeleccionar.Width = 35;
+            // 
+            // idUsuario
+            // 
+            idUsuario.HeaderText = "ID";
+            idUsuario.MinimumWidth = 6;
+            idUsuario.Name = "idUsuario";
+            idUsuario.ReadOnly = true;
+            idUsuario.Visible = false;
+            idUsuario.Width = 125;
+            // 
+            // documento
+            // 
+            documento.HeaderText = "Número de documento";
+            documento.MinimumWidth = 6;
+            documento.Name = "documento";
+            documento.ReadOnly = true;
+            documento.Width = 200;
+            // 
+            // nombreCompleto
+            // 
+            nombreCompleto.HeaderText = "Nombre completo";
+            nombreCompleto.MinimumWidth = 6;
+            nombreCompleto.Name = "nombreCompleto";
+            nombreCompleto.ReadOnly = true;
+            nombreCompleto.Width = 200;
+            // 
+            // correo
+            // 
+            correo.HeaderText = "Correo";
+            correo.MinimumWidth = 6;
+            correo.Name = "correo";
+            correo.ReadOnly = true;
+            correo.Width = 250;
+            // 
+            // telefono
+            // 
+            telefono.HeaderText = "Teléfono";
+            telefono.MinimumWidth = 6;
+            telefono.Name = "telefono";
+            telefono.ReadOnly = true;
+            telefono.Width = 150;
+            // 
+            // contraseña
+            // 
+            contraseña.HeaderText = "Contraseña";
+            contraseña.MinimumWidth = 6;
+            contraseña.Name = "contraseña";
+            contraseña.ReadOnly = true;
+            contraseña.Visible = false;
+            contraseña.Width = 150;
+            // 
+            // sexo
+            // 
+            sexo.HeaderText = "Sexo";
+            sexo.Name = "sexo";
+            sexo.ReadOnly = true;
+            // 
+            // fechaNacimiento
+            // 
+            fechaNacimiento.HeaderText = "Fecha de nacimiento";
+            fechaNacimiento.Name = "fechaNacimiento";
+            fechaNacimiento.ReadOnly = true;
+            // 
+            // idRol
+            // 
+            idRol.HeaderText = "idRol";
+            idRol.MinimumWidth = 6;
+            idRol.Name = "idRol";
+            idRol.ReadOnly = true;
+            idRol.Visible = false;
+            idRol.Width = 125;
+            // 
+            // rol
+            // 
+            rol.HeaderText = "Rol";
+            rol.MinimumWidth = 6;
+            rol.Name = "rol";
+            rol.ReadOnly = true;
+            rol.Width = 150;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValor";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Width = 125;
+            // 
             // frmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -324,6 +338,9 @@
         private TextBox TBusqueda;
         private FontAwesome.Sharp.IconButton BBusqueda;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
+        private FontAwesome.Sharp.IconButton BAgregar;
+        private Panel panel2;
+        private Label label7;
         private DataGridViewButtonColumn BSeleccionar;
         private DataGridViewTextBoxColumn idUsuario;
         private DataGridViewTextBoxColumn documento;
@@ -331,12 +348,11 @@
         private DataGridViewTextBoxColumn correo;
         private DataGridViewTextBoxColumn telefono;
         private DataGridViewTextBoxColumn contraseña;
+        private DataGridViewTextBoxColumn sexo;
+        private DataGridViewTextBoxColumn fechaNacimiento;
         private DataGridViewTextBoxColumn idRol;
         private DataGridViewTextBoxColumn rol;
         private DataGridViewTextBoxColumn estadoValor;
         private DataGridViewTextBoxColumn estado;
-        private FontAwesome.Sharp.IconButton BAgregar;
-        private Panel panel2;
-        private Label label7;
     }
 }
