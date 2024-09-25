@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\NoxiePC\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\NoxiePC\\.nuget\\packages"
+      "C:\\Users\\usuario\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\usuario\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
