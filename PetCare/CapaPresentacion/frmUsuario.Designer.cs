@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvData = new DataGridView();
-            label9 = new Label();
-            CBusqueda = new ComboBox();
-            TBusqueda = new TextBox();
-            BBusqueda = new FontAwesome.Sharp.IconButton();
-            BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
-            BAgregar = new FontAwesome.Sharp.IconButton();
-            panel2 = new Panel();
-            label7 = new Label();
             BSeleccionar = new DataGridViewButtonColumn();
             idUsuario = new DataGridViewTextBoxColumn();
             documento = new DataGridViewTextBoxColumn();
@@ -52,6 +44,14 @@
             rol = new DataGridViewTextBoxColumn();
             estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
+            label9 = new Label();
+            CBusqueda = new ComboBox();
+            TBusqueda = new TextBox();
+            BBusqueda = new FontAwesome.Sharp.IconButton();
+            BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
+            BAgregar = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -60,15 +60,15 @@
             // 
             dgvData.AllowUserToAddRows = false;
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, sexo, fechaNacimiento, idRol, rol, estadoValor, estado });
             dgvData.Location = new Point(23, 107);
@@ -76,14 +76,118 @@
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1001, 454);
             dgvData.TabIndex = 1;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellPainting += dgvData_CellPainting;
+            // 
+            // BSeleccionar
+            // 
+            BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.Name = "BSeleccionar";
+            BSeleccionar.ReadOnly = true;
+            BSeleccionar.Width = 35;
+            // 
+            // idUsuario
+            // 
+            idUsuario.HeaderText = "ID";
+            idUsuario.MinimumWidth = 6;
+            idUsuario.Name = "idUsuario";
+            idUsuario.ReadOnly = true;
+            idUsuario.Visible = false;
+            idUsuario.Width = 125;
+            // 
+            // documento
+            // 
+            documento.HeaderText = "Número de documento";
+            documento.MinimumWidth = 6;
+            documento.Name = "documento";
+            documento.ReadOnly = true;
+            documento.Width = 200;
+            // 
+            // nombreCompleto
+            // 
+            nombreCompleto.HeaderText = "Nombre completo";
+            nombreCompleto.MinimumWidth = 6;
+            nombreCompleto.Name = "nombreCompleto";
+            nombreCompleto.ReadOnly = true;
+            nombreCompleto.Width = 200;
+            // 
+            // correo
+            // 
+            correo.HeaderText = "Correo";
+            correo.MinimumWidth = 6;
+            correo.Name = "correo";
+            correo.ReadOnly = true;
+            correo.Width = 250;
+            // 
+            // telefono
+            // 
+            telefono.HeaderText = "Teléfono";
+            telefono.MinimumWidth = 6;
+            telefono.Name = "telefono";
+            telefono.ReadOnly = true;
+            telefono.Width = 150;
+            // 
+            // contraseña
+            // 
+            contraseña.HeaderText = "Contraseña";
+            contraseña.MinimumWidth = 6;
+            contraseña.Name = "contraseña";
+            contraseña.ReadOnly = true;
+            contraseña.Visible = false;
+            contraseña.Width = 150;
+            // 
+            // sexo
+            // 
+            sexo.HeaderText = "Sexo";
+            sexo.Name = "sexo";
+            sexo.ReadOnly = true;
+            // 
+            // fechaNacimiento
+            // 
+            fechaNacimiento.HeaderText = "Fecha de nacimiento";
+            fechaNacimiento.Name = "fechaNacimiento";
+            fechaNacimiento.ReadOnly = true;
+            // 
+            // idRol
+            // 
+            idRol.HeaderText = "idRol";
+            idRol.MinimumWidth = 6;
+            idRol.Name = "idRol";
+            idRol.ReadOnly = true;
+            idRol.Visible = false;
+            idRol.Width = 125;
+            // 
+            // rol
+            // 
+            rol.HeaderText = "Rol";
+            rol.MinimumWidth = 6;
+            rol.Name = "rol";
+            rol.ReadOnly = true;
+            rol.Width = 150;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValor";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Width = 125;
             // 
             // label9
             // 
@@ -208,110 +312,6 @@
             label7.Size = new Size(200, 25);
             label7.TabIndex = 0;
             label7.Text = "Lista de usuarios:";
-            // 
-            // BSeleccionar
-            // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
-            BSeleccionar.Name = "BSeleccionar";
-            BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 35;
-            // 
-            // idUsuario
-            // 
-            idUsuario.HeaderText = "ID";
-            idUsuario.MinimumWidth = 6;
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            idUsuario.Visible = false;
-            idUsuario.Width = 125;
-            // 
-            // documento
-            // 
-            documento.HeaderText = "Número de documento";
-            documento.MinimumWidth = 6;
-            documento.Name = "documento";
-            documento.ReadOnly = true;
-            documento.Width = 200;
-            // 
-            // nombreCompleto
-            // 
-            nombreCompleto.HeaderText = "Nombre completo";
-            nombreCompleto.MinimumWidth = 6;
-            nombreCompleto.Name = "nombreCompleto";
-            nombreCompleto.ReadOnly = true;
-            nombreCompleto.Width = 200;
-            // 
-            // correo
-            // 
-            correo.HeaderText = "Correo";
-            correo.MinimumWidth = 6;
-            correo.Name = "correo";
-            correo.ReadOnly = true;
-            correo.Width = 250;
-            // 
-            // telefono
-            // 
-            telefono.HeaderText = "Teléfono";
-            telefono.MinimumWidth = 6;
-            telefono.Name = "telefono";
-            telefono.ReadOnly = true;
-            telefono.Width = 150;
-            // 
-            // contraseña
-            // 
-            contraseña.HeaderText = "Contraseña";
-            contraseña.MinimumWidth = 6;
-            contraseña.Name = "contraseña";
-            contraseña.ReadOnly = true;
-            contraseña.Visible = false;
-            contraseña.Width = 150;
-            // 
-            // sexo
-            // 
-            sexo.HeaderText = "Sexo";
-            sexo.Name = "sexo";
-            sexo.ReadOnly = true;
-            // 
-            // fechaNacimiento
-            // 
-            fechaNacimiento.HeaderText = "Fecha de nacimiento";
-            fechaNacimiento.Name = "fechaNacimiento";
-            fechaNacimiento.ReadOnly = true;
-            // 
-            // idRol
-            // 
-            idRol.HeaderText = "idRol";
-            idRol.MinimumWidth = 6;
-            idRol.Name = "idRol";
-            idRol.ReadOnly = true;
-            idRol.Visible = false;
-            idRol.Width = 125;
-            // 
-            // rol
-            // 
-            rol.HeaderText = "Rol";
-            rol.MinimumWidth = 6;
-            rol.Name = "rol";
-            rol.ReadOnly = true;
-            rol.Width = 150;
-            // 
-            // estadoValor
-            // 
-            estadoValor.HeaderText = "estadoValor";
-            estadoValor.MinimumWidth = 6;
-            estadoValor.Name = "estadoValor";
-            estadoValor.ReadOnly = true;
-            estadoValor.Visible = false;
-            estadoValor.Width = 125;
-            // 
-            // estado
-            // 
-            estado.HeaderText = "Estado";
-            estado.MinimumWidth = 6;
-            estado.Name = "estado";
-            estado.ReadOnly = true;
-            estado.Width = 125;
             // 
             // frmUsuario
             // 

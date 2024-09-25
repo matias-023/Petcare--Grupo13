@@ -8,8 +8,6 @@ namespace CapaPresentacion
 {
     public partial class inicio : Form
     {
-
-        private static Panel bordeDerecho;
         private static Usuario usuarioActual;
         private static IconButton menuActivo = null;
         private static Form formularioActivo = null;
@@ -43,27 +41,15 @@ namespace CapaPresentacion
 
         private void mostrarSubMenu(Panel submenu)
         {
-            int valor = 70;
-            if (submenu == panelSubMenuReabastecedor)
-                valor = 105;
-            else valor = 70;
 
             if (submenu.Visible == false)
             {
                 ocultarSubMenu();
                 submenu.Visible = true;
-                if (bordeDerecho.Location.Y >= submenu.Location.Y)
-                {
-                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y + valor);
-                }
             }
             else
             {
                 submenu.Visible = false;
-                if (bordeDerecho.Location.Y >= submenu.Location.Y)
-                {
-                    bordeDerecho.Location = new Point(0, bordeDerecho.Location.Y - valor);
-                }
             }
 
 
@@ -88,9 +74,6 @@ namespace CapaPresentacion
                 iconoUsuario.IconChar = IconChar.User;
             }
             diseño();
-            bordeDerecho = new Panel();
-            bordeDerecho.Size = new Size(7, 45);
-            menu.Controls.Add(bordeDerecho);
         }
 
         private void inicio_Load(object sender, EventArgs e)
@@ -113,11 +96,16 @@ namespace CapaPresentacion
 
         private void abrirFormulario(IconButton menu, Form formulario)
         {
+            if (menuActivo != null)
+            {
+                menuActivo.BackColor = Color.FromArgb(210, 120, 61);
+                menuActivo.ForeColor = Color.White;
+                menuActivo.IconColor = Color.White;
+            }
             menuActivo = menu;
-            bordeDerecho.BackColor = Color.White;
-            bordeDerecho.Location = new Point(0, menuActivo.Location.Y);
-            bordeDerecho.Visible = true;
-            bordeDerecho.BringToFront();
+            menuActivo.BackColor = Color.WhiteSmoke;
+            menuActivo.ForeColor = Color.FromArgb(210, 120, 61);
+            menuActivo.IconColor = Color.FromArgb(210, 120, 61);
 
 
             if (formularioActivo != null)

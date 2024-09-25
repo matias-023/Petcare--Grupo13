@@ -19,7 +19,7 @@ namespace CapaDatos
         {
             List<Usuario> lista = new List<Usuario>();
 
-            using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+            using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
             {
                 try
                 {
@@ -70,7 +70,7 @@ namespace CapaDatos
             try
             {
 
-                using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+                using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", objConexion);
                     cmd.Parameters.AddWithValue("documento", user.documento);
@@ -117,7 +117,7 @@ namespace CapaDatos
             try
             {
 
-                using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+                using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
                 {
                     SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", objConexion);
                     cmd.Parameters.AddWithValue("idUsuario", user.idUsuario);
