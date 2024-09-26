@@ -725,6 +725,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema PetCare";
             Load += inicio_Load;
+            KeyDown += inicio_KeyDown;
             container.ResumeLayout(false);
             menu.ResumeLayout(false);
             panelSubMenuReportes.ResumeLayout(false);

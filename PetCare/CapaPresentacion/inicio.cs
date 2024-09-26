@@ -91,6 +91,7 @@ namespace CapaPresentacion
             }
 
             LUsuario.Text = usuarioActual.nombreCompleto;
+            this.KeyPreview = true;
         }
 
 
@@ -204,7 +205,6 @@ namespace CapaPresentacion
 
         private void subMenuReportesVentas_Click(object sender, EventArgs e)
         {
-            //abrir reportes ventas
             ocultarSubMenu();
             abrirFormulario(menuReportes, new frmReportesVentas());
 
@@ -212,7 +212,6 @@ namespace CapaPresentacion
 
         private void subMenuReportesCompras_Click(object sender, EventArgs e)
         {
-            //abrir reportes compras
             ocultarSubMenu();
             abrirFormulario(menuReportes, new frmReportesCompras());
         }
@@ -246,9 +245,7 @@ namespace CapaPresentacion
 
         private void BRestaurar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            BRestaurar.Visible = false;
-            BMaximizar.Visible = true;
+            restaurarPantalla();
         }
 
         private void BMinimizar_Click(object sender, EventArgs e)
@@ -265,5 +262,22 @@ namespace CapaPresentacion
             }
         }
 
+        private void inicio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (BRestaurar.Visible)
+                {
+                    restaurarPantalla();
+                }
+            }
+        }
+
+        private void restaurarPantalla()
+        {
+            this.WindowState = FormWindowState.Normal;
+            BRestaurar.Visible = false;
+            BMaximizar.Visible = true;
+        }
     }
 }

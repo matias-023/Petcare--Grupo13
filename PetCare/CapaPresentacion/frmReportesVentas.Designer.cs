@@ -28,43 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             BBuscar = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label3 = new Label();
-            label2 = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
-            label1 = new Label();
-            label7 = new Label();
-            comboBox1 = new ComboBox();
+            CBusqueda = new ComboBox();
             TBusqueda = new TextBox();
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
-            BDescargarExcelRegCom = new FontAwesome.Sharp.IconButton();
-            dataGridView1 = new DataGridView();
+            BDescargarExcel = new FontAwesome.Sharp.IconButton();
             BBusqueda = new FontAwesome.Sharp.IconButton();
-            label6 = new Label();
-            FechaRegistro = new DataGridViewTextBoxColumn();
-            TipoDocumento = new DataGridViewTextBoxColumn();
-            NumeroDocumento = new DataGridViewTextBoxColumn();
-            MontoTotal = new DataGridViewTextBoxColumn();
-            UsuarioRegistro = new DataGridViewTextBoxColumn();
+            panel2 = new Panel();
+            label1 = new Label();
+            panel1 = new Panel();
+            label9 = new Label();
+            dgvData = new DataGridView();
+            fechaRegistro = new DataGridViewTextBoxColumn();
+            numeroVenta = new DataGridViewTextBoxColumn();
+            DocumentoUsuario = new DataGridViewTextBoxColumn();
             DocumentoCliente = new DataGridViewTextBoxColumn();
             nombreCliente = new DataGridViewTextBoxColumn();
-            VerDetalleVen = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            medioPago = new DataGridViewTextBoxColumn();
+            montoTotal = new DataGridViewTextBoxColumn();
+            verDetalle = new DataGridViewButtonColumn();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
             // BBuscar
             // 
+            BBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BBuscar.Font = new Font("Microsoft Sans Serif", 9F);
             BBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             BBuscar.IconColor = Color.Black;
             BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBuscar.IconSize = 18;
-            BBuscar.Location = new Point(547, 107);
-            BBuscar.Margin = new Padding(3, 4, 3, 4);
+            BBuscar.Location = new Point(880, 25);
             BBuscar.Name = "BBuscar";
-            BBuscar.Size = new Size(105, 31);
-            BBuscar.TabIndex = 45;
+            BBuscar.Size = new Size(92, 23);
+            BBuscar.TabIndex = 3;
             BBuscar.Text = "Buscar";
             BBuscar.TextAlign = ContentAlignment.MiddleRight;
             BBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -72,104 +77,74 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.BackColor = Color.FromArgb(210, 120, 61);
-            label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(315, 115);
+            label4.Location = new Point(664, 28);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(89, 23);
+            label4.Size = new Size(87, 18);
             label4.TabIndex = 43;
             label4.Text = "Fecha Fin:";
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.BackColor = Color.FromArgb(210, 120, 61);
-            label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(65, 117);
+            label3.Location = new Point(437, 28);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(108, 23);
+            label3.Size = new Size(104, 18);
             label3.TabIndex = 42;
             label3.Text = "Fecha inicio:";
             // 
-            // label2
-            // 
-            label2.BackColor = Color.FromArgb(210, 120, 61);
-            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(52, 47);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(255, 38);
-            label2.TabIndex = 40;
-            label2.Text = "Reporte Ventas";
-            // 
             // dateTimePicker2
             // 
+            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimePicker2.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker2.Font = new Font("Microsoft Sans Serif", 9F);
             dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(412, 111);
-            dateTimePicker2.Margin = new Padding(4, 3, 4, 3);
+            dateTimePicker2.Location = new Point(752, 26);
+            dateTimePicker2.Margin = new Padding(4, 2, 4, 2);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(128, 27);
-            dateTimePicker2.TabIndex = 41;
+            dateTimePicker2.Size = new Size(112, 21);
+            dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimePicker1.CalendarMonthBackground = Color.FromArgb(210, 120, 61);
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9F);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(181, 113);
-            dateTimePicker1.Margin = new Padding(4, 3, 4, 3);
+            dateTimePicker1.Location = new Point(541, 26);
+            dateTimePicker1.Margin = new Padding(4, 2, 4, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(128, 27);
-            dateTimePicker1.TabIndex = 38;
+            dateTimePicker1.Size = new Size(112, 21);
+            dateTimePicker1.TabIndex = 1;
             // 
-            // label1
+            // CBusqueda
             // 
-            label1.BackColor = Color.FromArgb(210, 120, 61);
-            label1.Location = new Point(28, 31);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(1505, 143);
-            label1.TabIndex = 39;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(820, 262);
-            label7.Name = "label7";
-            label7.Size = new Size(85, 18);
-            label7.TabIndex = 54;
-            label7.Text = "Buscar por:";
-            // 
-            // comboBox1
-            // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(911, 252);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(198, 28);
-            comboBox1.TabIndex = 53;
+            CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBusqueda.FormattingEnabled = true;
+            CBusqueda.Location = new Point(463, 14);
+            CBusqueda.Name = "CBusqueda";
+            CBusqueda.Size = new Size(174, 23);
+            CBusqueda.TabIndex = 5;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(1115, 252);
-            TBusqueda.Margin = new Padding(3, 4, 3, 4);
+            TBusqueda.Location = new Point(643, 15);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(246, 27);
-            TBusqueda.TabIndex = 52;
+            TBusqueda.Size = new Size(216, 21);
+            TBusqueda.TabIndex = 6;
             // 
             // BLimpiarBusqueda
             // 
@@ -183,40 +158,28 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(1427, 247);
-            BLimpiarBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BLimpiarBusqueda.Location = new Point(922, 10);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
-            BLimpiarBusqueda.Size = new Size(57, 39);
-            BLimpiarBusqueda.TabIndex = 51;
+            BLimpiarBusqueda.Size = new Size(50, 29);
+            BLimpiarBusqueda.TabIndex = 8;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
             // 
-            // BDescargarExcelRegCom
+            // BDescargarExcel
             // 
-            BDescargarExcelRegCom.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            BDescargarExcelRegCom.IconColor = Color.Black;
-            BDescargarExcelRegCom.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BDescargarExcelRegCom.IconSize = 18;
-            BDescargarExcelRegCom.Location = new Point(80, 262);
-            BDescargarExcelRegCom.Margin = new Padding(3, 4, 3, 4);
-            BDescargarExcelRegCom.Name = "BDescargarExcelRegCom";
-            BDescargarExcelRegCom.Size = new Size(166, 31);
-            BDescargarExcelRegCom.TabIndex = 50;
-            BDescargarExcelRegCom.Text = "Descargar Excel";
-            BDescargarExcelRegCom.TextAlign = ContentAlignment.MiddleRight;
-            BDescargarExcelRegCom.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BDescargarExcelRegCom.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { FechaRegistro, TipoDocumento, NumeroDocumento, MontoTotal, UsuarioRegistro, DocumentoCliente, nombreCliente, VerDetalleVen });
-            dataGridView1.Location = new Point(65, 314);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1429, 488);
-            dataGridView1.TabIndex = 49;
+            BDescargarExcel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            BDescargarExcel.IconColor = Color.Black;
+            BDescargarExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BDescargarExcel.IconSize = 18;
+            BDescargarExcel.Location = new Point(35, 15);
+            BDescargarExcel.Name = "BDescargarExcel";
+            BDescargarExcel.Size = new Size(145, 23);
+            BDescargarExcel.TabIndex = 4;
+            BDescargarExcel.Text = "Descargar Excel";
+            BDescargarExcel.TextAlign = ContentAlignment.MiddleRight;
+            BDescargarExcel.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BDescargarExcel.UseVisualStyleBackColor = true;
             // 
             // BBusqueda
             // 
@@ -230,133 +193,200 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(1367, 247);
-            BBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BBusqueda.Location = new Point(869, 10);
             BBusqueda.Name = "BBusqueda";
-            BBusqueda.Size = new Size(54, 39);
-            BBusqueda.TabIndex = 47;
+            BBusqueda.Size = new Size(47, 29);
+            BBusqueda.TabIndex = 7;
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // panel2
             // 
-            label6.BackColor = Color.White;
-            label6.Location = new Point(28, 227);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(1549, 656);
-            label6.TabIndex = 48;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.FromArgb(210, 120, 61);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(dateTimePicker1);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(BBuscar);
+            panel2.Controls.Add(dateTimePicker2);
+            panel2.Location = new Point(23, 20);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1017, 68);
+            panel2.TabIndex = 55;
             // 
-            // FechaRegistro
+            // label1
             // 
-            FechaRegistro.HeaderText = "FechaRegistro";
-            FechaRegistro.MinimumWidth = 6;
-            FechaRegistro.Name = "FechaRegistro";
-            FechaRegistro.Width = 125;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(16, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(212, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Reporte de ventas:";
             // 
-            // TipoDocumento
+            // panel1
             // 
-            TipoDocumento.HeaderText = "TipoDocumento";
-            TipoDocumento.MinimumWidth = 6;
-            TipoDocumento.Name = "TipoDocumento";
-            TipoDocumento.Width = 125;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.FromArgb(210, 120, 61);
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label9);
+            panel1.Controls.Add(BDescargarExcel);
+            panel1.Controls.Add(CBusqueda);
+            panel1.Controls.Add(TBusqueda);
+            panel1.Controls.Add(BLimpiarBusqueda);
+            panel1.Controls.Add(BBusqueda);
+            panel1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel1.Location = new Point(23, 110);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1017, 52);
+            panel1.TabIndex = 56;
+            panel1.Paint += panel1_Paint;
             // 
-            // NumeroDocumento
+            // label9
             // 
-            NumeroDocumento.HeaderText = "NumeroDocumento";
-            NumeroDocumento.MinimumWidth = 6;
-            NumeroDocumento.Name = "NumeroDocumento";
-            NumeroDocumento.Width = 125;
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.BackColor = Color.FromArgb(210, 120, 61);
+            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(388, 18);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 15);
+            label9.TabIndex = 54;
+            label9.Text = "Buscar por:";
             // 
-            // MontoTotal
+            // dgvData
             // 
-            MontoTotal.HeaderText = "Monto Total";
-            MontoTotal.MinimumWidth = 6;
-            MontoTotal.Name = "MontoTotal";
-            MontoTotal.Width = 125;
+            dgvData.AllowUserToAddRows = false;
+            dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.Padding = new Padding(1);
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { fechaRegistro, numeroVenta, DocumentoUsuario, DocumentoCliente, nombreCliente, medioPago, montoTotal, verDetalle });
+            dgvData.Location = new Point(23, 184);
+            dgvData.MultiSelect = false;
+            dgvData.Name = "dgvData";
+            dgvData.ReadOnly = true;
+            dgvData.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.SelectionBackColor = Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dgvData.RowTemplate.Height = 28;
+            dgvData.Size = new Size(1017, 440);
+            dgvData.TabIndex = 57;
             // 
-            // UsuarioRegistro
+            // fechaRegistro
             // 
-            UsuarioRegistro.HeaderText = "Usuario Registro";
-            UsuarioRegistro.MinimumWidth = 6;
-            UsuarioRegistro.Name = "UsuarioRegistro";
-            UsuarioRegistro.Width = 125;
+            fechaRegistro.HeaderText = "Fecha de registro";
+            fechaRegistro.MinimumWidth = 6;
+            fechaRegistro.Name = "fechaRegistro";
+            fechaRegistro.ReadOnly = true;
+            fechaRegistro.Width = 125;
+            // 
+            // numeroVenta
+            // 
+            numeroVenta.HeaderText = "Número de venta";
+            numeroVenta.MinimumWidth = 6;
+            numeroVenta.Name = "numeroVenta";
+            numeroVenta.ReadOnly = true;
+            numeroVenta.Width = 125;
+            // 
+            // DocumentoUsuario
+            // 
+            DocumentoUsuario.HeaderText = "Documento del Usuario";
+            DocumentoUsuario.MinimumWidth = 6;
+            DocumentoUsuario.Name = "DocumentoUsuario";
+            DocumentoUsuario.ReadOnly = true;
+            DocumentoUsuario.Width = 150;
             // 
             // DocumentoCliente
             // 
-            DocumentoCliente.HeaderText = "Documento Cliente";
+            DocumentoCliente.HeaderText = "Documento del Cliente";
             DocumentoCliente.MinimumWidth = 6;
             DocumentoCliente.Name = "DocumentoCliente";
-            DocumentoCliente.Width = 125;
+            DocumentoCliente.ReadOnly = true;
+            DocumentoCliente.Width = 150;
             // 
             // nombreCliente
             // 
-            nombreCliente.HeaderText = "Nombre Cliente";
-            nombreCliente.MinimumWidth = 6;
+            nombreCliente.HeaderText = "Nombre del cliente";
             nombreCliente.Name = "nombreCliente";
-            nombreCliente.Width = 125;
+            nombreCliente.ReadOnly = true;
+            nombreCliente.Width = 175;
             // 
-            // VerDetalleVen
+            // medioPago
             // 
-            VerDetalleVen.HeaderText = "Ver Detalle";
-            VerDetalleVen.MinimumWidth = 6;
-            VerDetalleVen.Name = "VerDetalleVen";
-            VerDetalleVen.Resizable = DataGridViewTriState.True;
-            VerDetalleVen.SortMode = DataGridViewColumnSortMode.Automatic;
-            VerDetalleVen.Text = "Ver Venta";
-            VerDetalleVen.Width = 125;
+            medioPago.HeaderText = "Medio de pago";
+            medioPago.Name = "medioPago";
+            medioPago.ReadOnly = true;
+            medioPago.Width = 125;
+            // 
+            // montoTotal
+            // 
+            montoTotal.HeaderText = "Monto Total";
+            montoTotal.MinimumWidth = 6;
+            montoTotal.Name = "montoTotal";
+            montoTotal.ReadOnly = true;
+            // 
+            // verDetalle
+            // 
+            verDetalle.HeaderText = "Ver detalle";
+            verDetalle.Name = "verDetalle";
+            verDetalle.ReadOnly = true;
             // 
             // frmReportesVentas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1778, 985);
-            Controls.Add(label7);
-            Controls.Add(comboBox1);
-            Controls.Add(TBusqueda);
-            Controls.Add(BLimpiarBusqueda);
-            Controls.Add(BDescargarExcelRegCom);
-            Controls.Add(dataGridView1);
-            Controls.Add(BBusqueda);
-            Controls.Add(label6);
-            Controls.Add(BBuscar);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(label1);
+            ClientSize = new Size(1064, 636);
+            Controls.Add(dgvData);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmReportesVentas";
             Text = "frmReportesVentas";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private FontAwesome.Sharp.IconButton BBuscar;
         private Label label4;
         private Label label3;
-        private Label label2;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
-        private Label label1;
-        private Label label7;
-        private ComboBox comboBox1;
+        private ComboBox CBusqueda;
         private TextBox TBusqueda;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
-        private FontAwesome.Sharp.IconButton BDescargarExcelRegCom;
-        private DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton BDescargarExcel;
         private FontAwesome.Sharp.IconButton BBusqueda;
-        private Label label6;
-        private DataGridViewTextBoxColumn FechaRegistro;
-        private DataGridViewTextBoxColumn TipoDocumento;
-        private DataGridViewTextBoxColumn NumeroDocumento;
-        private DataGridViewTextBoxColumn MontoTotal;
-        private DataGridViewTextBoxColumn UsuarioRegistro;
+        private Panel panel2;
+        private Label label1;
+        private Panel panel1;
+        private Label label9;
+        private DataGridView dgvData;
+        private DataGridViewTextBoxColumn fechaRegistro;
+        private DataGridViewTextBoxColumn numeroVenta;
+        private DataGridViewTextBoxColumn DocumentoUsuario;
         private DataGridViewTextBoxColumn DocumentoCliente;
         private DataGridViewTextBoxColumn nombreCliente;
-        private DataGridViewButtonColumn VerDetalleVen;
+        private DataGridViewTextBoxColumn medioPago;
+        private DataGridViewTextBoxColumn montoTotal;
+        private DataGridViewButtonColumn verDetalle;
     }
 }

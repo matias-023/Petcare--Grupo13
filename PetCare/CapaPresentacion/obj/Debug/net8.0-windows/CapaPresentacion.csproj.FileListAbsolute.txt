@@ -77,7 +77,6 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmClientes.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmDetalleVenta.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmProductos.resources
-C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportes.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmUsuario.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmVentas.resources
 C:\Users\NoxiePC\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmAcercaDe.resources
@@ -246,3 +245,5 @@ C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources

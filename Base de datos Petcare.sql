@@ -230,8 +230,6 @@ CREATE TABLE COMPRA(
 	idCompra INT IDENTITY,
 	idUsuario INT,
 	idProveedor INT,
-	tipoDocumento VARCHAR(50),
-	numeroDocumento VARCHAR(100),
 	montoTotal DECIMAL(10,2),
 	fechaRegistro DATETIME CONSTRAINT DF_Compra_fechaRegistro DEFAULT getdate(),
 	CONSTRAINT PK_Compra_id PRIMARY KEY (idCompra),
