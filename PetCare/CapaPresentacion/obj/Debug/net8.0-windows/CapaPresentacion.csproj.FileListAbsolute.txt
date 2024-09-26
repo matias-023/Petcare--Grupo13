@@ -242,3 +242,7 @@ C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdUsuarios.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdClientes.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
+C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdClientes.resources
+C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
+C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
+C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources

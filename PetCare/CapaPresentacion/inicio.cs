@@ -206,12 +206,15 @@ namespace CapaPresentacion
         {
             //abrir reportes ventas
             ocultarSubMenu();
+            abrirFormulario(menuReportes, new frmReportesVentas());
+
         }
 
         private void subMenuReportesCompras_Click(object sender, EventArgs e)
         {
             //abrir reportes compras
             ocultarSubMenu();
+            abrirFormulario(menuReportes, new frmReportesCompras());
         }
 
         private void menuAcercaDe_Click(object sender, EventArgs e)
