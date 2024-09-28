@@ -16,5 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void TCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
