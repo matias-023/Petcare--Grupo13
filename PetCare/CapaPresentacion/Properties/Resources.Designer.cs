@@ -103,6 +103,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifier_1_icon_icons_com_56924 {
+            get {
+                object obj = ResourceManager.GetObject("magnifier-1_icon-icons.com_56924", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap maxi {
             get {
                 object obj = ResourceManager.GetObject("maxi", resourceCulture);
