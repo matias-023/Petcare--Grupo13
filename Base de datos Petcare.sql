@@ -70,7 +70,7 @@ CREATE TABLE USUARIO(
 	CONSTRAINT UQ_Usuario_correo UNIQUE (correo),
 	CONSTRAINT UQ_Usuario_telefono UNIQUE (telefono),
 	CONSTRAINT CK_Usuario_sexo CHECK (sexo IN ('Hombre', 'Mujer')),
-	CONSTRAINT CK_Usuario_fechaNacimiento CHECK (datediff(YY, fechaNacimiento, getdate()) >= 18)
+	CONSTRAINT CK_Usuario_fechaNacimiento CHECK ((datediff(YY, fechaNacimiento, getdate()) >= 18) AND (datediff(YY, fechaNacimiento, getdate()) <= 100))
 )
 go
 
@@ -178,7 +178,7 @@ go
 
 /* cambios 6/9 */
 INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, idRol, telefono)
-VALUES ('1010111', 'REABASTECEDOR', 'reabastecedor@gmail.com', '123', '2004-05-10', 'Hombre', 2, '3794222222')
+VALUES ('10101111', 'REABASTECEDOR', 'reabastecedor@gmail.com', '123', '2004-05-10', 'Hombre', 2, '3794222222')
 go
 
 INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, idRol, telefono)
@@ -266,6 +266,10 @@ go
 INSERT INTO PERMISO (idRol, nombreMenu)
 VALUES(2, 'menuCompras'),
 (2, 'menuProveedores')
+go
+
+INSERT INTO PERMISO (idRol, nombreMenu)
+VALUES(2, 'menuReportes')
 go
 
 SELECT * FROM PERMISO
@@ -374,7 +378,7 @@ go
 
 ALTER TABLE USUARIO
 ADD CONSTRAINT CK_Usuario_Dni
-CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 6)
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
 go
 
 --restriccion para nombres completos.

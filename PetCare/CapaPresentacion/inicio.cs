@@ -58,10 +58,7 @@ namespace CapaPresentacion
 
         public inicio(Usuario objUsuario = null)
         {
-            if (objUsuario == null)
-                usuarioActual = new Usuario() { nombreCompleto = "Usuario predefinido", idUsuario = 1 };
-            else
-                usuarioActual = objUsuario;
+            usuarioActual = objUsuario;
 
             InitializeComponent();
 
@@ -71,7 +68,12 @@ namespace CapaPresentacion
             }
             else
             {
-                iconoUsuario.IconChar = IconChar.User;
+                iconoUsuario.IconChar = IconChar.UserLarge;
+                panelSubMenuReportes.Size = new System.Drawing.Size(183, 35);
+                if(usuarioActual.oRol.idRol == 2)
+                    subMenuReportesVentas.Visible = false;
+                else 
+                    subMenuReportesCompras.Visible = false;
             }
             diseño();
         }

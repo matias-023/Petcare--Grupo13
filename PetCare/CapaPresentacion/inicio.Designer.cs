@@ -651,7 +651,7 @@
             // iconoUsuario
             // 
             iconoUsuario.BackColor = Color.FromArgb(245, 145, 73);
-            iconoUsuario.IconChar = FontAwesome.Sharp.IconChar.User;
+            iconoUsuario.IconChar = FontAwesome.Sharp.IconChar.UserLarge;
             iconoUsuario.IconColor = Color.White;
             iconoUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconoUsuario.IconSize = 25;
