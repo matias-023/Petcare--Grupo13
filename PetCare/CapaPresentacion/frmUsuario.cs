@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.Utilidades;
+using CapaPresentacion.Modals;
 using CapaEntidad;
 using CapaNegocio;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace CapaPresentacion
 {
@@ -31,24 +33,6 @@ namespace CapaPresentacion
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
-            TDocumento.Select();
-            CEstado.Items.Add(new opcionCombo() { valor = 1, texto = "Activo" });
-            CEstado.Items.Add(new opcionCombo() { valor = 0, texto = "No Activo" });
-            CEstado.DisplayMember = "texto";
-            CEstado.ValueMember = "valor";
-            CEstado.SelectedIndex = 0;
-
-            List<Rol> listaRol = new CN_Rol().listar();
-
-            foreach (Rol item in listaRol)
-            {
-                CRol.Items.Add(new opcionCombo() { valor = item.idRol, texto = item.descripcion });
-            }
-            CRol.DisplayMember = "texto";
-            CRol.ValueMember = "valor";
-            CRol.SelectedIndex = 0;
-
-
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
                 if (columna.Visible == true && columna.Name != "BSeleccionar")
@@ -68,7 +52,7 @@ namespace CapaPresentacion
                 if (user.idUsuario != 1)
                 {
 
-                    dgvData.Rows.Add(new object[] {"", user.idUsuario, user.documento, user.nombreCompleto, user.correo, user.telefono, user.clave,
+                dgvData.Rows.Add(new object[] {"", user.idUsuario, user.documento, user.nombreCompleto, user.correo, user.telefono, user.clave, user.sexo, user.fechaNacimiento,
                 user.oRol.idRol,
                 user.oRol.descripcion,
                 user.estado == true ? 1 : 0,
@@ -76,123 +60,7 @@ namespace CapaPresentacion
 
                 });
                 }
-
-
             }
-        }
-
-        //Botón para editar o guardar usuarios.
-        private void BGuardar_Click(object sender, EventArgs e)
-        {
-            //Muestra un mensaje si se elige la opción de usuario no activo.
-            if (TContraseña.Text == TConfirmarContraseña.Text)
-            {
-                if (Convert.ToInt32(((opcionCombo)CEstado.SelectedItem).valor) == 0)
-                {
-                    DialogResult ask = MessageBox.Show("Los usuarios no activos no podrán ingresar al sistema, desea continuar?", "Confirmar estado", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (ask == DialogResult.Yes)
-                    {
-                        GuardarUsuario();
-                    }
-                }
-                else
-                {
-                    GuardarUsuario();
-                }
-            }
-            else
-            {
-                MessageBox.Show("La contraseña y su confirmación no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        //Función para guardar o editar usuarios.
-        private void GuardarUsuario()
-        {
-
-            string mensaje = string.Empty;
-            Usuario user = new Usuario()
-            {
-                idUsuario = Convert.ToInt32(TIdUsuario.Text),
-                documento = TDocumento.Text,
-                nombreCompleto = TNombreCompleto.Text,
-                correo = TCorreo.Text,
-                telefono = TTelefono.Text,
-                clave = TContraseña.Text,
-                oRol = new Rol() { idRol = Convert.ToInt32(((opcionCombo)CRol.SelectedItem).valor) },
-                estado = Convert.ToInt32(((opcionCombo)CEstado.SelectedItem).valor) == 1 ? true : false
-            };
-
-
-
-            //Si es 0 significa que se esta creando un nuevo usuario, caso contrario se está editando un usuario
-            if (user.idUsuario == 0)
-            {
-                int idUsuarioGenerado = new CN_Usuario().registrar(user, out mensaje);
-
-                if (idUsuarioGenerado != 0)
-                {
-                    dgvData.Rows.Add(new object[] {"", idUsuarioGenerado, TDocumento.Text, TNombreCompleto.Text, TCorreo.Text, TTelefono.Text, TContraseña.Text,
-                ((opcionCombo)CRol.SelectedItem).valor.ToString(),
-                ((opcionCombo)CRol.SelectedItem).texto.ToString(),
-                ((opcionCombo)CEstado.SelectedItem).valor.ToString(),
-                ((opcionCombo)CEstado.SelectedItem).texto.ToString(),
-                });
-
-                    limpiar();
-                    MessageBox.Show(mensaje, "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                bool resultado = new CN_Usuario().editar(user, out mensaje);
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(TIndice.Text)];
-                    row.Cells["idUsuario"].Value = TIdUsuario.Text;
-                    row.Cells["documento"].Value = TDocumento.Text;
-                    row.Cells["nombreCompleto"].Value = TNombreCompleto.Text;
-                    row.Cells["correo"].Value = TCorreo.Text;
-                    row.Cells["telefono"].Value = TTelefono.Text;
-                    row.Cells["contraseña"].Value = TContraseña.Text;
-                    row.Cells["idRol"].Value = ((opcionCombo)CRol.SelectedItem).valor.ToString();
-                    row.Cells["rol"].Value = ((opcionCombo)CRol.SelectedItem).texto.ToString();
-                    row.Cells["estadoValor"].Value = ((opcionCombo)CEstado.SelectedItem).valor.ToString();
-                    row.Cells["estado"].Value = ((opcionCombo)CEstado.SelectedItem).texto.ToString();
-
-                    limpiar();
-                    MessageBox.Show(mensaje, "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void limpiar()
-        {
-            TIndice.Text = "-1";
-            TIdUsuario.Text = "0";
-            TDocumento.Text = "";
-            TNombreCompleto.Text = "";
-            TCorreo.Text = "";
-            TTelefono.Text = "";
-            TContraseña.Text = "";
-            TConfirmarContraseña.Text = "";
-            CRol.SelectedIndex = 0;
-            CEstado.SelectedIndex = 0;
-
-            TDocumento.Select();
-            BGuardar.Text = "Crear usuario";
-            BGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
-            CRol.Enabled = true;
-            CEstado.Enabled = true;
         }
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -222,51 +90,32 @@ namespace CapaPresentacion
                 if (indice >= 0)
 
                 {
-                    BGuardar.Text = "Editar usuario";
-                    BGuardar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+                    DataGridViewRow filaSeleccionada = dgvData.Rows[indice];
 
-                    TIndice.Text = indice.ToString();
-                    TIdUsuario.Text = dgvData.Rows[indice].Cells["idUsuario"].Value.ToString();
-
-                    //Se ocultan los campos para cambiar roles y estado, ya que un usuario no puede cambiarse su rol ni su estado a si mismo.
-                    if (TIdUsuario.Text == idUsuarioLogeado.ToString())
+                    if (filaSeleccionada != null)
                     {
-                        CRol.Enabled = false;
-                        CEstado.Enabled = false;
-                    }
-                    else
-                    {
-                        CRol.Enabled = true;
-                        CEstado.Enabled = true;
-                    }
-
-                    TDocumento.Text = dgvData.Rows[indice].Cells["documento"].Value.ToString();
-                    TNombreCompleto.Text = dgvData.Rows[indice].Cells["nombreCompleto"].Value.ToString();
-                    TCorreo.Text = dgvData.Rows[indice].Cells["correo"].Value.ToString();
-                    TTelefono.Text = dgvData.Rows[indice].Cells["telefono"].Value.ToString();
-                    TContraseña.Text = dgvData.Rows[indice].Cells["contraseña"].Value.ToString();
-                    TConfirmarContraseña.Text = dgvData.Rows[indice].Cells["contraseña"].Value.ToString();
-
-                    foreach (opcionCombo oc in CRol.Items)
-                    {
-                        if (oc.texto == dgvData.Rows[indice].Cells["rol"].Value.ToString())
+                        mdUsuarios modal = new mdUsuarios();
+                        modal.indiceUsuario = indice;
+                        modal.fila = filaSeleccionada;
+                        modal.idUsuarioLogeado = idUsuarioLogeado;
+                        var result = modal.ShowDialog();
+                        if (result == DialogResult.OK)
                         {
-                            int indice_combo = CRol.Items.IndexOf(oc);
-                            CRol.SelectedIndex = indice_combo;
-                            break;
+                            DataGridViewRow row = dgvData.Rows[indice];
+                            row.Cells["idUsuario"].Value = modal.mdUsuario.idUsuario;
+                            row.Cells["documento"].Value = modal.mdUsuario.documento;
+                            row.Cells["nombreCompleto"].Value = modal.mdUsuario.nombreCompleto;
+                            row.Cells["correo"].Value = modal.mdUsuario.correo;
+                            row.Cells["telefono"].Value = modal.mdUsuario.telefono;
+                            row.Cells["contraseña"].Value = modal.mdUsuario.clave;
+                            row.Cells["sexo"].Value = modal.mdUsuario.sexo;
+                            row.Cells["fechaNacimiento"].Value = modal.mdUsuario.fechaNacimiento;
+                            row.Cells["idRol"].Value = modal.mdUsuario.oRol.idRol;
+                            row.Cells["rol"].Value = modal.mdUsuario.oRol.descripcion;
+                            row.Cells["estadoValor"].Value = modal.mdUsuario.estado == true ? 1 : 0;
+                            row.Cells["estado"].Value = modal.mdUsuario.estado == true ? "Activo" : "No activo";
                         }
                     }
-
-                    foreach (opcionCombo oc in CEstado.Items)
-                    {
-                        if (Convert.ToInt32(oc.valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["estadoValor"].Value))
-                        {
-                            int indice_combo = CEstado.Items.IndexOf(oc);
-                            CEstado.SelectedIndex = indice_combo;
-                            break;
-                        }
-                    }
-
                 }
             }
         }
@@ -296,31 +145,21 @@ namespace CapaPresentacion
             }
         }
 
-        private void BLimpiar_Click(object sender, EventArgs e)
+        private void BAgregar_Click(object sender, EventArgs e)
         {
-            limpiar();
-        }
-
-        private void TNombreCompleto_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
+            using (var modal = new mdUsuarios())
             {
-                mayusculas(textBox);
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    dgvData.Rows.Add(new object[] {"", modal.mdUsuario.idUsuario, modal.mdUsuario.documento, modal.mdUsuario.nombreCompleto, modal.mdUsuario.correo, modal.mdUsuario.telefono, modal.mdUsuario.clave, modal.mdUsuario.sexo, modal.mdUsuario.fechaNacimiento,
+                modal.mdUsuario.oRol.idRol,
+                modal.mdUsuario.oRol.descripcion,
+                modal.mdUsuario.estado == true ? 1 : 0,
+                modal.mdUsuario.estado == true ? "Activo": "No activo"
+                });
+                }
             }
-        }
-
-        private void mayusculas(TextBox p)
-        {
-            int selectionStart = p.SelectionStart;
-            int selectionLength = p.SelectionLength;
-
-            // Convierte el texto en formato Título
-            p.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(p.Text.ToLower());
-
-            // Restablece la posición del cursor
-            p.SelectionStart = selectionStart;
-            p.SelectionLength = selectionLength;
         }
     }
 }

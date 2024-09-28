@@ -22,13 +22,19 @@
     <Compile Update="frmDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmReportes.cs">
+    <Compile Update="frmReportesCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmReportesVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frmUsuario.cs">
@@ -41,6 +47,33 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdBuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdBuscarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Modals\mdUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

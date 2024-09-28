@@ -15,7 +15,7 @@ namespace CapaDatos
         {
             List<Permiso> lista = new List<Permiso>();
 
-            using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+            using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
             {
                 try
                 {

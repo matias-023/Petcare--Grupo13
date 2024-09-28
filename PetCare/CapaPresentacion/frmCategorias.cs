@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Modals;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,18 @@ namespace CapaPresentacion
         public frmCategorias()
         {
             InitializeComponent();
+        }
+
+        private void BAgregar_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdCategorias())
+            {
+                var result = modal.ShowDialog();
+                 /* if (result == DialogResult.OK)
+                {
+
+                } */
+            }
         }
     }
 }

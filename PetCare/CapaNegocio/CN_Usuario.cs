@@ -23,7 +23,8 @@ namespace CapaNegocio
         {
             mensaje = string.Empty;
 
-            if (validar(user.nombreCompleto) || validar(user.documento) || validar(user.correo) || validar(user.telefono) || validar(user.clave))
+            if (validar(user.nombreCompleto) || validar(user.documento) || validar(user.correo) || validar(user.telefono)
+                || validar(user.clave))
             {
                 mensaje = "Debe completar todos los campos.";
             }
@@ -45,7 +46,8 @@ namespace CapaNegocio
         {
             mensaje = string.Empty;
 
-            if (validar(user.nombreCompleto) || validar(user.documento) || validar(user.correo) || validar(user.telefono) || validar(user.clave))
+            if (validar(user.nombreCompleto) || validar(user.documento) || validar(user.correo) || validar(user.telefono)
+                || validar(user.clave))
             {
                 mensaje = "Debe completar todos los campos.";
             }

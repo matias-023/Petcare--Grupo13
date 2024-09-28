@@ -19,12 +19,12 @@ namespace CapaDatos
         {
             List<Usuario> lista = new List<Usuario>();
 
-            using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+            using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select U.idUsuario, U.documento, U.nombreCompleto, U.correo, U.clave, U.estado, U.telefono, R.idRol, R.descripcion from USUARIO u");
+                    query.AppendLine("select U.idUsuario, U.documento, U.nombreCompleto, U.correo, U.clave, U.fechaNacimiento, U.sexo, U.estado, U.telefono, R.idRol, R.descripcion from USUARIO u");
                     query.AppendLine("inner join ROL r on r.idRol = U.idRol");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), objConexion);
@@ -42,6 +42,8 @@ namespace CapaDatos
                                 nombreCompleto = dr["nombreCompleto"].ToString(),
                                 correo = dr["correo"].ToString(),
                                 clave = dr["clave"].ToString(),
+                                fechaNacimiento = Convert.ToDateTime(dr["fechaNacimiento"]).ToString("dd-MM-yyyy"),
+                                sexo = dr["sexo"].ToString(),
                                 estado = Convert.ToBoolean(dr["estado"]),
                                 telefono = dr["telefono"].ToString(),
                                 oRol = new Rol() { idRol = Convert.ToInt32(dr["idRol"]), descripcion = dr["descripcion"].ToString() }
@@ -63,17 +65,20 @@ namespace CapaDatos
         {
             int idUsuarioGenerado = 0;
             mensaje = string.Empty;
+            DateTime fechaNacimiento = DateTime.ParseExact(user.fechaNacimiento, "dd-MM-yyyy", null);
 
             try
             {
 
-                using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+                using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
                 {
                     SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", objConexion);
                     cmd.Parameters.AddWithValue("documento", user.documento);
                     cmd.Parameters.AddWithValue("nombreCompleto", user.nombreCompleto);
                     cmd.Parameters.AddWithValue("correo", user.correo);
                     cmd.Parameters.AddWithValue("clave", user.clave);
+                    cmd.Parameters.AddWithValue("fechaNacimiento", fechaNacimiento);
+                    cmd.Parameters.AddWithValue("sexo", user.sexo); 
                     cmd.Parameters.AddWithValue("telefono", user.telefono);
                     cmd.Parameters.AddWithValue("idRol", user.oRol.idRol);
                     cmd.Parameters.AddWithValue("estado", user.estado);
@@ -107,11 +112,12 @@ namespace CapaDatos
         {
             bool respuesta = false;
             mensaje = string.Empty;
+            DateTime fechaNacimiento = DateTime.ParseExact(user.fechaNacimiento, "dd-MM-yyyy", null);
 
             try
             {
 
-                using (SqlConnection objConexion = new SqlConnection(Conexion.cadena))
+                using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
                 {
                     SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", objConexion);
                     cmd.Parameters.AddWithValue("idUsuario", user.idUsuario);
@@ -119,6 +125,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("nombreCompleto", user.nombreCompleto);
                     cmd.Parameters.AddWithValue("correo", user.correo);
                     cmd.Parameters.AddWithValue("clave", user.clave);
+                    cmd.Parameters.AddWithValue("fechaNacimiento", fechaNacimiento);
+                    cmd.Parameters.AddWithValue("sexo", user.sexo);
                     cmd.Parameters.AddWithValue("telefono", user.telefono);
                     cmd.Parameters.AddWithValue("idRol", user.oRol.idRol);
                     cmd.Parameters.AddWithValue("estado", user.estado);
@@ -151,22 +159,23 @@ namespace CapaDatos
         private string validarExcepcion(string msg)
         {
             string msgAux = ""; 
-            if (msg.Contains("CK_DniValido"))
-            {
+            if (msg.Contains("CK_Usuario_Dni"))
                 msgAux = "El número de documento ingresado no es válido!";
-            }
-            if (msg.Contains("CK_NombreValido"))
-            {
+
+            if (msg.Contains("CK_Usuario_Nombre"))
                 msgAux = "El nombre completo ingresado no es válido!";
-            }
-            if (msg.Contains("CK_CorreoValido"))
-            {
+
+            if (msg.Contains("CK_Usuario_Correo"))
                 msgAux = "El correo ingresado no es válido!";
-            }
-            if (msg.Contains("CK_TelefonoValido"))
-            {
+
+            if (msg.Contains("CK_Usuario_Telefono"))
                 msgAux = "El telefono ingresado no es válido!";
-            }
+
+            if (msg.Contains("CK_Usuario_sexo"))
+                msgAux = "El sexo ingresado no es válido!";
+
+            if (msg.Contains("CK_Usuario_fechaNacimiento"))
+                msgAux = "El usuario debe ser mayor de edad!";
             return msgAux;
         }
     }

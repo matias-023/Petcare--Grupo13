@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmReportes : Form
+    public partial class frmReportesVentas : Form
     {
-        public frmReportes()
+        public frmReportesVentas()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

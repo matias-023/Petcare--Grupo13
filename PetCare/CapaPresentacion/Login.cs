@@ -82,6 +82,5 @@ namespace CapaPresentacion
         {
             return string.IsNullOrEmpty(p);
         }
-
     }
 }

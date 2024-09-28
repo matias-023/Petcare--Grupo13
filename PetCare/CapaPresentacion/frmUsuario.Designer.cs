@@ -28,29 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            panel1 = new Panel();
-            TIndice = new TextBox();
-            CEstado = new ComboBox();
-            LEstado = new Label();
-            TIdUsuario = new TextBox();
-            BLimpiar = new FontAwesome.Sharp.IconButton();
-            BGuardar = new FontAwesome.Sharp.IconButton();
-            CRol = new ComboBox();
-            LRol = new Label();
-            TConfirmarContraseña = new TextBox();
-            label6 = new Label();
-            TContraseña = new TextBox();
-            label5 = new Label();
-            TTelefono = new TextBox();
-            label4 = new Label();
-            TCorreo = new TextBox();
-            label3 = new Label();
-            TNombreCompleto = new TextBox();
-            label2 = new Label();
-            TDocumento = new TextBox();
-            label1 = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvData = new DataGridView();
             BSeleccionar = new DataGridViewButtonColumn();
             idUsuario = new DataGridViewTextBoxColumn();
@@ -59,268 +38,49 @@
             correo = new DataGridViewTextBoxColumn();
             telefono = new DataGridViewTextBoxColumn();
             contraseña = new DataGridViewTextBoxColumn();
+            sexo = new DataGridViewTextBoxColumn();
+            fechaNacimiento = new DataGridViewTextBoxColumn();
             idRol = new DataGridViewTextBoxColumn();
             rol = new DataGridViewTextBoxColumn();
             estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
-            label8 = new Label();
             label9 = new Label();
             CBusqueda = new ComboBox();
             TBusqueda = new TextBox();
             BBusqueda = new FontAwesome.Sharp.IconButton();
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
-            panel1.SuspendLayout();
+            BAgregar = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(TIndice);
-            panel1.Controls.Add(CEstado);
-            panel1.Controls.Add(LEstado);
-            panel1.Controls.Add(TIdUsuario);
-            panel1.Controls.Add(BLimpiar);
-            panel1.Controls.Add(BGuardar);
-            panel1.Controls.Add(CRol);
-            panel1.Controls.Add(LRol);
-            panel1.Controls.Add(TConfirmarContraseña);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(TContraseña);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(TTelefono);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(TCorreo);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(TNombreCompleto);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(TDocumento);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(281, 562);
-            panel1.TabIndex = 0;
-            // 
-            // TIndice
-            // 
-            TIndice.Location = new Point(193, 12);
-            TIndice.Name = "TIndice";
-            TIndice.Size = new Size(26, 23);
-            TIndice.TabIndex = 16;
-            TIndice.Text = "-1";
-            TIndice.Visible = false;
-            // 
-            // CEstado
-            // 
-            CEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            CEstado.FormattingEnabled = true;
-            CEstado.Location = new Point(30, 422);
-            CEstado.Name = "CEstado";
-            CEstado.Size = new Size(222, 23);
-            CEstado.TabIndex = 8;
-            // 
-            // LEstado
-            // 
-            LEstado.AutoSize = true;
-            LEstado.Location = new Point(29, 404);
-            LEstado.Name = "LEstado";
-            LEstado.Size = new Size(45, 15);
-            LEstado.TabIndex = 14;
-            LEstado.Text = "Estado:";
-            // 
-            // TIdUsuario
-            // 
-            TIdUsuario.Location = new Point(225, 12);
-            TIdUsuario.Name = "TIdUsuario";
-            TIdUsuario.Size = new Size(26, 23);
-            TIdUsuario.TabIndex = 13;
-            TIdUsuario.Text = "0";
-            TIdUsuario.Visible = false;
-            // 
-            // BLimpiar
-            // 
-            BLimpiar.BackColor = Color.RoyalBlue;
-            BLimpiar.Cursor = Cursors.Hand;
-            BLimpiar.FlatAppearance.BorderColor = Color.Black;
-            BLimpiar.FlatStyle = FlatStyle.Flat;
-            BLimpiar.ForeColor = Color.White;
-            BLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            BLimpiar.IconColor = Color.White;
-            BLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BLimpiar.IconSize = 16;
-            BLimpiar.Location = new Point(28, 500);
-            BLimpiar.Name = "BLimpiar";
-            BLimpiar.Size = new Size(222, 25);
-            BLimpiar.TabIndex = 10;
-            BLimpiar.Text = "Limpiar";
-            BLimpiar.TextAlign = ContentAlignment.MiddleRight;
-            BLimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BLimpiar.UseVisualStyleBackColor = false;
-            BLimpiar.Click += BLimpiar_Click;
-            // 
-            // BGuardar
-            // 
-            BGuardar.BackColor = Color.ForestGreen;
-            BGuardar.Cursor = Cursors.Hand;
-            BGuardar.FlatAppearance.BorderColor = Color.Black;
-            BGuardar.FlatStyle = FlatStyle.Flat;
-            BGuardar.ForeColor = Color.White;
-            BGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
-            BGuardar.IconColor = Color.White;
-            BGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BGuardar.IconSize = 16;
-            BGuardar.Location = new Point(28, 469);
-            BGuardar.Name = "BGuardar";
-            BGuardar.Size = new Size(222, 25);
-            BGuardar.TabIndex = 9;
-            BGuardar.Text = "Crear usuario";
-            BGuardar.TextAlign = ContentAlignment.MiddleRight;
-            BGuardar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BGuardar.UseVisualStyleBackColor = false;
-            BGuardar.Click += BGuardar_Click;
-            // 
-            // CRol
-            // 
-            CRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            CRol.FormattingEnabled = true;
-            CRol.Location = new Point(29, 366);
-            CRol.Name = "CRol";
-            CRol.Size = new Size(222, 23);
-            CRol.TabIndex = 7;
-            // 
-            // LRol
-            // 
-            LRol.AutoSize = true;
-            LRol.Location = new Point(29, 348);
-            LRol.Name = "LRol";
-            LRol.Size = new Size(27, 15);
-            LRol.TabIndex = 12;
-            LRol.Text = "Rol:";
-            // 
-            // TConfirmarContraseña
-            // 
-            TConfirmarContraseña.Location = new Point(29, 313);
-            TConfirmarContraseña.Name = "TConfirmarContraseña";
-            TConfirmarContraseña.PasswordChar = '*';
-            TConfirmarContraseña.Size = new Size(222, 23);
-            TConfirmarContraseña.TabIndex = 6;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(29, 295);
-            label6.Name = "label6";
-            label6.Size = new Size(125, 15);
-            label6.TabIndex = 10;
-            label6.Text = "Confirmar contraseña:";
-            // 
-            // TContraseña
-            // 
-            TContraseña.Location = new Point(29, 260);
-            TContraseña.Name = "TContraseña";
-            TContraseña.PasswordChar = '*';
-            TContraseña.Size = new Size(222, 23);
-            TContraseña.TabIndex = 5;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(29, 242);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Contraseña:";
-            // 
-            // TTelefono
-            // 
-            TTelefono.Location = new Point(29, 207);
-            TTelefono.Name = "TTelefono";
-            TTelefono.Size = new Size(222, 23);
-            TTelefono.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(29, 189);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 15);
-            label4.TabIndex = 6;
-            label4.Text = "Teléfono:";
-            // 
-            // TCorreo
-            // 
-            TCorreo.Location = new Point(29, 154);
-            TCorreo.Name = "TCorreo";
-            TCorreo.Size = new Size(222, 23);
-            TCorreo.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(29, 136);
-            label3.Name = "label3";
-            label3.Size = new Size(108, 15);
-            label3.TabIndex = 4;
-            label3.Text = "Correo electrónico:";
-            // 
-            // TNombreCompleto
-            // 
-            TNombreCompleto.Location = new Point(29, 101);
-            TNombreCompleto.Name = "TNombreCompleto";
-            TNombreCompleto.Size = new Size(222, 23);
-            TNombreCompleto.TabIndex = 2;
-            TNombreCompleto.TextChanged += TNombreCompleto_TextChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(29, 83);
-            label2.Name = "label2";
-            label2.Size = new Size(108, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Nombre completo:";
-            // 
-            // TDocumento
-            // 
-            TDocumento.Location = new Point(29, 48);
-            TDocumento.Name = "TDocumento";
-            TDocumento.Size = new Size(222, 23);
-            TDocumento.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(29, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(135, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Número de documento:";
             // 
             // dgvData
             // 
             dgvData.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new Padding(1);
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, idRol, rol, estadoValor, estado });
-            dgvData.Location = new Point(301, 101);
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, sexo, fechaNacimiento, idRol, rol, estadoValor, estado });
+            dgvData.Location = new Point(23, 107);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(1011, 454);
+            dgvData.Size = new Size(1001, 454);
             dgvData.TabIndex = 1;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellPainting += dgvData_CellPainting;
@@ -348,7 +108,7 @@
             documento.MinimumWidth = 6;
             documento.Name = "documento";
             documento.ReadOnly = true;
-            documento.Width = 125;
+            documento.Width = 200;
             // 
             // nombreCompleto
             // 
@@ -364,7 +124,7 @@
             correo.MinimumWidth = 6;
             correo.Name = "correo";
             correo.ReadOnly = true;
-            correo.Width = 200;
+            correo.Width = 250;
             // 
             // telefono
             // 
@@ -372,7 +132,7 @@
             telefono.MinimumWidth = 6;
             telefono.Name = "telefono";
             telefono.ReadOnly = true;
-            telefono.Width = 125;
+            telefono.Width = 150;
             // 
             // contraseña
             // 
@@ -381,7 +141,19 @@
             contraseña.Name = "contraseña";
             contraseña.ReadOnly = true;
             contraseña.Visible = false;
-            contraseña.Width = 125;
+            contraseña.Width = 150;
+            // 
+            // sexo
+            // 
+            sexo.HeaderText = "Sexo";
+            sexo.Name = "sexo";
+            sexo.ReadOnly = true;
+            // 
+            // fechaNacimiento
+            // 
+            fechaNacimiento.HeaderText = "Fecha de nacimiento";
+            fechaNacimiento.Name = "fechaNacimiento";
+            fechaNacimiento.ReadOnly = true;
             // 
             // idRol
             // 
@@ -415,47 +187,42 @@
             estado.MinimumWidth = 6;
             estado.Name = "estado";
             estado.ReadOnly = true;
-            // 
-            // label8
-            // 
-            label8.BackColor = Color.White;
-            label8.BorderStyle = BorderStyle.FixedSingle;
-            label8.Font = new Font("Segoe UI", 16F);
-            label8.Location = new Point(301, 16);
-            label8.Name = "label8";
-            label8.Size = new Size(1011, 68);
-            label8.TabIndex = 2;
-            label8.Text = " Lista de usuarios:";
-            label8.TextAlign = ContentAlignment.MiddleLeft;
+            estado.Width = 125;
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
-            label9.BackColor = Color.White;
-            label9.Location = new Point(721, 47);
+            label9.BackColor = Color.FromArgb(210, 120, 61);
+            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(397, 30);
             label9.Name = "label9";
-            label9.Size = new Size(66, 15);
+            label9.Size = new Size(69, 15);
             label9.TabIndex = 5;
             label9.Text = "Buscar por:";
             // 
             // CBusqueda
             // 
+            CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(793, 44);
+            CBusqueda.Location = new Point(469, 26);
             CBusqueda.Name = "CBusqueda";
             CBusqueda.Size = new Size(174, 23);
             CBusqueda.TabIndex = 8;
             // 
             // TBusqueda
             // 
-            TBusqueda.Location = new Point(973, 44);
+            TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TBusqueda.Location = new Point(649, 26);
             TBusqueda.Name = "TBusqueda";
             TBusqueda.Size = new Size(216, 23);
             TBusqueda.TabIndex = 9;
             // 
             // BBusqueda
             // 
+            BBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BBusqueda.BackColor = Color.White;
             BBusqueda.Cursor = Cursors.Hand;
             BBusqueda.FlatAppearance.BorderColor = Color.Black;
@@ -465,7 +232,7 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(1195, 40);
+            BBusqueda.Location = new Point(871, 23);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 10;
@@ -476,6 +243,7 @@
             // 
             // BLimpiarBusqueda
             // 
+            BLimpiarBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BLimpiarBusqueda.BackColor = Color.White;
             BLimpiarBusqueda.Cursor = Cursors.Hand;
             BLimpiarBusqueda.FlatAppearance.BorderColor = Color.Black;
@@ -485,7 +253,7 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(1248, 40);
+            BLimpiarBusqueda.Location = new Point(924, 23);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(47, 29);
             BLimpiarBusqueda.TabIndex = 11;
@@ -494,60 +262,85 @@
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
             BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
+            // BAgregar
+            // 
+            BAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BAgregar.BackColor = Color.FromArgb(210, 120, 61);
+            BAgregar.Cursor = Cursors.Hand;
+            BAgregar.FlatAppearance.BorderColor = Color.Black;
+            BAgregar.FlatStyle = FlatStyle.Flat;
+            BAgregar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BAgregar.ForeColor = Color.White;
+            BAgregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            BAgregar.IconColor = Color.White;
+            BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BAgregar.IconSize = 30;
+            BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BAgregar.Location = new Point(856, 574);
+            BAgregar.Name = "BAgregar";
+            BAgregar.Size = new Size(168, 50);
+            BAgregar.TabIndex = 12;
+            BAgregar.Text = "Agregar usuario";
+            BAgregar.TextAlign = ContentAlignment.MiddleRight;
+            BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.FromArgb(210, 120, 61);
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(BLimpiarBusqueda);
+            panel2.Controls.Add(CBusqueda);
+            panel2.Controls.Add(BBusqueda);
+            panel2.Controls.Add(TBusqueda);
+            panel2.Location = new Point(23, 20);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1001, 68);
+            panel2.TabIndex = 13;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(16, 22);
+            label7.Name = "label7";
+            label7.Size = new Size(200, 25);
+            label7.TabIndex = 0;
+            label7.Text = "Lista de usuarios:";
+            // 
             // frmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1199, 562);
-            Controls.Add(BLimpiarBusqueda);
-            Controls.Add(BBusqueda);
-            Controls.Add(TBusqueda);
-            Controls.Add(CBusqueda);
-            Controls.Add(label9);
-            Controls.Add(label8);
+            ClientSize = new Size(1049, 636);
+            Controls.Add(panel2);
+            Controls.Add(BAgregar);
             Controls.Add(dgvData);
-            Controls.Add(panel1);
             Name = "frmUsuario";
             Text = "frmUsuario";
             Load += frmUsuario_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label label2;
-        private TextBox TDocumento;
-        private Label label1;
-        private TextBox TConfirmarContraseña;
-        private Label label6;
-        private TextBox TContraseña;
-        private Label label5;
-        private TextBox TTelefono;
-        private Label label4;
-        private TextBox TCorreo;
-        private Label label3;
-        private TextBox TNombreCompleto;
-        private Label LRol;
-        private ComboBox CRol;
-        private FontAwesome.Sharp.IconButton BGuardar;
-        private FontAwesome.Sharp.IconButton BLimpiar;
         private DataGridView dgvData;
-        private Label label8;
-        private TextBox TIdUsuario;
         private Label label9;
         private ComboBox CBusqueda;
         private TextBox TBusqueda;
         private FontAwesome.Sharp.IconButton BBusqueda;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
-        private ComboBox CEstado;
-        private Label LEstado;
-        private TextBox TIndice;
+        private FontAwesome.Sharp.IconButton BAgregar;
+        private Panel panel2;
+        private Label label7;
         private DataGridViewButtonColumn BSeleccionar;
         private DataGridViewTextBoxColumn idUsuario;
         private DataGridViewTextBoxColumn documento;
@@ -555,6 +348,8 @@
         private DataGridViewTextBoxColumn correo;
         private DataGridViewTextBoxColumn telefono;
         private DataGridViewTextBoxColumn contraseña;
+        private DataGridViewTextBoxColumn sexo;
+        private DataGridViewTextBoxColumn fechaNacimiento;
         private DataGridViewTextBoxColumn idRol;
         private DataGridViewTextBoxColumn rol;
         private DataGridViewTextBoxColumn estadoValor;
