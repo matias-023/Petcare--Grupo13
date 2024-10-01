@@ -156,7 +156,7 @@ namespace CapaDatos
             return respuesta;
         }
 
-        private string validarExcepcion(string msg)
+        private string validarExcepcion(string msg) //Se verifica que no hayan datos no validos ingresados
         {
             string msgAux = ""; 
             if (msg.Contains("CK_Usuario_Dni"))
@@ -175,7 +175,7 @@ namespace CapaDatos
                 msgAux = "El sexo ingresado no es válido!";
 
             if (msg.Contains("CK_Usuario_fechaNacimiento"))
-                msgAux = "El usuario debe ser mayor de edad!";
+                msgAux = "La fecha de nacimiento ingresada no es valida";
             return msgAux;
         }
     }

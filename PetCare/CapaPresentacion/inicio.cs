@@ -69,8 +69,9 @@ namespace CapaPresentacion
             else
             {
                 iconoUsuario.IconChar = IconChar.UserLarge;
-                panelSubMenuReportes.Size = new System.Drawing.Size(183, 35);
-                if(usuarioActual.oRol.idRol == 2)
+                panelSubMenuReportes.Size = new System.Drawing.Size(183, 46);
+                //Se ocultan los submenus de reportes a los usuarios a los que no les corresponden
+                if (usuarioActual.oRol.idRol == 2) 
                     subMenuReportesVentas.Visible = false;
                 else 
                     subMenuReportesCompras.Visible = false;

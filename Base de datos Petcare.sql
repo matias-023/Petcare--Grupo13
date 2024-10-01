@@ -1,4 +1,8 @@
-﻿CREATE DATABASE PETCARE
+﻿/**
+DROP DATABASE PETCARE
+*/
+
+CREATE DATABASE PETCARE
 
 GO
 
@@ -194,11 +198,11 @@ VALUES (1, 'menuUsuario'),
 (1, 'menuAcercaDe'),
 (1, 'menuBackup'),
 (2, 'menuReabastecedor'),
-(2, 'menuBackup'),
+(2, 'menuAcercaDe'),
 (3, 'menuVentas'),
 (3, 'menuClientes'),
 (3, 'menuReportes'),
-(3, 'menuBackup')
+(3, 'menuAcercaDe')
 go
 
 SELECT * FROM PERMISO
@@ -302,7 +306,7 @@ begin
 		insert into USUARIO (documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, telefono, idRol, estado)
 		VALUES (@documento, @nombreCompleto, @correo, @clave, @fechaNacimiento, @sexo, @telefono, @idRol, @estado)
 
-		set @idUsuarioResultado = SCOPE_IDENTITY()
+		set @idUsuarioResultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
 		set @mensaje = 'Usuario registrado con éxito!'
 
 	end 

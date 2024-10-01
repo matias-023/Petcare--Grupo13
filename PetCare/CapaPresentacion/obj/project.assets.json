@@ -551,19 +551,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NoxiePC\\.nuget\\packages\\": {}
+    "C:\\Users\\usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\NoxiePC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\obj\\",
+      "projectPath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\NoxiePC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -577,11 +577,11 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
+            "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
+              "projectPath": "C:\\Users\\usuario\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
             }
           }
         }
@@ -632,5 +632,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error al obtener los datos de vulnerabilidad del paquete: No se puede cargar el índice de servicio del origen https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

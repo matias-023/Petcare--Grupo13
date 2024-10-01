@@ -69,7 +69,8 @@
             dgvDataProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataProd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDataProd.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, CodigoProd, nombreProd, stock, precioProd, precioVtaProd, idCategoria, categoria, estadoValorProd, estadoProd });
-            dgvDataProd.Location = new Point(23, 107);
+            dgvDataProd.Location = new Point(26, 143);
+            dgvDataProd.Margin = new Padding(3, 4, 3, 4);
             dgvDataProd.MultiSelect = false;
             dgvDataProd.Name = "dgvDataProd";
             dgvDataProd.ReadOnly = true;
@@ -78,7 +79,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvDataProd.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvDataProd.RowTemplate.Height = 28;
-            dgvDataProd.Size = new Size(1001, 435);
+            dgvDataProd.Size = new Size(1144, 580);
             dgvDataProd.TabIndex = 15;
             // 
             // BAgregar
@@ -95,9 +96,10 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(846, 557);
+            BAgregar.Location = new Point(967, 743);
+            BAgregar.Margin = new Padding(3, 4, 3, 4);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(178, 50);
+            BAgregar.Size = new Size(203, 67);
             BAgregar.TabIndex = 19;
             BAgregar.Text = "Agregar producto";
             BAgregar.TextAlign = ContentAlignment.MiddleRight;
@@ -116,9 +118,10 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(BBusqueda);
             panel2.Controls.Add(BLimpiarBusqueda);
-            panel2.Location = new Point(23, 20);
+            panel2.Location = new Point(26, 27);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1001, 68);
+            panel2.Size = new Size(1144, 90);
             panel2.TabIndex = 20;
             // 
             // CBusqueda
@@ -126,17 +129,19 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(458, 27);
+            CBusqueda.Location = new Point(523, 36);
+            CBusqueda.Margin = new Padding(3, 4, 3, 4);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(174, 23);
+            CBusqueda.Size = new Size(198, 28);
             CBusqueda.TabIndex = 29;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(638, 27);
+            TBusqueda.Location = new Point(729, 36);
+            TBusqueda.Margin = new Padding(3, 4, 3, 4);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(216, 23);
+            TBusqueda.Size = new Size(246, 27);
             TBusqueda.TabIndex = 30;
             // 
             // label7
@@ -144,9 +149,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(16, 22);
+            label7.Location = new Point(18, 29);
             label7.Name = "label7";
-            label7.Size = new Size(214, 25);
+            label7.Size = new Size(263, 31);
             label7.TabIndex = 0;
             label7.Text = "Lista de productos:";
             // 
@@ -157,9 +162,9 @@
             label1.BackColor = Color.FromArgb(210, 120, 61);
             label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(386, 31);
+            label1.Location = new Point(441, 41);
             label1.Name = "label1";
-            label1.Size = new Size(69, 15);
+            label1.Size = new Size(85, 18);
             label1.TabIndex = 26;
             label1.Text = "Buscar por:";
             // 
@@ -175,9 +180,10 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(860, 24);
+            BBusqueda.Location = new Point(983, 32);
+            BBusqueda.Margin = new Padding(3, 4, 3, 4);
             BBusqueda.Name = "BBusqueda";
-            BBusqueda.Size = new Size(47, 29);
+            BBusqueda.Size = new Size(54, 39);
             BBusqueda.TabIndex = 27;
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -195,9 +201,10 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(913, 24);
+            BLimpiarBusqueda.Location = new Point(1043, 32);
+            BLimpiarBusqueda.Margin = new Padding(3, 4, 3, 4);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
-            BLimpiarBusqueda.Size = new Size(47, 29);
+            BLimpiarBusqueda.Size = new Size(54, 39);
             BLimpiarBusqueda.TabIndex = 28;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -206,6 +213,7 @@
             // BSeleccionar
             // 
             BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
             BSeleccionar.Name = "BSeleccionar";
             BSeleccionar.ReadOnly = true;
             BSeleccionar.Width = 35;
@@ -217,7 +225,7 @@
             idUsuario.Name = "idUsuario";
             idUsuario.ReadOnly = true;
             idUsuario.Visible = false;
-            idUsuario.Width = 125;
+            idUsuario.Width = 150;
             // 
             // CodigoProd
             // 
@@ -225,7 +233,7 @@
             CodigoProd.MinimumWidth = 6;
             CodigoProd.Name = "CodigoProd";
             CodigoProd.ReadOnly = true;
-            CodigoProd.Width = 125;
+            CodigoProd.Width = 200;
             // 
             // nombreProd
             // 
@@ -233,7 +241,7 @@
             nombreProd.MinimumWidth = 6;
             nombreProd.Name = "nombreProd";
             nombreProd.ReadOnly = true;
-            nombreProd.Width = 220;
+            nombreProd.Width = 300;
             // 
             // stock
             // 
@@ -241,7 +249,7 @@
             stock.MinimumWidth = 6;
             stock.Name = "stock";
             stock.ReadOnly = true;
-            stock.Width = 122;
+            stock.Width = 200;
             // 
             // precioProd
             // 
@@ -249,7 +257,7 @@
             precioProd.MinimumWidth = 6;
             precioProd.Name = "precioProd";
             precioProd.ReadOnly = true;
-            precioProd.Width = 150;
+            precioProd.Width = 200;
             // 
             // precioVtaProd
             // 
@@ -257,7 +265,7 @@
             precioVtaProd.MinimumWidth = 6;
             precioVtaProd.Name = "precioVtaProd";
             precioVtaProd.ReadOnly = true;
-            precioVtaProd.Width = 150;
+            precioVtaProd.Width = 200;
             // 
             // idCategoria
             // 
@@ -274,7 +282,7 @@
             categoria.MinimumWidth = 6;
             categoria.Name = "categoria";
             categoria.ReadOnly = true;
-            categoria.Width = 175;
+            categoria.Width = 250;
             // 
             // estadoValorProd
             // 
@@ -291,17 +299,16 @@
             estadoProd.MinimumWidth = 6;
             estadoProd.Name = "estadoProd";
             estadoProd.ReadOnly = true;
-            estadoProd.Width = 125;
+            estadoProd.Width = 198;
             // 
             // frmProductos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1049, 636);
+            ClientSize = new Size(1199, 848);
             Controls.Add(panel2);
             Controls.Add(BAgregar);
             Controls.Add(dgvDataProd);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmProductos";
             Text = "frmProductos";
             ((System.ComponentModel.ISupportInitialize)dgvDataProd).EndInit();
