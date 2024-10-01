@@ -38,7 +38,6 @@
             TBusqueda = new TextBox();
             BBusqueda = new FontAwesome.Sharp.IconButton();
             dgvDataClientes = new DataGridView();
-            BAgregar = new FontAwesome.Sharp.IconButton();
             BSeleccionar = new DataGridViewButtonColumn();
             idCliente = new DataGridViewTextBoxColumn();
             documento = new DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             telefono = new DataGridViewTextBoxColumn();
             estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
+            BAgregar = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDataClientes).BeginInit();
             SuspendLayout();
@@ -62,10 +62,9 @@
             panel2.Controls.Add(CBusqueda);
             panel2.Controls.Add(TBusqueda);
             panel2.Controls.Add(BBusqueda);
-            panel2.Location = new Point(26, 27);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(23, 20);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1144, 90);
+            panel2.Size = new Size(1001, 68);
             panel2.TabIndex = 14;
             // 
             // label9
@@ -75,9 +74,9 @@
             label9.BackColor = Color.FromArgb(210, 120, 61);
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(454, 40);
+            label9.Location = new Point(397, 30);
             label9.Name = "label9";
-            label9.Size = new Size(85, 18);
+            label9.Size = new Size(69, 15);
             label9.TabIndex = 15;
             label9.Text = "Buscar por:";
             // 
@@ -86,9 +85,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(18, 29);
+            label7.Location = new Point(16, 22);
             label7.Name = "label7";
-            label7.Size = new Size(235, 31);
+            label7.Size = new Size(192, 25);
             label7.TabIndex = 0;
             label7.Text = "Lista de clientes:";
             // 
@@ -104,10 +103,9 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(1056, 31);
-            BLimpiarBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BLimpiarBusqueda.Location = new Point(924, 23);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
-            BLimpiarBusqueda.Size = new Size(54, 39);
+            BLimpiarBusqueda.Size = new Size(47, 29);
             BLimpiarBusqueda.TabIndex = 19;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -118,19 +116,17 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(536, 35);
-            CBusqueda.Margin = new Padding(3, 4, 3, 4);
+            CBusqueda.Location = new Point(469, 26);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(198, 28);
+            CBusqueda.Size = new Size(174, 23);
             CBusqueda.TabIndex = 16;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(742, 35);
-            TBusqueda.Margin = new Padding(3, 4, 3, 4);
+            TBusqueda.Location = new Point(649, 26);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(246, 27);
+            TBusqueda.Size = new Size(216, 23);
             TBusqueda.TabIndex = 17;
             // 
             // BBusqueda
@@ -145,10 +141,9 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(995, 31);
-            BBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BBusqueda.Location = new Point(871, 23);
             BBusqueda.Name = "BBusqueda";
-            BBusqueda.Size = new Size(54, 39);
+            BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 18;
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -169,8 +164,7 @@
             dgvDataClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDataClientes.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idCliente, documento, nombreCompleto, correo, telefono, estadoValor, estado });
-            dgvDataClientes.Location = new Point(26, 143);
-            dgvDataClientes.Margin = new Padding(3, 4, 3, 4);
+            dgvDataClientes.Location = new Point(23, 107);
             dgvDataClientes.MultiSelect = false;
             dgvDataClientes.Name = "dgvDataClientes";
             dgvDataClientes.ReadOnly = true;
@@ -179,33 +173,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvDataClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvDataClientes.RowTemplate.Height = 28;
-            dgvDataClientes.Size = new Size(1144, 605);
+            dgvDataClientes.Size = new Size(1001, 454);
             dgvDataClientes.TabIndex = 15;
-            // 
-            // BAgregar
-            // 
-            BAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            BAgregar.BackColor = Color.FromArgb(210, 120, 61);
-            BAgregar.Cursor = Cursors.Hand;
-            BAgregar.FlatAppearance.BorderColor = Color.Black;
-            BAgregar.FlatStyle = FlatStyle.Flat;
-            BAgregar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BAgregar.ForeColor = Color.White;
-            BAgregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            BAgregar.IconColor = Color.White;
-            BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BAgregar.IconSize = 30;
-            BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(978, 765);
-            BAgregar.Margin = new Padding(3, 4, 3, 4);
-            BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(192, 67);
-            BAgregar.TabIndex = 16;
-            BAgregar.Text = "Agregar cliente";
-            BAgregar.TextAlign = ContentAlignment.MiddleRight;
-            BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BAgregar.UseVisualStyleBackColor = false;
-            BAgregar.Click += BAgregar_Click;
             // 
             // BSeleccionar
             // 
@@ -273,14 +242,39 @@
             estado.ReadOnly = true;
             estado.Width = 254;
             // 
+            // BAgregar
+            // 
+            BAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BAgregar.BackColor = Color.FromArgb(210, 120, 61);
+            BAgregar.Cursor = Cursors.Hand;
+            BAgregar.FlatAppearance.BorderColor = Color.Black;
+            BAgregar.FlatStyle = FlatStyle.Flat;
+            BAgregar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BAgregar.ForeColor = Color.White;
+            BAgregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            BAgregar.IconColor = Color.White;
+            BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BAgregar.IconSize = 30;
+            BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
+            BAgregar.Location = new Point(856, 574);
+            BAgregar.Name = "BAgregar";
+            BAgregar.Size = new Size(168, 50);
+            BAgregar.TabIndex = 16;
+            BAgregar.Text = "Agregar cliente";
+            BAgregar.TextAlign = ContentAlignment.MiddleRight;
+            BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
+            // 
             // frmClientes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1199, 848);
+            ClientSize = new Size(1049, 636);
             Controls.Add(BAgregar);
             Controls.Add(dgvDataClientes);
             Controls.Add(panel2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmClientes";

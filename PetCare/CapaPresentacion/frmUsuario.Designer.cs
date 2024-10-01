@@ -71,8 +71,7 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, nombreCompleto, correo, telefono, contraseña, sexo, fechaNacimiento, idRol, rol, estadoValor, estado });
-            dgvData.Location = new Point(26, 143);
-            dgvData.Margin = new Padding(3, 4, 3, 4);
+            dgvData.Location = new Point(23, 107);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
@@ -81,7 +80,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(1144, 605);
+            dgvData.Size = new Size(1001, 454);
             dgvData.TabIndex = 1;
             dgvData.CellContentClick += dgvData_CellContentClick;
             dgvData.CellPainting += dgvData_CellPainting;
@@ -201,9 +200,9 @@
             label9.BackColor = Color.FromArgb(210, 120, 61);
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(454, 40);
+            label9.Location = new Point(397, 30);
             label9.Name = "label9";
-            label9.Size = new Size(85, 18);
+            label9.Size = new Size(69, 15);
             label9.TabIndex = 5;
             label9.Text = "Buscar por:";
             // 
@@ -212,19 +211,17 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(536, 35);
-            CBusqueda.Margin = new Padding(3, 4, 3, 4);
+            CBusqueda.Location = new Point(469, 26);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(198, 28);
+            CBusqueda.Size = new Size(174, 23);
             CBusqueda.TabIndex = 8;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(742, 35);
-            TBusqueda.Margin = new Padding(3, 4, 3, 4);
+            TBusqueda.Location = new Point(649, 26);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(246, 27);
+            TBusqueda.Size = new Size(216, 23);
             TBusqueda.TabIndex = 9;
             // 
             // BBusqueda
@@ -239,10 +236,9 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(995, 31);
-            BBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BBusqueda.Location = new Point(871, 23);
             BBusqueda.Name = "BBusqueda";
-            BBusqueda.Size = new Size(54, 39);
+            BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 10;
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -261,10 +257,9 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(1056, 31);
-            BLimpiarBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BLimpiarBusqueda.Location = new Point(924, 23);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
-            BLimpiarBusqueda.Size = new Size(54, 39);
+            BLimpiarBusqueda.Size = new Size(47, 29);
             BLimpiarBusqueda.TabIndex = 11;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -285,10 +280,9 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(967, 765);
-            BAgregar.Margin = new Padding(3, 4, 3, 4);
+            BAgregar.Location = new Point(846, 574);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(203, 67);
+            BAgregar.Size = new Size(178, 50);
             BAgregar.TabIndex = 12;
             BAgregar.Text = "Agregar usuario";
             BAgregar.TextAlign = ContentAlignment.MiddleRight;
@@ -307,10 +301,9 @@
             panel2.Controls.Add(CBusqueda);
             panel2.Controls.Add(BBusqueda);
             panel2.Controls.Add(TBusqueda);
-            panel2.Location = new Point(26, 27);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(23, 20);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1144, 90);
+            panel2.Size = new Size(1001, 68);
             panel2.TabIndex = 13;
             // 
             // label7
@@ -318,22 +311,21 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(18, 29);
+            label7.Location = new Point(16, 22);
             label7.Name = "label7";
-            label7.Size = new Size(245, 31);
+            label7.Size = new Size(200, 25);
             label7.TabIndex = 0;
             label7.Text = "Lista de usuarios:";
             // 
             // frmUsuario
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1199, 848);
+            ClientSize = new Size(1049, 636);
             Controls.Add(panel2);
             Controls.Add(BAgregar);
             Controls.Add(dgvData);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmUsuario";
             Text = "frmUsuario";
             Load += frmUsuario_Load;
