@@ -40,9 +40,9 @@
             dgvDataCat = new DataGridView();
             BSeleccionar = new DataGridViewButtonColumn();
             idCategoria = new DataGridViewTextBoxColumn();
-            descripcionCategoria = new DataGridViewTextBoxColumn();
+            descripcion = new DataGridViewTextBoxColumn();
+            estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
-            estadoValorCategoria = new DataGridViewTextBoxColumn();
             BAgregar = new FontAwesome.Sharp.IconButton();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDataCat).BeginInit();
@@ -72,7 +72,7 @@
             CBusqueda.Location = new Point(458, 27);
             CBusqueda.Name = "CBusqueda";
             CBusqueda.Size = new Size(174, 23);
-            CBusqueda.TabIndex = 24;
+            CBusqueda.TabIndex = 1;
             // 
             // TBusqueda
             // 
@@ -80,7 +80,7 @@
             TBusqueda.Location = new Point(638, 27);
             TBusqueda.Name = "TBusqueda";
             TBusqueda.Size = new Size(216, 23);
-            TBusqueda.TabIndex = 25;
+            TBusqueda.TabIndex = 2;
             // 
             // label1
             // 
@@ -110,13 +110,15 @@
             BLimpiarBusqueda.Location = new Point(913, 24);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(47, 29);
-            BLimpiarBusqueda.TabIndex = 16;
+            BLimpiarBusqueda.TabIndex = 4;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // BBusqueda
             // 
+            BBusqueda.AccessibleDescription = "";
             BBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BBusqueda.BackColor = Color.White;
             BBusqueda.Cursor = Cursors.Hand;
@@ -130,10 +132,12 @@
             BBusqueda.Location = new Point(860, 24);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
-            BBusqueda.TabIndex = 15;
+            BBusqueda.TabIndex = 3;
+            BBusqueda.Tag = "";
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // label7
             // 
@@ -160,7 +164,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDataCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataCat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDataCat.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idCategoria, descripcionCategoria, estado, estadoValorCategoria });
+            dgvDataCat.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idCategoria, descripcion, estadoValor, estado });
             dgvDataCat.Location = new Point(23, 107);
             dgvDataCat.MultiSelect = false;
             dgvDataCat.Name = "dgvDataCat";
@@ -172,6 +176,8 @@
             dgvDataCat.RowTemplate.Height = 28;
             dgvDataCat.Size = new Size(1001, 435);
             dgvDataCat.TabIndex = 16;
+            dgvDataCat.CellContentClick += dgvDataCat_CellContentClick;
+            dgvDataCat.CellPainting += dgvDataCat_CellPainting;
             // 
             // BSeleccionar
             // 
@@ -190,13 +196,22 @@
             idCategoria.Visible = false;
             idCategoria.Width = 150;
             // 
-            // descripcionCategoria
+            // descripcion
             // 
-            descripcionCategoria.HeaderText = "Descripción";
-            descripcionCategoria.MinimumWidth = 6;
-            descripcionCategoria.Name = "descripcionCategoria";
-            descripcionCategoria.ReadOnly = true;
-            descripcionCategoria.Width = 820;
+            descripcion.HeaderText = "Descripción";
+            descripcion.MinimumWidth = 6;
+            descripcion.Name = "descripcion";
+            descripcion.ReadOnly = true;
+            descripcion.Width = 820;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValor";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
             // 
             // estado
             // 
@@ -205,15 +220,6 @@
             estado.Name = "estado";
             estado.ReadOnly = true;
             estado.Width = 500;
-            // 
-            // estadoValorCategoria
-            // 
-            estadoValorCategoria.HeaderText = "Column1";
-            estadoValorCategoria.MinimumWidth = 6;
-            estadoValorCategoria.Name = "estadoValorCategoria";
-            estadoValorCategoria.ReadOnly = true;
-            estadoValorCategoria.Visible = false;
-            estadoValorCategoria.Width = 125;
             // 
             // BAgregar
             // 
@@ -229,10 +235,10 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(836, 558);
+            BAgregar.Location = new Point(822, 558);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(188, 50);
-            BAgregar.TabIndex = 18;
+            BAgregar.Size = new Size(202, 50);
+            BAgregar.TabIndex = 5;
             BAgregar.Text = "Agregar categoria";
             BAgregar.TextAlign = ContentAlignment.MiddleRight;
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -250,6 +256,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmCategorias";
             Text = "frmCategorias";
+            Load += frmCategorias_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDataCat).EndInit();
@@ -268,8 +275,8 @@
         private TextBox TBusqueda;
         private DataGridViewButtonColumn BSeleccionar;
         private DataGridViewTextBoxColumn idCategoria;
-        private DataGridViewTextBoxColumn descripcionCategoria;
+        private DataGridViewTextBoxColumn descripcion;
+        private DataGridViewTextBoxColumn estadoValor;
         private DataGridViewTextBoxColumn estado;
-        private DataGridViewTextBoxColumn estadoValorCategoria;
     }
 }

@@ -83,9 +83,9 @@
             // 
             titulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titulo.ForeColor = Color.White;
-            titulo.Location = new Point(164, 4);
+            titulo.Location = new Point(93, 4);
             titulo.Name = "titulo";
-            titulo.Size = new Size(217, 26);
+            titulo.Size = new Size(353, 26);
             titulo.TabIndex = 9;
             titulo.Text = "Lista de productos";
             titulo.TextAlign = ContentAlignment.MiddleCenter;

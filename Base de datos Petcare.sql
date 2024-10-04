@@ -406,4 +406,135 @@ ADD CONSTRAINT CK_Usuario_Telefono
 CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
 go
 
-SELECT * FROM USUARIO
+/* cambios 3/10 */
+
+--Procedimiento almacenado para registrar categorias de productos.
+CREATE PROC SP_REGISTRARCATEGORIA(
+@descripcion varchar(100),
+@estado bit,
+@resultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @resultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from CATEGORIA where descripcion = @descripcion)
+	begin 
+		insert into CATEGORIA (descripcion, estado)
+		VALUES (@descripcion, @estado)
+		set @resultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Categoría registrada con éxito!'
+	end 
+	else 
+		set @mensaje = 'Ya existe una categoría registrada con esa descripción.'
+end
+go
+
+--Procedimiento almacenado para editar categorias de productos.
+CREATE PROC SP_EDITARCATEGORIA(
+@idCategoria int,
+@descripcion varchar(100),
+@estado bit,
+@respuesta int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists (select * from CATEGORIA
+	WHERE descripcion = @descripcion and idCategoria != @idCategoria)
+	begin 
+		update CATEGORIA set
+		descripcion = @descripcion,
+		estado = @estado
+		WHERE idCategoria = @idCategoria
+
+		set @respuesta = 1
+		set @mensaje = 'Categoría: ' + @descripcion + ', modificada con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe una categoría registrada con esa descripción.'
+end
+go
+
+--restriccion para descripciones de categoría validos.
+ALTER TABLE CATEGORIA
+ADD CONSTRAINT CK_Categoria_Descripcion
+CHECK (descripcion LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and descripcion NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
+go
+
+INSERT INTO CATEGORIA (descripcion, estado)
+VALUES ('Alimentos', 1),
+('Accesorios', 1),
+('Juguetes', 1)
+go
+
+select * from CATEGORIA
+go
+
+--Procedimiento almacenado para registrar marcas de productos.
+CREATE PROC SP_REGISTRARMARCA(
+@descripcion varchar(100),
+@estado bit,
+@resultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @resultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from MARCA where descripcion = @descripcion)
+	begin 
+		insert into MARCA (descripcion, estado)
+		VALUES (@descripcion, @estado)
+		set @resultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Marca registrada con éxito!'
+	end 
+	else 
+		set @mensaje = 'Ya existe una Marca registrada con esa descripción.'
+end
+go
+
+--Procedimiento almacenado para editar marcas de productos.
+CREATE PROC SP_EDITARMARCA(
+@idMarca int,
+@descripcion varchar(100),
+@estado bit,
+@respuesta int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists (select * from MARCA
+	WHERE descripcion = @descripcion and idMarca != @idMarca)
+	begin 
+		update MARCA set
+		descripcion = @descripcion,
+		estado = @estado
+		WHERE idMarca = @idMarca
+
+		set @respuesta = 1
+		set @mensaje = 'Marca: ' + @descripcion + ', modificada con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe una marca registrada con esa descripción.'
+end
+go
+
+INSERT INTO MARCA (descripcion, estado)
+VALUES ('Purina', 1),
+('Pro Plan', 1),
+('Whiskas', 1)
+go
+
+select * from MARCA

@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             BAgregar = new FontAwesome.Sharp.IconButton();
             dgvDataMarcas = new DataGridView();
             BSeleccionar = new DataGridViewButtonColumn();
-            idCategoria = new DataGridViewTextBoxColumn();
-            descripcionCategoria = new DataGridViewTextBoxColumn();
+            idMarca = new DataGridViewTextBoxColumn();
+            descripcion = new DataGridViewTextBoxColumn();
+            estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
-            estadoValorCategoria = new DataGridViewTextBoxColumn();
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
             BBusqueda = new FontAwesome.Sharp.IconButton();
@@ -76,28 +76,30 @@
             // 
             dgvDataMarcas.AllowUserToAddRows = false;
             dgvDataMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(1);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvDataMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvDataMarcas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataMarcas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDataMarcas.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idCategoria, descripcionCategoria, estado, estadoValorCategoria });
+            dgvDataMarcas.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idMarca, descripcion, estadoValor, estado });
             dgvDataMarcas.Location = new Point(24, 107);
             dgvDataMarcas.MultiSelect = false;
             dgvDataMarcas.Name = "dgvDataMarcas";
             dgvDataMarcas.ReadOnly = true;
             dgvDataMarcas.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dgvDataMarcas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dgvDataMarcas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvDataMarcas.RowTemplate.Height = 28;
             dgvDataMarcas.Size = new Size(1001, 435);
             dgvDataMarcas.TabIndex = 19;
+            dgvDataMarcas.CellContentClick += dgvDataMarcas_CellContentClick;
+            dgvDataMarcas.CellPainting += dgvDataMarcas_CellPainting;
             // 
             // BSeleccionar
             // 
@@ -107,22 +109,31 @@
             BSeleccionar.ReadOnly = true;
             BSeleccionar.Width = 35;
             // 
-            // idCategoria
+            // idMarca
             // 
-            idCategoria.HeaderText = "ID";
-            idCategoria.MinimumWidth = 6;
-            idCategoria.Name = "idCategoria";
-            idCategoria.ReadOnly = true;
-            idCategoria.Visible = false;
-            idCategoria.Width = 150;
+            idMarca.HeaderText = "ID";
+            idMarca.MinimumWidth = 6;
+            idMarca.Name = "idMarca";
+            idMarca.ReadOnly = true;
+            idMarca.Visible = false;
+            idMarca.Width = 150;
             // 
-            // descripcionCategoria
+            // descripcion
             // 
-            descripcionCategoria.HeaderText = "Descripción";
-            descripcionCategoria.MinimumWidth = 6;
-            descripcionCategoria.Name = "descripcionCategoria";
-            descripcionCategoria.ReadOnly = true;
-            descripcionCategoria.Width = 617;
+            descripcion.HeaderText = "Descripción";
+            descripcion.MinimumWidth = 6;
+            descripcion.Name = "descripcion";
+            descripcion.ReadOnly = true;
+            descripcion.Width = 617;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValor";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
             // 
             // estado
             // 
@@ -131,15 +142,6 @@
             estado.Name = "estado";
             estado.ReadOnly = true;
             estado.Width = 325;
-            // 
-            // estadoValorCategoria
-            // 
-            estadoValorCategoria.HeaderText = "Column1";
-            estadoValorCategoria.MinimumWidth = 6;
-            estadoValorCategoria.Name = "estadoValorCategoria";
-            estadoValorCategoria.ReadOnly = true;
-            estadoValorCategoria.Visible = false;
-            estadoValorCategoria.Width = 125;
             // 
             // BLimpiarBusqueda
             // 
@@ -160,6 +162,7 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // label1
             // 
@@ -193,6 +196,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // CBusqueda
             // 
@@ -250,6 +254,7 @@
             Name = "frmMarcas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMarcas";
+            Load += frmMarcas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDataMarcas).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -260,11 +265,6 @@
 
         private FontAwesome.Sharp.IconButton BAgregar;
         private DataGridView dgvDataMarcas;
-        private DataGridViewButtonColumn BSeleccionar;
-        private DataGridViewTextBoxColumn idCategoria;
-        private DataGridViewTextBoxColumn descripcionCategoria;
-        private DataGridViewTextBoxColumn estado;
-        private DataGridViewTextBoxColumn estadoValorCategoria;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
         private Label label1;
         private FontAwesome.Sharp.IconButton BBusqueda;
@@ -272,5 +272,10 @@
         private TextBox TBusqueda;
         private Panel panel2;
         private Label label7;
+        private DataGridViewButtonColumn BSeleccionar;
+        private DataGridViewTextBoxColumn idMarca;
+        private DataGridViewTextBoxColumn descripcion;
+        private DataGridViewTextBoxColumn estadoValor;
+        private DataGridViewTextBoxColumn estado;
     }
 }

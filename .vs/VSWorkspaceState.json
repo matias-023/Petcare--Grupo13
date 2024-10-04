@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PetCare",
+    "\\PetCare\\CapaPresentacion",
+    "\\PetCare\\CapaPresentacion\\Modals"
   ],
-  "SelectedNode": "\\Sistema Petcare.sln",
+  "SelectedNode": "\\PetCare\\CapaPresentacion\\Modals\\mdMarcas.cs",
   "PreviewInSolutionExplorer": false
 }
