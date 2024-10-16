@@ -122,23 +122,10 @@ namespace CapaDatos
             {
                 respuesta = false;
                 mensaje = ex.Message;
-
-                /*
-                mensaje = validarExcepcion(mensaje);
-                if (mensaje == "") mensaje = ex.Message; */
             }
 
 
             return respuesta;
-        }
-
-        private string validarExcepcion(string msg) //Se verifica que no hayan datos no validos ingresados
-        {
-            string msgAux = "";
-            if (msg.Contains("CK_Marca_Dni"))
-                msgAux = "El número de documento ingresado no es válido!";
-
-            return msgAux;
         }
     }
 }

@@ -102,13 +102,13 @@ go
 CREATE TABLE PRODUCTO(
 	idProducto INT IDENTITY,
 	codigo VARCHAR(50) NOT NULL,
-	nombre VARCHAR(100) NOT NULL,
+	nombre VARCHAR(150) NOT NULL,
 	idMarca INT NOT NULL,
 	idCategoria INT NOT NULL,
-	stock_min INT NOT NULL DEFAULT 0,
-	stock INT NOT NULL DEFAULT 0,
-	precio DECIMAL(10,2) DEFAULT 0, 
-	precioVenta DECIMAL(10,2) DEFAULT 0,
+	stock_min INT NOT NULL,
+	stock INT NOT NULL,
+	precio DECIMAL(10,2) NOT NULL, 
+	precioVenta DECIMAL(10,2) NOT NULL,
 	estado BIT DEFAULT 1,
 	fechaRegistro DATETIME CONSTRAINT DF_Producto_fechaRegistro DEFAULT getdate(),
 	CONSTRAINT PK_Producto_id PRIMARY KEY (idProducto),
@@ -537,4 +537,93 @@ VALUES ('Purina', 1),
 ('Whiskas', 1)
 go
 
-select * from MARCA
+--Cambios 16/10
+
+CREATE PROC SP_REGISTRARPRODUCTO(
+@codigo varchar(50),
+@nombre varchar(150),
+@idMarca int,
+@idCategoria int,
+@stock_min int,
+@stock int,
+@precio decimal(10,2),
+@precioVenta decimal(10,2),
+@estado bit,
+@idProductoResultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @idProductoResultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from PRODUCTO where codigo = @codigo)
+	begin 
+		insert into PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
+		VALUES (@codigo, @nombre, @idMarca, @idCategoria, @stock_min, @stock, @precio, @precioVenta, @estado)
+
+		set @idProductoResultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Producto registrado con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe un producto registrado con ese código.'
+end
+go
+
+CREATE PROC SP_EDITARPRODUCTO(
+@idProducto int,
+@codigo varchar(50),
+@nombre varchar(150),
+@idMarca int,
+@idCategoria int,
+@stock_min int,
+@stock int,
+@precio decimal(10,2),
+@precioVenta decimal(10,2),
+@estado bit,
+@respuesta bit output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists(select * from PRODUCTO
+	WHERE (codigo = @codigo) and idProducto != @idProducto)
+	begin 
+		update PRODUCTO set
+		codigo = @codigo,
+		nombre = @nombre,
+		idMarca = @idMarca,
+		idCategoria = @idCategoria,
+		stock_min = @stock_min,
+		stock = @stock,
+		precio = @precio,
+		precioVenta = @precioVenta,
+		estado = @estado
+		WHERE idProducto = @idProducto
+
+		set @respuesta = 1
+		set @mensaje = 'Producto modificado con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe un producto registrado con ese código.'
+end
+go
+
+ALTER TABLE PRODUCTO
+ADD CONSTRAINT CK_Producto_Codigo
+CHECK (codigo LIKE '%[0-9]%' AND codigo NOT LIKE '%[^0-9]%')
+go
+
+INSERT INTO PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
+VALUES ('1000', 'Alimento para perros 10Kg', 1, 1, 20, 300, 1500.99, 1699.99, 1)
+
+select p.idProducto, p.codigo, p.nombre, m.idMarca, m.descripcion[descMarca], c.idCategoria, c.descripcion[descCategoria], p.stock_min, p.stock, p.precio, p.precioVenta, p.estado from PRODUCTO p
+inner join Marca m on p.idMarca = m.idMarca
+inner join CATEGORIA c on p.idCategoria = c.idCategoria
+
+SELECT * FROM PRODUCTO

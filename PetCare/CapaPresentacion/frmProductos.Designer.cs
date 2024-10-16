@@ -31,17 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvDataProd = new DataGridView();
-            BSeleccionar = new DataGridViewButtonColumn();
-            idUsuario = new DataGridViewTextBoxColumn();
-            CodigoProd = new DataGridViewTextBoxColumn();
-            nombreProd = new DataGridViewTextBoxColumn();
-            stock = new DataGridViewTextBoxColumn();
-            precioProd = new DataGridViewTextBoxColumn();
-            precioVtaProd = new DataGridViewTextBoxColumn();
-            idCategoria = new DataGridViewTextBoxColumn();
-            categoria = new DataGridViewTextBoxColumn();
-            estadoValorProd = new DataGridViewTextBoxColumn();
-            estadoProd = new DataGridViewTextBoxColumn();
             BAgregar = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
             CBusqueda = new ComboBox();
@@ -50,6 +39,20 @@
             label1 = new Label();
             BBusqueda = new FontAwesome.Sharp.IconButton();
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
+            BSeleccionar = new DataGridViewButtonColumn();
+            idProducto = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            idCategoria = new DataGridViewTextBoxColumn();
+            categoria = new DataGridViewTextBoxColumn();
+            idMarca = new DataGridViewTextBoxColumn();
+            marca = new DataGridViewTextBoxColumn();
+            stock = new DataGridViewTextBoxColumn();
+            stock_minimo = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            precioVenta = new DataGridViewTextBoxColumn();
+            estadoValor = new DataGridViewTextBoxColumn();
+            estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDataProd).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -68,7 +71,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDataProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataProd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDataProd.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, CodigoProd, nombreProd, stock, precioProd, precioVtaProd, idCategoria, categoria, estadoValorProd, estadoProd });
+            dgvDataProd.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idProducto, codigo, nombre, idCategoria, categoria, idMarca, marca, stock, stock_minimo, precio, precioVenta, estadoValor, estado });
             dgvDataProd.Location = new Point(23, 107);
             dgvDataProd.MultiSelect = false;
             dgvDataProd.Name = "dgvDataProd";
@@ -80,97 +83,8 @@
             dgvDataProd.RowTemplate.Height = 28;
             dgvDataProd.Size = new Size(1001, 435);
             dgvDataProd.TabIndex = 15;
-            // 
-            // BSeleccionar
-            // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
-            BSeleccionar.Name = "BSeleccionar";
-            BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 35;
-            // 
-            // idUsuario
-            // 
-            idUsuario.HeaderText = "ID";
-            idUsuario.MinimumWidth = 6;
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            idUsuario.Visible = false;
-            idUsuario.Width = 150;
-            // 
-            // CodigoProd
-            // 
-            CodigoProd.HeaderText = "Código";
-            CodigoProd.MinimumWidth = 6;
-            CodigoProd.Name = "CodigoProd";
-            CodigoProd.ReadOnly = true;
-            CodigoProd.Width = 200;
-            // 
-            // nombreProd
-            // 
-            nombreProd.HeaderText = "Nombre Producto";
-            nombreProd.MinimumWidth = 6;
-            nombreProd.Name = "nombreProd";
-            nombreProd.ReadOnly = true;
-            nombreProd.Width = 300;
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.MinimumWidth = 6;
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            stock.Width = 200;
-            // 
-            // precioProd
-            // 
-            precioProd.HeaderText = "Precio";
-            precioProd.MinimumWidth = 6;
-            precioProd.Name = "precioProd";
-            precioProd.ReadOnly = true;
-            precioProd.Width = 200;
-            // 
-            // precioVtaProd
-            // 
-            precioVtaProd.HeaderText = "Precio Venta";
-            precioVtaProd.MinimumWidth = 6;
-            precioVtaProd.Name = "precioVtaProd";
-            precioVtaProd.ReadOnly = true;
-            precioVtaProd.Width = 200;
-            // 
-            // idCategoria
-            // 
-            idCategoria.HeaderText = "idCategoria";
-            idCategoria.MinimumWidth = 6;
-            idCategoria.Name = "idCategoria";
-            idCategoria.ReadOnly = true;
-            idCategoria.Visible = false;
-            idCategoria.Width = 125;
-            // 
-            // categoria
-            // 
-            categoria.HeaderText = "Categoria";
-            categoria.MinimumWidth = 6;
-            categoria.Name = "categoria";
-            categoria.ReadOnly = true;
-            categoria.Width = 250;
-            // 
-            // estadoValorProd
-            // 
-            estadoValorProd.HeaderText = "estadoValorProd";
-            estadoValorProd.MinimumWidth = 6;
-            estadoValorProd.Name = "estadoValorProd";
-            estadoValorProd.ReadOnly = true;
-            estadoValorProd.Visible = false;
-            estadoValorProd.Width = 125;
-            // 
-            // estadoProd
-            // 
-            estadoProd.HeaderText = "Estado";
-            estadoProd.MinimumWidth = 6;
-            estadoProd.Name = "estadoProd";
-            estadoProd.ReadOnly = true;
-            estadoProd.Width = 198;
+            dgvDataProd.CellContentClick += dgvDataProd_CellContentClick;
+            dgvDataProd.CellPainting += dgvDataProd_CellPainting;
             // 
             // BAgregar
             // 
@@ -273,6 +187,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // BLimpiarBusqueda
             // 
@@ -293,6 +208,118 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
+            // 
+            // BSeleccionar
+            // 
+            BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.Name = "BSeleccionar";
+            BSeleccionar.ReadOnly = true;
+            BSeleccionar.Width = 35;
+            // 
+            // idProducto
+            // 
+            idProducto.HeaderText = "ID";
+            idProducto.MinimumWidth = 6;
+            idProducto.Name = "idProducto";
+            idProducto.ReadOnly = true;
+            idProducto.Visible = false;
+            idProducto.Width = 150;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "Código";
+            codigo.MinimumWidth = 6;
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            codigo.Width = 150;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 300;
+            // 
+            // idCategoria
+            // 
+            idCategoria.HeaderText = "idCategoria";
+            idCategoria.MinimumWidth = 6;
+            idCategoria.Name = "idCategoria";
+            idCategoria.ReadOnly = true;
+            idCategoria.Visible = false;
+            idCategoria.Width = 125;
+            // 
+            // categoria
+            // 
+            categoria.HeaderText = "Categoria";
+            categoria.MinimumWidth = 6;
+            categoria.Name = "categoria";
+            categoria.ReadOnly = true;
+            categoria.Width = 175;
+            // 
+            // idMarca
+            // 
+            idMarca.HeaderText = "idMarca";
+            idMarca.Name = "idMarca";
+            idMarca.ReadOnly = true;
+            idMarca.Visible = false;
+            // 
+            // marca
+            // 
+            marca.HeaderText = "Marca";
+            marca.Name = "marca";
+            marca.ReadOnly = true;
+            marca.Width = 170;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.MinimumWidth = 6;
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            stock.Width = 150;
+            // 
+            // stock_minimo
+            // 
+            stock_minimo.HeaderText = "Stock Mín.";
+            stock_minimo.Name = "stock_minimo";
+            stock_minimo.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Width = 150;
+            // 
+            // precioVenta
+            // 
+            precioVenta.HeaderText = "Precio Venta";
+            precioVenta.MinimumWidth = 6;
+            precioVenta.Name = "precioVenta";
+            precioVenta.ReadOnly = true;
+            precioVenta.Width = 150;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValorProd";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Width = 150;
             // 
             // frmProductos
             // 
@@ -305,6 +332,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmProductos";
             Text = "frmProductos";
+            Load += frmProductos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDataProd).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -322,15 +350,18 @@
         private FontAwesome.Sharp.IconButton BBusqueda;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
         private DataGridViewButtonColumn BSeleccionar;
-        private DataGridViewTextBoxColumn idUsuario;
-        private DataGridViewTextBoxColumn CodigoProd;
-        private DataGridViewTextBoxColumn nombreProd;
-        private DataGridViewTextBoxColumn stock;
-        private DataGridViewTextBoxColumn precioProd;
-        private DataGridViewTextBoxColumn precioVtaProd;
+        private DataGridViewTextBoxColumn idProducto;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn idCategoria;
         private DataGridViewTextBoxColumn categoria;
-        private DataGridViewTextBoxColumn estadoValorProd;
-        private DataGridViewTextBoxColumn estadoProd;
+        private DataGridViewTextBoxColumn idMarca;
+        private DataGridViewTextBoxColumn marca;
+        private DataGridViewTextBoxColumn stock;
+        private DataGridViewTextBoxColumn stock_minimo;
+        private DataGridViewTextBoxColumn precio;
+        private DataGridViewTextBoxColumn precioVenta;
+        private DataGridViewTextBoxColumn estadoValor;
+        private DataGridViewTextBoxColumn estado;
     }
 }
