@@ -31,14 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvDataProveedores = new DataGridView();
-            BSeleccionar = new DataGridViewButtonColumn();
-            idUsuario = new DataGridViewTextBoxColumn();
-            documento = new DataGridViewTextBoxColumn();
-            razonSocial = new DataGridViewTextBoxColumn();
-            correoProveedor = new DataGridViewTextBoxColumn();
-            telefonoProveedor = new DataGridViewTextBoxColumn();
-            estadoValorProveedor = new DataGridViewTextBoxColumn();
-            estadoProveedor = new DataGridViewTextBoxColumn();
             panel2 = new Panel();
             label9 = new Label();
             label7 = new Label();
@@ -47,6 +39,14 @@
             TBusqueda = new TextBox();
             BBusqueda = new FontAwesome.Sharp.IconButton();
             BAgregar = new FontAwesome.Sharp.IconButton();
+            BSeleccionar = new DataGridViewButtonColumn();
+            idProveedor = new DataGridViewTextBoxColumn();
+            documento = new DataGridViewTextBoxColumn();
+            razonSocial = new DataGridViewTextBoxColumn();
+            correo = new DataGridViewTextBoxColumn();
+            telefono = new DataGridViewTextBoxColumn();
+            estadoValor = new DataGridViewTextBoxColumn();
+            estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDataProveedores).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -65,7 +65,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvDataProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDataProveedores.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idUsuario, documento, razonSocial, correoProveedor, telefonoProveedor, estadoValorProveedor, estadoProveedor });
+            dgvDataProveedores.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idProveedor, documento, razonSocial, correo, telefono, estadoValor, estado });
             dgvDataProveedores.Location = new Point(23, 107);
             dgvDataProveedores.MultiSelect = false;
             dgvDataProveedores.Name = "dgvDataProveedores";
@@ -77,72 +77,8 @@
             dgvDataProveedores.RowTemplate.Height = 28;
             dgvDataProveedores.Size = new Size(1001, 454);
             dgvDataProveedores.TabIndex = 13;
-            // 
-            // BSeleccionar
-            // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
-            BSeleccionar.Name = "BSeleccionar";
-            BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 30;
-            // 
-            // idUsuario
-            // 
-            idUsuario.HeaderText = "ID";
-            idUsuario.MinimumWidth = 6;
-            idUsuario.Name = "idUsuario";
-            idUsuario.ReadOnly = true;
-            idUsuario.Visible = false;
-            idUsuario.Width = 129;
-            // 
-            // documento
-            // 
-            documento.HeaderText = "Número de documento";
-            documento.MinimumWidth = 6;
-            documento.Name = "documento";
-            documento.ReadOnly = true;
-            documento.Width = 300;
-            // 
-            // razonSocial
-            // 
-            razonSocial.HeaderText = "Razón Social";
-            razonSocial.MinimumWidth = 6;
-            razonSocial.Name = "razonSocial";
-            razonSocial.ReadOnly = true;
-            razonSocial.Width = 300;
-            // 
-            // correoProveedor
-            // 
-            correoProveedor.HeaderText = "Correo";
-            correoProveedor.MinimumWidth = 6;
-            correoProveedor.Name = "correoProveedor";
-            correoProveedor.ReadOnly = true;
-            correoProveedor.Width = 350;
-            // 
-            // telefonoProveedor
-            // 
-            telefonoProveedor.HeaderText = "Teléfono";
-            telefonoProveedor.MinimumWidth = 6;
-            telefonoProveedor.Name = "telefonoProveedor";
-            telefonoProveedor.ReadOnly = true;
-            telefonoProveedor.Width = 350;
-            // 
-            // estadoValorProveedor
-            // 
-            estadoValorProveedor.HeaderText = "estadoValor";
-            estadoValorProveedor.MinimumWidth = 6;
-            estadoValorProveedor.Name = "estadoValorProveedor";
-            estadoValorProveedor.ReadOnly = true;
-            estadoValorProveedor.Visible = false;
-            estadoValorProveedor.Width = 125;
-            // 
-            // estadoProveedor
-            // 
-            estadoProveedor.HeaderText = "Estado";
-            estadoProveedor.MinimumWidth = 6;
-            estadoProveedor.Name = "estadoProveedor";
-            estadoProveedor.ReadOnly = true;
-            estadoProveedor.Width = 253;
+            dgvDataProveedores.CellContentClick += dgvDataProveedores_CellContentClick;
+            dgvDataProveedores.CellPainting += dgvDataProveedores_CellPainting;
             // 
             // panel2
             // 
@@ -213,6 +149,7 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // TBusqueda
             // 
@@ -241,6 +178,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // BAgregar
             // 
@@ -266,6 +204,72 @@
             BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
             // 
+            // BSeleccionar
+            // 
+            BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.Name = "BSeleccionar";
+            BSeleccionar.ReadOnly = true;
+            BSeleccionar.Width = 30;
+            // 
+            // idProveedor
+            // 
+            idProveedor.HeaderText = "ID";
+            idProveedor.MinimumWidth = 6;
+            idProveedor.Name = "idProveedor";
+            idProveedor.ReadOnly = true;
+            idProveedor.Visible = false;
+            idProveedor.Width = 129;
+            // 
+            // documento
+            // 
+            documento.HeaderText = "Número de documento";
+            documento.MinimumWidth = 6;
+            documento.Name = "documento";
+            documento.ReadOnly = true;
+            documento.Width = 300;
+            // 
+            // razonSocial
+            // 
+            razonSocial.HeaderText = "Razón Social";
+            razonSocial.MinimumWidth = 6;
+            razonSocial.Name = "razonSocial";
+            razonSocial.ReadOnly = true;
+            razonSocial.Width = 300;
+            // 
+            // correo
+            // 
+            correo.HeaderText = "Correo";
+            correo.MinimumWidth = 6;
+            correo.Name = "correo";
+            correo.ReadOnly = true;
+            correo.Width = 350;
+            // 
+            // telefono
+            // 
+            telefono.HeaderText = "Teléfono";
+            telefono.MinimumWidth = 6;
+            telefono.Name = "telefono";
+            telefono.ReadOnly = true;
+            telefono.Width = 350;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValor";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Width = 253;
+            // 
             // frmProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -277,6 +281,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmProveedores";
             Text = "frmProveedores";
+            Load += frmProveedores_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDataProveedores).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -294,12 +299,12 @@
         private FontAwesome.Sharp.IconButton BBusqueda;
         private FontAwesome.Sharp.IconButton BAgregar;
         private DataGridViewButtonColumn BSeleccionar;
-        private DataGridViewTextBoxColumn idUsuario;
+        private DataGridViewTextBoxColumn idProveedor;
         private DataGridViewTextBoxColumn documento;
         private DataGridViewTextBoxColumn razonSocial;
-        private DataGridViewTextBoxColumn correoProveedor;
-        private DataGridViewTextBoxColumn telefonoProveedor;
-        private DataGridViewTextBoxColumn estadoValorProveedor;
-        private DataGridViewTextBoxColumn estadoProveedor;
+        private DataGridViewTextBoxColumn correo;
+        private DataGridViewTextBoxColumn telefono;
+        private DataGridViewTextBoxColumn estadoValor;
+        private DataGridViewTextBoxColumn estado;
     }
 }

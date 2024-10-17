@@ -53,3 +53,14 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\Pe
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\bin\Debug\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaDatos\obj\Debug\CapaDatos.pdb

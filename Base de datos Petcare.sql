@@ -537,8 +537,212 @@ VALUES ('Purina', 1),
 ('Whiskas', 1)
 go
 
---Cambios 16/10
+--Cambios 14/10
+Select * from CLIENTE
+go
 
+CREATE PROC sp_RegistrarCliente(
+@documento varchar(50),
+@nombreCompleto varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from CLIENTE where documento = @documento or correo = @correo or telefono = @telefono)
+	begin
+		insert into CLIENTE (documento, nombreCompleto, correo, telefono, estado) 
+		VALUES(@documento, @nombreCompleto, @correo, @telefono, @estado)
+
+		set @Resultado = SCOPE_IDENTITY()
+		set @Mensaje = 'Cliente registrado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from CLIENTE where documento = @documento)
+			set @Mensaje = 'Ya existe un cliente registrado con ese documento.'
+		else if exists(select * from CLIENTE where correo = @correo)
+			set @Mensaje = 'Ya existe un cliente registrado con ese correo.'
+		else if exists(select * from CLIENTE where telefono = @telefono)
+			set @Mensaje = 'Ya existe un cliente registrado con ese teléfono.'
+		end
+end
+go
+
+create PROC sp_ModificarCliente(
+@idCliente int,
+@documento varchar(50),
+@nombreCompleto varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from CLIENTE
+	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idCliente != @idCliente)
+	begin
+		UPDATE CLIENTE SET
+		documento = @documento,
+		nombreCompleto = @nombreCompleto,
+		correo = @correo,
+		telefono = @telefono,
+		estado = @estado
+		WHERE idCliente = @idCliente
+
+		set @resultado = 1;
+		set @mensaje = 'Cliente: ' + @nombreCompleto + ', modificado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from CLIENTE where documento = @documento and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese documento.'
+		else if exists(select * from CLIENTE where correo = @correo and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese correo.'
+		else if exists(select * from CLIENTE where telefono = @telefono and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese teléfono.'
+		end
+end
+go
+
+select * from CLIENTE
+go
+
+--restricción para numeros de documento.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Dni
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
+go
+
+--restriccion para nombres completos.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Nombre
+CHECK (nombreCompleto LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and nombreCompleto NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
+go
+
+--restriccion para correos validos.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Correo
+CHECK (
+    correo LIKE '%_@__%.__%' 
+    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
+    AND CHARINDEX(' ', correo) = 0
+);
+go
+--restriccion para numeros de telefono validos
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Telefono
+CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
+go
+
+
+--cambios 14-10
+--Procedimientos para proveedor
+create PROC sp_RegistrarProveedor(
+@documento varchar(50),
+@razonSocial varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPROVEEDOR INT
+	if not exists(select * from PROVEEDOR where documento = @documento or correo = @correo or telefono = @telefono)
+	begin
+		insert into PROVEEDOR (documento, razonSocial, correo, telefono, estado) 
+		VALUES(@documento, @razonSocial, @correo, @telefono, @estado)
+
+		set @Resultado = SCOPE_IDENTITY()
+		set @Mensaje = 'Proveedor registrado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from PROVEEDOR where documento = @documento)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese documento.'
+		else if exists(select * from PROVEEDOR where correo = @correo)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese correo.'
+		else if exists(select * from PROVEEDOR where telefono = @telefono)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
+		end
+end
+go
+
+
+CREATE PROC sp_ModificarProveedor(
+@idProveedor int,
+@documento varchar(50),
+@razonSocial varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from PROVEEDOR
+	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idProveedor != @idProveedor)
+	begin
+		UPDATE PROVEEDOR SET
+		documento = @documento,
+		razonSocial = @razonSocial,
+		correo = @correo,
+		telefono = @telefono,
+		estado = @estado
+		WHERE idProveedor = @idProveedor
+
+		set @resultado = 1;
+		set @mensaje = 'Proveedor: ' + @razonSocial + ', modificado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from PROVEEDOR where documento = @documento and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese documento.'
+		else if exists(select * from PROVEEDOR where correo = @correo and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese correo.'
+		else if exists(select * from PROVEEDOR where telefono = @telefono and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
+		end
+end
+go
+
+
+--restricción para numeros de documento.
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Dni
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
+go
+
+--restriccion para correos validos.
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Correo
+CHECK (
+    correo LIKE '%_@__%.__%' 
+    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
+    AND CHARINDEX(' ', correo) = 0
+);
+go
+--restriccion para numeros de telefono validos
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Telefono
+CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
+go
+
+select * from PROVEEDOR
+go
+
+--Cambios 16/10
 CREATE PROC SP_REGISTRARPRODUCTO(
 @codigo varchar(50),
 @nombre varchar(150),

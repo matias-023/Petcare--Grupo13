@@ -146,6 +146,7 @@
             TNombreCompleto.Name = "TNombreCompleto";
             TNombreCompleto.Size = new Size(222, 22);
             TNombreCompleto.TabIndex = 2;
+            TNombreCompleto.TextChanged += TNombreCompleto_TextChanged;
             // 
             // label2
             // 
@@ -239,6 +240,7 @@
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // mdClientes
             // 
@@ -265,6 +267,7 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdClientes";
+            Load += mdClientes_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             ResumeLayout(false);
