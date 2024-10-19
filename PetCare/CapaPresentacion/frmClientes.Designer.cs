@@ -110,6 +110,7 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // CBusqueda
             // 
@@ -148,6 +149,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // dgvDataClientes
             // 
@@ -175,6 +177,8 @@
             dgvDataClientes.RowTemplate.Height = 28;
             dgvDataClientes.Size = new Size(1001, 454);
             dgvDataClientes.TabIndex = 15;
+            dgvDataClientes.CellContentClick += dgvDataClientes_CellContentClick;
+            dgvDataClientes.CellPainting += dgvDataClientes_CellPainting;
             // 
             // BSeleccionar
             // 
@@ -278,6 +282,7 @@
             Name = "frmClientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmClientes";
+            Load += frmClientes_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDataClientes).EndInit();

@@ -30,9 +30,9 @@
         {
             BCancelar = new FontAwesome.Sharp.IconButton();
             BAgregar = new FontAwesome.Sharp.IconButton();
-            CEstadoCat = new ComboBox();
+            CEstado = new ComboBox();
             LEstado = new Label();
-            TDescripcionCategoria = new TextBox();
+            TDescripcion = new TextBox();
             LDescripcionCategoria = new Label();
             TIndice = new TextBox();
             TIdMarca = new TextBox();
@@ -87,16 +87,17 @@
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
-            // CEstadoCat
+            // CEstado
             // 
-            CEstadoCat.DropDownStyle = ComboBoxStyle.DropDownList;
-            CEstadoCat.Font = new Font("Microsoft Sans Serif", 9.75F);
-            CEstadoCat.FormattingEnabled = true;
-            CEstadoCat.Location = new Point(93, 170);
-            CEstadoCat.Name = "CEstadoCat";
-            CEstadoCat.Size = new Size(222, 24);
-            CEstadoCat.TabIndex = 2;
+            CEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            CEstado.Font = new Font("Microsoft Sans Serif", 9.75F);
+            CEstado.FormattingEnabled = true;
+            CEstado.Location = new Point(93, 170);
+            CEstado.Name = "CEstado";
+            CEstado.Size = new Size(222, 24);
+            CEstado.TabIndex = 2;
             // 
             // LEstado
             // 
@@ -108,13 +109,14 @@
             LEstado.TabIndex = 29;
             LEstado.Text = "Estado:";
             // 
-            // TDescripcionCategoria
+            // TDescripcion
             // 
-            TDescripcionCategoria.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TDescripcionCategoria.Location = new Point(93, 100);
-            TDescripcionCategoria.Name = "TDescripcionCategoria";
-            TDescripcionCategoria.Size = new Size(222, 22);
-            TDescripcionCategoria.TabIndex = 1;
+            TDescripcion.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TDescripcion.Location = new Point(93, 100);
+            TDescripcion.Name = "TDescripcion";
+            TDescripcion.Size = new Size(222, 22);
+            TDescripcion.TabIndex = 1;
+            TDescripcion.TextChanged += TDescripcion_TextChanged;
             // 
             // LDescripcionCategoria
             // 
@@ -173,9 +175,9 @@
             // 
             titulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titulo.ForeColor = Color.White;
-            titulo.Location = new Point(97, 4);
+            titulo.Location = new Point(72, 4);
             titulo.Name = "titulo";
-            titulo.Size = new Size(217, 26);
+            titulo.Size = new Size(254, 26);
             titulo.TabIndex = 9;
             titulo.Text = "Crear Marca";
             titulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -188,9 +190,9 @@
             Controls.Add(panel1);
             Controls.Add(BCancelar);
             Controls.Add(BAgregar);
-            Controls.Add(CEstadoCat);
+            Controls.Add(CEstado);
             Controls.Add(LEstado);
-            Controls.Add(TDescripcionCategoria);
+            Controls.Add(TDescripcion);
             Controls.Add(LDescripcionCategoria);
             Controls.Add(TIndice);
             Controls.Add(TIdMarca);
@@ -199,6 +201,7 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdMarcas";
+            Load += mdMarcas_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             ResumeLayout(false);
@@ -209,9 +212,9 @@
 
         private FontAwesome.Sharp.IconButton BCancelar;
         private FontAwesome.Sharp.IconButton BAgregar;
-        private ComboBox CEstadoCat;
+        private ComboBox CEstado;
         private Label LEstado;
-        private TextBox TDescripcionCategoria;
+        private TextBox TDescripcion;
         private Label LDescripcionCategoria;
         private TextBox TIndice;
         private TextBox TIdMarca;

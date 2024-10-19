@@ -35,17 +35,13 @@
             TIdProducto = new TextBox();
             BCancelar = new FontAwesome.Sharp.IconButton();
             BAgregar = new FontAwesome.Sharp.IconButton();
-            TCodProd = new TextBox();
+            TCodigo = new TextBox();
             LCodigoProd = new Label();
-            TNombreProd = new TextBox();
+            TNombre = new TextBox();
             LNombreProd = new Label();
-            TStockProd = new TextBox();
             LStockProd = new Label();
-            TStockMinProd = new TextBox();
             label1 = new Label();
-            TPrecioProd = new TextBox();
             LPrecio = new Label();
-            TPrecioVentaProd = new TextBox();
             LPrecioVenta = new Label();
             CCategoria = new ComboBox();
             LCategoriaProd = new Label();
@@ -53,8 +49,16 @@
             LEstado = new Label();
             CMarca = new ComboBox();
             label2 = new Label();
+            numStock = new NumericUpDown();
+            numStockMin = new NumericUpDown();
+            numPrecio = new NumericUpDown();
+            numPrecioVenta = new NumericUpDown();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numStock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numStockMin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPrecio).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPrecioVenta).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -86,9 +90,9 @@
             // 
             titulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titulo.ForeColor = Color.White;
-            titulo.Location = new Point(164, 4);
+            titulo.Location = new Point(126, 4);
             titulo.Name = "titulo";
-            titulo.Size = new Size(217, 26);
+            titulo.Size = new Size(297, 26);
             titulo.TabIndex = 9;
             titulo.Text = "Crear Producto";
             titulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -155,14 +159,15 @@
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
-            // TCodProd
+            // TCodigo
             // 
-            TCodProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TCodProd.Location = new Point(24, 77);
-            TCodProd.Name = "TCodProd";
-            TCodProd.Size = new Size(222, 22);
-            TCodProd.TabIndex = 1;
+            TCodigo.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TCodigo.Location = new Point(24, 77);
+            TCodigo.Name = "TCodigo";
+            TCodigo.Size = new Size(222, 22);
+            TCodigo.TabIndex = 1;
             // 
             // LCodigoProd
             // 
@@ -174,13 +179,13 @@
             LCodigoProd.TabIndex = 37;
             LCodigoProd.Text = "Codigo: ";
             // 
-            // TNombreProd
+            // TNombre
             // 
-            TNombreProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TNombreProd.Location = new Point(24, 137);
-            TNombreProd.Name = "TNombreProd";
-            TNombreProd.Size = new Size(222, 22);
-            TNombreProd.TabIndex = 2;
+            TNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TNombre.Location = new Point(24, 137);
+            TNombre.Name = "TNombre";
+            TNombre.Size = new Size(222, 22);
+            TNombre.TabIndex = 2;
             // 
             // LNombreProd
             // 
@@ -192,14 +197,6 @@
             LNombreProd.TabIndex = 40;
             LNombreProd.Text = "Nombre:";
             // 
-            // TStockProd
-            // 
-            TStockProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TStockProd.Location = new Point(23, 317);
-            TStockProd.Name = "TStockProd";
-            TStockProd.Size = new Size(222, 22);
-            TStockProd.TabIndex = 5;
-            // 
             // LStockProd
             // 
             LStockProd.AutoSize = true;
@@ -209,14 +206,6 @@
             LStockProd.Size = new Size(44, 16);
             LStockProd.TabIndex = 42;
             LStockProd.Text = "Stock:";
-            // 
-            // TStockMinProd
-            // 
-            TStockMinProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TStockMinProd.Location = new Point(23, 377);
-            TStockMinProd.Name = "TStockMinProd";
-            TStockMinProd.Size = new Size(222, 22);
-            TStockMinProd.TabIndex = 6;
             // 
             // label1
             // 
@@ -228,15 +217,6 @@
             label1.TabIndex = 44;
             label1.Text = "Stock mínimo:";
             // 
-            // TPrecioProd
-            // 
-            TPrecioProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TPrecioProd.Location = new Point(294, 77);
-            TPrecioProd.Name = "TPrecioProd";
-            TPrecioProd.PasswordChar = '*';
-            TPrecioProd.Size = new Size(222, 22);
-            TPrecioProd.TabIndex = 7;
-            // 
             // LPrecio
             // 
             LPrecio.AutoSize = true;
@@ -246,15 +226,6 @@
             LPrecio.Size = new Size(49, 16);
             LPrecio.TabIndex = 46;
             LPrecio.Text = "Precio:";
-            // 
-            // TPrecioVentaProd
-            // 
-            TPrecioVentaProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            TPrecioVentaProd.Location = new Point(294, 137);
-            TPrecioVentaProd.Name = "TPrecioVentaProd";
-            TPrecioVentaProd.PasswordChar = '*';
-            TPrecioVentaProd.Size = new Size(222, 22);
-            TPrecioVentaProd.TabIndex = 8;
             // 
             // LPrecioVenta
             // 
@@ -326,28 +297,62 @@
             label2.TabIndex = 53;
             label2.Text = "Marca:";
             // 
+            // numStock
+            // 
+            numStock.Location = new Point(23, 317);
+            numStock.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numStock.Name = "numStock";
+            numStock.Size = new Size(223, 23);
+            numStock.TabIndex = 5;
+            // 
+            // numStockMin
+            // 
+            numStockMin.Location = new Point(23, 378);
+            numStockMin.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numStockMin.Name = "numStockMin";
+            numStockMin.Size = new Size(223, 23);
+            numStockMin.TabIndex = 6;
+            // 
+            // numPrecio
+            // 
+            numPrecio.DecimalPlaces = 2;
+            numPrecio.Location = new Point(294, 77);
+            numPrecio.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numPrecio.Name = "numPrecio";
+            numPrecio.Size = new Size(223, 23);
+            numPrecio.TabIndex = 54;
+            // 
+            // numPrecioVenta
+            // 
+            numPrecioVenta.DecimalPlaces = 2;
+            numPrecioVenta.Location = new Point(294, 137);
+            numPrecioVenta.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numPrecioVenta.Name = "numPrecioVenta";
+            numPrecioVenta.Size = new Size(223, 23);
+            numPrecioVenta.TabIndex = 55;
+            // 
             // mdProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(544, 491);
+            Controls.Add(numPrecioVenta);
+            Controls.Add(numPrecio);
+            Controls.Add(numStockMin);
+            Controls.Add(numStock);
             Controls.Add(CMarca);
             Controls.Add(label2);
             Controls.Add(CEstado);
             Controls.Add(LEstado);
             Controls.Add(CCategoria);
             Controls.Add(LCategoriaProd);
-            Controls.Add(TPrecioVentaProd);
             Controls.Add(LPrecioVenta);
-            Controls.Add(TPrecioProd);
             Controls.Add(LPrecio);
-            Controls.Add(TStockMinProd);
             Controls.Add(label1);
-            Controls.Add(TStockProd);
             Controls.Add(LStockProd);
-            Controls.Add(TNombreProd);
+            Controls.Add(TNombre);
             Controls.Add(LNombreProd);
-            Controls.Add(TCodProd);
+            Controls.Add(TCodigo);
             Controls.Add(LCodigoProd);
             Controls.Add(BCancelar);
             Controls.Add(BAgregar);
@@ -359,8 +364,13 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdProductos";
+            Load += mdProductos_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numStock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numStockMin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPrecio).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPrecioVenta).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -374,17 +384,13 @@
         private TextBox TIdProducto;
         private FontAwesome.Sharp.IconButton BCancelar;
         private FontAwesome.Sharp.IconButton BAgregar;
-        private TextBox TCodProd;
+        private TextBox TCodigo;
         private Label LCodigoProd;
-        private TextBox TNombreProd;
+        private TextBox TNombre;
         private Label LNombreProd;
-        private TextBox TStockProd;
         private Label LStockProd;
-        private TextBox TStockMinProd;
         private Label label1;
-        private TextBox TPrecioProd;
         private Label LPrecio;
-        private TextBox TPrecioVentaProd;
         private Label LPrecioVenta;
         private ComboBox CCategoria;
         private Label LCategoriaProd;
@@ -392,5 +398,9 @@
         private Label LEstado;
         private ComboBox CMarca;
         private Label label2;
+        private NumericUpDown numStock;
+        private NumericUpDown numStockMin;
+        private NumericUpDown numPrecio;
+        private NumericUpDown numPrecioVenta;
     }
 }

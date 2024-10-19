@@ -16,3 +16,12 @@ C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\C
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\bin\Debug\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\bin\Debug\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\obj\Debug\CapaEnti.526B9C87.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaEntidad\obj\Debug\CapaEntidad.pdb

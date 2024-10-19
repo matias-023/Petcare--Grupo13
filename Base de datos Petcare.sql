@@ -102,13 +102,13 @@ go
 CREATE TABLE PRODUCTO(
 	idProducto INT IDENTITY,
 	codigo VARCHAR(50) NOT NULL,
-	nombre VARCHAR(100) NOT NULL,
+	nombre VARCHAR(150) NOT NULL,
 	idMarca INT NOT NULL,
 	idCategoria INT NOT NULL,
-	stock_min INT NOT NULL DEFAULT 0,
-	stock INT NOT NULL DEFAULT 0,
-	precio DECIMAL(10,2) DEFAULT 0, 
-	precioVenta DECIMAL(10,2) DEFAULT 0,
+	stock_min INT NOT NULL,
+	stock INT NOT NULL,
+	precio DECIMAL(10,2) NOT NULL, 
+	precioVenta DECIMAL(10,2) NOT NULL,
 	estado BIT DEFAULT 1,
 	fechaRegistro DATETIME CONSTRAINT DF_Producto_fechaRegistro DEFAULT getdate(),
 	CONSTRAINT PK_Producto_id PRIMARY KEY (idProducto),
@@ -406,4 +406,428 @@ ADD CONSTRAINT CK_Usuario_Telefono
 CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
 go
 
-SELECT * FROM USUARIO
+/* cambios 3/10 */
+
+--Procedimiento almacenado para registrar categorias de productos.
+CREATE PROC SP_REGISTRARCATEGORIA(
+@descripcion varchar(100),
+@estado bit,
+@resultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @resultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from CATEGORIA where descripcion = @descripcion)
+	begin 
+		insert into CATEGORIA (descripcion, estado)
+		VALUES (@descripcion, @estado)
+		set @resultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Categoría registrada con éxito!'
+	end 
+	else 
+		set @mensaje = 'Ya existe una categoría registrada con esa descripción.'
+end
+go
+
+--Procedimiento almacenado para editar categorias de productos.
+CREATE PROC SP_EDITARCATEGORIA(
+@idCategoria int,
+@descripcion varchar(100),
+@estado bit,
+@respuesta int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists (select * from CATEGORIA
+	WHERE descripcion = @descripcion and idCategoria != @idCategoria)
+	begin 
+		update CATEGORIA set
+		descripcion = @descripcion,
+		estado = @estado
+		WHERE idCategoria = @idCategoria
+
+		set @respuesta = 1
+		set @mensaje = 'Categoría: ' + @descripcion + ', modificada con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe una categoría registrada con esa descripción.'
+end
+go
+
+--restriccion para descripciones de categoría validos.
+ALTER TABLE CATEGORIA
+ADD CONSTRAINT CK_Categoria_Descripcion
+CHECK (descripcion LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and descripcion NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
+go
+
+INSERT INTO CATEGORIA (descripcion, estado)
+VALUES ('Alimentos', 1),
+('Accesorios', 1),
+('Juguetes', 1)
+go
+
+select * from CATEGORIA
+go
+
+--Procedimiento almacenado para registrar marcas de productos.
+CREATE PROC SP_REGISTRARMARCA(
+@descripcion varchar(100),
+@estado bit,
+@resultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @resultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from MARCA where descripcion = @descripcion)
+	begin 
+		insert into MARCA (descripcion, estado)
+		VALUES (@descripcion, @estado)
+		set @resultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Marca registrada con éxito!'
+	end 
+	else 
+		set @mensaje = 'Ya existe una Marca registrada con esa descripción.'
+end
+go
+
+--Procedimiento almacenado para editar marcas de productos.
+CREATE PROC SP_EDITARMARCA(
+@idMarca int,
+@descripcion varchar(100),
+@estado bit,
+@respuesta int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists (select * from MARCA
+	WHERE descripcion = @descripcion and idMarca != @idMarca)
+	begin 
+		update MARCA set
+		descripcion = @descripcion,
+		estado = @estado
+		WHERE idMarca = @idMarca
+
+		set @respuesta = 1
+		set @mensaje = 'Marca: ' + @descripcion + ', modificada con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe una marca registrada con esa descripción.'
+end
+go
+
+INSERT INTO MARCA (descripcion, estado)
+VALUES ('Purina', 1),
+('Pro Plan', 1),
+('Whiskas', 1)
+go
+
+--Cambios 14/10
+Select * from CLIENTE
+go
+
+CREATE PROC sp_RegistrarCliente(
+@documento varchar(50),
+@nombreCompleto varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from CLIENTE where documento = @documento or correo = @correo or telefono = @telefono)
+	begin
+		insert into CLIENTE (documento, nombreCompleto, correo, telefono, estado) 
+		VALUES(@documento, @nombreCompleto, @correo, @telefono, @estado)
+
+		set @Resultado = SCOPE_IDENTITY()
+		set @Mensaje = 'Cliente registrado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from CLIENTE where documento = @documento)
+			set @Mensaje = 'Ya existe un cliente registrado con ese documento.'
+		else if exists(select * from CLIENTE where correo = @correo)
+			set @Mensaje = 'Ya existe un cliente registrado con ese correo.'
+		else if exists(select * from CLIENTE where telefono = @telefono)
+			set @Mensaje = 'Ya existe un cliente registrado con ese teléfono.'
+		end
+end
+go
+
+create PROC sp_ModificarCliente(
+@idCliente int,
+@documento varchar(50),
+@nombreCompleto varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from CLIENTE
+	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idCliente != @idCliente)
+	begin
+		UPDATE CLIENTE SET
+		documento = @documento,
+		nombreCompleto = @nombreCompleto,
+		correo = @correo,
+		telefono = @telefono,
+		estado = @estado
+		WHERE idCliente = @idCliente
+
+		set @resultado = 1;
+		set @mensaje = 'Cliente: ' + @nombreCompleto + ', modificado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from CLIENTE where documento = @documento and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese documento.'
+		else if exists(select * from CLIENTE where correo = @correo and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese correo.'
+		else if exists(select * from CLIENTE where telefono = @telefono and idCliente != @idCliente)
+			set @mensaje = 'Ya existe un cliente registrado con ese teléfono.'
+		end
+end
+go
+
+select * from CLIENTE
+go
+
+--restricción para numeros de documento.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Dni
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
+go
+
+--restriccion para nombres completos.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Nombre
+CHECK (nombreCompleto LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and nombreCompleto NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
+go
+
+--restriccion para correos validos.
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Correo
+CHECK (
+    correo LIKE '%_@__%.__%' 
+    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
+    AND CHARINDEX(' ', correo) = 0
+);
+go
+--restriccion para numeros de telefono validos
+ALTER TABLE CLIENTE
+ADD CONSTRAINT CK_Cliente_Telefono
+CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
+go
+
+
+--cambios 14-10
+--Procedimientos para proveedor
+create PROC sp_RegistrarProveedor(
+@documento varchar(50),
+@razonSocial varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPROVEEDOR INT
+	if not exists(select * from PROVEEDOR where documento = @documento or correo = @correo or telefono = @telefono)
+	begin
+		insert into PROVEEDOR (documento, razonSocial, correo, telefono, estado) 
+		VALUES(@documento, @razonSocial, @correo, @telefono, @estado)
+
+		set @Resultado = SCOPE_IDENTITY()
+		set @Mensaje = 'Proveedor registrado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from PROVEEDOR where documento = @documento)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese documento.'
+		else if exists(select * from PROVEEDOR where correo = @correo)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese correo.'
+		else if exists(select * from PROVEEDOR where telefono = @telefono)
+			set @Mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
+		end
+end
+go
+
+
+CREATE PROC sp_ModificarProveedor(
+@idProveedor int,
+@documento varchar(50),
+@razonSocial varchar(150),
+@correo varchar(150),
+@telefono varchar(50),
+@estado bit,
+@Resultado int output,
+@Mensaje varchar(500) output
+)as
+begin 
+	SET @Resultado = 0
+	DECLARE @IDPERSONA INT
+	if not exists(select * from PROVEEDOR
+	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idProveedor != @idProveedor)
+	begin
+		UPDATE PROVEEDOR SET
+		documento = @documento,
+		razonSocial = @razonSocial,
+		correo = @correo,
+		telefono = @telefono,
+		estado = @estado
+		WHERE idProveedor = @idProveedor
+
+		set @resultado = 1;
+		set @mensaje = 'Proveedor: ' + @razonSocial + ', modificado con éxito!'
+	end
+	else
+	begin
+		if exists(select * from PROVEEDOR where documento = @documento and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese documento.'
+		else if exists(select * from PROVEEDOR where correo = @correo and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese correo.'
+		else if exists(select * from PROVEEDOR where telefono = @telefono and idProveedor != @idProveedor)
+			set @mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
+		end
+end
+go
+
+
+--restricción para numeros de documento.
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Dni
+CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
+go
+
+--restriccion para correos validos.
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Correo
+CHECK (
+    correo LIKE '%_@__%.__%' 
+    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
+    AND CHARINDEX(' ', correo) = 0
+);
+go
+--restriccion para numeros de telefono validos
+ALTER TABLE PROVEEDOR
+ADD CONSTRAINT CK_Proveedor_Telefono
+CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
+go
+
+select * from PROVEEDOR
+go
+
+--Cambios 16/10
+CREATE PROC SP_REGISTRARPRODUCTO(
+@codigo varchar(50),
+@nombre varchar(150),
+@idMarca int,
+@idCategoria int,
+@stock_min int,
+@stock int,
+@precio decimal(10,2),
+@precioVenta decimal(10,2),
+@estado bit,
+@idProductoResultado int output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @idProductoResultado = 0
+	set @mensaje = ''
+
+	if not exists(select * from PRODUCTO where codigo = @codigo)
+	begin 
+		insert into PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
+		VALUES (@codigo, @nombre, @idMarca, @idCategoria, @stock_min, @stock, @precio, @precioVenta, @estado)
+
+		set @idProductoResultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
+		set @mensaje = 'Producto registrado con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe un producto registrado con ese código.'
+end
+go
+
+CREATE PROC SP_EDITARPRODUCTO(
+@idProducto int,
+@codigo varchar(50),
+@nombre varchar(150),
+@idMarca int,
+@idCategoria int,
+@stock_min int,
+@stock int,
+@precio decimal(10,2),
+@precioVenta decimal(10,2),
+@estado bit,
+@respuesta bit output,
+@mensaje varchar(150) output
+)
+as
+begin
+	set @respuesta = 0
+	set @mensaje = ''
+
+	if not exists(select * from PRODUCTO
+	WHERE (codigo = @codigo) and idProducto != @idProducto)
+	begin 
+		update PRODUCTO set
+		codigo = @codigo,
+		nombre = @nombre,
+		idMarca = @idMarca,
+		idCategoria = @idCategoria,
+		stock_min = @stock_min,
+		stock = @stock,
+		precio = @precio,
+		precioVenta = @precioVenta,
+		estado = @estado
+		WHERE idProducto = @idProducto
+
+		set @respuesta = 1
+		set @mensaje = 'Producto modificado con éxito!'
+
+	end 
+	else 
+		set @mensaje = 'Ya existe un producto registrado con ese código.'
+end
+go
+
+ALTER TABLE PRODUCTO
+ADD CONSTRAINT CK_Producto_Codigo
+CHECK (codigo LIKE '%[0-9]%' AND codigo NOT LIKE '%[^0-9]%')
+go
+
+INSERT INTO PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
+VALUES ('1000', 'Alimento para perros 10Kg', 1, 1, 20, 300, 1500.99, 1699.99, 1)
+
+select p.idProducto, p.codigo, p.nombre, m.idMarca, m.descripcion[descMarca], c.idCategoria, c.descripcion[descCategoria], p.stock_min, p.stock, p.precio, p.precioVenta, p.estado from PRODUCTO p
+inner join Marca m on p.idMarca = m.idMarca
+inner join CATEGORIA c on p.idCategoria = c.idCategoria
+
+SELECT * FROM PRODUCTO

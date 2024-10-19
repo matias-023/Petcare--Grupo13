@@ -252,3 +252,119 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarCliente.resources
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProducto.resources
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProveedor.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.exe
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.dll.config
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.deps.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.runtimeconfig.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaNegocio.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmAcercaDe.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmBackup.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmCategorias.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmClientes.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmCompras.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmDetalleCompra.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmDetalleVenta.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmMarcas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmProductos.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmProveedores.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmUsuario.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmVentas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.inicio.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Login.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarCliente.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProducto.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProveedor.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdCategorias.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdClientes.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdMarcas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProductos.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdUsuarios.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Properties.Resources.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.AssemblyInfoInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.AssemblyInfo.cs
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.sourcelink.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPres.61CA7C38.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\refint\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.genruntimeconfig.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 marcas y categorias respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\ref\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.exe
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.dll.config
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.deps.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.runtimeconfig.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaPresentacion.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaNegocio.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmAcercaDe.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmBackup.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmCategorias.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmClientes.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmCompras.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmDetalleCompra.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmDetalleVenta.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmMarcas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmProductos.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmProveedores.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmUsuario.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmVentas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.inicio.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Login.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarCliente.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProducto.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProveedor.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdCategorias.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdClientes.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdMarcas.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProductos.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdUsuarios.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Properties.Resources.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.GenerateResource.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.AssemblyInfoInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.AssemblyInfo.cs
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.sourcelink.json
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPres.61CA7C38.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\refint\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.pdb
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.genruntimeconfig.cache
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\ref\CapaPresentacion.dll
