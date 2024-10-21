@@ -39,15 +39,11 @@ namespace CapaPresentacion
 
             foreach (Proveedor user in listaProveedor)
             {
-                if (user.IdProveedor != 1)
-                {
-
-                    dgvDataProveedores.Rows.Add(new object[] {"", user.IdProveedor, user.documento, user.razonSocial, user.correo, user.telefono,
+                dgvDataProveedores.Rows.Add(new object[] {"", user.IdProveedor, user.documento, user.razonSocial, user.correo, user.telefono,
                 user.estado == true ? 1 : 0,
                 user.estado == true ? "Activo": "No activo"
 
                 });
-                }
             }
         }
         private void BAgregar_Click(object sender, EventArgs e)

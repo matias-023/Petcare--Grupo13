@@ -140,6 +140,7 @@ CREATE TABLE VENTA(
 	CONSTRAINT CK_Venta_montoPago CHECK (montoPago >= 0),
 	CONSTRAINT CK_Venta_montoCambio CHECK (montoCambio >= 0),
 	CONSTRAINT CK_Venta_montoTotal CHECK (montoTotal >= 0),
+	CONSTRAINT CK_Venta_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
 )
 go
 
@@ -241,7 +242,8 @@ CREATE TABLE COMPRA(
 	CONSTRAINT PK_Compra_id PRIMARY KEY (idCompra),
 	CONSTRAINT FK_Compra_Usuario FOREIGN KEY (idUsuario) REFERENCES USUARIO (idUsuario),
 	CONSTRAINT FK_Compra_Proveedor FOREIGN KEY (idProveedor) REFERENCES PROVEEDOR(idProveedor),
-	CONSTRAINT CK_Compra_montoTotal CHECK (montoTotal >= 0)
+	CONSTRAINT CK_Compra_montoTotal CHECK (montoTotal >= 0),
+	CONSTRAINT CK_Compra_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
 )
 go
 
@@ -831,3 +833,5 @@ inner join Marca m on p.idMarca = m.idMarca
 inner join CATEGORIA c on p.idCategoria = c.idCategoria
 
 SELECT * FROM PRODUCTO
+
+--Cambios 20-10

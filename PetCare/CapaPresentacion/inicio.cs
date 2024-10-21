@@ -93,7 +93,7 @@ namespace CapaPresentacion
 
             }
 
-            LUsuario.Text = usuarioActual.nombreCompleto;
+            LUsuario.Text = usuarioActual.oRol.descripcion + ": " + usuarioActual.nombreCompleto;
             this.KeyPreview = true;
         }
 
@@ -173,7 +173,7 @@ namespace CapaPresentacion
         private void subMenuRegistrarVenta_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuVentas, new frmVentas());
+            abrirFormulario(menuVentas, new frmVentas(usuarioActual));
         }
 
         private void subMenuVerDetalleVenta_Click(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace CapaPresentacion
         private void subMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuCompras, new frmCompras());
+            abrirFormulario(menuCompras, new frmCompras(usuarioActual));
         }
 
         private void subMenuVerDetalleCompra_Click(object sender, EventArgs e)

@@ -41,10 +41,10 @@
             BBusqueda = new FontAwesome.Sharp.IconButton();
             dgvData = new DataGridView();
             idProducto = new DataGridViewTextBoxColumn();
-            codigoProd = new DataGridViewTextBoxColumn();
-            nombreProd = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
             marca = new DataGridViewTextBoxColumn();
-            categoriaProd = new DataGridViewTextBoxColumn();
+            categoria = new DataGridViewTextBoxColumn();
             stock = new DataGridViewTextBoxColumn();
             precioCompra = new DataGridViewTextBoxColumn();
             precioVenta = new DataGridViewTextBoxColumn();
@@ -123,9 +123,9 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(15, 26);
+            CBusqueda.Location = new Point(15, 27);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(152, 23);
+            CBusqueda.Size = new Size(165, 23);
             CBusqueda.TabIndex = 16;
             // 
             // BLimpiarBusqueda
@@ -147,13 +147,14 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(173, 27);
+            TBusqueda.Location = new Point(186, 27);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(190, 23);
+            TBusqueda.Size = new Size(189, 23);
             TBusqueda.TabIndex = 17;
             // 
             // BBusqueda
@@ -175,6 +176,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // dgvData
             // 
@@ -190,7 +192,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, codigoProd, nombreProd, marca, categoriaProd, stock, precioCompra, precioVenta });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, codigo, nombre, marca, categoria, stock, precioCompra, precioVenta });
             dgvData.Location = new Point(18, 115);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -199,9 +201,12 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.White;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = SystemColors.ActiveCaption;
+            dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(507, 350);
             dgvData.TabIndex = 15;
+            dgvData.CellDoubleClick += dgvData_CellDoubleClick;
             // 
             // idProducto
             // 
@@ -212,20 +217,20 @@
             idProducto.Visible = false;
             idProducto.Width = 125;
             // 
-            // codigoProd
+            // codigo
             // 
-            codigoProd.HeaderText = "Código";
-            codigoProd.MinimumWidth = 6;
-            codigoProd.Name = "codigoProd";
-            codigoProd.ReadOnly = true;
+            codigo.HeaderText = "Código";
+            codigo.MinimumWidth = 6;
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
             // 
-            // nombreProd
+            // nombre
             // 
-            nombreProd.HeaderText = "Nombre";
-            nombreProd.MinimumWidth = 6;
-            nombreProd.Name = "nombreProd";
-            nombreProd.ReadOnly = true;
-            nombreProd.Width = 175;
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 175;
             // 
             // marca
             // 
@@ -235,12 +240,12 @@
             marca.ReadOnly = true;
             marca.Width = 125;
             // 
-            // categoriaProd
+            // categoria
             // 
-            categoriaProd.HeaderText = "Categoria";
-            categoriaProd.Name = "categoriaProd";
-            categoriaProd.ReadOnly = true;
-            categoriaProd.Width = 125;
+            categoria.HeaderText = "Categoria";
+            categoria.Name = "categoria";
+            categoria.ReadOnly = true;
+            categoria.Width = 125;
             // 
             // stock
             // 
@@ -280,6 +285,7 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdBuscarProducto";
+            Load += mdBuscarProducto_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             panel2.ResumeLayout(false);
@@ -301,10 +307,10 @@
         private FontAwesome.Sharp.IconButton BBusqueda;
         private DataGridView dgvData;
         private DataGridViewTextBoxColumn idProducto;
-        private DataGridViewTextBoxColumn codigoProd;
-        private DataGridViewTextBoxColumn nombreProd;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn marca;
-        private DataGridViewTextBoxColumn categoriaProd;
+        private DataGridViewTextBoxColumn categoria;
         private DataGridViewTextBoxColumn stock;
         private DataGridViewTextBoxColumn precioCompra;
         private DataGridViewTextBoxColumn precioVenta;

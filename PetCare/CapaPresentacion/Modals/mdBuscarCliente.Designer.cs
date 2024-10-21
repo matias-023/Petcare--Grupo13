@@ -40,6 +40,7 @@
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             TBusqueda = new TextBox();
             dgvData = new DataGridView();
+            idCliente = new DataGridViewTextBoxColumn();
             nroDocumento = new DataGridViewTextBoxColumn();
             nombreCompleto = new DataGridViewTextBoxColumn();
             BAgregar = new FontAwesome.Sharp.IconButton();
@@ -107,7 +108,7 @@
             label9.BackColor = Color.FromArgb(210, 120, 61);
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(28, 9);
+            label9.Location = new Point(13, 10);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 20;
@@ -118,9 +119,9 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(29, 27);
+            CBusqueda.Location = new Point(13, 28);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(152, 23);
+            CBusqueda.Size = new Size(168, 23);
             CBusqueda.TabIndex = 21;
             // 
             // BBusqueda
@@ -142,6 +143,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // BLimpiarBusqueda
             // 
@@ -162,13 +164,14 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TBusqueda.Location = new Point(187, 28);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(190, 23);
+            TBusqueda.Size = new Size(202, 23);
             TBusqueda.TabIndex = 22;
             // 
             // dgvData
@@ -185,18 +188,26 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { nroDocumento, nombreCompleto });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idCliente, nroDocumento, nombreCompleto });
             dgvData.Location = new Point(13, 115);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ActiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(518, 331);
             dgvData.TabIndex = 16;
+            dgvData.CellDoubleClick += dgvData_CellDoubleClick;
+            // 
+            // idCliente
+            // 
+            idCliente.HeaderText = "id";
+            idCliente.Name = "idCliente";
+            idCliente.ReadOnly = true;
+            idCliente.Visible = false;
             // 
             // nroDocumento
             // 
@@ -251,6 +262,7 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdBuscarCliente";
+            Load += mdBuscarCliente_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             panel2.ResumeLayout(false);
@@ -272,6 +284,7 @@
         private TextBox TBusqueda;
         private DataGridView dgvData;
         private FontAwesome.Sharp.IconButton BAgregar;
+        private DataGridViewTextBoxColumn idCliente;
         private DataGridViewTextBoxColumn nroDocumento;
         private DataGridViewTextBoxColumn nombreCompleto;
     }

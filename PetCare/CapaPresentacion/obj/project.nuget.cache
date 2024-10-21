@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GUCFyFqQ07I=",
+  "dgSpecHash": "+6XmUoHcBMI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12 abm productos respaldo\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+  "projectFilePath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NoxiePC\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512",
     "C:\\Users\\NoxiePC\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

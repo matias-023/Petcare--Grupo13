@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel2 = new Panel();
             TIdCliente = new TextBox();
             label2 = new Label();
@@ -43,12 +44,6 @@
             BBuscarCliente = new FontAwesome.Sharp.IconButton();
             TFecha = new TextBox();
             dgvData = new DataGridView();
-            idProducto = new DataGridViewTextBoxColumn();
-            producto = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
-            BEliminar = new DataGridViewButtonColumn();
             TTotal = new TextBox();
             TCambio = new TextBox();
             TPagaCon = new TextBox();
@@ -84,6 +79,13 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             label12 = new Label();
             label18 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            idProducto = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
+            BEliminar = new DataGridViewButtonColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
@@ -207,6 +209,7 @@
             // 
             TNombreCompleto.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TNombreCompleto.BackColor = SystemColors.Window;
+            TNombreCompleto.Enabled = false;
             TNombreCompleto.Location = new Point(780, 32);
             TNombreCompleto.Name = "TNombreCompleto";
             TNombreCompleto.Size = new Size(236, 23);
@@ -220,6 +223,7 @@
             TDocumentoCliente.Name = "TDocumentoCliente";
             TDocumentoCliente.Size = new Size(185, 23);
             TDocumentoCliente.TabIndex = 1;
+            TDocumentoCliente.KeyDown += TDocumentoCliente_KeyDown;
             // 
             // BBuscarCliente
             // 
@@ -245,6 +249,7 @@
             // TFecha
             // 
             TFecha.BackColor = SystemColors.Window;
+            TFecha.Enabled = false;
             TFecha.Font = new Font("Microsoft Sans Serif", 11.25F);
             TFecha.Location = new Point(3, 20);
             TFecha.Name = "TFecha";
@@ -255,82 +260,36 @@
             // 
             dgvData.AllowUserToAddRows = false;
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(1);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(1);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, producto, precio, cantidad, subTotal, BEliminar });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, nombre, precio, cantidad, subTotal, BEliminar });
             dgvData.Location = new Point(12, 195);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1040, 290);
             dgvData.TabIndex = 10;
-            // 
-            // idProducto
-            // 
-            idProducto.HeaderText = "idProducto";
-            idProducto.MinimumWidth = 6;
-            idProducto.Name = "idProducto";
-            idProducto.ReadOnly = true;
-            idProducto.Visible = false;
-            idProducto.Width = 125;
-            // 
-            // producto
-            // 
-            producto.HeaderText = "Producto";
-            producto.MinimumWidth = 6;
-            producto.Name = "producto";
-            producto.ReadOnly = true;
-            producto.Width = 300;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            precio.Width = 150;
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.MinimumWidth = 6;
-            cantidad.Name = "cantidad";
-            cantidad.ReadOnly = true;
-            cantidad.Width = 150;
-            // 
-            // subTotal
-            // 
-            subTotal.HeaderText = "Sub Total";
-            subTotal.MinimumWidth = 6;
-            subTotal.Name = "subTotal";
-            subTotal.ReadOnly = true;
-            subTotal.Width = 150;
-            // 
-            // BEliminar
-            // 
-            BEliminar.HeaderText = "";
-            BEliminar.MinimumWidth = 6;
-            BEliminar.Name = "BEliminar";
-            BEliminar.ReadOnly = true;
-            BEliminar.Width = 35;
+            dgvData.CellContentClick += dgvData_CellContentClick;
+            dgvData.CellPainting += dgvData_CellPainting;
             // 
             // TTotal
             // 
             TTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TTotal.BackColor = SystemColors.Window;
+            TTotal.Enabled = false;
             TTotal.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TTotal.Location = new Point(3, 29);
             TTotal.Name = "TTotal";
@@ -340,6 +299,7 @@
             // TCambio
             // 
             TCambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TCambio.Enabled = false;
             TCambio.Location = new Point(3, 75);
             TCambio.Name = "TCambio";
             TCambio.Size = new Size(155, 22);
@@ -410,6 +370,7 @@
             // THora
             // 
             THora.BackColor = SystemColors.Window;
+            THora.Enabled = false;
             THora.Font = new Font("Microsoft Sans Serif", 11.25F);
             THora.Location = new Point(3, 20);
             THora.Name = "THora";
@@ -540,6 +501,7 @@
             TCodProducto.Name = "TCodProducto";
             TCodProducto.Size = new Size(132, 22);
             TCodProducto.TabIndex = 5;
+            TCodProducto.KeyDown += TCodProducto_KeyDown;
             // 
             // label11
             // 
@@ -588,6 +550,7 @@
             // 
             TStock.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TStock.BackColor = SystemColors.Window;
+            TStock.Enabled = false;
             TStock.Location = new Point(623, 19);
             TStock.Name = "TStock";
             TStock.Size = new Size(106, 22);
@@ -627,6 +590,7 @@
             // 
             TPrecio.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TPrecio.BackColor = SystemColors.Window;
+            TPrecio.Enabled = false;
             TPrecio.Location = new Point(463, 19);
             TPrecio.Name = "TPrecio";
             TPrecio.Size = new Size(154, 22);
@@ -647,6 +611,7 @@
             // 
             TProducto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TProducto.BackColor = SystemColors.Window;
+            TProducto.Enabled = false;
             TProducto.Location = new Point(196, 19);
             TProducto.Name = "TProducto";
             TProducto.Size = new Size(261, 22);
@@ -670,6 +635,7 @@
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageAboveText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // groupBox1
             // 
@@ -777,6 +743,59 @@
             label18.TabIndex = 60;
             label18.Text = "Cambio:";
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // idProducto
+            // 
+            idProducto.HeaderText = "idProducto";
+            idProducto.MinimumWidth = 6;
+            idProducto.Name = "idProducto";
+            idProducto.ReadOnly = true;
+            idProducto.Visible = false;
+            idProducto.Width = 125;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Producto";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 300;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Width = 150;
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.MinimumWidth = 6;
+            cantidad.Name = "cantidad";
+            cantidad.ReadOnly = true;
+            cantidad.Width = 150;
+            // 
+            // subTotal
+            // 
+            subTotal.HeaderText = "Sub Total";
+            subTotal.MinimumWidth = 6;
+            subTotal.Name = "subTotal";
+            subTotal.ReadOnly = true;
+            subTotal.Width = 150;
+            // 
+            // BEliminar
+            // 
+            BEliminar.HeaderText = "";
+            BEliminar.MinimumWidth = 6;
+            BEliminar.Name = "BEliminar";
+            BEliminar.ReadOnly = true;
+            BEliminar.Width = 35;
+            // 
             // frmVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -789,6 +808,7 @@
             Controls.Add(dgvData);
             Name = "frmVentas";
             Text = "frmVentas";
+            Load += frmVentas_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
@@ -860,8 +880,9 @@
         private TableLayoutPanel tableLayoutPanel4;
         private TextBox TIdCliente;
         private TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Timer timer1;
         private DataGridViewTextBoxColumn idProducto;
-        private DataGridViewTextBoxColumn producto;
+        private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn subTotal;
