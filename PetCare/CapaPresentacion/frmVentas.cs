@@ -159,17 +159,25 @@ namespace CapaPresentacion
 
             if (!producto_existe)
             {
-                dgvData.Rows.Add(new object[]
+                bool respuesta = new CN_Venta().RestarStock(
+                    Convert.ToInt32(TIdProducto.Text),
+                    Convert.ToInt32(TCantidad.Value.ToString())
+                    );
+
+                if (respuesta)
+                {
+                    dgvData.Rows.Add(new object[]
                 {
                     TIdProducto.Text, TProducto.Text, TPrecio.Text, TCantidad.Value.ToString(),
                     (TCantidad.Value * Convert.ToDecimal(TPrecio.Text)).ToString(),
                     ""
                 });
-            }
+                }
 
-            calcularTotal();
-            limpiarProducto();
-            TCodProducto.Select();
+                calcularTotal();
+                limpiarProducto();
+                TCodProducto.Select();
+            }
         }
 
         private void limpiarProducto()
@@ -192,6 +200,38 @@ namespace CapaPresentacion
             }
             TTotal.Text = total.ToString();
         }
+
+        private void calcularCambio()
+        {
+            if (TTotal.Text.Trim() == "")
+            {
+                MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            decimal pagacon;
+            decimal total = Convert.ToDecimal(TTotal.Text);
+
+            if (TPagaCon.Text.Trim() == "")
+            {
+                TPagaCon.Text = "0";
+            }
+
+            if (decimal.TryParse(TPagaCon.Text.Trim(), out pagacon))
+            {
+                if (pagacon < total)
+                {
+                    TCambio.Text = "0.00";
+                }
+                else
+                {
+                    decimal cambio = pagacon - total;
+                    TCambio.Text = cambio.ToString("0.00");
+                }
+            }
+
+        }
+
 
         private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -218,18 +258,172 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-                    string nombreProducto = dgvData.Rows[indice].Cells["nombre"].Value.ToString();
+                    bool respuesta = new CN_Venta().SumarStock(
+                        Convert.ToInt32(dgvData.Rows[indice].Cells["idProducto"].Value.ToString()),
+                        Convert.ToInt32(dgvData.Rows[indice].Cells["cantidad"].Value.ToString())
 
-                    DialogResult ask = MessageBox.Show("Desea eliminar el producto: " + nombreProducto + ", de la lista?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (ask == DialogResult.Yes)
+                        );
+
+                    if (respuesta)
                     {
-                        dgvData.Rows.RemoveAt(indice);
-                        calcularTotal();
+                        string nombreProducto = dgvData.Rows[indice].Cells["nombre"].Value.ToString();
+
+                        DialogResult ask = MessageBox.Show("Desea eliminar el producto: " + nombreProducto + ", de la lista?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                        if (ask == DialogResult.Yes)
+                        {
+                            dgvData.Rows.RemoveAt(indice);
+                            calcularTotal();
+                        }
                     }
                 }
             }
         }
 
+        private void BRegistrar_Click(object sender, EventArgs e)
+        {
+            if (TDocumentoCliente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
+            if (TNombreCompleto.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el nombre completo del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (dgvData.Rows.Count < 1)
+            {
+                MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            //crea un datatable donde se ingresaran los datos
+            DataTable detalle_venta = new DataTable();
+
+            detalle_venta.Columns.Add("idProducto", typeof(string));
+            detalle_venta.Columns.Add("precioVenta", typeof(decimal));
+            detalle_venta.Columns.Add("cantidad", typeof(string));
+            detalle_venta.Columns.Add("subTotal", typeof(decimal));
+
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                detalle_venta.Rows.Add(new object[]{
+                    row.Cells["idProducto"].Value.ToString(),
+                    row.Cells["precio"].Value.ToString(),
+                    row.Cells["cantidad"].Value.ToString(),
+                    row.Cells["subTotal"].Value.ToString()
+
+                });
+            }
+
+            int idCorrelativo = new CN_Venta().ObtenerCorrelativo();
+            string numeroDocumento = string.Format("{0:00000}", idCorrelativo);
+            calcularCambio();
+
+            Venta oVenta = new Venta()
+            {
+                oUsuario = new Usuario() { idUsuario = user.idUsuario },
+                tipoDocumento = ((opcionCombo)CTipoDocumento.SelectedItem).texto,
+                numeroDocumento = numeroDocumento,
+                documentoCliente = TDocumentoCliente.Text,
+                nombreCliente = TNombreCompleto.Text,
+                montoPago = Convert.ToDecimal(TPagaCon.Text),
+                montoCambio = Convert.ToDecimal(TCambio.Text),
+                montoTotal = Convert.ToDecimal(TTotal.Text)
+            };
+
+            string mensaje = string.Empty;
+
+            bool respuesta = new CN_Venta().registrar(oVenta, detalle_venta, out mensaje);
+
+            if (respuesta)
+            {
+                var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (result == DialogResult.Yes)
+                    Clipboard.SetText(numeroDocumento);
+
+                TDocumentoCliente.Text = "";
+                TNombreCompleto.Text = "";
+                dgvData.Rows.Clear();
+                calcularTotal();
+                TPagaCon.Text = "";
+                TCambio.Text = "";
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        private void TPagaCon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                calcularCambio();
+            }
+
+
+        }
+
+        //Permite solo ingresar numeros al campo de texto de pagaCon 
+        private void TPagaCon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (TPagaCon.Text.Trim().Length > 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+
+        }
+
+        //Permite solo ingresar numeros al campo de texto de precio 
+        private void TPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                if (TPrecio.Text.Trim().Length > 0 && e.KeyChar.ToString() == ".")
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    {
+                        e.Handled = false;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+
+        }
     }
 }

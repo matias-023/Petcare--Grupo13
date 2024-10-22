@@ -126,24 +126,22 @@ go
 CREATE TABLE VENTA(
 	idVenta INT IDENTITY,
 	idUsuario INT not null,
-	id_mediodepago INT not null,
-	id_cliente INT not null,
 	tipoDocumento VARCHAR(50),
+	numeroDocumento varchar(500),
+	documentoCliente varchar(500),
+	nombreCliente varchar(500),
 	montoPago DECIMAL (10,2) NOT NULL,
 	montoCambio DECIMAL (10,2) DEFAULT 0,
 	montoTotal DECIMAL (10,2) NOT NULL,
 	fechaRegistro DATETIME CONSTRAINT DF_Venta_fechaRegistro DEFAULT getdate(),
 	CONSTRAINT PK_Venta_id PRIMARY KEY (idVenta),
 	CONSTRAINT FK_Venta_Usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
-	CONSTRAINT FK_Venta_MedioPago FOREIGN KEY (id_mediodepago) REFERENCES medios_pago (id_mediodepago),
-	CONSTRAINT FK_Venta_Cliente FOREIGN KEY (id_cliente) REFERENCES cliente (idCliente),
 	CONSTRAINT CK_Venta_montoPago CHECK (montoPago >= 0),
 	CONSTRAINT CK_Venta_montoCambio CHECK (montoCambio >= 0),
 	CONSTRAINT CK_Venta_montoTotal CHECK (montoTotal >= 0),
 	CONSTRAINT CK_Venta_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
 )
 go
-
 
 CREATE TABLE DETALLE_VENTA(
 	idDetalleVenta INT IDENTITY,
@@ -834,4 +832,68 @@ inner join CATEGORIA c on p.idCategoria = c.idCategoria
 
 SELECT * FROM PRODUCTO
 
---Cambios 20-10
+--Cambios 21/10
+
+INSERT INTO PROVEEDOR(documento, razonSocial, correo, telefono, estado)
+VALUES('252525250', 'Purina SA', 'purina@gmail.com', '3794888888', 1)
+go
+
+INSERT INTO CLIENTE(documento, nombreCompleto, correo, telefono, estado)
+VALUES('40404040', 'Maximiliano', 'maxi@gmail.com', '3794888877', 1)
+go
+
+--cambios 22/10
+--Procesos para registrar una venta
+CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
+	[idProducto] int null,
+	[precioVenta] decimal (18,2) NULL,
+	[cantidad] int NULL,
+	[subTotal] decimal (18,2) NULL
+)
+
+GO
+
+CREATE PROCEDURE usp_RegistrarVenta(
+	@idUsuario int,
+	@tipoDocumento varchar (500),
+	@numeroDocumento varchar(500),
+	@documentoCliente varchar(500),
+	@nombreCliente varchar(500),
+	@montoPago decimal (10,2),
+	@montoCambio decimal (10,2),
+	@montoTotal decimal (10,2),
+	@DetalleVenta [EDetalle_Venta] READONLY,
+	@Resultado bit output,
+	@Mensaje varchar (500) output
+) 
+as 
+begin
+	begin try
+		declare @idVenta int = 0
+		set @Resultado = 1
+		set @Mensaje = ''
+
+		begin transaction registro
+
+		insert into VENTA(idUsuario, tipoDocumento, numeroDocumento, documentoCliente, nombreCliente, montoPago, montoCambio, montoTotal)
+		VALUES(@idUsuario, @tipoDocumento, @numeroDocumento, @documentoCliente, @nombreCliente, @montoPago, @montoCambio, @montoTotal)
+
+		SET @idVenta = SCOPE_IDENTITY()
+
+		INSERT INTO DETALLE_VENTA (idVenta, idProducto, precioVenta, cantidad, subTotal)
+		SELECT @idVenta, idProducto, precioVenta, cantidad, subTotal from @DetalleVenta
+
+		COMMIT TRANSACTION registro
+
+	END TRY 
+	BEGIN CATCH
+		SET @Resultado = 0
+		SET @Mensaje = ERROR_MESSAGE()
+		ROLLBACK TRANSACTION registro
+	END CATCH
+END
+go
+
+SELECT * FROM Venta;
+SELECT * FROM DETALLE_VENTA WHERE idVenta = 1;
+go
