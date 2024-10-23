@@ -139,7 +139,8 @@ CREATE TABLE VENTA(
 	CONSTRAINT CK_Venta_montoPago CHECK (montoPago >= 0),
 	CONSTRAINT CK_Venta_montoCambio CHECK (montoCambio >= 0),
 	CONSTRAINT CK_Venta_montoTotal CHECK (montoTotal >= 0),
-	CONSTRAINT CK_Venta_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
+	CONSTRAINT CK_Venta_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura')),
+	CONSTRAINT UQ_venta_numeroDocumento UNIQUE (numeroDocumento)
 )
 go
 
@@ -897,3 +898,5 @@ go
 SELECT * FROM Venta;
 SELECT * FROM DETALLE_VENTA WHERE idVenta = 1;
 go
+
+select * from PRODUCTO

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -39,6 +40,7 @@ namespace CapaPresentacion
 
             TIdCliente.Text = "0";
             TIdProducto.Text = "0";
+            TTotal.Text = "0";
             TDocumentoCliente.Select();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -130,6 +132,11 @@ namespace CapaPresentacion
 
         private void BAgregar_Click(object sender, EventArgs e)
         {
+            agregarProducto();
+        }
+
+        private void agregarProducto()
+        {
             bool producto_existe = false;
 
             if (int.Parse(TIdProducto.Text) == 0)
@@ -138,20 +145,36 @@ namespace CapaPresentacion
                 return;
             }
 
+            string mensaje = string.Empty;
             foreach (DataGridViewRow fila in dgvData.Rows)
             {
                 if (fila.Cells["idProducto"].Value.ToString() == TIdProducto.Text)
                 {
                     producto_existe = true;
-                    // Actualizar la cantidad sumando la nueva cantidad
-                    int cantidadActual = Convert.ToInt32(fila.Cells["cantidad"].Value);
-                    int nuevaCantidad = cantidadActual + Convert.ToInt32(TCantidad.Value);
+                    bool respuesta = new CN_Venta().RestarStock(
+                    Convert.ToInt32(TIdProducto.Text),
+                    Convert.ToInt32(TCantidad.Value),
+                    out mensaje
+                    );
+                    if (respuesta)
+                    {
+                        // Actualizar la cantidad sumando la nueva cantidad
+                        int cantidadActual = Convert.ToInt32(fila.Cells["cantidad"].Value);
+                        int nuevaCantidad = cantidadActual + Convert.ToInt32(TCantidad.Value);
 
-                    fila.Cells["cantidad"].Value = nuevaCantidad;
+                        fila.Cells["cantidad"].Value = nuevaCantidad;
 
-                    // Actualizar el total
-                    decimal precioCompra = Convert.ToDecimal(fila.Cells["precio"].Value);
-                    fila.Cells["subTotal"].Value = (nuevaCantidad * precioCompra).ToString();
+                        // Actualizar el total
+                        decimal precioCompra = Convert.ToDecimal(fila.Cells["precio"].Value);
+                        fila.Cells["subTotal"].Value = (nuevaCantidad * precioCompra).ToString();
+                        calcularTotal();
+                        limpiarProducto();
+                        TCodProducto.Select();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                     break;
                 }
@@ -161,23 +184,29 @@ namespace CapaPresentacion
             {
                 bool respuesta = new CN_Venta().RestarStock(
                     Convert.ToInt32(TIdProducto.Text),
-                    Convert.ToInt32(TCantidad.Value.ToString())
+                    Convert.ToInt32(TCantidad.Value),
+                    out mensaje
                     );
 
                 if (respuesta)
                 {
                     dgvData.Rows.Add(new object[]
-                {
+                    {
                     TIdProducto.Text, TProducto.Text, TPrecio.Text, TCantidad.Value.ToString(),
                     (TCantidad.Value * Convert.ToDecimal(TPrecio.Text)).ToString(),
                     ""
-                });
-                }
+                    });
 
-                calcularTotal();
-                limpiarProducto();
-                TCodProducto.Select();
+                    calcularTotal();
+                    limpiarProducto();
+                    TCodProducto.Select();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void limpiarProducto()
@@ -233,24 +262,6 @@ namespace CapaPresentacion
         }
 
 
-        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            if (e.ColumnIndex == 6)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = Properties.Resources.trash.Width;
-                var h = Properties.Resources.trash.Height;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.trash, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
-        }
-
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "BEliminar")
@@ -258,22 +269,22 @@ namespace CapaPresentacion
                 int indice = e.RowIndex;
                 if (indice >= 0)
                 {
-                    bool respuesta = new CN_Venta().SumarStock(
+                    string nombreProducto = dgvData.Rows[indice].Cells["nombre"].Value.ToString();
+
+                    DialogResult ask = MessageBox.Show("Desea eliminar el producto: " + nombreProducto + ", de la lista?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (ask == DialogResult.Yes)
+                    {
+                        bool respuesta = new CN_Venta().SumarStock(
                         Convert.ToInt32(dgvData.Rows[indice].Cells["idProducto"].Value.ToString()),
                         Convert.ToInt32(dgvData.Rows[indice].Cells["cantidad"].Value.ToString())
-
                         );
-
-                    if (respuesta)
-                    {
-                        string nombreProducto = dgvData.Rows[indice].Cells["nombre"].Value.ToString();
-
-                        DialogResult ask = MessageBox.Show("Desea eliminar el producto: " + nombreProducto + ", de la lista?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                        if (ask == DialogResult.Yes)
+                        if (respuesta) 
                         {
                             dgvData.Rows.RemoveAt(indice);
                             calcularTotal();
                         }
+
+                        
                     }
                 }
             }
@@ -281,21 +292,15 @@ namespace CapaPresentacion
 
         private void BRegistrar_Click(object sender, EventArgs e)
         {
-            if (TDocumentoCliente.Text == "")
+            if (TIdCliente.Text == "0")
             {
-                MessageBox.Show("Debe ingresar el documento del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            if (TNombreCompleto.Text == "")
-            {
-                MessageBox.Show("Debe ingresar el nombre completo del cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe seleccionar un cliente!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (dgvData.Rows.Count < 1)
             {
-                MessageBox.Show("Debe ingresar productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe ingresar productos en la venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -322,42 +327,46 @@ namespace CapaPresentacion
             string numeroDocumento = string.Format("{0:00000}", idCorrelativo);
             calcularCambio();
 
-            Venta oVenta = new Venta()
+
+            Cliente oUsuario = new CN_Cliente().listar().Where(c => c.idCliente == Convert.ToInt32(TIdCliente.Text)).FirstOrDefault();
+            if (oUsuario != null)
             {
-                oUsuario = new Usuario() { idUsuario = user.idUsuario },
-                tipoDocumento = ((opcionCombo)CTipoDocumento.SelectedItem).texto,
-                numeroDocumento = numeroDocumento,
-                documentoCliente = TDocumentoCliente.Text,
-                nombreCliente = TNombreCompleto.Text,
-                montoPago = Convert.ToDecimal(TPagaCon.Text),
-                montoCambio = Convert.ToDecimal(TCambio.Text),
-                montoTotal = Convert.ToDecimal(TTotal.Text)
-            };
+                Venta oVenta = new Venta()
+                {
+                    oUsuario = new Usuario() { idUsuario = user.idUsuario },
+                    tipoDocumento = ((opcionCombo)CTipoDocumento.SelectedItem).texto,
+                    numeroDocumento = numeroDocumento,
+                    documentoCliente = oUsuario.documento,
+                    nombreCliente = oUsuario.nombreCompleto,
+                    montoPago = Convert.ToDecimal(TPagaCon.Text),
+                    montoCambio = Convert.ToDecimal(TCambio.Text),
+                    montoTotal = Convert.ToDecimal(TTotal.Text)
+                };
 
-            string mensaje = string.Empty;
+                string mensaje = string.Empty;
 
-            bool respuesta = new CN_Venta().registrar(oVenta, detalle_venta, out mensaje);
+                bool respuesta = new CN_Venta().registrar(oVenta, detalle_venta, out mensaje);
 
-            if (respuesta)
-            {
-                var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (respuesta)
+                {
+                    var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                if (result == DialogResult.Yes)
-                    Clipboard.SetText(numeroDocumento);
+                    if (result == DialogResult.Yes)
+                        Clipboard.SetText(numeroDocumento);
 
-                TDocumentoCliente.Text = "";
-                TNombreCompleto.Text = "";
-                dgvData.Rows.Clear();
-                calcularTotal();
-                TPagaCon.Text = "";
-                TCambio.Text = "";
+                    TDocumentoCliente.Text = "";
+                    TNombreCompleto.Text = "";
+                    dgvData.Rows.Clear();
+                    calcularTotal();
+                    TPagaCon.Text = "";
+                    TCambio.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
         }
 
         private void TPagaCon_KeyDown(object sender, KeyEventArgs e)
@@ -366,8 +375,6 @@ namespace CapaPresentacion
             {
                 calcularCambio();
             }
-
-
         }
 
         //Permite solo ingresar numeros al campo de texto de pagaCon 
@@ -379,51 +386,85 @@ namespace CapaPresentacion
             }
             else
             {
-                if (TPagaCon.Text.Trim().Length > 0 && e.KeyChar.ToString() == ".")
+                // Permitir solo un punto, y que sea después del primer carácter
+                if (e.KeyChar == ',' && !TPagaCon.Text.Contains(",") && TPagaCon.SelectionStart > 0)
                 {
-                    e.Handled = true;
+                    e.Handled = false;
+                }
+                else if (char.IsControl(e.KeyChar)) // Permitir teclas de control (como Backspace)
+                {
+                    e.Handled = false;
                 }
                 else
                 {
-                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
-                    {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        e.Handled = true;
-                    }
+                    e.Handled = true; // Bloquear cualquier otro carácter
                 }
             }
 
         }
 
-        //Permite solo ingresar numeros al campo de texto de precio 
-        private void TPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
+            if (e.RowIndex < 0) return;
+
+            if (e.ColumnIndex == 5)
             {
-                e.Handled = false;
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.trash.Width;
+                var h = Properties.Resources.trash.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.trash, new Rectangle(x, y, w, h));
+                e.Handled = true;
             }
-            else
+        }
+
+        private void TCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                if (TPrecio.Text.Trim().Length > 0 && e.KeyChar.ToString() == ".")
+                agregarProducto();
+            }
+        }
+
+        private void frmVentas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dgvData.Rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Desea cancelar la venta?",
+                                                      "Confirmar cierre",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
                 {
-                    e.Handled = true;
+                    e.Cancel = true;  // Cancelar el cierre
                 }
                 else
                 {
-                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ".")
+                    foreach (DataGridViewRow fila in dgvData.Rows)
                     {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        e.Handled = true;
+                        if (!fila.IsNewRow) // Verificar que no sea la fila vacía al final
+                        {
+                            int idProducto = Convert.ToInt32(fila.Cells["idProducto"].Value);
+                            int cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
+
+                            bool respuesta = new CN_Venta().SumarStock(idProducto, cantidad);
+
+                            if (!respuesta)
+                            {
+                                MessageBox.Show("Error al sumar el stock del producto ID: " + idProducto);
+                                e.Cancel = true; // Cancelar el cierre si falla la operación
+                                return;
+                            }
+                        }
                     }
                 }
             }
-
         }
+
+
     }
 }

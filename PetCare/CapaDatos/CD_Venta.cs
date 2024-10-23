@@ -41,8 +41,9 @@ namespace CapaDatos
 
 
         //Control de stock de productos al agregar a la venta (restar stock al añadir a la venta)
-        public bool restarStock (int idProducto, int cantidad)
+        public bool restarStock (int idProducto, int cantidad, out string mensaje)
         {
+            mensaje = string.Empty;
             bool respuesta = true;
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
@@ -62,6 +63,10 @@ namespace CapaDatos
                 catch (Exception ex)
                 {
                     respuesta = false;
+                    mensaje = ex.Message;
+
+                    mensaje = validarExcepcion(mensaje);
+                    if (mensaje == "") mensaje = ex.Message;
                 }
             }
             return respuesta;
@@ -142,6 +147,15 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        private string validarExcepcion(string msg)
+        {
+            string msgAux = "";
+            if (msg.Contains("CK_Producto_stock"))
+                msgAux = "No hay stock suficiente!";
+
+            return msgAux;
         }
 
     }

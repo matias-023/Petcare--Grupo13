@@ -100,6 +100,18 @@ namespace CapaPresentacion
 
         private void abrirFormulario(IconButton menu, Form formulario)
         {
+            // Intentar cerrar el formulario activo
+            if (formularioActivo != null)
+            {
+                formularioActivo.Close(); // Esto dispara el evento FormClosing
+
+                // Verificar si el formulario aún está abierto (Close no cierra si se cancela)
+                if (!formularioActivo.IsDisposed)
+                {
+                    return; // Si el formulario no se cerró, salir de la función y no abrir uno nuevo
+                }
+            }
+
             if (menuActivo != null)
             {
                 menuActivo.BackColor = Color.FromArgb(210, 120, 61);
@@ -110,12 +122,6 @@ namespace CapaPresentacion
             menuActivo.BackColor = Color.WhiteSmoke;
             menuActivo.ForeColor = Color.FromArgb(210, 120, 61);
             menuActivo.IconColor = Color.FromArgb(210, 120, 61);
-
-
-            if (formularioActivo != null)
-            {
-                formularioActivo.Close();
-            }
 
             formularioActivo = formulario;
             formulario.TopLevel = false;
@@ -282,5 +288,6 @@ namespace CapaPresentacion
             BRestaurar.Visible = false;
             BMaximizar.Visible = true;
         }
+
     }
 }
