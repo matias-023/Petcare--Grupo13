@@ -101,5 +101,25 @@ namespace CapaPresentacion.Modals
                 }
             }
         }
+
+        private void BAgregar_Click(object sender, EventArgs e)
+        {
+            using (var modal = new mdClientes())
+            {
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    if (modal.mdCliente.estado == true)
+                    {
+                        int rowIndex = dgvData.Rows.Add(new object[] { modal.mdCliente.idCliente, modal.mdCliente.documento, modal.mdCliente.nombreCompleto });
+
+                        dgvData.Rows[rowIndex].Selected = true;
+
+                    }
+                }
+            }
+        }
+
+
     }
 }

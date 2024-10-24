@@ -32,6 +32,33 @@ namespace CapaNegocio
         {
             return objcd_venta.registrar(obj, DetalleVenta, out Mensaje);
         }
+
+        public Venta obtenerVenta(string numero, int idUsuario)
+        {
+            Venta oVenta = objcd_venta.obtenerVenta(numero);
+
+            if (oVenta.idVenta != 0)
+            {
+                if (idUsuario != 0)
+                {
+                    if (oVenta.oUsuario.idUsuario == idUsuario)
+                    {
+                        List<DetalleVenta> oDetalleVenta = objcd_venta.obtenerDetalleVenta(oVenta.idVenta);
+                        oVenta.oDetalleVenta = oDetalleVenta;
+                    }
+                    else
+                    {
+                        oVenta = new Venta();
+                    }
+                }
+                else
+                {
+                    List<DetalleVenta> oDetalleVenta = objcd_venta.obtenerDetalleVenta(oVenta.idVenta);
+                    oVenta.oDetalleVenta = oDetalleVenta;
+                }
+            }
+            return oVenta;
+        }
         
 
     

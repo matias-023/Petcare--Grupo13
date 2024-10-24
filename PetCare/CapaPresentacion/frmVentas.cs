@@ -194,7 +194,7 @@ namespace CapaPresentacion
                     {
                     TIdProducto.Text, TProducto.Text, TPrecio.Text, TCantidad.Value.ToString(),
                     (TCantidad.Value * Convert.ToDecimal(TPrecio.Text)).ToString(),
-                    ""
+                    "", ""
                     });
 
                     calcularTotal();
@@ -264,9 +264,9 @@ namespace CapaPresentacion
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int indice = e.RowIndex;
             if (dgvData.Columns[e.ColumnIndex].Name == "BEliminar")
             {
-                int indice = e.RowIndex;
                 if (indice >= 0)
                 {
                     string nombreProducto = dgvData.Rows[indice].Cells["nombre"].Value.ToString();
@@ -282,12 +282,29 @@ namespace CapaPresentacion
                         {
                             dgvData.Rows.RemoveAt(indice);
                             calcularTotal();
-                        }
-
-                        
+                        } 
                     }
                 }
             }
+            if (dgvData.Columns[e.ColumnIndex].Name == "BEditar")
+            {
+                if (indice >= 0)
+                {
+                    mdEditarVenta modal = new mdEditarVenta();
+                    modal.idProducto = Convert.ToInt32(dgvData.Rows[indice].Cells["idProducto"].Value.ToString());
+                    modal.cantidad = Convert.ToInt32(dgvData.Rows[indice].Cells["cantidad"].Value.ToString());
+                    var result = modal.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        DataGridViewRow row = dgvData.Rows[indice];
+                        row.Cells["cantidad"].Value = modal.nuevaCantidad;
+                        row.Cells["subTotal"].Value = modal.nuevoSubTotal;
+                        calcularTotal();
+
+                    }
+                }
+            }
+
         }
 
         private void BRegistrar_Click(object sender, EventArgs e)
@@ -349,7 +366,7 @@ namespace CapaPresentacion
 
                 if (respuesta)
                 {
-                    var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Mensaje",
+                    var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Venta exitosa!",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (result == DialogResult.Yes)
@@ -407,7 +424,7 @@ namespace CapaPresentacion
         {
             if (e.RowIndex < 0) return;
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -417,6 +434,19 @@ namespace CapaPresentacion
                 var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
                 e.Graphics.DrawImage(Properties.Resources.trash, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.edit.Width;
+                var h = Properties.Resources.edit.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.edit, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
         }

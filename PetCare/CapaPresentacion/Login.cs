@@ -45,7 +45,7 @@ namespace CapaPresentacion
                             form.Show();
                             this.Hide();
 
-                            form.FormClosing += frm_closing;
+                            form.FormClosed += frm_closed;
                         }
                     }
                     else
@@ -66,7 +66,7 @@ namespace CapaPresentacion
 
         }
 
-        private void frm_closing(object sender, EventArgs e)
+        private void frm_closed(object sender, EventArgs e)
         {
             this.Show();
             TDocumento.Text = "";

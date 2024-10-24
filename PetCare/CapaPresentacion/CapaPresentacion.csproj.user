@@ -64,6 +64,9 @@
     <Compile Update="Modals\mdClientes.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Modals\mdEditarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Modals\mdMarcas.cs">
       <SubType>Form</SubType>
     </Compile>

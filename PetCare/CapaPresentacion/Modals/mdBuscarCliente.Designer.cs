@@ -198,6 +198,7 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(518, 331);
             dgvData.TabIndex = 16;
             dgvData.CellDoubleClick += dgvData_CellDoubleClick;
@@ -247,6 +248,7 @@
             BAgregar.TextAlign = ContentAlignment.MiddleRight;
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // mdBuscarCliente
             // 

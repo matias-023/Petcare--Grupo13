@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using CapaEntidad;
+using System.Reflection;
+using System.Security.Policy;
+using System.Text.RegularExpressions;
 
 namespace CapaDatos
 {
@@ -138,6 +141,8 @@ namespace CapaDatos
                     // Obtener los valores de los parámetros de salida
                     respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    if (Mensaje.Contains("CK_Venta_montoPago"))
+                        Mensaje = "El monto de pago debe ser mayor o igual al total!";
                 }
             }
             catch (Exception ex)
@@ -154,9 +159,107 @@ namespace CapaDatos
             string msgAux = "";
             if (msg.Contains("CK_Producto_stock"))
                 msgAux = "No hay stock suficiente!";
-
+            
             return msgAux;
         }
+
+        public Venta obtenerVenta (string numero)
+        {
+            Venta obj = new Venta();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
+            {
+                try
+                {
+                    oconexion.Open();
+                    StringBuilder query = new StringBuilder();
+
+                    query.AppendLine("select v.idVenta, v.idUsuario, u.nombreCompleto, u.documento, v.documentoCliente, v.nombreCliente, v.tipoDocumento,");
+                    query.AppendLine("v.numeroDocumento, v.montoPago, v.montoCambio, v.montoTotal, v.fechaRegistro from venta v");
+                    query.AppendLine("inner join USUARIO u on u.idUSuario = v.idUsuario");
+                    query.AppendLine("where v.numeroDocumento = @numero");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero", numero);
+                    cmd.CommandType = CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            obj = new Venta()
+                            {
+                                idVenta = Convert.ToInt32(dr["idVenta"]),
+                                oUsuario = new Usuario()
+                                {
+                                    idUsuario = Convert.ToInt32(dr["idUsuario"]),
+                                    documento = dr["documento"].ToString(),
+                                    nombreCompleto = dr["nombreCompleto"].ToString()
+                                },
+                                documentoCliente = dr["documentoCliente"].ToString(),
+                                nombreCliente = dr["nombreCliente"].ToString(),
+                                tipoDocumento = dr["tipoDocumento"].ToString(),
+                                numeroDocumento = dr["numeroDocumento"].ToString(),
+                                montoPago = Convert.ToDecimal(dr["montoPago"].ToString()),
+                                montoCambio = Convert.ToDecimal(dr["montoCambio"].ToString()),
+                                montoTotal = Convert.ToDecimal(dr["montoTotal"].ToString()),
+                                fechaRegistro = Convert.ToDateTime(dr["fechaRegistro"]).ToString("dd-MM-yyyy HH:mm:ss")
+                            };
+                        }
+                    } 
+                }
+                catch
+                {
+                    obj = new Venta();
+                }
+            }
+            return obj;
+        }
+
+        public List<DetalleVenta> obtenerDetalleVenta(int idVenta)
+        {
+            List<DetalleVenta> oLista = new List<DetalleVenta>();
+            using (SqlConnection oconexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
+            {
+                try
+                {
+                    oconexion.Open();
+                    StringBuilder query = new StringBuilder();
+
+                    query.AppendLine("select p.nombre, dv.precioVenta, dv.cantidad, dv.subTotal from DETALLE_VENTA dv");
+                    query.AppendLine("inner join PRODUCTO p on p.idProducto = dv.idProducto");
+                    query.AppendLine("where dv.idVenta = @idVenta");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                    cmd.CommandType = CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            oLista.Add(new DetalleVenta()
+                            {
+                                oProducto = new Producto()
+                                {
+                                    nombre = dr["nombre"].ToString()
+                                },
+                                precioVenta = Convert.ToDecimal(dr["precioVenta"].ToString()),
+                                cantidad = Convert.ToInt32(dr["cantidad"].ToString()),
+                                subTotal = Convert.ToDecimal(dr["subTotal"].ToString())
+                            });
+                        }
+                    }
+
+                }
+                catch
+                {
+                    oLista = new List<DetalleVenta>();
+                }
+            }
+            return oLista;
+        }
+
+
 
     }
 }

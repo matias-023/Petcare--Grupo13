@@ -39,8 +39,8 @@ namespace CapaPresentacion.Modals
 
             foreach (Producto prod in listaProducto)
             {
-                dgvData.Rows.Add(new object[] {prod.idProducto, prod.codigo, prod.nombre, prod.oCategoria.descripcion,
-                    prod.oMarca.descripcion, prod.stock, prod.precio, prod.precio_venta });
+                dgvData.Rows.Add(new object[] {prod.idProducto, prod.codigo, prod.nombre, prod.oMarca.descripcion,
+                    prod.oCategoria.descripcion, prod.stock, prod.precio, prod.precio_venta });
             }
         }
 

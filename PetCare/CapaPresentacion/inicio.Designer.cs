@@ -714,6 +714,7 @@
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema PetCare";
+            FormClosing += inicio_FormClosing;
             Load += inicio_Load;
             KeyDown += inicio_KeyDown;
             container.ResumeLayout(false);

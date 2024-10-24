@@ -49,6 +49,7 @@
             precio = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
             subTotal = new DataGridViewTextBoxColumn();
+            BEditar = new DataGridViewButtonColumn();
             BEliminar = new DataGridViewButtonColumn();
             TTotal = new TextBox();
             TCambio = new TextBox();
@@ -270,7 +271,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, nombre, precio, cantidad, subTotal, BEliminar });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, nombre, precio, cantidad, subTotal, BEditar, BEliminar });
             dgvData.Location = new Point(12, 195);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -325,6 +326,14 @@
             subTotal.Name = "subTotal";
             subTotal.ReadOnly = true;
             subTotal.Width = 150;
+            // 
+            // BEditar
+            // 
+            BEditar.HeaderText = "";
+            BEditar.MinimumWidth = 6;
+            BEditar.Name = "BEditar";
+            BEditar.ReadOnly = true;
+            BEditar.Width = 35;
             // 
             // BEliminar
             // 
@@ -674,6 +683,7 @@
             // 
             BAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BAgregar.BackColor = Color.OrangeRed;
+            BAgregar.Cursor = Cursors.Hand;
             BAgregar.FlatAppearance.BorderColor = Color.Black;
             BAgregar.FlatStyle = FlatStyle.Flat;
             BAgregar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -737,6 +747,7 @@
             // 
             BRegistrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             BRegistrar.BackColor = Color.RoyalBlue;
+            BRegistrar.Cursor = Cursors.Hand;
             BRegistrar.FlatAppearance.BorderColor = Color.Black;
             BRegistrar.FlatStyle = FlatStyle.Flat;
             BRegistrar.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -892,6 +903,7 @@
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn subTotal;
+        private DataGridViewButtonColumn BEditar;
         private DataGridViewButtonColumn BEliminar;
     }
 }

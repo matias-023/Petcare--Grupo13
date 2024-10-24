@@ -204,6 +204,7 @@
             dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = SystemColors.ActiveCaption;
             dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvData.RowTemplate.Height = 28;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(507, 350);
             dgvData.TabIndex = 15;
             dgvData.CellDoubleClick += dgvData_CellDoubleClick;
