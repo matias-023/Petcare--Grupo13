@@ -30,7 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            BBuscar = new FontAwesome.Sharp.IconButton();
+            BBuscarReporte = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label3 = new Label();
             txtfechafin = new DateTimePicker();
@@ -49,7 +49,7 @@
             tipoDocumento = new DataGridViewTextBoxColumn();
             numeroDocumento = new DataGridViewTextBoxColumn();
             montoTotal = new DataGridViewTextBoxColumn();
-            usuarioRegistrado = new DataGridViewTextBoxColumn();
+            usuarioRegistro = new DataGridViewTextBoxColumn();
             documentoCliente = new DataGridViewTextBoxColumn();
             nombreCliente = new DataGridViewTextBoxColumn();
             codigoProducto = new DataGridViewTextBoxColumn();
@@ -63,24 +63,24 @@
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
             // 
-            // BBuscar
+            // BBuscarReporte
             // 
-            BBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BBuscar.Font = new Font("Microsoft Sans Serif", 9F);
-            BBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            BBuscar.IconColor = Color.Black;
-            BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BBuscar.IconSize = 18;
-            BBuscar.Location = new Point(1030, 33);
-            BBuscar.Margin = new Padding(3, 4, 3, 4);
-            BBuscar.Name = "BBuscar";
-            BBuscar.Size = new Size(105, 31);
-            BBuscar.TabIndex = 3;
-            BBuscar.Text = "Buscar";
-            BBuscar.TextAlign = ContentAlignment.MiddleRight;
-            BBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BBuscar.UseVisualStyleBackColor = true;
-            BBuscar.Click += BBuscar_Click;
+            BBuscarReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BBuscarReporte.Font = new Font("Microsoft Sans Serif", 9F);
+            BBuscarReporte.IconChar = FontAwesome.Sharp.IconChar.Search;
+            BBuscarReporte.IconColor = Color.Black;
+            BBuscarReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BBuscarReporte.IconSize = 18;
+            BBuscarReporte.Location = new Point(1030, 33);
+            BBuscarReporte.Margin = new Padding(3, 4, 3, 4);
+            BBuscarReporte.Name = "BBuscarReporte";
+            BBuscarReporte.Size = new Size(105, 31);
+            BBuscarReporte.TabIndex = 3;
+            BBuscarReporte.Text = "Buscar";
+            BBuscarReporte.TextAlign = ContentAlignment.MiddleRight;
+            BBuscarReporte.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BBuscarReporte.UseVisualStyleBackColor = true;
+            BBuscarReporte.Click += BBuscarReporte_Click;
             // 
             // label4
             // 
@@ -175,6 +175,7 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // BDescargarExcel
             // 
@@ -191,6 +192,7 @@
             BDescargarExcel.TextAlign = ContentAlignment.MiddleRight;
             BDescargarExcel.TextImageRelation = TextImageRelation.ImageBeforeText;
             BDescargarExcel.UseVisualStyleBackColor = true;
+            BDescargarExcel.Click += BDescargarExcel_Click;
             // 
             // BBusqueda
             // 
@@ -212,6 +214,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // panel2
             // 
@@ -222,7 +225,7 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(txtfechainicio);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(BBuscar);
+            panel2.Controls.Add(BBuscarReporte);
             panel2.Controls.Add(txtfechafin);
             panel2.Location = new Point(26, 27);
             panel2.Margin = new Padding(3, 4, 3, 4);
@@ -287,7 +290,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { fechaRegistro, tipoDocumento, numeroDocumento, montoTotal, usuarioRegistrado, documentoCliente, nombreCliente, codigoProducto, nombreProducto, categoria, precioVenta, cantidad, subTotal });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { fechaRegistro, tipoDocumento, numeroDocumento, montoTotal, usuarioRegistro, documentoCliente, nombreCliente, codigoProducto, nombreProducto, categoria, precioVenta, cantidad, subTotal });
             dgvData.Location = new Point(26, 224);
             dgvData.Margin = new Padding(3, 4, 3, 4);
             dgvData.MultiSelect = false;
@@ -328,12 +331,12 @@
             montoTotal.Name = "montoTotal";
             montoTotal.Width = 125;
             // 
-            // usuarioRegistrado
+            // usuarioRegistro
             // 
-            usuarioRegistrado.HeaderText = "Usuario Registrado";
-            usuarioRegistrado.MinimumWidth = 6;
-            usuarioRegistrado.Name = "usuarioRegistrado";
-            usuarioRegistrado.Width = 125;
+            usuarioRegistro.HeaderText = "Usuario Registrado";
+            usuarioRegistro.MinimumWidth = 6;
+            usuarioRegistro.Name = "usuarioRegistro";
+            usuarioRegistro.Width = 125;
             // 
             // documentoCliente
             // 
@@ -411,7 +414,7 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton BBuscar;
+        private FontAwesome.Sharp.IconButton BBuscarReporte;
         private Label label4;
         private Label label3;
         private DateTimePicker txtfechafin;
@@ -430,7 +433,7 @@
         private DataGridViewTextBoxColumn tipoDocumento;
         private DataGridViewTextBoxColumn numeroDocumento;
         private DataGridViewTextBoxColumn montoTotal;
-        private DataGridViewTextBoxColumn usuarioRegistrado;
+        private DataGridViewTextBoxColumn usuarioRegistro;
         private DataGridViewTextBoxColumn documentoCliente;
         private DataGridViewTextBoxColumn nombreCliente;
         private DataGridViewTextBoxColumn codigoProducto;

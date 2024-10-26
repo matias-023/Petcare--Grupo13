@@ -376,3 +376,10 @@ C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\De
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.dll
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.xmlworker.dll
 C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdEditarVenta.resources
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\RBush.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\SixLabors.Fonts.dll

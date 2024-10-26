@@ -985,4 +985,4 @@ END
 GO
 
 --Ejemplo
-EXEC sp_ReporteVentas '24/10/2024', '26/10/2024'
+EXEC sp_ReporteVentas '26/10/2024', '26/10/2024'
