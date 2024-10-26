@@ -33,8 +33,8 @@
             BBuscar = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label3 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            txtfechafin = new DateTimePicker();
+            txtfechainicio = new DateTimePicker();
             CBusqueda = new ComboBox();
             TBusqueda = new TextBox();
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
@@ -46,13 +46,18 @@
             label9 = new Label();
             dgvData = new DataGridView();
             fechaRegistro = new DataGridViewTextBoxColumn();
-            numeroVenta = new DataGridViewTextBoxColumn();
-            DocumentoUsuario = new DataGridViewTextBoxColumn();
-            DocumentoCliente = new DataGridViewTextBoxColumn();
-            nombreCliente = new DataGridViewTextBoxColumn();
-            medioPago = new DataGridViewTextBoxColumn();
+            tipoDocumento = new DataGridViewTextBoxColumn();
+            numeroDocumento = new DataGridViewTextBoxColumn();
             montoTotal = new DataGridViewTextBoxColumn();
-            verDetalle = new DataGridViewButtonColumn();
+            usuarioRegistrado = new DataGridViewTextBoxColumn();
+            documentoCliente = new DataGridViewTextBoxColumn();
+            nombreCliente = new DataGridViewTextBoxColumn();
+            codigoProducto = new DataGridViewTextBoxColumn();
+            nombreProducto = new DataGridViewTextBoxColumn();
+            categoria = new DataGridViewTextBoxColumn();
+            precioVenta = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
@@ -75,6 +80,7 @@
             BBuscar.TextAlign = ContentAlignment.MiddleRight;
             BBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBuscar.UseVisualStyleBackColor = true;
+            BBuscar.Click += BBuscar_Click;
             // 
             // label4
             // 
@@ -104,30 +110,30 @@
             label3.TabIndex = 42;
             label3.Text = "Fecha inicio:";
             // 
-            // dateTimePicker2
+            // txtfechafin
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker2.Font = new Font("Microsoft Sans Serif", 9F);
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(895, 36);
-            dateTimePicker2.Margin = new Padding(5, 3, 5, 3);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(127, 24);
-            dateTimePicker2.TabIndex = 2;
+            txtfechafin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtfechafin.CustomFormat = "dd/MM/yyyy";
+            txtfechafin.Font = new Font("Microsoft Sans Serif", 9F);
+            txtfechafin.Format = DateTimePickerFormat.Short;
+            txtfechafin.Location = new Point(895, 36);
+            txtfechafin.Margin = new Padding(5, 3, 5, 3);
+            txtfechafin.Name = "txtfechafin";
+            txtfechafin.Size = new Size(127, 24);
+            txtfechafin.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // txtfechainicio
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker1.CalendarMonthBackground = Color.FromArgb(210, 120, 61);
-            dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9F);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(640, 37);
-            dateTimePicker1.Margin = new Padding(5, 3, 5, 3);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(127, 24);
-            dateTimePicker1.TabIndex = 1;
+            txtfechainicio.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtfechainicio.CalendarMonthBackground = Color.FromArgb(210, 120, 61);
+            txtfechainicio.CustomFormat = "dd/MM/yyyy";
+            txtfechainicio.Font = new Font("Microsoft Sans Serif", 9F);
+            txtfechainicio.Format = DateTimePickerFormat.Short;
+            txtfechainicio.Location = new Point(640, 37);
+            txtfechainicio.Margin = new Padding(5, 3, 5, 3);
+            txtfechainicio.Name = "txtfechainicio";
+            txtfechainicio.Size = new Size(127, 24);
+            txtfechainicio.TabIndex = 1;
             // 
             // CBusqueda
             // 
@@ -214,10 +220,10 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label1);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(dateTimePicker1);
+            panel2.Controls.Add(txtfechainicio);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(BBuscar);
-            panel2.Controls.Add(dateTimePicker2);
+            panel2.Controls.Add(txtfechafin);
             panel2.Location = new Point(26, 27);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
@@ -281,12 +287,11 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { fechaRegistro, numeroVenta, DocumentoUsuario, DocumentoCliente, nombreCliente, medioPago, montoTotal, verDetalle });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { fechaRegistro, tipoDocumento, numeroDocumento, montoTotal, usuarioRegistrado, documentoCliente, nombreCliente, codigoProducto, nombreProducto, categoria, precioVenta, cantidad, subTotal });
             dgvData.Location = new Point(26, 224);
             dgvData.Margin = new Padding(3, 4, 3, 4);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
-            dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
             dataGridViewCellStyle2.SelectionBackColor = Color.White;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
@@ -297,67 +302,94 @@
             // 
             // fechaRegistro
             // 
-            fechaRegistro.HeaderText = "Fecha de registro";
+            fechaRegistro.HeaderText = "Fecha Registro";
             fechaRegistro.MinimumWidth = 6;
             fechaRegistro.Name = "fechaRegistro";
-            fechaRegistro.ReadOnly = true;
-            fechaRegistro.Width = 250;
+            fechaRegistro.Width = 125;
             // 
-            // numeroVenta
+            // tipoDocumento
             // 
-            numeroVenta.HeaderText = "Número de venta";
-            numeroVenta.MinimumWidth = 6;
-            numeroVenta.Name = "numeroVenta";
-            numeroVenta.ReadOnly = true;
-            numeroVenta.Width = 150;
+            tipoDocumento.HeaderText = "Tipo Documento";
+            tipoDocumento.MinimumWidth = 6;
+            tipoDocumento.Name = "tipoDocumento";
+            tipoDocumento.Width = 125;
             // 
-            // DocumentoUsuario
+            // numeroDocumento
             // 
-            DocumentoUsuario.HeaderText = "Documento del Usuario";
-            DocumentoUsuario.MinimumWidth = 6;
-            DocumentoUsuario.Name = "DocumentoUsuario";
-            DocumentoUsuario.ReadOnly = true;
-            DocumentoUsuario.Width = 230;
-            // 
-            // DocumentoCliente
-            // 
-            DocumentoCliente.HeaderText = "Documento del Cliente";
-            DocumentoCliente.MinimumWidth = 6;
-            DocumentoCliente.Name = "DocumentoCliente";
-            DocumentoCliente.ReadOnly = true;
-            DocumentoCliente.Width = 230;
-            // 
-            // nombreCliente
-            // 
-            nombreCliente.HeaderText = "Nombre del cliente";
-            nombreCliente.MinimumWidth = 6;
-            nombreCliente.Name = "nombreCliente";
-            nombreCliente.ReadOnly = true;
-            nombreCliente.Width = 220;
-            // 
-            // medioPago
-            // 
-            medioPago.HeaderText = "Medio de pago";
-            medioPago.MinimumWidth = 6;
-            medioPago.Name = "medioPago";
-            medioPago.ReadOnly = true;
-            medioPago.Width = 150;
+            numeroDocumento.HeaderText = "Numero Documento";
+            numeroDocumento.MinimumWidth = 6;
+            numeroDocumento.Name = "numeroDocumento";
+            numeroDocumento.Width = 125;
             // 
             // montoTotal
             // 
             montoTotal.HeaderText = "Monto Total";
             montoTotal.MinimumWidth = 6;
             montoTotal.Name = "montoTotal";
-            montoTotal.ReadOnly = true;
-            montoTotal.Width = 180;
+            montoTotal.Width = 125;
             // 
-            // verDetalle
+            // usuarioRegistrado
             // 
-            verDetalle.HeaderText = "Ver detalle";
-            verDetalle.MinimumWidth = 6;
-            verDetalle.Name = "verDetalle";
-            verDetalle.ReadOnly = true;
-            verDetalle.Width = 180;
+            usuarioRegistrado.HeaderText = "Usuario Registrado";
+            usuarioRegistrado.MinimumWidth = 6;
+            usuarioRegistrado.Name = "usuarioRegistrado";
+            usuarioRegistrado.Width = 125;
+            // 
+            // documentoCliente
+            // 
+            documentoCliente.HeaderText = "Documento Cliente";
+            documentoCliente.MinimumWidth = 6;
+            documentoCliente.Name = "documentoCliente";
+            documentoCliente.Width = 125;
+            // 
+            // nombreCliente
+            // 
+            nombreCliente.HeaderText = "Nombre Cliente";
+            nombreCliente.MinimumWidth = 6;
+            nombreCliente.Name = "nombreCliente";
+            nombreCliente.Width = 125;
+            // 
+            // codigoProducto
+            // 
+            codigoProducto.HeaderText = "Codigo Producto";
+            codigoProducto.MinimumWidth = 6;
+            codigoProducto.Name = "codigoProducto";
+            codigoProducto.Width = 125;
+            // 
+            // nombreProducto
+            // 
+            nombreProducto.HeaderText = "Nombre Producto";
+            nombreProducto.MinimumWidth = 6;
+            nombreProducto.Name = "nombreProducto";
+            nombreProducto.Width = 125;
+            // 
+            // categoria
+            // 
+            categoria.HeaderText = "Categoria";
+            categoria.MinimumWidth = 6;
+            categoria.Name = "categoria";
+            categoria.Width = 125;
+            // 
+            // precioVenta
+            // 
+            precioVenta.HeaderText = "Precio Venta";
+            precioVenta.MinimumWidth = 6;
+            precioVenta.Name = "precioVenta";
+            precioVenta.Width = 125;
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.MinimumWidth = 6;
+            cantidad.Name = "cantidad";
+            cantidad.Width = 125;
+            // 
+            // subTotal
+            // 
+            subTotal.HeaderText = "subTotal";
+            subTotal.MinimumWidth = 6;
+            subTotal.Name = "subTotal";
+            subTotal.Width = 125;
             // 
             // frmReportesVentas
             // 
@@ -369,6 +401,7 @@
             Controls.Add(panel2);
             Name = "frmReportesVentas";
             Text = "frmReportesVentas";
+            Load += frmReportesVentas_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -381,8 +414,8 @@
         private FontAwesome.Sharp.IconButton BBuscar;
         private Label label4;
         private Label label3;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker txtfechafin;
+        private DateTimePicker txtfechainicio;
         private ComboBox CBusqueda;
         private TextBox TBusqueda;
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
@@ -394,12 +427,17 @@
         private Label label9;
         private DataGridView dgvData;
         private DataGridViewTextBoxColumn fechaRegistro;
-        private DataGridViewTextBoxColumn numeroVenta;
-        private DataGridViewTextBoxColumn DocumentoUsuario;
-        private DataGridViewTextBoxColumn DocumentoCliente;
-        private DataGridViewTextBoxColumn nombreCliente;
-        private DataGridViewTextBoxColumn medioPago;
+        private DataGridViewTextBoxColumn tipoDocumento;
+        private DataGridViewTextBoxColumn numeroDocumento;
         private DataGridViewTextBoxColumn montoTotal;
-        private DataGridViewButtonColumn verDetalle;
+        private DataGridViewTextBoxColumn usuarioRegistrado;
+        private DataGridViewTextBoxColumn documentoCliente;
+        private DataGridViewTextBoxColumn nombreCliente;
+        private DataGridViewTextBoxColumn codigoProducto;
+        private DataGridViewTextBoxColumn nombreProducto;
+        private DataGridViewTextBoxColumn categoria;
+        private DataGridViewTextBoxColumn precioVenta;
+        private DataGridViewTextBoxColumn cantidad;
+        private DataGridViewTextBoxColumn subTotal;
     }
 }

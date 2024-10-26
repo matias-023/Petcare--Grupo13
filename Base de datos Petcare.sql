@@ -962,5 +962,27 @@ inner join marca m on p.idMarca = m.idMarca
 where dv.idVenta = 1
 
 
+--cambios 26-10
+CREATE PROC sp_ReporteVentas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+SELECT 
+CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro], v.tipoDocumento, v.numeroDocumento, v.montoTotal,
+u.nombreCompleto[usuarioRegistro],
+v.documentoCliente, v.nombreCliente,
+p.codigo[codigoProducto],p.nombre[nombreProducto], ca.Descripcion[categoria], dv.precioVenta, dv.cantidad, dv.subTotal
+FROM VENTA v
+INNER JOIN USUARIO u on u.idUSuario = v.idUsuario
+INNER JOIN DETALLE_VENTA dv on dv.idVenta = v.idVenta
+INNER JOIN PRODUCTO p ON p.idProducto = dv.idProducto
+INNER JOIN CATEGORIA ca ON ca.idCategoria = p.idCategoria
+WHERE CONVERT(date,v.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+END 
+GO
 
-
+--Ejemplo
+EXEC sp_ReporteVentas '24/10/2024', '26/10/2024'
