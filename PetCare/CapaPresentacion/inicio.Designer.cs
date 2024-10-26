@@ -62,7 +62,6 @@
             iconoUsuario = new FontAwesome.Sharp.IconPictureBox();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             LUsuario = new Label();
-            label1 = new Label();
             LTitulo = new Label();
             panel2 = new Panel();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -88,18 +87,18 @@
             container.Controls.Add(panel1);
             container.Dock = DockStyle.Fill;
             container.Location = new Point(0, 0);
+            container.Margin = new Padding(3, 2, 3, 2);
             container.Name = "container";
-            container.Size = new Size(1314, 733);
+            container.Size = new Size(1150, 550);
             container.TabIndex = 2;
             // 
             // contenedor
             // 
             contenedor.BackColor = Color.WhiteSmoke;
             contenedor.Dock = DockStyle.Fill;
-            contenedor.Location = new Point(229, 88);
-            contenedor.Margin = new Padding(3, 4, 3, 4);
+            contenedor.Location = new Point(200, 66);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(1085, 645);
+            contenedor.Size = new Size(950, 484);
             contenedor.TabIndex = 1;
             // 
             // menu
@@ -120,10 +119,9 @@
             menu.Controls.Add(menuReabastecedor);
             menu.Controls.Add(menuUsuario);
             menu.Dock = DockStyle.Left;
-            menu.Location = new Point(0, 88);
-            menu.Margin = new Padding(3, 4, 3, 4);
+            menu.Location = new Point(0, 66);
             menu.Name = "menu";
-            menu.Size = new Size(229, 645);
+            menu.Size = new Size(200, 484);
             menu.TabIndex = 2;
             // 
             // menuBackup
@@ -139,11 +137,10 @@
             menuBackup.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuBackup.IconSize = 35;
             menuBackup.ImageAlign = ContentAlignment.MiddleLeft;
-            menuBackup.Location = new Point(0, 891);
-            menuBackup.Margin = new Padding(3, 4, 3, 4);
+            menuBackup.Location = new Point(0, 669);
             menuBackup.Name = "menuBackup";
-            menuBackup.Padding = new Padding(6, 0, 0, 0);
-            menuBackup.Size = new Size(208, 60);
+            menuBackup.Padding = new Padding(5, 0, 0, 0);
+            menuBackup.Size = new Size(183, 45);
             menuBackup.TabIndex = 8;
             menuBackup.Text = "Backup";
             menuBackup.TextAlign = ContentAlignment.MiddleLeft;
@@ -164,11 +161,10 @@
             menuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuAcercaDe.IconSize = 35;
             menuAcercaDe.ImageAlign = ContentAlignment.MiddleLeft;
-            menuAcercaDe.Location = new Point(0, 839);
-            menuAcercaDe.Margin = new Padding(3, 4, 3, 4);
+            menuAcercaDe.Location = new Point(0, 630);
             menuAcercaDe.Name = "menuAcercaDe";
-            menuAcercaDe.Padding = new Padding(6, 0, 0, 0);
-            menuAcercaDe.Size = new Size(208, 52);
+            menuAcercaDe.Padding = new Padding(5, 0, 0, 0);
+            menuAcercaDe.Size = new Size(183, 39);
             menuAcercaDe.TabIndex = 7;
             menuAcercaDe.Text = "Acerca de";
             menuAcercaDe.TextAlign = ContentAlignment.MiddleLeft;
@@ -182,10 +178,9 @@
             panelSubMenuReportes.Controls.Add(subMenuReportesCompras);
             panelSubMenuReportes.Controls.Add(subMenuReportesVentas);
             panelSubMenuReportes.Dock = DockStyle.Top;
-            panelSubMenuReportes.Location = new Point(0, 746);
-            panelSubMenuReportes.Margin = new Padding(3, 4, 3, 4);
+            panelSubMenuReportes.Location = new Point(0, 560);
             panelSubMenuReportes.Name = "panelSubMenuReportes";
-            panelSubMenuReportes.Size = new Size(208, 93);
+            panelSubMenuReportes.Size = new Size(183, 70);
             panelSubMenuReportes.TabIndex = 11;
             // 
             // subMenuReportesCompras
@@ -199,11 +194,10 @@
             subMenuReportesCompras.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuReportesCompras.IconColor = Color.Black;
             subMenuReportesCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuReportesCompras.Location = new Point(0, 47);
-            subMenuReportesCompras.Margin = new Padding(3, 4, 3, 4);
+            subMenuReportesCompras.Location = new Point(0, 35);
             subMenuReportesCompras.Name = "subMenuReportesCompras";
-            subMenuReportesCompras.Padding = new Padding(40, 0, 0, 0);
-            subMenuReportesCompras.Size = new Size(208, 46);
+            subMenuReportesCompras.Padding = new Padding(35, 0, 0, 0);
+            subMenuReportesCompras.Size = new Size(183, 34);
             subMenuReportesCompras.TabIndex = 6;
             subMenuReportesCompras.Text = "Compras";
             subMenuReportesCompras.TextAlign = ContentAlignment.MiddleLeft;
@@ -222,10 +216,9 @@
             subMenuReportesVentas.IconColor = Color.Black;
             subMenuReportesVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuReportesVentas.Location = new Point(0, 0);
-            subMenuReportesVentas.Margin = new Padding(3, 4, 3, 4);
             subMenuReportesVentas.Name = "subMenuReportesVentas";
-            subMenuReportesVentas.Padding = new Padding(40, 0, 0, 0);
-            subMenuReportesVentas.Size = new Size(208, 47);
+            subMenuReportesVentas.Padding = new Padding(35, 0, 0, 0);
+            subMenuReportesVentas.Size = new Size(183, 35);
             subMenuReportesVentas.TabIndex = 5;
             subMenuReportesVentas.Text = "Ventas";
             subMenuReportesVentas.TextAlign = ContentAlignment.MiddleLeft;
@@ -245,11 +238,10 @@
             menuReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuReportes.IconSize = 35;
             menuReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            menuReportes.Location = new Point(0, 686);
-            menuReportes.Margin = new Padding(3, 4, 3, 4);
+            menuReportes.Location = new Point(0, 515);
             menuReportes.Name = "menuReportes";
-            menuReportes.Padding = new Padding(6, 0, 0, 0);
-            menuReportes.Size = new Size(208, 60);
+            menuReportes.Padding = new Padding(5, 0, 0, 0);
+            menuReportes.Size = new Size(183, 45);
             menuReportes.TabIndex = 6;
             menuReportes.Text = "Reportes";
             menuReportes.TextAlign = ContentAlignment.MiddleLeft;
@@ -270,11 +262,10 @@
             menuProveedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuProveedores.IconSize = 35;
             menuProveedores.ImageAlign = ContentAlignment.MiddleLeft;
-            menuProveedores.Location = new Point(0, 626);
-            menuProveedores.Margin = new Padding(3, 4, 3, 4);
+            menuProveedores.Location = new Point(0, 470);
             menuProveedores.Name = "menuProveedores";
-            menuProveedores.Padding = new Padding(6, 0, 0, 0);
-            menuProveedores.Size = new Size(208, 60);
+            menuProveedores.Padding = new Padding(5, 0, 0, 0);
+            menuProveedores.Size = new Size(183, 45);
             menuProveedores.TabIndex = 5;
             menuProveedores.Text = "Proveedores";
             menuProveedores.TextAlign = ContentAlignment.MiddleLeft;
@@ -295,11 +286,10 @@
             menuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuClientes.IconSize = 35;
             menuClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            menuClientes.Location = new Point(0, 566);
-            menuClientes.Margin = new Padding(3, 4, 3, 4);
+            menuClientes.Location = new Point(0, 425);
             menuClientes.Name = "menuClientes";
-            menuClientes.Padding = new Padding(6, 0, 0, 0);
-            menuClientes.Size = new Size(208, 60);
+            menuClientes.Padding = new Padding(5, 0, 0, 0);
+            menuClientes.Size = new Size(183, 45);
             menuClientes.TabIndex = 4;
             menuClientes.Text = "Clientes";
             menuClientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -313,10 +303,9 @@
             panelSubMenuCompras.Controls.Add(subMenuVerDetalleCompra);
             panelSubMenuCompras.Controls.Add(subMenuRegistrarCompra);
             panelSubMenuCompras.Dock = DockStyle.Top;
-            panelSubMenuCompras.Location = new Point(0, 473);
-            panelSubMenuCompras.Margin = new Padding(3, 4, 3, 4);
+            panelSubMenuCompras.Location = new Point(0, 355);
             panelSubMenuCompras.Name = "panelSubMenuCompras";
-            panelSubMenuCompras.Size = new Size(208, 93);
+            panelSubMenuCompras.Size = new Size(183, 70);
             panelSubMenuCompras.TabIndex = 7;
             // 
             // subMenuVerDetalleCompra
@@ -330,11 +319,10 @@
             subMenuVerDetalleCompra.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuVerDetalleCompra.IconColor = Color.Black;
             subMenuVerDetalleCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuVerDetalleCompra.Location = new Point(0, 47);
-            subMenuVerDetalleCompra.Margin = new Padding(3, 4, 3, 4);
+            subMenuVerDetalleCompra.Location = new Point(0, 35);
             subMenuVerDetalleCompra.Name = "subMenuVerDetalleCompra";
-            subMenuVerDetalleCompra.Padding = new Padding(40, 0, 0, 0);
-            subMenuVerDetalleCompra.Size = new Size(208, 47);
+            subMenuVerDetalleCompra.Padding = new Padding(35, 0, 0, 0);
+            subMenuVerDetalleCompra.Size = new Size(183, 35);
             subMenuVerDetalleCompra.TabIndex = 5;
             subMenuVerDetalleCompra.Text = "Ver detalle";
             subMenuVerDetalleCompra.TextAlign = ContentAlignment.MiddleLeft;
@@ -353,10 +341,9 @@
             subMenuRegistrarCompra.IconColor = Color.Black;
             subMenuRegistrarCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuRegistrarCompra.Location = new Point(0, 0);
-            subMenuRegistrarCompra.Margin = new Padding(3, 4, 3, 4);
             subMenuRegistrarCompra.Name = "subMenuRegistrarCompra";
-            subMenuRegistrarCompra.Padding = new Padding(40, 0, 0, 0);
-            subMenuRegistrarCompra.Size = new Size(208, 47);
+            subMenuRegistrarCompra.Padding = new Padding(35, 0, 0, 0);
+            subMenuRegistrarCompra.Size = new Size(183, 35);
             subMenuRegistrarCompra.TabIndex = 4;
             subMenuRegistrarCompra.Text = "Registrar";
             subMenuRegistrarCompra.TextAlign = ContentAlignment.MiddleLeft;
@@ -376,11 +363,10 @@
             menuCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuCompras.IconSize = 35;
             menuCompras.ImageAlign = ContentAlignment.MiddleLeft;
-            menuCompras.Location = new Point(0, 413);
-            menuCompras.Margin = new Padding(3, 4, 3, 4);
+            menuCompras.Location = new Point(0, 310);
             menuCompras.Name = "menuCompras";
-            menuCompras.Padding = new Padding(6, 0, 0, 0);
-            menuCompras.Size = new Size(208, 60);
+            menuCompras.Padding = new Padding(5, 0, 0, 0);
+            menuCompras.Size = new Size(183, 45);
             menuCompras.TabIndex = 3;
             menuCompras.Text = "Compras";
             menuCompras.TextAlign = ContentAlignment.MiddleLeft;
@@ -394,10 +380,9 @@
             panelSubMenuVentas.Controls.Add(subMenuRegistrarVenta);
             panelSubMenuVentas.Controls.Add(subMenuVerDetalleVenta);
             panelSubMenuVentas.Dock = DockStyle.Top;
-            panelSubMenuVentas.Location = new Point(0, 320);
-            panelSubMenuVentas.Margin = new Padding(3, 4, 3, 4);
+            panelSubMenuVentas.Location = new Point(0, 240);
             panelSubMenuVentas.Name = "panelSubMenuVentas";
-            panelSubMenuVentas.Size = new Size(208, 93);
+            panelSubMenuVentas.Size = new Size(183, 70);
             panelSubMenuVentas.TabIndex = 5;
             // 
             // subMenuRegistrarVenta
@@ -412,10 +397,9 @@
             subMenuRegistrarVenta.IconColor = Color.Black;
             subMenuRegistrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuRegistrarVenta.Location = new Point(0, 0);
-            subMenuRegistrarVenta.Margin = new Padding(3, 4, 3, 4);
             subMenuRegistrarVenta.Name = "subMenuRegistrarVenta";
-            subMenuRegistrarVenta.Padding = new Padding(40, 0, 0, 0);
-            subMenuRegistrarVenta.Size = new Size(208, 47);
+            subMenuRegistrarVenta.Padding = new Padding(35, 0, 0, 0);
+            subMenuRegistrarVenta.Size = new Size(183, 35);
             subMenuRegistrarVenta.TabIndex = 4;
             subMenuRegistrarVenta.Text = "Registrar";
             subMenuRegistrarVenta.TextAlign = ContentAlignment.MiddleLeft;
@@ -433,11 +417,10 @@
             subMenuVerDetalleVenta.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuVerDetalleVenta.IconColor = Color.Black;
             subMenuVerDetalleVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuVerDetalleVenta.Location = new Point(0, 46);
-            subMenuVerDetalleVenta.Margin = new Padding(3, 4, 3, 4);
+            subMenuVerDetalleVenta.Location = new Point(0, 35);
             subMenuVerDetalleVenta.Name = "subMenuVerDetalleVenta";
-            subMenuVerDetalleVenta.Padding = new Padding(40, 0, 0, 0);
-            subMenuVerDetalleVenta.Size = new Size(208, 47);
+            subMenuVerDetalleVenta.Padding = new Padding(35, 0, 0, 0);
+            subMenuVerDetalleVenta.Size = new Size(183, 35);
             subMenuVerDetalleVenta.TabIndex = 5;
             subMenuVerDetalleVenta.Text = "Ver detalle";
             subMenuVerDetalleVenta.TextAlign = ContentAlignment.MiddleLeft;
@@ -457,11 +440,10 @@
             menuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuVentas.IconSize = 35;
             menuVentas.ImageAlign = ContentAlignment.MiddleLeft;
-            menuVentas.Location = new Point(0, 260);
-            menuVentas.Margin = new Padding(3, 4, 3, 4);
+            menuVentas.Location = new Point(0, 195);
             menuVentas.Name = "menuVentas";
-            menuVentas.Padding = new Padding(6, 0, 0, 0);
-            menuVentas.Size = new Size(208, 60);
+            menuVentas.Padding = new Padding(5, 0, 0, 0);
+            menuVentas.Size = new Size(183, 45);
             menuVentas.TabIndex = 2;
             menuVentas.Text = "Ventas";
             menuVentas.TextAlign = ContentAlignment.MiddleLeft;
@@ -476,10 +458,9 @@
             panelSubMenuReabastecedor.Controls.Add(subMenuProductos);
             panelSubMenuReabastecedor.Controls.Add(subMenuCategorias);
             panelSubMenuReabastecedor.Dock = DockStyle.Top;
-            panelSubMenuReabastecedor.Location = new Point(0, 120);
-            panelSubMenuReabastecedor.Margin = new Padding(3, 4, 3, 4);
+            panelSubMenuReabastecedor.Location = new Point(0, 90);
             panelSubMenuReabastecedor.Name = "panelSubMenuReabastecedor";
-            panelSubMenuReabastecedor.Size = new Size(208, 140);
+            panelSubMenuReabastecedor.Size = new Size(183, 105);
             panelSubMenuReabastecedor.TabIndex = 3;
             // 
             // subMenuMarcas
@@ -493,11 +474,10 @@
             subMenuMarcas.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuMarcas.IconColor = Color.Black;
             subMenuMarcas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuMarcas.Location = new Point(0, 47);
-            subMenuMarcas.Margin = new Padding(3, 4, 3, 4);
+            subMenuMarcas.Location = new Point(0, 35);
             subMenuMarcas.Name = "subMenuMarcas";
-            subMenuMarcas.Padding = new Padding(40, 0, 0, 0);
-            subMenuMarcas.Size = new Size(208, 47);
+            subMenuMarcas.Padding = new Padding(35, 0, 0, 0);
+            subMenuMarcas.Size = new Size(183, 35);
             subMenuMarcas.TabIndex = 4;
             subMenuMarcas.Text = "Marcas";
             subMenuMarcas.TextAlign = ContentAlignment.MiddleLeft;
@@ -515,11 +495,10 @@
             subMenuProductos.IconChar = FontAwesome.Sharp.IconChar.None;
             subMenuProductos.IconColor = Color.Black;
             subMenuProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuProductos.Location = new Point(0, 93);
-            subMenuProductos.Margin = new Padding(3, 4, 3, 4);
+            subMenuProductos.Location = new Point(0, 70);
             subMenuProductos.Name = "subMenuProductos";
-            subMenuProductos.Padding = new Padding(40, 0, 0, 0);
-            subMenuProductos.Size = new Size(208, 47);
+            subMenuProductos.Padding = new Padding(35, 0, 0, 0);
+            subMenuProductos.Size = new Size(183, 35);
             subMenuProductos.TabIndex = 3;
             subMenuProductos.Text = "Productos";
             subMenuProductos.TextAlign = ContentAlignment.MiddleLeft;
@@ -538,10 +517,9 @@
             subMenuCategorias.IconColor = Color.Black;
             subMenuCategorias.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuCategorias.Location = new Point(0, 0);
-            subMenuCategorias.Margin = new Padding(3, 4, 3, 4);
             subMenuCategorias.Name = "subMenuCategorias";
-            subMenuCategorias.Padding = new Padding(40, 0, 0, 0);
-            subMenuCategorias.Size = new Size(208, 47);
+            subMenuCategorias.Padding = new Padding(35, 0, 0, 0);
+            subMenuCategorias.Size = new Size(183, 35);
             subMenuCategorias.TabIndex = 2;
             subMenuCategorias.Text = "Categorias";
             subMenuCategorias.TextAlign = ContentAlignment.MiddleLeft;
@@ -561,11 +539,10 @@
             menuReabastecedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             menuReabastecedor.IconSize = 35;
             menuReabastecedor.ImageAlign = ContentAlignment.MiddleLeft;
-            menuReabastecedor.Location = new Point(0, 60);
-            menuReabastecedor.Margin = new Padding(3, 4, 3, 4);
+            menuReabastecedor.Location = new Point(0, 45);
             menuReabastecedor.Name = "menuReabastecedor";
-            menuReabastecedor.Padding = new Padding(6, 0, 0, 0);
-            menuReabastecedor.Size = new Size(208, 60);
+            menuReabastecedor.Padding = new Padding(5, 0, 0, 0);
+            menuReabastecedor.Size = new Size(183, 45);
             menuReabastecedor.TabIndex = 1;
             menuReabastecedor.Text = "Reabastecedor";
             menuReabastecedor.TextAlign = ContentAlignment.MiddleLeft;
@@ -587,10 +564,9 @@
             menuUsuario.IconSize = 35;
             menuUsuario.ImageAlign = ContentAlignment.MiddleLeft;
             menuUsuario.Location = new Point(0, 0);
-            menuUsuario.Margin = new Padding(3, 4, 3, 4);
             menuUsuario.Name = "menuUsuario";
-            menuUsuario.Padding = new Padding(6, 0, 0, 0);
-            menuUsuario.Size = new Size(208, 60);
+            menuUsuario.Padding = new Padding(5, 0, 0, 0);
+            menuUsuario.Size = new Size(183, 45);
             menuUsuario.TabIndex = 0;
             menuUsuario.Text = "Usuarios";
             menuUsuario.TextAlign = ContentAlignment.MiddleLeft;
@@ -608,14 +584,12 @@
             panel1.Controls.Add(iconoUsuario);
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(LUsuario);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(LTitulo);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1314, 88);
+            panel1.Size = new Size(1150, 66);
             panel1.TabIndex = 0;
             panel1.MouseDown += panel1_MouseDown;
             // 
@@ -624,10 +598,9 @@
             BRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BRestaurar.Cursor = Cursors.Hand;
             BRestaurar.Image = Properties.Resources.res;
-            BRestaurar.Location = new Point(1246, 9);
-            BRestaurar.Margin = new Padding(3, 4, 3, 4);
+            BRestaurar.Location = new Point(1090, 7);
             BRestaurar.Name = "BRestaurar";
-            BRestaurar.Size = new Size(23, 27);
+            BRestaurar.Size = new Size(20, 20);
             BRestaurar.SizeMode = PictureBoxSizeMode.Zoom;
             BRestaurar.TabIndex = 10;
             BRestaurar.TabStop = false;
@@ -639,10 +612,9 @@
             BMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BMinimizar.Cursor = Cursors.Hand;
             BMinimizar.Image = Properties.Resources.minimazar;
-            BMinimizar.Location = new Point(1211, 9);
-            BMinimizar.Margin = new Padding(3, 4, 3, 4);
+            BMinimizar.Location = new Point(1060, 7);
             BMinimizar.Name = "BMinimizar";
-            BMinimizar.Size = new Size(23, 27);
+            BMinimizar.Size = new Size(20, 20);
             BMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
             BMinimizar.TabIndex = 9;
             BMinimizar.TabStop = false;
@@ -653,10 +625,9 @@
             BMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BMaximizar.Cursor = Cursors.Hand;
             BMaximizar.Image = Properties.Resources.maxi;
-            BMaximizar.Location = new Point(1246, 9);
-            BMaximizar.Margin = new Padding(3, 4, 3, 4);
+            BMaximizar.Location = new Point(1090, 7);
             BMaximizar.Name = "BMaximizar";
-            BMaximizar.Size = new Size(23, 27);
+            BMaximizar.Size = new Size(20, 20);
             BMaximizar.SizeMode = PictureBoxSizeMode.Zoom;
             BMaximizar.TabIndex = 8;
             BMaximizar.TabStop = false;
@@ -667,10 +638,9 @@
             BCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BCerrar.Cursor = Cursors.Hand;
             BCerrar.Image = Properties.Resources.cerrar;
-            BCerrar.Location = new Point(1280, 9);
-            BCerrar.Margin = new Padding(3, 4, 3, 4);
+            BCerrar.Location = new Point(1120, 7);
             BCerrar.Name = "BCerrar";
-            BCerrar.Size = new Size(23, 27);
+            BCerrar.Size = new Size(20, 20);
             BCerrar.SizeMode = PictureBoxSizeMode.Zoom;
             BCerrar.TabIndex = 7;
             BCerrar.TabStop = false;
@@ -683,11 +653,10 @@
             iconoUsuario.IconChar = FontAwesome.Sharp.IconChar.UserLarge;
             iconoUsuario.IconColor = Color.White;
             iconoUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconoUsuario.IconSize = 29;
-            iconoUsuario.Location = new Point(765, 37);
-            iconoUsuario.Margin = new Padding(3, 4, 3, 4);
+            iconoUsuario.IconSize = 25;
+            iconoUsuario.Location = new Point(610, 28);
             iconoUsuario.Name = "iconoUsuario";
-            iconoUsuario.Size = new Size(29, 33);
+            iconoUsuario.Size = new Size(25, 25);
             iconoUsuario.TabIndex = 6;
             iconoUsuario.TabStop = false;
             // 
@@ -697,11 +666,10 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.ShieldDog;
             iconPictureBox1.IconColor = Color.White;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 57;
-            iconPictureBox1.Location = new Point(27, 16);
-            iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
+            iconPictureBox1.IconSize = 50;
+            iconPictureBox1.Location = new Point(24, 12);
             iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(57, 67);
+            iconPictureBox1.Size = new Size(50, 50);
             iconPictureBox1.TabIndex = 5;
             iconPictureBox1.TabStop = false;
             // 
@@ -710,53 +678,43 @@
             LUsuario.Anchor = AnchorStyles.Right;
             LUsuario.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LUsuario.ForeColor = Color.White;
-            LUsuario.Location = new Point(869, 39);
+            LUsuario.Location = new Point(635, 29);
             LUsuario.Name = "LUsuario";
-            LUsuario.Size = new Size(211, 25);
+            LUsuario.Size = new Size(403, 19);
             LUsuario.TabIndex = 4;
             LUsuario.Text = "LUsuario";
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Right;
-            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(791, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(162, 25);
-            label1.TabIndex = 3;
-            label1.Text = "Usuario:";
             // 
             // LTitulo
             // 
             LTitulo.AutoSize = true;
             LTitulo.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             LTitulo.ForeColor = Color.White;
-            LTitulo.Location = new Point(80, 24);
+            LTitulo.Location = new Point(70, 18);
             LTitulo.Name = "LTitulo";
-            LTitulo.Size = new Size(149, 39);
+            LTitulo.Size = new Size(121, 31);
             LTitulo.TabIndex = 2;
             LTitulo.Text = "PetCare";
             // 
             // panel2
             // 
-            panel2.Location = new Point(1225, 93);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(1072, 70);
             panel2.Name = "panel2";
-            panel2.Size = new Size(18, 101);
+            panel2.Size = new Size(16, 76);
             panel2.TabIndex = 1;
             // 
             // inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1314, 733);
+            ClientSize = new Size(1150, 550);
             Controls.Add(container);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema PetCare";
+            FormClosing += inicio_FormClosing;
             Load += inicio_Load;
             KeyDown += inicio_KeyDown;
             container.ResumeLayout(false);
@@ -782,7 +740,6 @@
         private Panel panel2;
         private Label LTitulo;
         private Label LUsuario;
-        private Label label1;
         private Panel contenedor;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private Panel menu;

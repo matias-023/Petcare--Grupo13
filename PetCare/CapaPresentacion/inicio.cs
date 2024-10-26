@@ -71,9 +71,9 @@ namespace CapaPresentacion
                 iconoUsuario.IconChar = IconChar.UserLarge;
                 panelSubMenuReportes.Size = new System.Drawing.Size(183, 40);
                 //Se ocultan los submenus de reportes a los usuarios a los que no les corresponden
-                if (usuarioActual.oRol.idRol == 2) 
+                if (usuarioActual.oRol.idRol == 2)
                     subMenuReportesVentas.Visible = false;
-                else 
+                else
                     subMenuReportesCompras.Visible = false;
             }
             diseño();
@@ -93,13 +93,25 @@ namespace CapaPresentacion
 
             }
 
-            LUsuario.Text = usuarioActual.nombreCompleto;
+            LUsuario.Text = usuarioActual.oRol.descripcion + ": " + usuarioActual.nombreCompleto;
             this.KeyPreview = true;
         }
 
 
         private void abrirFormulario(IconButton menu, Form formulario)
         {
+            // Intentar cerrar el formulario activo
+            if (formularioActivo != null)
+            {
+                formularioActivo.Close(); // Esto dispara el evento FormClosing
+
+                // Verificar si el formulario aún está abierto (Close no cierra si se cancela)
+                if (!formularioActivo.IsDisposed)
+                {
+                    return; // Si el formulario no se cerró, salir de la función y no abrir uno nuevo
+                }
+            }
+
             if (menuActivo != null)
             {
                 menuActivo.BackColor = Color.FromArgb(210, 120, 61);
@@ -110,12 +122,6 @@ namespace CapaPresentacion
             menuActivo.BackColor = Color.WhiteSmoke;
             menuActivo.ForeColor = Color.FromArgb(210, 120, 61);
             menuActivo.IconColor = Color.FromArgb(210, 120, 61);
-
-
-            if (formularioActivo != null)
-            {
-                formularioActivo.Close();
-            }
 
             formularioActivo = formulario;
             formulario.TopLevel = false;
@@ -173,19 +179,19 @@ namespace CapaPresentacion
         private void subMenuRegistrarVenta_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuVentas, new frmVentas());
+            abrirFormulario(menuVentas, new frmVentas(usuarioActual));
         }
 
         private void subMenuVerDetalleVenta_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuVentas, new frmDetalleVenta());
+            abrirFormulario(menuVentas, new frmDetalleVenta(usuarioActual));
         }
 
         private void subMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuCompras, new frmCompras());
+            abrirFormulario(menuCompras, new frmCompras(usuarioActual));
         }
 
         private void subMenuVerDetalleCompra_Click(object sender, EventArgs e)
@@ -233,10 +239,7 @@ namespace CapaPresentacion
 
         private void BCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void BMaximizar_Click(object sender, EventArgs e)
@@ -281,6 +284,27 @@ namespace CapaPresentacion
             this.WindowState = FormWindowState.Normal;
             BRestaurar.Visible = false;
             BMaximizar.Visible = true;
+        }
+
+        private void inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true; 
+                return;
+            }
+
+            // Verificar si el formulario secundario está abierto
+            if (formularioActivo != null && !formularioActivo.IsDisposed)
+            {
+                formularioActivo.Close(); // Cerrar el formulario secundario antes de cerrar la aplicación
+            }
+
+            // Asegurarse de que el formulario principal solo se cierre si el formulario secundario está cerrado
+            if (formularioActivo != null && !formularioActivo.IsDisposed)
+            {
+                e.Cancel = true;  // Si el formulario secundario no se pudo cerrar, cancelar el cierre del formulario principal
+            }
         }
     }
 }

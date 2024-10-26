@@ -368,3 +368,11 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.pdb
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.genruntimeconfig.cache
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 abm productos respaldo\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\ref\CapaPresentacion.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdEditarVenta.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.xmlworker.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\itextsharp.xmlworker.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdEditarVenta.resources

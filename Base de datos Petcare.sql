@@ -126,23 +126,23 @@ go
 CREATE TABLE VENTA(
 	idVenta INT IDENTITY,
 	idUsuario INT not null,
-	id_mediodepago INT not null,
-	id_cliente INT not null,
 	tipoDocumento VARCHAR(50),
+	numeroDocumento varchar(500),
+	documentoCliente varchar(500),
+	nombreCliente varchar(500),
 	montoPago DECIMAL (10,2) NOT NULL,
 	montoCambio DECIMAL (10,2) DEFAULT 0,
 	montoTotal DECIMAL (10,2) NOT NULL,
 	fechaRegistro DATETIME CONSTRAINT DF_Venta_fechaRegistro DEFAULT getdate(),
 	CONSTRAINT PK_Venta_id PRIMARY KEY (idVenta),
 	CONSTRAINT FK_Venta_Usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
-	CONSTRAINT FK_Venta_MedioPago FOREIGN KEY (id_mediodepago) REFERENCES medios_pago (id_mediodepago),
-	CONSTRAINT FK_Venta_Cliente FOREIGN KEY (id_cliente) REFERENCES cliente (idCliente),
-	CONSTRAINT CK_Venta_montoPago CHECK (montoPago >= 0),
+	CONSTRAINT CK_Venta_montoPago CHECK (montoPago >= montoTotal),
 	CONSTRAINT CK_Venta_montoCambio CHECK (montoCambio >= 0),
 	CONSTRAINT CK_Venta_montoTotal CHECK (montoTotal >= 0),
+	CONSTRAINT CK_Venta_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura')),
+	CONSTRAINT UQ_venta_numeroDocumento UNIQUE (numeroDocumento)
 )
 go
-
 
 CREATE TABLE DETALLE_VENTA(
 	idDetalleVenta INT IDENTITY,
@@ -205,9 +205,6 @@ VALUES (1, 'menuUsuario'),
 (3, 'menuAcercaDe')
 go
 
-SELECT * FROM PERMISO
-go
-
 --codigo para buscar permisos seg�n un usuario, implementado en el codigo de la aplicaci�n
 SELECT p.idRol, p.nombreMenu FROM PERMISO p
 inner join ROL r on r.idRol = p.idRol
@@ -241,7 +238,8 @@ CREATE TABLE COMPRA(
 	CONSTRAINT PK_Compra_id PRIMARY KEY (idCompra),
 	CONSTRAINT FK_Compra_Usuario FOREIGN KEY (idUsuario) REFERENCES USUARIO (idUsuario),
 	CONSTRAINT FK_Compra_Proveedor FOREIGN KEY (idProveedor) REFERENCES PROVEEDOR(idProveedor),
-	CONSTRAINT CK_Compra_montoTotal CHECK (montoTotal >= 0)
+	CONSTRAINT CK_Compra_montoTotal CHECK (montoTotal >= 0),
+	CONSTRAINT CK_Compra_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
 )
 go
 
@@ -375,9 +373,6 @@ begin
 end
 go
 
-select * from usuario
-go
-
 --restricción para numeros de documento.
 
 ALTER TABLE USUARIO
@@ -468,15 +463,6 @@ ADD CONSTRAINT CK_Categoria_Descripcion
 CHECK (descripcion LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and descripcion NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
 go
 
-INSERT INTO CATEGORIA (descripcion, estado)
-VALUES ('Alimentos', 1),
-('Accesorios', 1),
-('Juguetes', 1)
-go
-
-select * from CATEGORIA
-go
-
 --Procedimiento almacenado para registrar marcas de productos.
 CREATE PROC SP_REGISTRARMARCA(
 @descripcion varchar(100),
@@ -529,12 +515,6 @@ begin
 	else 
 		set @mensaje = 'Ya existe una marca registrada con esa descripción.'
 end
-go
-
-INSERT INTO MARCA (descripcion, estado)
-VALUES ('Purina', 1),
-('Pro Plan', 1),
-('Whiskas', 1)
 go
 
 --Cambios 14/10
@@ -823,11 +803,186 @@ ADD CONSTRAINT CK_Producto_Codigo
 CHECK (codigo LIKE '%[0-9]%' AND codigo NOT LIKE '%[^0-9]%')
 go
 
-INSERT INTO PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
-VALUES ('1000', 'Alimento para perros 10Kg', 1, 1, 20, 300, 1500.99, 1699.99, 1)
-
 select p.idProducto, p.codigo, p.nombre, m.idMarca, m.descripcion[descMarca], c.idCategoria, c.descripcion[descCategoria], p.stock_min, p.stock, p.precio, p.precioVenta, p.estado from PRODUCTO p
 inner join Marca m on p.idMarca = m.idMarca
 inner join CATEGORIA c on p.idCategoria = c.idCategoria
 
-SELECT * FROM PRODUCTO
+
+--Cambios 21/10
+
+INSERT INTO PROVEEDOR(documento, razonSocial, correo, telefono, estado)
+VALUES('252525250', 'Purina SA', 'purina@gmail.com', '3794888888', 1)
+go
+
+--cambios 22/10
+--Procesos para registrar una venta
+CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
+	[idProducto] int null,
+	[precioVenta] decimal (18,2) NULL,
+	[cantidad] int NULL,
+	[subTotal] decimal (18,2) NULL
+)
+
+GO
+
+CREATE PROCEDURE usp_RegistrarVenta(
+	@idUsuario int,
+	@tipoDocumento varchar (500),
+	@numeroDocumento varchar(500),
+	@documentoCliente varchar(500),
+	@nombreCliente varchar(500),
+	@montoPago decimal (10,2),
+	@montoCambio decimal (10,2),
+	@montoTotal decimal (10,2),
+	@DetalleVenta [EDetalle_Venta] READONLY,
+	@Resultado bit output,
+	@Mensaje varchar (500) output
+) 
+as 
+begin
+	begin try
+		declare @idVenta int = 0
+		set @Resultado = 1
+		set @Mensaje = ''
+
+		begin transaction registro
+
+		insert into VENTA(idUsuario, tipoDocumento, numeroDocumento, documentoCliente, nombreCliente, montoPago, montoCambio, montoTotal)
+		VALUES(@idUsuario, @tipoDocumento, @numeroDocumento, @documentoCliente, @nombreCliente, @montoPago, @montoCambio, @montoTotal)
+
+		SET @idVenta = SCOPE_IDENTITY()
+
+		INSERT INTO DETALLE_VENTA (idVenta, idProducto, precioVenta, cantidad, subTotal)
+		SELECT @idVenta, idProducto, precioVenta, cantidad, subTotal from @DetalleVenta
+
+		COMMIT TRANSACTION registro
+
+	END TRY 
+	BEGIN CATCH
+		SET @Resultado = 0
+		SET @Mensaje = ERROR_MESSAGE()
+		ROLLBACK TRANSACTION registro
+	END CATCH
+END
+go
+
+--cambios 23/10
+INSERT INTO MARCA (descripcion)
+VALUES 
+('Purina'),
+('Whiskas'),
+('Pro Plan'),
+('Pedigree'),
+('Royal Canin'),
+('Eukanuba'),
+('Hill''s Science Diet'),
+('NutraGold'),
+('VitalCan'),
+('Dog Chow'),
+('Cat Chow'),
+('Kongo'),
+('Agility Gold'),
+('Excellent'),
+('Old Prince'),
+('Balance'),
+('Raza'),
+('Vitality'),
+('Felix'),
+('Sergeant''s')
+go
+
+INSERT INTO CATEGORIA (descripcion, estado)
+VALUES 
+('Alimentos', 1),
+('Accesorios', 1),
+('Juguetes', 1),
+('Ropa para Mascotas', 1),
+('Medicamentos', 1),
+('Camas y Muebles', 1),
+('Transporte', 1),
+('Higiene y Cuidado', 1),
+('Collares y Correas', 1),
+('Jaulas y Terrarios', 1),
+('Filtros y Purificadores', 1),
+('Arena y Lechos', 1);
+GO
+
+INSERT INTO PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
+VALUES
+('1000', 'Purina Dog Chow Adultos 20kg', 1, 1, 10, 50, 3500.00, 4500.00, 1),
+('1001', 'Whiskas Alimento Gatos 10kg', 2, 1, 8, 40, 2500.00, 3200.00, 1),
+('1002', 'Pro Plan OptiStart Cachorros 15kg', 3, 1, 5, 30, 4000.00, 5500.00, 1),
+('1003', 'Collar Cuero Ajustable Mediano', 4, 9, 3, 15, 150.00, 250.00, 1),
+('1004', 'Arena Sanitaria para Gatos 10kg', 5, 12, 4, 20, 500.00, 750.00, 1),
+('1005', 'Juguete Mordedor para Perros', 6, 3, 5, 30, 100.00, 150.00, 1),
+('1006', 'Cama Almohadón Grande', 7, 6, 2, 10, 1200.00, 1800.00, 1),
+('1007', 'Shampoo para Perros y Gatos 500ml', 8, 8, 5, 25, 400.00, 600.00, 1),
+('1008', 'Transportadora Plástico Mediana', 9, 7, 3, 80, 2200.00, 3500.00, 1),
+('1009', 'Eukanuba Adultos Raza Mediana 15kg', 10, 1, 6, 25, 4300.00, 5900.00, 1),
+('1010', 'Royal Canin Gatos Persianos 10kg', 11, 1, 4, 20, 4100.00, 5200.00, 1),
+('1011', 'Collar con Correa para Perros', 4, 9, 2, 12, 180.00, 350.00, 1),
+('1012', 'Rascador para Gatos Mediano', 5, 2, 2, 7, 750.00, 1200.00, 1),
+('1013', 'Pelota de Goma para Perros', 6, 3, 5, 40, 80.00, 120.00, 1),
+('1014', 'Cama Cueva para Gatos', 7, 6, 3, 12, 1300.00, 1950.00, 1),
+('1015', 'Cepillo para Perros y Gatos', 8, 8, 6, 25, 250.00, 400.00, 1),
+('1016', 'Transportadora Plástico Grande', 9, 7, 2, 8, 2800.00, 4300.00, 1),
+('1017', 'Nutrience Original Perros 20kg', 12, 1, 10, 35, 3300.00, 4500.00, 1),
+('1018', 'Equilibrio Adultos Razas Pequeñas 15kg', 13, 1, 5, 25, 3600.00, 4900.00, 1),
+('1019', 'Arena Silica para Gatos 10kg', 5, 12, 4, 20, 700.00, 1000.00, 1),
+('1020', 'Juguete Peluche para Gatos', 6, 3, 5, 50, 90.00, 150.00, 1),
+('1021', 'Cama Ortopédica para Perros', 7, 6, 2, 6, 2200.00, 3300.00, 1),
+('1022', 'Shampoo Hipoalergénico 500ml', 8, 8, 5, 20, 500.00, 750.00, 1),
+('1023', 'Caja Transportadora de Metal', 9, 7, 2, 10, 2900.00, 4600.00, 1)
+go
+
+INSERT INTO CLIENTE (documento, nombreCompleto, correo, telefono, estado) VALUES
+('40404040', 'Maximiliano', 'maxi@gmail.com', '3794888877', 1),
+('12345678', 'Juan Pérez', 'juan.perez@gmail.com', '3112345678', 1),
+('87654321', 'Ana Gómez', 'ana.gomez@hotmail.com', '3123456789', 1),
+('23456789', 'Carlos Ruiz', 'carlos.ruiz@yahoo.com', '3134567890', 1),
+('34567890', 'María López', 'maria.lopez@outlook.com', '3145678901', 1),
+('45678901', 'Laura Martínez', 'laura.martinez@gmail.com', '3156789012', 1),
+('56789012', 'Pedro Sánchez', 'pedro.sanchez@gmail.com', '3167890123', 1),
+('67890123', 'Sofía Hernández', 'sofia.hernandez@yahoo.com', '3178901234', 1),
+('78901234', 'Andrés Torres', 'andres.torres@outlook.com', '3189012345', 1),
+('89012345', 'Lucía Morales', 'lucia.morales@hotmail.com', '3190123456', 1),
+('90123456', 'Diego Castillo', 'diego.castillo@gmail.com', '3201234567', 1)
+go
+
+select v.idVenta, v.idUsuario, u.nombreCompleto, u.documento, v.documentoCliente, v.nombreCliente, v.tipoDocumento,
+v.numeroDocumento, v.montoPago, v.montoCambio, v.montoTotal, v.fechaRegistro from venta v
+inner join USUARIO u on u.idUSuario = v.idUsuario
+where v.numeroDocumento = '00001'
+
+select * from VENTA
+
+select p.nombre, m.descripcion, dv.precioVenta, dv.cantidad, dv.subTotal from DETALLE_VENTA dv
+inner join PRODUCTO p on p.idProducto = dv.idProducto
+inner join marca m on p.idMarca = m.idMarca
+where dv.idVenta = 1
+
+
+--cambios 26-10
+CREATE PROC sp_ReporteVentas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+SELECT 
+CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro], v.tipoDocumento, v.numeroDocumento, v.montoTotal,
+u.nombreCompleto[usuarioRegistro],
+v.documentoCliente, v.nombreCliente,
+p.codigo[codigoProducto],p.nombre[nombreProducto], ca.Descripcion[categoria], dv.precioVenta, dv.cantidad, dv.subTotal
+FROM VENTA v
+INNER JOIN USUARIO u on u.idUSuario = v.idUsuario
+INNER JOIN DETALLE_VENTA dv on dv.idVenta = v.idVenta
+INNER JOIN PRODUCTO p ON p.idProducto = dv.idProducto
+INNER JOIN CATEGORIA ca ON ca.idCategoria = p.idCategoria
+WHERE CONVERT(date,v.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+END 
+GO
+
+--Ejemplo
+EXEC sp_ReporteVentas '24/10/2024', '26/10/2024'

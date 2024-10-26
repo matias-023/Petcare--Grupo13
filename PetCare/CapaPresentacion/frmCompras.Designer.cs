@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel2 = new Panel();
@@ -58,7 +59,7 @@
             TProducto = new TextBox();
             dgvData = new DataGridView();
             idProducto = new DataGridViewTextBoxColumn();
-            producto = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
             precioCompra = new DataGridViewTextBoxColumn();
             precioVenta = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
@@ -83,6 +84,7 @@
             label18 = new Label();
             TCambio = new TextBox();
             TPagaCon = new TextBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
@@ -182,6 +184,7 @@
             // 
             TRazonSocial.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TRazonSocial.BackColor = SystemColors.Window;
+            TRazonSocial.Enabled = false;
             TRazonSocial.Location = new Point(780, 32);
             TRazonSocial.Name = "TRazonSocial";
             TRazonSocial.Size = new Size(236, 23);
@@ -191,10 +194,11 @@
             // 
             TDocumentoProveedor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TDocumentoProveedor.BackColor = SystemColors.Window;
-            TDocumentoProveedor.Location = new Point(537, 34);
+            TDocumentoProveedor.Location = new Point(536, 32);
             TDocumentoProveedor.Name = "TDocumentoProveedor";
             TDocumentoProveedor.Size = new Size(185, 23);
             TDocumentoProveedor.TabIndex = 58;
+            TDocumentoProveedor.KeyDown += TDocumentoProveedor_KeyDown;
             // 
             // BBuscarProveedor
             // 
@@ -275,6 +279,7 @@
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageAboveText;
             BAgregar.UseVisualStyleBackColor = false;
+            BAgregar.Click += BAgregar_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -327,6 +332,7 @@
             TCodProducto.Name = "TCodProducto";
             TCodProducto.Size = new Size(124, 22);
             TCodProducto.TabIndex = 5;
+            TCodProducto.KeyDown += TCodProducto_KeyDown;
             // 
             // label11
             // 
@@ -386,6 +392,7 @@
             // 
             TPrecioCompra.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TPrecioCompra.BackColor = SystemColors.Window;
+            TPrecioCompra.Enabled = false;
             TPrecioCompra.Location = new Point(437, 19);
             TPrecioCompra.Name = "TPrecioCompra";
             TPrecioCompra.Size = new Size(151, 22);
@@ -414,6 +421,7 @@
             // 
             TPrecioVenta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TPrecioVenta.BackColor = SystemColors.Window;
+            TPrecioVenta.Enabled = false;
             TPrecioVenta.Location = new Point(594, 19);
             TPrecioVenta.Name = "TPrecioVenta";
             TPrecioVenta.Size = new Size(166, 22);
@@ -434,6 +442,7 @@
             // 
             TProducto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TProducto.BackColor = SystemColors.Window;
+            TProducto.Enabled = false;
             TProducto.Location = new Point(185, 19);
             TProducto.Name = "TProducto";
             TProducto.Size = new Size(246, 22);
@@ -453,7 +462,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, producto, precioCompra, precioVenta, cantidad, subTotal, BEliminar });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, nombre, precioCompra, precioVenta, cantidad, subTotal, BEliminar });
             dgvData.Location = new Point(12, 195);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -465,6 +474,8 @@
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1040, 290);
             dgvData.TabIndex = 59;
+            dgvData.CellContentClick += dgvData_CellContentClick;
+            dgvData.CellPainting += dgvData_CellPainting;
             // 
             // idProducto
             // 
@@ -475,13 +486,13 @@
             idProducto.Visible = false;
             idProducto.Width = 125;
             // 
-            // producto
+            // nombre
             // 
-            producto.HeaderText = "Producto";
-            producto.MinimumWidth = 6;
-            producto.Name = "producto";
-            producto.ReadOnly = true;
-            producto.Width = 300;
+            nombre.HeaderText = "Producto";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 300;
             // 
             // precioCompra
             // 
@@ -570,6 +581,7 @@
             // THora
             // 
             THora.BackColor = SystemColors.Window;
+            THora.Enabled = false;
             THora.Font = new Font("Microsoft Sans Serif", 11.25F);
             THora.Location = new Point(3, 20);
             THora.Name = "THora";
@@ -629,6 +641,7 @@
             // TFecha
             // 
             TFecha.BackColor = SystemColors.Window;
+            TFecha.Enabled = false;
             TFecha.Font = new Font("Microsoft Sans Serif", 11.25F);
             TFecha.Location = new Point(3, 20);
             TFecha.Name = "TFecha";
@@ -713,6 +726,7 @@
             // 
             TTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TTotal.BackColor = SystemColors.Window;
+            TTotal.Enabled = false;
             TTotal.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TTotal.Location = new Point(3, 29);
             TTotal.Name = "TTotal";
@@ -747,6 +761,10 @@
             TPagaCon.Size = new Size(100, 23);
             TPagaCon.TabIndex = 0;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // frmCompras
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -760,6 +778,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmCompras";
             Text = " ";
+            Load += frmCompras_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
@@ -811,13 +830,6 @@
         private TextBox TProducto;
         private FontAwesome.Sharp.IconButton BAgregar;
         private DataGridView dgvData;
-        private DataGridViewTextBoxColumn idProducto;
-        private DataGridViewTextBoxColumn producto;
-        private DataGridViewTextBoxColumn precioCompra;
-        private DataGridViewTextBoxColumn precioVenta;
-        private DataGridViewTextBoxColumn cantidad;
-        private DataGridViewTextBoxColumn subTotal;
-        private DataGridViewButtonColumn BEliminar;
         private GroupBox groupBox4;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label14;
@@ -838,5 +850,13 @@
         private TextBox TTotal;
         private Label label17;
         private FontAwesome.Sharp.IconButton BRegistrar;
+        private System.Windows.Forms.Timer timer1;
+        private DataGridViewTextBoxColumn idProducto;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn precioCompra;
+        private DataGridViewTextBoxColumn precioVenta;
+        private DataGridViewTextBoxColumn cantidad;
+        private DataGridViewTextBoxColumn subTotal;
+        private DataGridViewButtonColumn BEliminar;
     }
 }

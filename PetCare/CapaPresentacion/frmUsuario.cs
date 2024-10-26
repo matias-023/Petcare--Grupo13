@@ -21,14 +21,7 @@ namespace CapaPresentacion
         public frmUsuario(Usuario objUsuario)
         {
             InitializeComponent();
-            if (objUsuario == null)
-            {
-                idUsuarioLogeado = 1;
-            }
-            else
-            {
-                idUsuarioLogeado = objUsuario.idUsuario;
-            }
+            idUsuarioLogeado = objUsuario.idUsuario;
         }
 
         private void frmUsuario_Load(object sender, EventArgs e)

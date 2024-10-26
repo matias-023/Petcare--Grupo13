@@ -40,9 +40,9 @@
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             TBusqueda = new TextBox();
             dgvData = new DataGridView();
+            idProveedor = new DataGridViewTextBoxColumn();
             nroDocumento = new DataGridViewTextBoxColumn();
             razonSocial = new DataGridViewTextBoxColumn();
-            id = new DataGridViewTextBoxColumn();
             BAgregar = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BCerrar).BeginInit();
@@ -108,7 +108,7 @@
             label9.BackColor = Color.FromArgb(210, 120, 61);
             label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(23, 11);
+            label9.Location = new Point(13, 11);
             label9.Name = "label9";
             label9.Size = new Size(69, 15);
             label9.TabIndex = 25;
@@ -119,9 +119,9 @@
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(24, 29);
+            CBusqueda.Location = new Point(14, 30);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(152, 23);
+            CBusqueda.Size = new Size(162, 23);
             CBusqueda.TabIndex = 26;
             // 
             // BBusqueda
@@ -143,6 +143,7 @@
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
+            BBusqueda.Click += BBusqueda_Click;
             // 
             // BLimpiarBusqueda
             // 
@@ -163,13 +164,14 @@
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
+            BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TBusqueda.Location = new Point(182, 30);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(190, 23);
+            TBusqueda.Size = new Size(202, 23);
             TBusqueda.TabIndex = 27;
             // 
             // dgvData
@@ -186,7 +188,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { nroDocumento, razonSocial, id });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { idProveedor, nroDocumento, razonSocial });
             dgvData.Location = new Point(14, 116);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -195,9 +197,20 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.White;
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = SystemColors.ActiveCaption;
+            dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvData.RowTemplate.Height = 28;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(516, 331);
             dgvData.TabIndex = 17;
+            dgvData.CellDoubleClick += dgvData_CellDoubleClick;
+            // 
+            // idProveedor
+            // 
+            idProveedor.HeaderText = "id";
+            idProveedor.Name = "idProveedor";
+            idProveedor.ReadOnly = true;
+            idProveedor.Visible = false;
             // 
             // nroDocumento
             // 
@@ -214,13 +227,6 @@
             razonSocial.Name = "razonSocial";
             razonSocial.ReadOnly = true;
             razonSocial.Width = 290;
-            // 
-            // id
-            // 
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
             // 
             // BAgregar
             // 
@@ -259,6 +265,7 @@
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdBuscarProveedor";
+            Load += mdBuscarProveedor_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             panel2.ResumeLayout(false);
@@ -279,9 +286,9 @@
         private FontAwesome.Sharp.IconButton BLimpiarBusqueda;
         private TextBox TBusqueda;
         private DataGridView dgvData;
+        private FontAwesome.Sharp.IconButton BAgregar;
+        private DataGridViewTextBoxColumn idProveedor;
         private DataGridViewTextBoxColumn nroDocumento;
         private DataGridViewTextBoxColumn razonSocial;
-        private DataGridViewTextBoxColumn id;
-        private FontAwesome.Sharp.IconButton BAgregar;
     }
 }

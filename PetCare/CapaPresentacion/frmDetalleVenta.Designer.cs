@@ -35,7 +35,7 @@
             TIdVenta = new TextBox();
             dgvData = new DataGridView();
             producto = new DataGridViewTextBoxColumn();
-            precioCompra = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
             cantidad = new DataGridViewTextBoxColumn();
             subTotal = new DataGridViewTextBoxColumn();
             TTotal = new TextBox();
@@ -73,6 +73,7 @@
             TCodigoVenta = new TextBox();
             label16 = new Label();
             panel2 = new Panel();
+            TNroDocumento = new TextBox();
             label1 = new Label();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -126,6 +127,7 @@
             // TTipoDocumento
             // 
             TTipoDocumento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TTipoDocumento.Enabled = false;
             TTipoDocumento.Font = new Font("Microsoft Sans Serif", 9.75F);
             TTipoDocumento.Location = new Point(370, 19);
             TTipoDocumento.Name = "TTipoDocumento";
@@ -135,6 +137,7 @@
             // TFecha
             // 
             TFecha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TFecha.Enabled = false;
             TFecha.Font = new Font("Microsoft Sans Serif", 9.75F);
             TFecha.Location = new Point(3, 19);
             TFecha.Name = "TFecha";
@@ -163,7 +166,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { producto, precioCompra, cantidad, subTotal });
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { producto, precio, cantidad, subTotal });
             dgvData.Location = new Point(17, 242);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
@@ -182,15 +185,15 @@
             producto.MinimumWidth = 6;
             producto.Name = "producto";
             producto.ReadOnly = true;
-            producto.Width = 245;
+            producto.Width = 250;
             // 
-            // precioCompra
+            // precio
             // 
-            precioCompra.HeaderText = "Precio compra";
-            precioCompra.MinimumWidth = 6;
-            precioCompra.Name = "precioCompra";
-            precioCompra.ReadOnly = true;
-            precioCompra.Width = 150;
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Width = 150;
             // 
             // cantidad
             // 
@@ -206,11 +209,12 @@
             subTotal.MinimumWidth = 6;
             subTotal.Name = "subTotal";
             subTotal.ReadOnly = true;
-            subTotal.Width = 150;
+            subTotal.Width = 200;
             // 
             // TTotal
             // 
             TTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TTotal.Enabled = false;
             TTotal.Font = new Font("Microsoft Sans Serif", 11.25F);
             TTotal.Location = new Point(3, 23);
             TTotal.Name = "TTotal";
@@ -220,6 +224,7 @@
             // TMontoPago
             // 
             TMontoPago.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TMontoPago.Enabled = false;
             TMontoPago.Font = new Font("Microsoft Sans Serif", 11.25F);
             TMontoPago.Location = new Point(283, 23);
             TMontoPago.Name = "TMontoPago";
@@ -229,6 +234,7 @@
             // TMontoCambio
             // 
             TMontoCambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TMontoCambio.Enabled = false;
             TMontoCambio.Font = new Font("Microsoft Sans Serif", 11.25F);
             TMontoCambio.Location = new Point(501, 23);
             TMontoCambio.Name = "TMontoCambio";
@@ -255,10 +261,12 @@
             BDescargar.TextAlign = ContentAlignment.MiddleRight;
             BDescargar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BDescargar.UseVisualStyleBackColor = false;
+            BDescargar.Click += BDescargar_Click;
             // 
             // TNombreCajero
             // 
             TNombreCajero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TNombreCajero.Enabled = false;
             TNombreCajero.Font = new Font("Microsoft Sans Serif", 9.75F);
             TNombreCajero.Location = new Point(149, 19);
             TNombreCajero.Name = "TNombreCajero";
@@ -268,6 +276,7 @@
             // TDocumentoCajero
             // 
             TDocumentoCajero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TDocumentoCajero.Enabled = false;
             TDocumentoCajero.Font = new Font("Microsoft Sans Serif", 9.75F);
             TDocumentoCajero.Location = new Point(3, 19);
             TDocumentoCajero.Name = "TDocumentoCajero";
@@ -488,6 +497,7 @@
             BLimpiar.TextAlign = ContentAlignment.MiddleRight;
             BLimpiar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiar.UseVisualStyleBackColor = true;
+            BLimpiar.Click += BLimpiar_Click;
             // 
             // BBuscar
             // 
@@ -505,6 +515,7 @@
             BBuscar.TextAlign = ContentAlignment.MiddleRight;
             BBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBuscar.UseVisualStyleBackColor = true;
+            BBuscar.Click += BBuscar_Click;
             // 
             // TCodigoVenta
             // 
@@ -513,6 +524,7 @@
             TCodigoVenta.Name = "TCodigoVenta";
             TCodigoVenta.Size = new Size(172, 23);
             TCodigoVenta.TabIndex = 8;
+            TCodigoVenta.KeyDown += TCodigoVenta_KeyDown;
             // 
             // label16
             // 
@@ -530,6 +542,7 @@
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.FromArgb(210, 120, 61);
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(TNroDocumento);
             panel2.Controls.Add(TIdVenta);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(label16);
@@ -540,6 +553,14 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1040, 68);
             panel2.TabIndex = 57;
+            // 
+            // TNroDocumento
+            // 
+            TNroDocumento.Location = new Point(316, 26);
+            TNroDocumento.Name = "TNroDocumento";
+            TNroDocumento.Size = new Size(45, 23);
+            TNroDocumento.TabIndex = 56;
+            TNroDocumento.Visible = false;
             // 
             // label1
             // 
@@ -686,6 +707,7 @@
             // TNombreCliente
             // 
             TNombreCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TNombreCliente.Enabled = false;
             TNombreCliente.Font = new Font("Microsoft Sans Serif", 9.75F);
             TNombreCliente.Location = new Point(151, 19);
             TNombreCliente.Name = "TNombreCliente";
@@ -695,6 +717,7 @@
             // TDocumentoCliente
             // 
             TDocumentoCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TDocumentoCliente.Enabled = false;
             TDocumentoCliente.Font = new Font("Microsoft Sans Serif", 9.75F);
             TDocumentoCliente.Location = new Point(3, 19);
             TDocumentoCliente.Name = "TDocumentoCliente";
@@ -799,6 +822,7 @@
             // TMedioPago
             // 
             TMedioPago.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TMedioPago.Enabled = false;
             TMedioPago.Font = new Font("Microsoft Sans Serif", 9.75F);
             TMedioPago.Location = new Point(618, 19);
             TMedioPago.Name = "TMedioPago";
@@ -819,6 +843,7 @@
             // THora
             // 
             THora.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            THora.Enabled = false;
             THora.Font = new Font("Microsoft Sans Serif", 9.75F);
             THora.Location = new Point(165, 19);
             THora.Name = "THora";
@@ -955,6 +980,7 @@
             Controls.Add(dgvData);
             Name = "frmDetalleVenta";
             Text = "frmDetalleVenta";
+            Load += frmDetalleVenta_Load;
             ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).EndInit();
@@ -988,10 +1014,6 @@
         private TextBox TFecha;
         private TextBox TIdVenta;
         private DataGridView dgvData;
-        private DataGridViewTextBoxColumn producto;
-        private DataGridViewTextBoxColumn precioCompra;
-        private DataGridViewTextBoxColumn cantidad;
-        private DataGridViewTextBoxColumn subTotal;
         private TextBox TTotal;
         private TextBox TMontoPago;
         private TextBox TMontoCambio;
@@ -1059,5 +1081,10 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox6;
         private Label label27;
         private TextBox TMedioPago;
+        private DataGridViewTextBoxColumn producto;
+        private DataGridViewTextBoxColumn precio;
+        private DataGridViewTextBoxColumn cantidad;
+        private DataGridViewTextBoxColumn subTotal;
+        private TextBox TNroDocumento;
     }
 }
