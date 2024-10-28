@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cboBaseDatos = new ComboBox();
-            label3 = new Label();
-            btnConectar = new Button();
             label4 = new Label();
             txtRutaGuardar = new TextBox();
             btnRutaGuardar = new Button();
@@ -48,53 +45,24 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // cboBaseDatos
-            // 
-            cboBaseDatos.Font = new Font("Microsoft Sans Serif", 9.75F);
-            cboBaseDatos.FormattingEnabled = true;
-            cboBaseDatos.Location = new Point(142, 23);
-            cboBaseDatos.Name = "cboBaseDatos";
-            cboBaseDatos.Size = new Size(212, 28);
-            cboBaseDatos.TabIndex = 2;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 9.75F);
-            label3.Location = new Point(26, 27);
-            label3.Name = "label3";
-            label3.Size = new Size(122, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Base de datos:";
-            // 
-            // btnConectar
-            // 
-            btnConectar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnConectar.Location = new Point(361, 21);
-            btnConectar.Name = "btnConectar";
-            btnConectar.Size = new Size(157, 32);
-            btnConectar.TabIndex = 4;
-            btnConectar.Text = "Conectar";
-            btnConectar.UseVisualStyleBackColor = true;
-            btnConectar.Click += btnConectar_Click;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F);
-            label4.Location = new Point(26, 76);
+            label4.Location = new Point(23, 57);
             label4.Name = "label4";
-            label4.Size = new Size(125, 20);
+            label4.Size = new Size(99, 16);
             label4.TabIndex = 5;
             label4.Text = "Ruta a guardar:";
             // 
             // txtRutaGuardar
             // 
             txtRutaGuardar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtRutaGuardar.Location = new Point(141, 72);
+            txtRutaGuardar.Location = new Point(123, 54);
+            txtRutaGuardar.Margin = new Padding(3, 2, 3, 2);
             txtRutaGuardar.Multiline = true;
             txtRutaGuardar.Name = "txtRutaGuardar";
-            txtRutaGuardar.Size = new Size(689, 33);
+            txtRutaGuardar.Size = new Size(603, 26);
             txtRutaGuardar.TabIndex = 6;
             // 
             // btnRutaGuardar
@@ -102,9 +70,10 @@
             btnRutaGuardar.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnRutaGuardar.Image = Properties.Resources.magnifier_1_icon_icons_com_56924;
             btnRutaGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRutaGuardar.Location = new Point(837, 64);
+            btnRutaGuardar.Location = new Point(732, 48);
+            btnRutaGuardar.Margin = new Padding(3, 2, 3, 2);
             btnRutaGuardar.Name = "btnRutaGuardar";
-            btnRutaGuardar.Size = new Size(162, 47);
+            btnRutaGuardar.Size = new Size(142, 35);
             btnRutaGuardar.TabIndex = 7;
             btnRutaGuardar.Text = "Ruta";
             btnRutaGuardar.UseVisualStyleBackColor = true;
@@ -113,9 +82,10 @@
             // btnBackup
             // 
             btnBackup.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnBackup.Location = new Point(837, 116);
+            btnBackup.Location = new Point(732, 87);
+            btnBackup.Margin = new Padding(3, 2, 3, 2);
             btnBackup.Name = "btnBackup";
-            btnBackup.Size = new Size(162, 59);
+            btnBackup.Size = new Size(142, 44);
             btnBackup.TabIndex = 8;
             btnBackup.Text = "Backup";
             btnBackup.UseVisualStyleBackColor = true;
@@ -125,19 +95,20 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F);
-            label5.Location = new Point(10, 261);
+            label5.Location = new Point(9, 196);
             label5.Name = "label5";
-            label5.Size = new Size(136, 20);
+            label5.Size = new Size(105, 16);
             label5.TabIndex = 9;
             label5.Text = "Ruta a restaurar:";
             // 
             // txtRutaRestaurar
             // 
             txtRutaRestaurar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtRutaRestaurar.Location = new Point(137, 257);
+            txtRutaRestaurar.Location = new Point(120, 193);
+            txtRutaRestaurar.Margin = new Padding(3, 2, 3, 2);
             txtRutaRestaurar.Multiline = true;
             txtRutaRestaurar.Name = "txtRutaRestaurar";
-            txtRutaRestaurar.Size = new Size(689, 33);
+            txtRutaRestaurar.Size = new Size(603, 26);
             txtRutaRestaurar.TabIndex = 10;
             // 
             // btnRutaBuscar
@@ -145,9 +116,10 @@
             btnRutaBuscar.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnRutaBuscar.Image = Properties.Resources.magnifier_1_icon_icons_com_56924;
             btnRutaBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRutaBuscar.Location = new Point(832, 249);
+            btnRutaBuscar.Location = new Point(728, 187);
+            btnRutaBuscar.Margin = new Padding(3, 2, 3, 2);
             btnRutaBuscar.Name = "btnRutaBuscar";
-            btnRutaBuscar.Size = new Size(162, 47);
+            btnRutaBuscar.Size = new Size(142, 35);
             btnRutaBuscar.TabIndex = 11;
             btnRutaBuscar.Text = "Ruta";
             btnRutaBuscar.UseVisualStyleBackColor = true;
@@ -156,9 +128,10 @@
             // btnRestaurar
             // 
             btnRestaurar.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnRestaurar.Location = new Point(832, 313);
+            btnRestaurar.Location = new Point(728, 226);
+            btnRestaurar.Margin = new Padding(3, 2, 3, 2);
             btnRestaurar.Name = "btnRestaurar";
-            btnRestaurar.Size = new Size(162, 59);
+            btnRestaurar.Size = new Size(142, 44);
             btnRestaurar.TabIndex = 14;
             btnRestaurar.Text = "Restaurar";
             btnRestaurar.UseVisualStyleBackColor = true;
@@ -170,10 +143,9 @@
             panel2.BackColor = Color.FromArgb(210, 120, 61);
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label7);
-            panel2.Location = new Point(26, 27);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(23, 20);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1144, 90);
+            panel2.Size = new Size(1001, 68);
             panel2.TabIndex = 15;
             // 
             // label7
@@ -181,19 +153,16 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(18, 29);
+            label7.Location = new Point(16, 22);
             label7.Name = "label7";
-            label7.Size = new Size(324, 31);
+            label7.Size = new Size(262, 25);
             label7.TabIndex = 0;
             label7.Text = "Backup y Restauración:";
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(btnConectar);
             panel1.Controls.Add(btnRestaurar);
-            panel1.Controls.Add(cboBaseDatos);
-            panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(btnRutaBuscar);
             panel1.Controls.Add(txtRutaGuardar);
@@ -201,10 +170,9 @@
             panel1.Controls.Add(btnRutaGuardar);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(btnBackup);
-            panel1.Location = new Point(26, 125);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(23, 94);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1144, 384);
+            panel1.Size = new Size(1001, 288);
             panel1.TabIndex = 16;
             // 
             // openFileDialog1
@@ -213,11 +181,12 @@
             // 
             // frmBackup
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1199, 848);
+            ClientSize = new Size(1049, 562);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmBackup";
             Text = "frmBackup";
             panel2.ResumeLayout(false);
@@ -228,9 +197,6 @@
         }
 
         #endregion
-        private ComboBox cboBaseDatos;
-        private Label label3;
-        private Button btnConectar;
         private Label label4;
         private TextBox txtRutaGuardar;
         private Button btnRutaGuardar;
