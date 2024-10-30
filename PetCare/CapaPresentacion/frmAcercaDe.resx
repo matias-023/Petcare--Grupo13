@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>Aplicación de Gestión de Tienda de Mascotas es una herramienta integral diseñada para optimizar la administración de una tienda de mascotas, brindando una interfaz amigable y funcionalidades específicas según el rol del usuario. La aplicación divide sus funcionalidades en tres roles principales:</value>
+    <value>Copyright © [2024] [Grupo_12]. Todos los derechos reservados.
+
+PetCare y todo su contenido (software, diseño, gráficos, código y materiales asociados) son propiedad del Grupo_12 y están protegidos por leyes de propiedad intelectual. No se permite la reproducción, modificación o distribución sin permiso escrito.
+</value>
   </data>
 </root>

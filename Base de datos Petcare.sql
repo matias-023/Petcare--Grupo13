@@ -191,9 +191,9 @@ go
 
 INSERT INTO PERMISO (idRol, nombreMenu)
 VALUES (1, 'menuUsuario'),
-(1, 'menuReabastecedor'),
-(1, 'menuVentas'),
-(1, 'menuClientes'),
+--(1, 'menuReabastecedor'),
+--(1, 'menuVentas'),
+--(1, 'menuClientes'),
 (1, 'menuReportes'),
 (1, 'menuAcercaDe'),
 (1, 'menuBackup'),
@@ -201,7 +201,7 @@ VALUES (1, 'menuUsuario'),
 (2, 'menuAcercaDe'),
 (3, 'menuVentas'),
 (3, 'menuClientes'),
-(3, 'menuReportes'),
+--(3, 'menuReportes'),
 (3, 'menuAcercaDe')
 go
 
@@ -260,6 +260,7 @@ CREATE TABLE DETALLE_COMPRA(
 )
 go
 
+/*
 INSERT INTO PERMISO (idRol, nombreMenu)
 VALUES (1, 'menuCompras'),
 (1, 'menuProveedores')
@@ -273,7 +274,7 @@ go
 INSERT INTO PERMISO (idRol, nombreMenu)
 VALUES(2, 'menuReportes')
 go
-
+*/
 SELECT * FROM PERMISO
 /* cambios 9/9 */
 
