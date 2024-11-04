@@ -38,8 +38,13 @@ namespace CapaPresentacion
             }
         }
 
-        private void buscarVenta()
+        private void buscarVenta(string nroVenta = "")
         {
+            if (!string.IsNullOrEmpty(nroVenta))
+            {
+                TCodigoVenta.Text = nroVenta;
+            }
+
             Venta oVenta = new Venta();
             if(user.oRol.idRol == 1)
             {
@@ -110,6 +115,16 @@ namespace CapaPresentacion
 
         private void BDescargar_Click(object sender, EventArgs e)
         {
+            guardarPDF();
+        }
+
+        public void guardarPDF(string nroVenta = "")
+        {
+            if (!string.IsNullOrEmpty(nroVenta))
+            {
+                buscarVenta(nroVenta);
+            }
+
             if (TIdVenta.Text == "")
             {
                 MessageBox.Show("No se encontraron resultados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -117,7 +132,7 @@ namespace CapaPresentacion
             }
 
             string texto_html = Properties.Resources.PlantillaVenta.ToString();
-            
+
             texto_html = texto_html.Replace("@tipodocumento", TTipoDocumento.Text.ToUpper());
             texto_html = texto_html.Replace("@numerodocumento", TNroDocumento.Text);
 
@@ -155,7 +170,7 @@ namespace CapaPresentacion
                 {
                     Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
 
-                    PdfWriter writer  = PdfWriter.GetInstance(pdfDoc, stream);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
 
                     // Obtener la imagen desde los recursos
@@ -179,7 +194,7 @@ namespace CapaPresentacion
                         pdfDoc.Add(img);
                     }
 
-                    using (StringReader sr  = new StringReader(texto_html))
+                    using (StringReader sr = new StringReader(texto_html))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using CapaNegocio;
+using CapaPresentacion.Modals;
 
 namespace CapaPresentacion
 {
@@ -65,14 +66,21 @@ namespace CapaPresentacion
 
             string mensaje;
 
-            bool restoreExitoso = new CN_Backup().restore(ruta, out mensaje);
-            if (restoreExitoso)
+            using (var modal = new mdContraseñaRestore())
             {
-                MessageBox.Show(mensaje, "Restauración completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    bool restoreExitoso = new CN_Backup().restore(ruta, out mensaje);
+                    if (restoreExitoso)
+                    {
+                        MessageBox.Show(mensaje, "Restauración completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 

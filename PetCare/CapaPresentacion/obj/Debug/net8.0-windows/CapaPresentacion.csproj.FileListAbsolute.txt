@@ -244,7 +244,6 @@ C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
-C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProducto.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarCliente.resources
@@ -390,3 +389,6 @@ C:\Users\NoxiePC\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\De
 C:\Users\NoxiePC\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
 C:\Users\NoxiePC\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\RBush.dll
 C:\Users\NoxiePC\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdContraseñaRestore.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportes.resources
+C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\System.Windows.Forms.DataVisualization.dll

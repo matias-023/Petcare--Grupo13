@@ -14,7 +14,8 @@
           "FontAwesome.Sharp": "6.6.0",
           "System.Data.SqlClient": "4.8.6",
           "iTextSharp": "5.5.13.4",
-          "itextsharp.xmlworker": "5.5.13.4"
+          "itextsharp.xmlworker": "5.5.13.4",
+          "System.Windows.Forms.DataVisualization": "4.0.0.0"
         },
         "runtime": {
           "CapaPresentacion.dll": {}
@@ -225,6 +226,14 @@
         "runtime": {
           "CapaNegocio.dll": {}
         }
+      },
+      "System.Windows.Forms.DataVisualization/4.0.0.0": {
+        "runtime": {
+          "System.Windows.Forms.DataVisualization.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.3062.0"
+          }
+        }
       }
     }
   },
@@ -393,6 +402,11 @@
     },
     "CapaNegocio/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Windows.Forms.DataVisualization/4.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

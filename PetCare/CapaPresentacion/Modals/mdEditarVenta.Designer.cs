@@ -46,9 +46,9 @@
             panel1.Controls.Add(BCerrar);
             panel1.Controls.Add(titulo);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(569, 34);
+            panel1.Size = new Size(567, 34);
             panel1.TabIndex = 2;
             // 
             // BCerrar
@@ -57,7 +57,7 @@
             BCerrar.BackColor = Color.FromArgb(210, 120, 61);
             BCerrar.Cursor = Cursors.Hand;
             BCerrar.Image = Properties.Resources.cerrar;
-            BCerrar.Location = new Point(539, 4);
+            BCerrar.Location = new Point(537, 4);
             BCerrar.Name = "BCerrar";
             BCerrar.Size = new Size(25, 25);
             BCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -90,7 +90,7 @@
             BCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BCancelar.IconSize = 30;
             BCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BCancelar.Location = new Point(284, 150);
+            BCancelar.Location = new Point(283, 149);
             BCancelar.Name = "BCancelar";
             BCancelar.Size = new Size(121, 36);
             BCancelar.TabIndex = 6;
@@ -113,7 +113,7 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(152, 150);
+            BAgregar.Location = new Point(151, 149);
             BAgregar.Name = "BAgregar";
             BAgregar.Size = new Size(116, 36);
             BAgregar.TabIndex = 5;
@@ -125,11 +125,11 @@
             // TCantidad
             // 
             TCantidad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            TCantidad.Location = new Point(152, 111);
+            TCantidad.Location = new Point(153, 112);
             TCantidad.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             TCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.Name = "TCantidad";
-            TCantidad.Size = new Size(253, 24);
+            TCantidad.Size = new Size(251, 24);
             TCantidad.TabIndex = 12;
             TCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.KeyDown += TCantidad_KeyDown;
@@ -157,6 +157,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             Name = "mdEditarVenta";
+            Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdEditarVenta";
             Load += mdEditarVenta_Load;

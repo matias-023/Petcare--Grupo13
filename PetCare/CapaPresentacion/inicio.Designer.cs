@@ -35,7 +35,7 @@
             menuBackup = new FontAwesome.Sharp.IconButton();
             menuAcercaDe = new FontAwesome.Sharp.IconButton();
             panelSubMenuReportes = new Panel();
-            subMenuReportesCompras = new FontAwesome.Sharp.IconButton();
+            subMenuEstadisticas = new FontAwesome.Sharp.IconButton();
             subMenuReportesVentas = new FontAwesome.Sharp.IconButton();
             menuReportes = new FontAwesome.Sharp.IconButton();
             menuProveedores = new FontAwesome.Sharp.IconButton();
@@ -175,7 +175,7 @@
             // panelSubMenuReportes
             // 
             panelSubMenuReportes.BackColor = Color.FromArgb(245, 145, 73);
-            panelSubMenuReportes.Controls.Add(subMenuReportesCompras);
+            panelSubMenuReportes.Controls.Add(subMenuEstadisticas);
             panelSubMenuReportes.Controls.Add(subMenuReportesVentas);
             panelSubMenuReportes.Dock = DockStyle.Top;
             panelSubMenuReportes.Location = new Point(0, 560);
@@ -183,26 +183,26 @@
             panelSubMenuReportes.Size = new Size(183, 70);
             panelSubMenuReportes.TabIndex = 11;
             // 
-            // subMenuReportesCompras
+            // subMenuEstadisticas
             // 
-            subMenuReportesCompras.Cursor = Cursors.Hand;
-            subMenuReportesCompras.Dock = DockStyle.Top;
-            subMenuReportesCompras.FlatAppearance.BorderSize = 0;
-            subMenuReportesCompras.FlatStyle = FlatStyle.Flat;
-            subMenuReportesCompras.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            subMenuReportesCompras.ForeColor = Color.White;
-            subMenuReportesCompras.IconChar = FontAwesome.Sharp.IconChar.None;
-            subMenuReportesCompras.IconColor = Color.Black;
-            subMenuReportesCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            subMenuReportesCompras.Location = new Point(0, 35);
-            subMenuReportesCompras.Name = "subMenuReportesCompras";
-            subMenuReportesCompras.Padding = new Padding(35, 0, 0, 0);
-            subMenuReportesCompras.Size = new Size(183, 34);
-            subMenuReportesCompras.TabIndex = 6;
-            subMenuReportesCompras.Text = "Compras";
-            subMenuReportesCompras.TextAlign = ContentAlignment.MiddleLeft;
-            subMenuReportesCompras.UseVisualStyleBackColor = true;
-            subMenuReportesCompras.Click += subMenuReportesCompras_Click;
+            subMenuEstadisticas.Cursor = Cursors.Hand;
+            subMenuEstadisticas.Dock = DockStyle.Top;
+            subMenuEstadisticas.FlatAppearance.BorderSize = 0;
+            subMenuEstadisticas.FlatStyle = FlatStyle.Flat;
+            subMenuEstadisticas.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            subMenuEstadisticas.ForeColor = Color.White;
+            subMenuEstadisticas.IconChar = FontAwesome.Sharp.IconChar.None;
+            subMenuEstadisticas.IconColor = Color.Black;
+            subMenuEstadisticas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            subMenuEstadisticas.Location = new Point(0, 35);
+            subMenuEstadisticas.Name = "subMenuEstadisticas";
+            subMenuEstadisticas.Padding = new Padding(35, 0, 0, 0);
+            subMenuEstadisticas.Size = new Size(183, 35);
+            subMenuEstadisticas.TabIndex = 6;
+            subMenuEstadisticas.Text = "Estadísticas";
+            subMenuEstadisticas.TextAlign = ContentAlignment.MiddleLeft;
+            subMenuEstadisticas.UseVisualStyleBackColor = true;
+            subMenuEstadisticas.Click += subMenuEstadisticas_Click;
             // 
             // subMenuReportesVentas
             // 
@@ -760,7 +760,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private FontAwesome.Sharp.IconButton subMenuCategorias;
         private FontAwesome.Sharp.IconButton subMenuVerDetalleVenta;
-        private FontAwesome.Sharp.IconButton subMenuReportesCompras;
+        private FontAwesome.Sharp.IconButton subMenuEstadisticas;
         private FontAwesome.Sharp.IconButton subMenuReportesVentas;
         private FontAwesome.Sharp.IconButton subMenuVerDetalleCompra;
         private FontAwesome.Sharp.IconButton subMenuRegistrarCompra;

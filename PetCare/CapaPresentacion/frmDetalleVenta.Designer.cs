@@ -796,6 +796,7 @@
             label27.Size = new Size(116, 16);
             label27.TabIndex = 63;
             label27.Text = "Medio de pago:";
+            label27.Visible = false;
             // 
             // label26
             // 
@@ -828,6 +829,7 @@
             TMedioPago.Name = "TMedioPago";
             TMedioPago.Size = new Size(312, 22);
             TMedioPago.TabIndex = 6;
+            TMedioPago.Visible = false;
             // 
             // label24
             // 

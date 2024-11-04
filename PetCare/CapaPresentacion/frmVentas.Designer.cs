@@ -57,13 +57,11 @@
             groupBox4 = new GroupBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             label14 = new Label();
-            CTipoDocumento = new ComboBox();
             THora = new TextBox();
-            label15 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
-            CMedioPago = new ComboBox();
-            label16 = new Label();
+            CTipoDocumento = new ComboBox();
             label1 = new Label();
+            label15 = new Label();
             groupBox3 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label7 = new Label();
@@ -393,19 +391,16 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.87348F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.12652F));
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Controls.Add(label14, 0, 0);
-            tableLayoutPanel3.Controls.Add(CTipoDocumento, 1, 1);
             tableLayoutPanel3.Controls.Add(THora, 0, 1);
-            tableLayoutPanel3.Controls.Add(label15, 1, 0);
             tableLayoutPanel3.Location = new Point(9, 74);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 36.17021F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 63.82979F));
-            tableLayoutPanel3.Size = new Size(361, 47);
+            tableLayoutPanel3.Size = new Size(120, 47);
             tableLayoutPanel3.TabIndex = 63;
             // 
             // label14
@@ -419,15 +414,6 @@
             label14.TabIndex = 61;
             label14.Text = "Hora:";
             // 
-            // CTipoDocumento
-            // 
-            CTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
-            CTipoDocumento.FormattingEnabled = true;
-            CTipoDocumento.Location = new Point(118, 20);
-            CTipoDocumento.Name = "CTipoDocumento";
-            CTipoDocumento.Size = new Size(239, 24);
-            CTipoDocumento.TabIndex = 17;
-            // 
             // THora
             // 
             THora.BackColor = SystemColors.Window;
@@ -438,26 +424,15 @@
             THora.Size = new Size(109, 24);
             THora.TabIndex = 16;
             // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label15.ForeColor = Color.White;
-            label15.Location = new Point(118, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(145, 16);
-            label15.TabIndex = 15;
-            label15.Text = "Tipo de documento:";
-            // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.87348F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.12652F));
             tableLayoutPanel2.Controls.Add(TFecha, 0, 1);
-            tableLayoutPanel2.Controls.Add(CMedioPago, 1, 1);
-            tableLayoutPanel2.Controls.Add(label16, 1, 0);
+            tableLayoutPanel2.Controls.Add(CTipoDocumento, 1, 1);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Controls.Add(label15, 1, 0);
             tableLayoutPanel2.Location = new Point(9, 21);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
@@ -466,25 +441,14 @@
             tableLayoutPanel2.Size = new Size(361, 47);
             tableLayoutPanel2.TabIndex = 62;
             // 
-            // CMedioPago
+            // CTipoDocumento
             // 
-            CMedioPago.DropDownStyle = ComboBoxStyle.DropDownList;
-            CMedioPago.FormattingEnabled = true;
-            CMedioPago.Location = new Point(118, 20);
-            CMedioPago.Name = "CMedioPago";
-            CMedioPago.Size = new Size(239, 24);
-            CMedioPago.TabIndex = 15;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            label16.ForeColor = Color.White;
-            label16.Location = new Point(118, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(116, 16);
-            label16.TabIndex = 2;
-            label16.Text = "Medio de pago:";
+            CTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
+            CTipoDocumento.FormattingEnabled = true;
+            CTipoDocumento.Location = new Point(118, 20);
+            CTipoDocumento.Name = "CTipoDocumento";
+            CTipoDocumento.Size = new Size(239, 24);
+            CTipoDocumento.TabIndex = 17;
             // 
             // label1
             // 
@@ -496,6 +460,17 @@
             label1.Size = new Size(54, 16);
             label1.TabIndex = 59;
             label1.Text = "Fecha:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            label15.ForeColor = Color.White;
+            label15.Location = new Point(118, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(145, 16);
+            label15.TabIndex = 15;
+            label15.Text = "Tipo de documento:";
             // 
             // groupBox3
             // 
@@ -863,8 +838,6 @@
         private TextBox TNombreCompleto;
         private GroupBox groupBox4;
         private Label label15;
-        private Label label16;
-        private ComboBox CMedioPago;
         private ComboBox CTipoDocumento;
         private GroupBox groupBox3;
         private Label label11;
@@ -885,9 +858,6 @@
         private FontAwesome.Sharp.IconButton BAgregar;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
-        private Label label14;
-        private TextBox THora;
-        private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel2;
         private GroupBox groupBox1;
         private Label label17;
@@ -905,5 +875,8 @@
         private DataGridViewTextBoxColumn subTotal;
         private DataGridViewButtonColumn BEditar;
         private DataGridViewButtonColumn BEliminar;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label label14;
+        private TextBox THora;
     }
 }

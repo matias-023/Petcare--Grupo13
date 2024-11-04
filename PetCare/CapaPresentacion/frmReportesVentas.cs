@@ -18,14 +18,11 @@ namespace CapaPresentacion
 {
     public partial class frmReportesVentas : Form
     {
-        public frmReportesVentas()
+        private static Usuario user;
+        public frmReportesVentas(Usuario objUsuario)
         {
+            user = objUsuario;
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void frmReportesVentas_Load(object sender, EventArgs e)
@@ -43,7 +40,7 @@ namespace CapaPresentacion
         {
             List<reporteVenta> lista = new List<reporteVenta>();
 
-            lista = new CN_Reporte().Venta(txtfechainicio.Value.ToString(), txtfechafin.Value.ToString());
+            lista = new CN_Reporte().Venta(txtfechainicio.Value.ToString(), txtfechafin.Value.ToString(), user);
 
             dgvData.Rows.Clear();
 
@@ -55,12 +52,14 @@ namespace CapaPresentacion
                     rv.tipoDocumento,
                     rv.numeroDocumento,
                     rv.montoTotal,
+                    rv.documentoUsuario,
                     rv.usuarioRegistro,
                     rv.documentoCliente,
                     rv.nombreCliente,
                     rv.codigoProducto,
                     rv.nombreProducto,
                     rv.categoria,
+                    rv.marca,
                     rv.precioVenta,
                     rv.cantidad,
                     rv.subTotal
@@ -126,7 +125,9 @@ namespace CapaPresentacion
                             row.Cells[9].Value.ToString(),
                             row.Cells[10].Value.ToString(),
                             row.Cells[11].Value.ToString(),
-                            row.Cells[12].Value.ToString()
+                            row.Cells[12].Value.ToString(),
+                            row.Cells[13].Value.ToString(),
+                            row.Cells[14].Value.ToString()
 
                         });
                     }

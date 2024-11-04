@@ -10,17 +10,6 @@ USE PETCARE
 
 GO
 
-CREATE TABLE MEDIOS_PAGO(
-	id_mediodepago INT IDENTITY,
-	descripcion VARCHAR (50) NOT NULL,
-	incremento DECIMAL(5,2) NOT NULL CHECK (incremento >= 0),
-	fechaRegistro DATETIME CONSTRAINT DF_MediosPago_fechaRegistro DEFAULT getdate() not null,
-	CONSTRAINT PK_MediosPago_id PRIMARY KEY (id_mediodepago),
-	CONSTRAINT CK_MedioPago_incremento CHECK (incremento >= 0),
-	CONSTRAINT UQ_MedioPago_descripcion UNIQUE (descripcion)
-)
-go
-
 CREATE TABLE ROL(
 	idRol INT IDENTITY,
 	descripcion varchar(50) NOT NULL,
@@ -201,9 +190,10 @@ VALUES (1, 'menuUsuario'),
 (2, 'menuAcercaDe'),
 (3, 'menuVentas'),
 (3, 'menuClientes'),
---(3, 'menuReportes'),
+(3, 'menuReportes'),
 (3, 'menuAcercaDe')
 go
+
 
 --codigo para buscar permisos seg�n un usuario, implementado en el codigo de la aplicaci�n
 SELECT p.idRol, p.nombreMenu FROM PERMISO p
@@ -961,29 +951,158 @@ select p.nombre, m.descripcion, dv.precioVenta, dv.cantidad, dv.subTotal from DE
 inner join PRODUCTO p on p.idProducto = dv.idProducto
 inner join marca m on p.idMarca = m.idMarca
 where dv.idVenta = 1
+go
 
 
 --cambios 26-10
 CREATE PROC sp_ReporteVentas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10),
+@rol INT,
+@idUsuario INT
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+SELECT 
+CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro],
+v.tipoDocumento,
+v.numeroDocumento,
+v.montoTotal,
+u.documento[documentoUsuario],
+u.nombreCompleto[usuarioRegistro],
+v.documentoCliente,
+v.nombreCliente,
+p.codigo[codigoProducto],
+p.nombre[nombreProducto],
+ca.Descripcion[categoria],
+ma.descripcion[marca],
+dv.precioVenta,
+dv.cantidad,
+dv.subTotal
+FROM VENTA v
+INNER JOIN USUARIO u on u.idUSuario = v.idUsuario
+INNER JOIN DETALLE_VENTA dv on dv.idVenta = v.idVenta
+INNER JOIN PRODUCTO p ON p.idProducto = dv.idProducto
+INNER JOIN CATEGORIA ca ON ca.idCategoria = p.idCategoria
+INNER JOIN MARCA ma ON ma.idMarca = p.idMarca
+
+WHERE CONVERT(date,v.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+AND (@rol = 1 OR v.idUsuario = @idUsuario)
+
+END 
+GO
+
+--Ejemplo
+
+EXEC sp_ReporteVentas '26/10/2024', '30/10/2024', 1, 1
+go
+
+--cambios 4/11
+
+--Proc almacenado para ver los productos más vendidos.
+CREATE PROC SP_ReporteProdMasVendidos(
 @fechainicio VARCHAR(10),
 @fechafin VARCHAR (10)
 )
 AS
 BEGIN
 SET DATEFORMAT dmy;
-SELECT 
-CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro], v.tipoDocumento, v.numeroDocumento, v.montoTotal,
-u.nombreCompleto[usuarioRegistro],
-v.documentoCliente, v.nombreCliente,
-p.codigo[codigoProducto],p.nombre[nombreProducto], ca.Descripcion[categoria], dv.precioVenta, dv.cantidad, dv.subTotal
-FROM VENTA v
-INNER JOIN USUARIO u on u.idUSuario = v.idUsuario
-INNER JOIN DETALLE_VENTA dv on dv.idVenta = v.idVenta
-INNER JOIN PRODUCTO p ON p.idProducto = dv.idProducto
-INNER JOIN CATEGORIA ca ON ca.idCategoria = p.idCategoria
-WHERE CONVERT(date,v.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+
+select p.codigo [Código], p.nombre [Nombre], c.descripcion[Categoria], m.descripcion[Marca], p.precioVenta[Precio de Venta], sum(dv.cantidad) [Cant. Vendida] from DETALLE_VENTA dv
+inner join PRODUCTO p on dv.idProducto = p.idProducto
+inner join CATEGORIA c on p.idCategoria = c.idCategoria
+inner join MARCA m on p.idMarca = m.idMarca
+WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+group by p.codigo, p.nombre, c.descripcion, m.descripcion, p.precioVenta
+order by sum(dv.cantidad) DESC
+END
+go
+
+EXEC SP_ReporteProdMasVendidos '30/10/2024', '4/11/2024'
+go
+
+--Proc almacenado para ver las marcas más vendidas
+CREATE PROC SP_ReporteMarcasMasVendidas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+select m.descripcion [Marca], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
+inner join PRODUCTO p on dv.idProducto = p.idProducto
+inner join MARCA m on p.idMarca = m.idMarca
+WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+group by m.descripcion
+order by [Cant. Vendida] DESC
+END
+go
+
+EXEC SP_ReporteMarcasMasVendidas '30/10/2024', '4/11/2024'
+go
+
+--Proc almacenado para ver las categorias más vendidas
+CREATE PROC SP_ReporteCatMasVendidas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+select c.descripcion [Categoria], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
+inner join PRODUCTO p on dv.idProducto = p.idProducto
+inner join CATEGORIA c on p.idCategoria = c.idCategoria
+WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+group by c.descripcion
+order by [Cant. Vendida] DESC
+END
+go
+
+EXEC SP_ReporteCatMasVendidas '30/10/2024', '4/11/2024'
+go
+
+--Proc almacenado para ver los cajeros con más ventas.
+CREATE PROC SP_ReporteCajeros(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+select u.documento [Documento], u.nombreCompleto [Nombre Completo], count(*) [Cant. de Ventas], sum(dv.cantidad) [Productos Vendidos] from VENTA v
+inner join USUARIO u on v.idUsuario = u.idUSuario
+inner join DETALLE_VENTA dv on dv.idVenta = v.idVenta
+WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+group by v.idUsuario, u.documento, u.nombreCompleto
+order by [Cant. de Ventas] DESC
 END 
 GO
 
---Ejemplo
-EXEC sp_ReporteVentas '26/10/2024', '26/10/2024'
+EXEC SP_ReporteCajeros '30/10/2024', '4/11/2024'
+go
+
+--Procedimiento almacenado para ver los productos que no se han vendido.
+CREATE PROC SP_ReporteProductosSinVentas(
+@fechainicio VARCHAR(10),
+@fechafin VARCHAR (10)
+)
+AS
+BEGIN
+SET DATEFORMAT dmy;
+select p.codigo [Código], p.nombre [Nombre], c.descripcion[Categoria], m.descripcion[Marca], p.precioVenta[Precio de Venta] from producto p
+inner join CATEGORIA c on p.idCategoria = c.idCategoria
+inner join MARCA m on p.idMarca = m.idMarca
+where
+	not exists (
+		SELECT 1 FROM DETALLE_VENTA dv
+		WHERE dv.idProducto = p.idProducto AND CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
+		)
+END 
+GO
+
+EXEC SP_ReporteProductosSinVentas '4/10/2024', '4/11/2024'
+go
+
+EXEC SP_ReporteProdMasVendidos '30/10/2024', '4/11/2024'
+go

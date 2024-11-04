@@ -366,11 +366,15 @@ namespace CapaPresentacion
 
                 if (respuesta)
                 {
-                    var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea copiar al portapapeles?", "Venta exitosa!",
+                    var result = MessageBox.Show("Numero de venta generado:\n" + numeroDocumento + "\n\n¿Desea guardar la factura?", "Venta exitosa!",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                     if (result == DialogResult.Yes)
-                        Clipboard.SetText(numeroDocumento);
+                    {
+                        frmDetalleVenta frmDetalle = new frmDetalleVenta(user);
+                        frmDetalle.guardarPDF(numeroDocumento);
+                    }
+                        
 
                     TDocumentoCliente.Text = "";
                     TNombreCompleto.Text = "";
