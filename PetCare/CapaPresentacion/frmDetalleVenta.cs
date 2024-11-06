@@ -141,7 +141,6 @@ namespace CapaPresentacion
 
             texto_html = texto_html.Replace("@doccliente", TDocumentoCliente.Text);
             texto_html = texto_html.Replace("@nombrecliente", TNombreCliente.Text);
-            texto_html = texto_html.Replace("@docusuario", TDocumentoCajero.Text);
             texto_html = texto_html.Replace("@nombreusuario", TNombreCajero.Text);
 
             string filas = string.Empty;
@@ -202,7 +201,15 @@ namespace CapaPresentacion
                     pdfDoc.Close();
                     stream.Close();
                     MessageBox.Show("Documento generado con éxito.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
+
+                // Abrir el archivo PDF con el lector predeterminado
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = savefile.FileName,
+                    UseShellExecute = true
+                });
             }
         }
 

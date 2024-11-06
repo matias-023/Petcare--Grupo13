@@ -225,7 +225,7 @@ namespace CapaDatos
                     oconexion.Open();
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("select p.nombre, dv.precioVenta, dv.cantidad, dv.subTotal from DETALLE_VENTA dv");
+                    query.AppendLine("select p.codigo, p.nombre, dv.precioVenta, dv.cantidad, dv.subTotal from DETALLE_VENTA dv");
                     query.AppendLine("inner join PRODUCTO p on p.idProducto = dv.idProducto");
                     query.AppendLine("where dv.idVenta = @idVenta");
 
@@ -241,6 +241,7 @@ namespace CapaDatos
                             {
                                 oProducto = new Producto()
                                 {
+                                    codigo = dr["codigo"].ToString(),
                                     nombre = dr["nombre"].ToString()
                                 },
                                 precioVenta = Convert.ToDecimal(dr["precioVenta"].ToString()),

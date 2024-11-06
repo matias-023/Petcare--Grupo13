@@ -75,6 +75,7 @@ namespace CapaPresentacion
             dgvData.Columns["Marca"].Width = 175;
             dgvData.Columns["Precio de Venta"].Width = 150;
             dgvData.Columns["Cant. Vendida"].Width = 150;
+            dgvData.Columns["Total"].Width = 150;
 
         }
 

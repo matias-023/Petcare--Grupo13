@@ -35,21 +35,16 @@ namespace CapaDatos
                         {
                             lista.Add(new reporteVenta()
                             {
+                                idVenta = Convert.ToInt32(dr["idVenta"].ToString()),
                                 fechaRegistro = dr["fechaRegistro"].ToString(),
+                                horaRegistro = dr["horaRegistro"].ToString(),
                                 tipoDocumento = dr["tipoDocumento"].ToString(),
                                 numeroDocumento = dr["numeroDocumento"].ToString(),
-                                montoTotal = dr["montoTotal"].ToString(),
                                 documentoUsuario = dr["documentoUsuario"].ToString(),
                                 usuarioRegistro = dr["usuarioRegistro"].ToString(),
                                 documentoCliente = dr["documentoCliente"].ToString(),
                                 nombreCliente = dr["nombreCliente"].ToString(),
-                                codigoProducto = dr["codigoProducto"].ToString(),
-                                nombreProducto = dr["nombreProducto"].ToString(),
-                                categoria = dr["categoria"].ToString(),
-                                marca = dr["marca"].ToString(),
-                                precioVenta = dr["precioVenta"].ToString(),
-                                cantidad = dr["cantidad"].ToString(),
-                                subTotal = dr["subTotal"].ToString(),
+                                montoTotal = dr["montoTotal"].ToString(),
                             });
                         }
                     }

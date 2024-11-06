@@ -965,27 +965,18 @@ AS
 BEGIN
 SET DATEFORMAT dmy;
 SELECT 
+v.idVenta,
 CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro],
+CONVERT(CHAR(8), v.fechaRegistro, 108) AS [horaRegistro],
 v.tipoDocumento,
 v.numeroDocumento,
-v.montoTotal,
 u.documento[documentoUsuario],
 u.nombreCompleto[usuarioRegistro],
 v.documentoCliente,
 v.nombreCliente,
-p.codigo[codigoProducto],
-p.nombre[nombreProducto],
-ca.Descripcion[categoria],
-ma.descripcion[marca],
-dv.precioVenta,
-dv.cantidad,
-dv.subTotal
+v.montoTotal
 FROM VENTA v
 INNER JOIN USUARIO u on u.idUSuario = v.idUsuario
-INNER JOIN DETALLE_VENTA dv on dv.idVenta = v.idVenta
-INNER JOIN PRODUCTO p ON p.idProducto = dv.idProducto
-INNER JOIN CATEGORIA ca ON ca.idCategoria = p.idCategoria
-INNER JOIN MARCA ma ON ma.idMarca = p.idMarca
 
 WHERE CONVERT(date,v.fechaRegistro) BETWEEN @fechainicio AND @fechafin
 AND (@rol = 1 OR v.idUsuario = @idUsuario)
@@ -1009,7 +1000,8 @@ AS
 BEGIN
 SET DATEFORMAT dmy;
 
-select p.codigo [Código], p.nombre [Nombre], c.descripcion[Categoria], m.descripcion[Marca], p.precioVenta[Precio de Venta], sum(dv.cantidad) [Cant. Vendida] from DETALLE_VENTA dv
+select p.codigo [Código], p.nombre [Nombre], c.descripcion[Categoria], m.descripcion[Marca], p.precioVenta[Precio de Venta],
+sum(dv.cantidad) [Cant. Vendida], (p.precioVenta * sum(dv.cantidad)) [Total] from DETALLE_VENTA dv
 inner join PRODUCTO p on dv.idProducto = p.idProducto
 inner join CATEGORIA c on p.idCategoria = c.idCategoria
 inner join MARCA m on p.idMarca = m.idMarca
@@ -1101,8 +1093,10 @@ where
 END 
 GO
 
-EXEC SP_ReporteProductosSinVentas '4/10/2024', '4/11/2024'
+EXEC SP_ReporteProductosSinVentas '4/10/2024', '5/11/2024'
 go
 
-EXEC SP_ReporteProdMasVendidos '30/10/2024', '4/11/2024'
+EXEC SP_ReporteProdMasVendidos '4/10/2024', '5/11/2024'
 go
+
+select * from CATEGORIA

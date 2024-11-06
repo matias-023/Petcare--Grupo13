@@ -29,10 +29,13 @@ namespace CapaPresentacion
         {
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
-                CBusqueda.Items.Add(new opcionCombo() { valor = columna.Name, texto = columna.HeaderText });
+                if (columna.Visible == true && columna.Name != "verDetalle")
+                {
+                    CBusqueda.Items.Add(new opcionCombo() { valor = columna.Name, texto = columna.HeaderText });
+                }
             }
             CBusqueda.DisplayMember = "texto";
-            CBusqueda.ValueMember = "value";
+            CBusqueda.ValueMember = "valor";
             CBusqueda.SelectedIndex = 0;
         }
 
@@ -48,21 +51,17 @@ namespace CapaPresentacion
             {
                 dgvData.Rows.Add(new object[]
                 {
+                    rv.idVenta,
+                    "",
                     rv.fechaRegistro,
+                    rv.horaRegistro,
                     rv.tipoDocumento,
                     rv.numeroDocumento,
-                    rv.montoTotal,
                     rv.documentoUsuario,
                     rv.usuarioRegistro,
                     rv.documentoCliente,
                     rv.nombreCliente,
-                    rv.codigoProducto,
-                    rv.nombreProducto,
-                    rv.categoria,
-                    rv.marca,
-                    rv.precioVenta,
-                    rv.cantidad,
-                    rv.subTotal
+                    rv.montoTotal
                 });
             }
         }
@@ -94,7 +93,7 @@ namespace CapaPresentacion
 
         private void BDescargarExcel_Click(object sender, EventArgs e)
         {
-            if(dgvData.Rows.Count < 1)
+            if (dgvData.Rows.Count < 1)
             {
                 MessageBox.Show("No hay registros para exportar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -102,7 +101,7 @@ namespace CapaPresentacion
             {
                 DataTable dt = new DataTable();
 
-                foreach(DataGridViewColumn columna in dgvData.Columns)
+                foreach (DataGridViewColumn columna in dgvData.Columns)
                 {
                     dt.Columns.Add(columna.HeaderText, typeof(string));
                 }
@@ -137,7 +136,7 @@ namespace CapaPresentacion
                 savefile.FileName = string.Format("ReporteVentas_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
                 savefile.Filter = "Excel Files | *.xlsx";
 
-                if(savefile.ShowDialog() == DialogResult.OK)
+                if (savefile.ShowDialog() == DialogResult.OK)
                 {
 
                     try
@@ -155,5 +154,60 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void dgvData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            if (e.ColumnIndex == 1)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var w = Properties.Resources.eye.Width;
+                var h = Properties.Resources.eye.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.eye, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvData.Columns[e.ColumnIndex].Name == "verDetalle")
+            {
+                int indice = e.RowIndex;
+
+                if (indice >= 0)
+
+                {
+                    dgvDetalle.Rows.Clear();
+                    int idVenta = Convert.ToInt32(dgvData.Rows[indice].Cells["idVenta"].Value);
+                    string nroVenta = dgvData.Rows[indice].Cells["numeroVenta"].Value.ToString();
+
+                    LDetalleVenta.Text = "Detalle de Venta Nro: " + nroVenta;
+
+                    List<DetalleVenta> lista = new List<DetalleVenta>();
+
+                    lista = new CN_Venta().obtenerDetalle(idVenta);
+
+                    foreach (DetalleVenta dv in lista)
+                    {
+                        dgvDetalle.Rows.Add(new object[]
+                        {
+                        dv.oProducto.codigo,
+                        dv.oProducto.nombre,
+                        dv.cantidad,
+                        dv.precioVenta,
+                        dv.subTotal
+                        });
+                    }
+                }
+            }
+        }
+
+
+
     }
 }

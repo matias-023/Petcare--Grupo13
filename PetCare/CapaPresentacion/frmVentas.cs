@@ -30,7 +30,7 @@ namespace CapaPresentacion
             CTipoDocumento.Items.Add(new opcionCombo() { valor = "Factura", texto = "Factura" });
             CTipoDocumento.DisplayMember = "texto";
             CTipoDocumento.ValueMember = "valor";
-            CTipoDocumento.SelectedIndex = 0;
+            CTipoDocumento.SelectedIndex = 1;
 
             TFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             THora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -91,7 +91,7 @@ namespace CapaPresentacion
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Producto oProducto = new CN_Producto().listar().Where(p => p.codigo == TCodProducto.Text && p.estado == true).FirstOrDefault();
+                Producto oProducto = new CN_Producto().listar().Where(p => p.codigo == TCodProducto.Text && p.stock > 0).FirstOrDefault();
                 if (oProducto != null)
                 {
                     TIdProducto.Text = oProducto.idProducto.ToString();
