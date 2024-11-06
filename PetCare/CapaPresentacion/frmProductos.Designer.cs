@@ -31,14 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvDataProd = new DataGridView();
-            BAgregar = new FontAwesome.Sharp.IconButton();
-            panel2 = new Panel();
-            CBusqueda = new ComboBox();
-            TBusqueda = new TextBox();
-            label7 = new Label();
-            label1 = new Label();
-            BBusqueda = new FontAwesome.Sharp.IconButton();
-            BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             BSeleccionar = new DataGridViewButtonColumn();
             idProducto = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
@@ -53,6 +45,14 @@
             precioVenta = new DataGridViewTextBoxColumn();
             estadoValor = new DataGridViewTextBoxColumn();
             estado = new DataGridViewTextBoxColumn();
+            BAgregar = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
+            CBusqueda = new ComboBox();
+            TBusqueda = new TextBox();
+            label7 = new Label();
+            label1 = new Label();
+            BBusqueda = new FontAwesome.Sharp.IconButton();
+            BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)dgvDataProd).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -85,6 +85,117 @@
             dgvDataProd.TabIndex = 15;
             dgvDataProd.CellContentClick += dgvDataProd_CellContentClick;
             dgvDataProd.CellPainting += dgvDataProd_CellPainting;
+            // 
+            // BSeleccionar
+            // 
+            BSeleccionar.HeaderText = "";
+            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.Name = "BSeleccionar";
+            BSeleccionar.ReadOnly = true;
+            BSeleccionar.Width = 35;
+            // 
+            // idProducto
+            // 
+            idProducto.HeaderText = "ID";
+            idProducto.MinimumWidth = 6;
+            idProducto.Name = "idProducto";
+            idProducto.ReadOnly = true;
+            idProducto.Visible = false;
+            idProducto.Width = 150;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "Código";
+            codigo.MinimumWidth = 6;
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            codigo.Width = 150;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 300;
+            // 
+            // idCategoria
+            // 
+            idCategoria.HeaderText = "idCategoria";
+            idCategoria.MinimumWidth = 6;
+            idCategoria.Name = "idCategoria";
+            idCategoria.ReadOnly = true;
+            idCategoria.Visible = false;
+            idCategoria.Width = 125;
+            // 
+            // categoria
+            // 
+            categoria.HeaderText = "Categoria";
+            categoria.MinimumWidth = 6;
+            categoria.Name = "categoria";
+            categoria.ReadOnly = true;
+            categoria.Width = 175;
+            // 
+            // idMarca
+            // 
+            idMarca.HeaderText = "idMarca";
+            idMarca.Name = "idMarca";
+            idMarca.ReadOnly = true;
+            idMarca.Visible = false;
+            // 
+            // marca
+            // 
+            marca.HeaderText = "Marca";
+            marca.Name = "marca";
+            marca.ReadOnly = true;
+            marca.Width = 170;
+            // 
+            // stock
+            // 
+            stock.HeaderText = "Stock";
+            stock.MinimumWidth = 6;
+            stock.Name = "stock";
+            stock.ReadOnly = true;
+            stock.Width = 150;
+            // 
+            // stock_minimo
+            // 
+            stock_minimo.HeaderText = "Stock Mín.";
+            stock_minimo.Name = "stock_minimo";
+            stock_minimo.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 6;
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Width = 150;
+            // 
+            // precioVenta
+            // 
+            precioVenta.HeaderText = "Precio Venta";
+            precioVenta.MinimumWidth = 6;
+            precioVenta.Name = "precioVenta";
+            precioVenta.ReadOnly = true;
+            precioVenta.Width = 150;
+            // 
+            // estadoValor
+            // 
+            estadoValor.HeaderText = "estadoValorProd";
+            estadoValor.MinimumWidth = 6;
+            estadoValor.Name = "estadoValor";
+            estadoValor.ReadOnly = true;
+            estadoValor.Visible = false;
+            estadoValor.Width = 125;
+            // 
+            // estado
+            // 
+            estado.HeaderText = "Estado";
+            estado.MinimumWidth = 6;
+            estado.Name = "estado";
+            estado.ReadOnly = true;
+            estado.Width = 150;
             // 
             // BAgregar
             // 
@@ -209,117 +320,6 @@
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;
             BLimpiarBusqueda.Click += BLimpiarBusqueda_Click;
-            // 
-            // BSeleccionar
-            // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
-            BSeleccionar.Name = "BSeleccionar";
-            BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 35;
-            // 
-            // idProducto
-            // 
-            idProducto.HeaderText = "ID";
-            idProducto.MinimumWidth = 6;
-            idProducto.Name = "idProducto";
-            idProducto.ReadOnly = true;
-            idProducto.Visible = false;
-            idProducto.Width = 150;
-            // 
-            // codigo
-            // 
-            codigo.HeaderText = "Código";
-            codigo.MinimumWidth = 6;
-            codigo.Name = "codigo";
-            codigo.ReadOnly = true;
-            codigo.Width = 150;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.MinimumWidth = 6;
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            nombre.Width = 300;
-            // 
-            // idCategoria
-            // 
-            idCategoria.HeaderText = "idCategoria";
-            idCategoria.MinimumWidth = 6;
-            idCategoria.Name = "idCategoria";
-            idCategoria.ReadOnly = true;
-            idCategoria.Visible = false;
-            idCategoria.Width = 125;
-            // 
-            // categoria
-            // 
-            categoria.HeaderText = "Categoria";
-            categoria.MinimumWidth = 6;
-            categoria.Name = "categoria";
-            categoria.ReadOnly = true;
-            categoria.Width = 175;
-            // 
-            // idMarca
-            // 
-            idMarca.HeaderText = "idMarca";
-            idMarca.Name = "idMarca";
-            idMarca.ReadOnly = true;
-            idMarca.Visible = false;
-            // 
-            // marca
-            // 
-            marca.HeaderText = "Marca";
-            marca.Name = "marca";
-            marca.ReadOnly = true;
-            marca.Width = 170;
-            // 
-            // stock
-            // 
-            stock.HeaderText = "Stock";
-            stock.MinimumWidth = 6;
-            stock.Name = "stock";
-            stock.ReadOnly = true;
-            stock.Width = 150;
-            // 
-            // stock_minimo
-            // 
-            stock_minimo.HeaderText = "Stock Mín.";
-            stock_minimo.Name = "stock_minimo";
-            stock_minimo.ReadOnly = true;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            precio.Width = 150;
-            // 
-            // precioVenta
-            // 
-            precioVenta.HeaderText = "Precio Venta";
-            precioVenta.MinimumWidth = 6;
-            precioVenta.Name = "precioVenta";
-            precioVenta.ReadOnly = true;
-            precioVenta.Width = 150;
-            // 
-            // estadoValor
-            // 
-            estadoValor.HeaderText = "estadoValorProd";
-            estadoValor.MinimumWidth = 6;
-            estadoValor.Name = "estadoValor";
-            estadoValor.ReadOnly = true;
-            estadoValor.Visible = false;
-            estadoValor.Width = 125;
-            // 
-            // estado
-            // 
-            estado.HeaderText = "Estado";
-            estado.MinimumWidth = 6;
-            estado.Name = "estado";
-            estado.ReadOnly = true;
-            estado.Width = 150;
             // 
             // frmProductos
             // 

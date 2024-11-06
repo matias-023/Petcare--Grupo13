@@ -38,8 +38,8 @@
             label4 = new Label();
             BBuscar = new FontAwesome.Sharp.IconButton();
             TFechaFin = new DateTimePicker();
-            dgvData = new DataGridView();
             iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
+            dgvData = new DataGridView();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             SuspendLayout();
@@ -152,6 +152,15 @@
             TFechaFin.Size = new Size(111, 21);
             TFechaFin.TabIndex = 2;
             // 
+            // iconDropDownButton1
+            // 
+            iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconDropDownButton1.IconColor = Color.Black;
+            iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconDropDownButton1.Name = "iconDropDownButton1";
+            iconDropDownButton1.Size = new Size(23, 23);
+            iconDropDownButton1.Text = "iconDropDownButton1";
+            // 
             // dgvData
             // 
             dgvData.AllowUserToAddRows = false;
@@ -166,7 +175,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Location = new Point(23, 130);
+            dgvData.Location = new Point(23, 120);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
@@ -175,17 +184,8 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(1017, 419);
+            dgvData.Size = new Size(1017, 424);
             dgvData.TabIndex = 60;
-            // 
-            // iconDropDownButton1
-            // 
-            iconDropDownButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            iconDropDownButton1.IconColor = Color.Black;
-            iconDropDownButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconDropDownButton1.Name = "iconDropDownButton1";
-            iconDropDownButton1.Size = new Size(23, 23);
-            iconDropDownButton1.Text = "iconDropDownButton1";
             // 
             // frmReportes
             // 
@@ -211,8 +211,8 @@
         private Label label4;
         private FontAwesome.Sharp.IconButton BBuscar;
         private DateTimePicker TFechaFin;
-        private DataGridView dgvData;
         private ComboBox CTipoReporte;
         private FontAwesome.Sharp.IconDropDownButton iconDropDownButton1;
+        private DataGridView dgvData;
     }
 }
