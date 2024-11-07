@@ -103,6 +103,7 @@ namespace CapaPresentacion
 
                 foreach (DataGridViewColumn columna in dgvData.Columns)
                 {
+                    if (columna.Name != "idVenta" && columna.Name != "verDetalle")
                     dt.Columns.Add(columna.HeaderText, typeof(string));
                 }
 
@@ -112,8 +113,6 @@ namespace CapaPresentacion
                     {
                         dt.Rows.Add(new object[]
                         {
-                            row.Cells[0].Value.ToString(),
-                            row.Cells[1].Value.ToString(),
                             row.Cells[2].Value.ToString(),
                             row.Cells[3].Value.ToString(),
                             row.Cells[4].Value.ToString(),
@@ -122,11 +121,7 @@ namespace CapaPresentacion
                             row.Cells[7].Value.ToString(),
                             row.Cells[8].Value.ToString(),
                             row.Cells[9].Value.ToString(),
-                            row.Cells[10].Value.ToString(),
-                            row.Cells[11].Value.ToString(),
-                            row.Cells[12].Value.ToString(),
-                            row.Cells[13].Value.ToString(),
-                            row.Cells[14].Value.ToString()
+                            row.Cells[10].Value.ToString()
 
                         });
                     }
@@ -146,6 +141,11 @@ namespace CapaPresentacion
                         hoja.ColumnsUsed().AdjustToContents();
                         wb.SaveAs(savefile.FileName);
                         MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        {
+                            FileName = savefile.FileName,
+                            UseShellExecute = true
+                        });
                     }
                     catch
                     {
