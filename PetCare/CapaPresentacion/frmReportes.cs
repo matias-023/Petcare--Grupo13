@@ -18,6 +18,8 @@ namespace CapaPresentacion
     public partial class frmReportes : Form
     {
         private CN_Reporte objReporte = new CN_Reporte();
+
+        private List<string> etiquetas = new List<string>();
         public frmReportes()
         {
             InitializeComponent();
@@ -45,10 +47,12 @@ namespace CapaPresentacion
             if (Convert.ToInt32(opcionSeleccionada.valor) == 4) // Asumiendo que 4 es el valor para "Productos sin vender"
             {
                 pictureBox1.Visible = false;
+                pictureBoxLeyenda.Visible = false;
             }
             else
             {
                 pictureBox1.Visible = true;
+                pictureBoxLeyenda.Visible = true;
             }
 
             switch (opcionSeleccionada.valor)
@@ -72,7 +76,6 @@ namespace CapaPresentacion
                     MessageBox.Show("Seleccione una opción válida.");
                     break;
             }
-            pictureBox1.Invalidate(); // Redibuja el gráfico de pastel cada vez que se selecciona un nuevo reporte
         }
 
         private void productosMasVendidos()
@@ -89,6 +92,7 @@ namespace CapaPresentacion
             dgvData.Columns["Cant. Vendida"].Width = 150;
             dgvData.Columns["Total"].Width = 150;
 
+            etiquetas.Clear(); // se limpia la lista de las etiquetas del dgv
             pictureBox1.Invalidate(); // Redibuja el gráfico
 
 
@@ -100,9 +104,10 @@ namespace CapaPresentacion
 
             dgvData.DataSource = objReporte.ObtenerReporte("SP_ReporteMarcasMasVendidas", TFechaInicio.Value.ToString(), TFechaFin.Value.ToString());
 
-            dgvData.Columns["Marca"].Width = 175;
+            dgvData.Columns["Nombre Marca"].Width = 175;
             dgvData.Columns["Cant. Vendida"].Width = 150;
 
+            etiquetas.Clear(); // se limpia la lista de las etiquetas del dgv
             pictureBox1.Invalidate(); // Redibuja el gráfico
 
         }
@@ -113,9 +118,10 @@ namespace CapaPresentacion
 
             dgvData.DataSource = objReporte.ObtenerReporte("SP_ReporteCatMasVendidas", TFechaInicio.Value.ToString(), TFechaFin.Value.ToString());
 
-            dgvData.Columns["Categoria"].Width = 175;
+            dgvData.Columns["Nombre Categoria"].Width = 175;
             dgvData.Columns["Cant. Vendida"].Width = 150;
 
+            etiquetas.Clear(); // se limpia la lista de las etiquetas del dgv
             pictureBox1.Invalidate(); // Redibuja el gráfico
 
         }
@@ -131,6 +137,7 @@ namespace CapaPresentacion
             dgvData.Columns["Cant. de Ventas"].Width = 150;
             dgvData.Columns["Productos Vendidos"].Width = 150;
 
+            etiquetas.Clear(); // se limpia la lista de las etiquetas del dgv
             pictureBox1.Invalidate(); // Redibuja el gráfico
 
         }
@@ -147,8 +154,6 @@ namespace CapaPresentacion
             dgvData.Columns["Marca"].Width = 175;
             dgvData.Columns["Precio de Venta"].Width = 150;
 
-            pictureBox1.Invalidate(); // Redibuja el gráfico
-
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -159,23 +164,48 @@ namespace CapaPresentacion
             // Obtener las columnas específicas para el reporte seleccionado
             var opcionSeleccionada = (opcionCombo)CTipoReporte.SelectedItem;
             int valorSeleccionado = Convert.ToInt32(opcionSeleccionada.valor);
+
+            if (valorSeleccionado == 4)
+            {
+                etiquetas.Clear();
+                pictureBoxLeyenda.Invalidate();
+                return;
+            }
+
             var (columnaEtiqueta, columnaValor) = ObtenerColumnasParaReporte(valorSeleccionado);
 
             // Extraer datos del DataGridView
-            List<string> etiquetas = new List<string>();
             List<int> valores = new List<int>();
 
-            foreach (DataGridViewRow row in dgvData.Rows)
+            int maxElementos = 5; // Máximo de elementos a tomar
+
+            //Se valida que existan esas columnas
+            if (dgvData.Columns.Contains(columnaEtiqueta) && dgvData.Columns.Contains(columnaValor))
             {
-                if (row.Cells[columnaEtiqueta].Value != null && row.Cells[columnaValor].Value != null)
+                foreach (DataGridViewRow row in dgvData.Rows)
                 {
-                    etiquetas.Add(row.Cells[columnaEtiqueta].Value.ToString());
-                    valores.Add(Convert.ToInt32(row.Cells[columnaValor].Value));
+                    if (etiquetas.Count >= maxElementos) break;
+
+                    if (row.Cells[columnaEtiqueta].Value != null && row.Cells[columnaValor].Value != null)
+                    {
+                        etiquetas.Add(row.Cells[columnaEtiqueta].Value.ToString());
+                        valores.Add(Convert.ToInt32(row.Cells[columnaValor].Value));
+                    }
                 }
+            }
+            else
+            {
+                etiquetas.Clear();
+                pictureBoxLeyenda.Invalidate();
+                return;
             }
 
             if (valores.Count == 0)
+            {
+                pictureBoxLeyenda.Invalidate();
                 return;  // No hay datos para graficar
+            }
+
 
             // Calcular el total y los ángulos de cada segmento
             int total = valores.Sum();
@@ -197,11 +227,11 @@ namespace CapaPresentacion
                 int xEtiqueta = centroX + (int)(distanciaEtiqueta * Math.Cos(radianes));
                 int yEtiqueta = centroY + (int)(distanciaEtiqueta * Math.Sin(radianes));
 
-                // Dibujar la etiqueta
-                g.DrawString(etiquetas[i], new Font("Arial", 8), Brushes.Black, new PointF(xEtiqueta, yEtiqueta));
-
                 inicioAngulo += sweepAngulo;
             }
+
+            pictureBoxLeyenda.Invalidate(); // Se redibujan las leyendas
+
         }
 
         private (string columnaEtiqueta, string columnaValor) ObtenerColumnasParaReporte(int tipoReporte)
@@ -209,37 +239,42 @@ namespace CapaPresentacion
             return tipoReporte switch
             {
                 0 => ("Nombre", "Cant. Vendida"),         // Productos más vendidos
-                1 => ("Marca", "Cant. Vendida"),           // Marcas más vendidas
-                2 => ("Categoria", "Cant. Vendida"),       // Categorías más vendidas
+                1 => ("Nombre Marca", "Cant. Vendida"),           // Marcas más vendidas
+                2 => ("Nombre Categoria", "Cant. Vendida"),       // Categorías más vendidas
                 3 => ("Nombre Completo", "Cant. de Ventas"), // Cajero con más ventas
-                4 => ("Código", "Precio de Venta"),          // Productos sin vender
                 _ => throw new ArgumentException("Tipo de reporte no válido")
             };
         }
 
-        private void frmReportes_Resize(object sender, EventArgs e)
+        private void pictureBoxLeyenda_Paint(object sender, PaintEventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                pictureBox1.Visible = true; // Mostrar el gráfico al maximizar
-            }
-            else
-            {
-                pictureBox1.Visible = false; // Ocultar el gráfico si no está maximizado
-            }
+            Graphics g = e.Graphics;
+            Font fuente = new Font("Arial", 9);
+            Color[] colores = { Color.Red, Color.Blue, Color.Green, Color.Orange, Color.Purple };
 
-            // Colocar el gráfico en la esquina inferior derecha si está visible
-            if (pictureBox1.Visible)
+            int xInicial = 10;
+            int yInicial = 10;
+            int alturaLeyenda = 20;
+
+            // Dibuja solo hasta 5 elementos o menos si hay menos datos
+            int maxElementos = Math.Min(5, etiquetas.Count);
+            for (int i = 0; i < maxElementos; i++)
             {
-                int margenDerecho = 20;
-                int margenInferior = 20;
+                // Cuadro de color
+                using (Brush brush = new SolidBrush(colores[i % colores.Length]))
+                {
+                    g.FillRectangle(brush, xInicial, yInicial + i * alturaLeyenda, 15, 15);
+                }
 
-                pictureBox1.Location = new System.Drawing.Point(
-                      this.ClientSize.Width - pictureBox1.Width - margenDerecho,
-                      this.ClientSize.Height - pictureBox1.Height - margenInferior
-                );
-
+                // Etiqueta de texto
+                g.DrawString(etiquetas[i], fuente, Brushes.Black, xInicial + 20, yInicial + i * alturaLeyenda);
             }
+        }
+
+        private void frmReportes_SizeChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Invalidate();
+            etiquetas.Clear();
         }
     }
 }
