@@ -35,7 +35,7 @@ namespace CapaPresentacion.Modals
             CBusqueda.SelectedIndex = 0;
 
             //Se listan todos los productos activos
-            List<Producto> listaProducto = new CN_Producto().listar().Where(p => p.estado == true).ToList();
+            List<Producto> listaProducto = new CN_Producto().listar().Where(p => p.stock > 0).ToList();
 
             foreach (Producto prod in listaProducto)
             {

@@ -65,7 +65,7 @@ namespace CapaPresentacion.Modals
             //Muestra un mensaje si se elige la opción de marca no activa.
             if (Convert.ToInt32(((opcionCombo)CEstado.SelectedItem).valor) == 0)
             {
-                DialogResult ask = MessageBox.Show("Las marcas no activas no podrán ser utilizadas, desea continuar?", "Confirmar estado", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                DialogResult ask = MessageBox.Show("No se podrán registrar nuevos productos con las marcas no activas, ni modificar el stock de productos de esta marca, desea continuar?", "Confirmar estado", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (ask == DialogResult.Yes)
                 {
                     GuardarMarca();

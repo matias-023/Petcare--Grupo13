@@ -2,6 +2,7 @@
 using CapaNegocio;
 using CapaPresentacion.Modals;
 using CapaPresentacion.Utilidades;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,11 +40,16 @@ namespace CapaPresentacion
 
             foreach (Producto prod in listaProducto)
             {
-                dgvDataProd.Rows.Add(new object[] {"", prod.idProducto, prod.codigo, prod.nombre, prod.oCategoria.idCategoria, prod.oCategoria.descripcion, prod.oMarca.idMarca, prod.oMarca.descripcion, prod.stock, prod.stock_min, prod.precio, prod.precio_venta,
+                int rowIndex = dgvDataProd.Rows.Add(new object[] {"", prod.idProducto, prod.codigo, prod.nombre, prod.oCategoria.idCategoria, prod.oCategoria.descripcion, prod.oMarca.idMarca, prod.oMarca.descripcion, prod.stock, prod.stock_min, prod.precio, prod.precio_venta,
                 prod.estado == true ? 1 : 0,
                 prod.estado == true ? "Activo": "No activo"
 
                 });
+
+                if (prod.stock <= prod.stock_min)
+                {
+                    dgvDataProd.Rows[rowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.LightCoral; // Cambia el color de fondo si el stock se encuentra por debajo del stock mínimo
+                }
             }
         }
 
@@ -98,6 +104,11 @@ namespace CapaPresentacion
                             row.Cells["precioVenta"].Value = modal.mdProducto.precio_venta;
                             row.Cells["estadoValor"].Value = modal.mdProducto.estado == true ? 1 : 0;
                             row.Cells["estado"].Value = modal.mdProducto.estado == true ? "Activo" : "No activo";
+
+                            if (modal.mdProducto.stock <= modal.mdProducto.stock_min)
+                                dgvDataProd.Rows[indice].DefaultCellStyle.BackColor = System.Drawing.Color.LightCoral;
+                            else
+                                row.DefaultCellStyle.BackColor = dgvDataProd.DefaultCellStyle.BackColor;
                         }
                     }
                 }
@@ -136,13 +147,16 @@ namespace CapaPresentacion
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                
 
-                    dgvDataProd.Rows.Add(new object[] {"", modal.mdProducto.idProducto, modal.mdProducto.codigo, modal.mdProducto.nombre, modal.mdProducto.oCategoria.idCategoria, modal.mdProducto.oCategoria.descripcion, modal.mdProducto.oMarca.idMarca, modal.mdProducto.oMarca.descripcion,
+
+                int rowIndex = dgvDataProd.Rows.Add(new object[] {"", modal.mdProducto.idProducto, modal.mdProducto.codigo, modal.mdProducto.nombre, modal.mdProducto.oCategoria.idCategoria, modal.mdProducto.oCategoria.descripcion, modal.mdProducto.oMarca.idMarca, modal.mdProducto.oMarca.descripcion,
                 modal.mdProducto.stock, modal.mdProducto.stock_min, modal.mdProducto.precio, modal.mdProducto.precio_venta,
                 modal.mdProducto.estado == true ? 1 : 0,
                 modal.mdProducto.estado == true ? "Activo": "No activo"
                 });
+
+                    if (modal.mdProducto.stock <= modal.mdProducto.stock_min)
+                        dgvDataProd.Rows[rowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.LightCoral;
                 }
             }
         }

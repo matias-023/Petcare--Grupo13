@@ -71,10 +71,9 @@ namespace CapaPresentacion
                 iconoUsuario.IconChar = IconChar.UserLarge;
                 panelSubMenuReportes.Size = new System.Drawing.Size(183, 40);
                 //Se ocultan los submenus de reportes a los usuarios a los que no les corresponden
-                if (usuarioActual.oRol.idRol == 2)
-                    subMenuReportesVentas.Visible = false;
-                else
-                    subMenuReportesCompras.Visible = false;
+                if (usuarioActual.oRol.idRol == 3)
+                    subMenuEstadisticas.Visible = false;
+                    
             }
             diseño();
         }
@@ -215,14 +214,14 @@ namespace CapaPresentacion
         private void subMenuReportesVentas_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuReportes, new frmReportesVentas());
+            abrirFormulario(menuReportes, new frmReportesVentas(usuarioActual));
 
         }
 
-        private void subMenuReportesCompras_Click(object sender, EventArgs e)
+        private void subMenuEstadisticas_Click(object sender, EventArgs e)
         {
             ocultarSubMenu();
-            abrirFormulario(menuReportes, new frmReportesCompras());
+            abrirFormulario(menuReportes, new frmReportes());
         }
 
         private void menuAcercaDe_Click(object sender, EventArgs e)
@@ -290,7 +289,7 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                e.Cancel = true; 
+                e.Cancel = true;
                 return;
             }
 

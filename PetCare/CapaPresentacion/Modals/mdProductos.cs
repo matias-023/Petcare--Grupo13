@@ -51,8 +51,53 @@ namespace CapaPresentacion.Modals
             CEstado.ValueMember = "valor";
             CEstado.SelectedIndex = 0;
 
+            if (fila != null)
+            {
+                listarCategorias(1);
+                listarMarcas(1);
+                BAgregar.Text = "Editar";
+                BAgregar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+                titulo.Text = "Editar Producto";
+                rellenarCampos();
+            }
+            else
+            {
+                listarCategorias(0);
+                listarMarcas(0);
+            }
+        }
+
+        private void listarCategorias(int aux, string nombreCat = null)
+        {
+            List<Categoria> listaCategoria = new CN_Categoria().listar();
+
+            if (aux == 0)
+                listaCategoria = listaCategoria.Where(c => c.estado == true).ToList();
+            if (aux == 1 && nombreCat != null)
+                listaCategoria = listaCategoria.Where(c => c.estado == true || c.descripcion == nombreCat).ToList();
+
+
+            CCategoria.Items.Clear();
+            foreach (Categoria item in listaCategoria)
+            {
+                CCategoria.Items.Add(new opcionCombo() { valor = item.idCategoria, texto = item.descripcion });
+            }
+            CCategoria.DisplayMember = "texto";
+            CCategoria.ValueMember = "valor";
+            CCategoria.SelectedIndex = 0;
+        }
+
+        private void listarMarcas(int aux, string nombreMarca = null)
+        {
             List<Marca> listaMarca = new CN_Marca().listar();
 
+            if (aux == 0)
+                listaMarca = listaMarca.Where(m => m.estado == true).ToList();
+            if (aux == 1 && nombreMarca != null)
+                listaMarca = listaMarca.Where(m => m.estado == true || m.descripcion == nombreMarca).ToList();
+
+
+            CMarca.Items.Clear();
             foreach (Marca item in listaMarca)
             {
                 CMarca.Items.Add(new opcionCombo() { valor = item.idMarca, texto = item.descripcion });
@@ -61,23 +106,7 @@ namespace CapaPresentacion.Modals
             CMarca.ValueMember = "valor";
             CMarca.SelectedIndex = 0;
 
-            List<Categoria> listaCategoria = new CN_Categoria().listar();
-            foreach (Categoria item in listaCategoria)
-            {
-                CCategoria.Items.Add(new opcionCombo() { valor = item.idCategoria, texto = item.descripcion });
-            }
-            CCategoria.DisplayMember = "texto";
-            CCategoria.ValueMember = "valor";
-            CCategoria.SelectedIndex = 0;
 
-
-            if (fila != null)
-            {
-                BAgregar.Text = "Editar";
-                BAgregar.IconChar = FontAwesome.Sharp.IconChar.Edit;
-                titulo.Text = "Editar Producto";
-                rellenarCampos();
-            }
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
@@ -85,7 +114,7 @@ namespace CapaPresentacion.Modals
             //Muestra un mensaje si se elige la opción de producto no activo.
             if (Convert.ToInt32(((opcionCombo)CEstado.SelectedItem).valor) == 0)
             {
-                DialogResult ask = MessageBox.Show("Los productos no activos no podrán ser registrados en compras ni ventas, desea continuar?", "Confirmar estado", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                DialogResult ask = MessageBox.Show("No se podrá modificar el stock de un producto no activo, desea continuar?", "Confirmar estado", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (ask == DialogResult.Yes)
                 {
                     GuardarProducto();
@@ -173,6 +202,52 @@ namespace CapaPresentacion.Modals
                 {
                     int indice_combo = CMarca.Items.IndexOf(oc);
                     CMarca.SelectedIndex = indice_combo;
+
+                    Marca marcaSeleccionada = new CN_Marca().listar().FirstOrDefault(m => m.descripcion == oc.texto);
+                    string nombreMarcaSeleccionada = oc.texto;
+
+                    if (marcaSeleccionada != null && !marcaSeleccionada.estado)
+                    {
+                        numStock.Enabled = false;
+
+                        listarMarcas(1, oc.texto);
+                    }
+                    else
+                    {
+                        listarMarcas(0);
+                    }
+
+                    int indiceSeleccionado = CMarca.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreMarcaSeleccionada);
+                    CMarca.SelectedIndex = indiceSeleccionado;
+
+
+                    break;
+                }
+
+                if (oc.texto == fila.Cells["categoria"].Value.ToString())
+                {
+                    int indice_combo = CCategoria.Items.IndexOf(oc);
+                    CCategoria.SelectedIndex = indice_combo;
+
+                    Categoria categoriaSeleccionada = new CN_Categoria().listar().FirstOrDefault(c => c.descripcion == oc.texto);
+
+                    string nombreCategoriaSeleccionada = oc.texto;
+
+                    if (categoriaSeleccionada != null && !categoriaSeleccionada.estado)
+                    {
+                        numStock.Enabled = false;
+
+                        listarCategorias(1, oc.texto);
+                    }
+
+                    else
+                    {
+                        listarCategorias(0);
+                    }
+
+                    int indiceSeleccionado = CCategoria.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreCategoriaSeleccionada);
+                    CCategoria.SelectedIndex = indiceSeleccionado;
+
                     break;
                 }
             }
@@ -183,6 +258,26 @@ namespace CapaPresentacion.Modals
                 {
                     int indice_combo = CCategoria.Items.IndexOf(oc);
                     CCategoria.SelectedIndex = indice_combo;
+
+                    Categoria categoriaSeleccionada = new CN_Categoria().listar().FirstOrDefault(c => c.descripcion == oc.texto);
+
+                    string nombreCategoriaSeleccionada = oc.texto;
+
+                    if (categoriaSeleccionada != null && !categoriaSeleccionada.estado)
+                    {
+                        numStock.Enabled = false;
+
+                        listarCategorias(1, oc.texto);
+                    }
+
+                    else
+                    {
+                        listarCategorias(0);
+                    }
+
+                    int indiceSeleccionado = CCategoria.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreCategoriaSeleccionada);
+                    CCategoria.SelectedIndex = indiceSeleccionado;
+
                     break;
                 }
             }
@@ -196,6 +291,14 @@ namespace CapaPresentacion.Modals
                     break;
                 }
             }
+
+            opcionCombo seleccion = (opcionCombo)CEstado.SelectedItem;
+
+            if (Convert.ToInt32(seleccion.valor) == 0)
+            {
+                numStock.Enabled = false;
+            }
+
         }
 
 

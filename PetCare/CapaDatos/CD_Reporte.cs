@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_Reporte
     {
-        public List<reporteVenta> Venta(string fechainicio, string fechafin)
+        public List<reporteVenta> Venta(string fechainicio, string fechafin, Usuario user)
         {
             List<reporteVenta> lista = new List<reporteVenta>();
 
@@ -23,6 +23,8 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("sp_ReporteVentas", objConexion);
                     cmd.Parameters.AddWithValue("fechainicio", fechainicio);
                     cmd.Parameters.AddWithValue("fechafin", fechafin);
+                    cmd.Parameters.AddWithValue("rol", user.oRol.idRol);
+                    cmd.Parameters.AddWithValue("idUsuario", user.idUsuario);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     objConexion.Open();
@@ -33,19 +35,16 @@ namespace CapaDatos
                         {
                             lista.Add(new reporteVenta()
                             {
+                                idVenta = Convert.ToInt32(dr["idVenta"].ToString()),
                                 fechaRegistro = dr["fechaRegistro"].ToString(),
+                                horaRegistro = dr["horaRegistro"].ToString(),
                                 tipoDocumento = dr["tipoDocumento"].ToString(),
                                 numeroDocumento = dr["numeroDocumento"].ToString(),
-                                montoTotal = dr["montoTotal"].ToString(),
-                                usuarioRegistrado = dr["usuarioRegistrado"].ToString(),
+                                documentoUsuario = dr["documentoUsuario"].ToString(),
+                                usuarioRegistro = dr["usuarioRegistro"].ToString(),
                                 documentoCliente = dr["documentoCliente"].ToString(),
                                 nombreCliente = dr["nombreCliente"].ToString(),
-                                codigoProducto = dr["codigoProducto"].ToString(),
-                                nombreProducto = dr["nombreProducto"].ToString(),
-                                categoria = dr["categoria"].ToString(),
-                                precioVenta = dr["precioVenta"].ToString(),
-                                cantidad = dr["cantidad"].ToString(),
-                                subTotal = dr["subTotal"].ToString(),
+                                montoTotal = dr["montoTotal"].ToString(),
                             });
                         }
                     }
@@ -58,6 +57,35 @@ namespace CapaDatos
 
             return lista;
 
+        }
+
+        public DataTable productosMasVendidos(string nombreProc, string fechainicio, string fechafin)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection objConexion = new SqlConnection(Conexion.ObtenerCadenaConexion()))
+            {
+                try
+                {
+                    objConexion.Open();
+
+                    SqlCommand cmd = new SqlCommand(nombreProc, objConexion);
+                    cmd.Parameters.AddWithValue("fechainicio", fechainicio);
+                    cmd.Parameters.AddWithValue("fechafin", fechafin);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    dt = new DataTable();
+                }
+            }
+            return dt;
         }
 
 

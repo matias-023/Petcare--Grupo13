@@ -59,9 +59,12 @@ namespace CapaNegocio
             }
             return oVenta;
         }
-        
 
-    
-    
+        public List<DetalleVenta> obtenerDetalle(int idVenta)
+        {
+            List<DetalleVenta> oDetalleVenta = objcd_venta.obtenerDetalleVenta(idVenta);
+            return oDetalleVenta;
+        }
+        
     }
 }
