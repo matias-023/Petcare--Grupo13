@@ -242,7 +242,6 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\De
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdClientes.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdProveedores.resources
-C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesCompras.resources
 C:\Users\usuario\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportesVentas.resources
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdBuscarProducto.resources
@@ -463,3 +462,6 @@ C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 4-11\PetCare\CapaPresentacion\o
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 4-11\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.pdb
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 4-11\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.genruntimeconfig.cache
 C:\Users\NoxiePC\source\repos\Petcare---Grupo-12 4-11\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\ref\CapaPresentacion.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\bin\Debug\net8.0-windows\System.Windows.Forms.DataVisualization.dll
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.frmReportes.resources
+C:\Users\usuario\Source\Repos\Petcare---Grupo-12\PetCare\CapaPresentacion\obj\Debug\net8.0-windows\CapaPresentacion.Modals.mdContraseñaRestore.resources
