@@ -1022,7 +1022,7 @@ CREATE PROC SP_ReporteMarcasMasVendidas(
 AS
 BEGIN
 SET DATEFORMAT dmy;
-select m.descripcion [Marca], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
+select m.descripcion [Nombre Marca], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
 inner join PRODUCTO p on dv.idProducto = p.idProducto
 inner join MARCA m on p.idMarca = m.idMarca
 WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin
@@ -1042,7 +1042,7 @@ CREATE PROC SP_ReporteCatMasVendidas(
 AS
 BEGIN
 SET DATEFORMAT dmy;
-select c.descripcion [Categoria], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
+select c.descripcion [Nombre Categoria], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
 inner join PRODUCTO p on dv.idProducto = p.idProducto
 inner join CATEGORIA c on p.idCategoria = c.idCategoria
 WHERE CONVERT(date,dv.fechaRegistro) BETWEEN @fechainicio AND @fechafin

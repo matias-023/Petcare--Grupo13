@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12 4-11\\PetCare\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\noxiepc\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\noxiepc\\source\\repos\\petcare---grupo-12\\petcare\\capapresentacion\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1A3BF4B4-C0DB-429B-A567-3535EC5B6E75}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmreportes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +35,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmReportes.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmReportes.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmReportes.cs",
+              "ToolTip": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmReportes.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentacion\\frmReportes.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T14:42:54.624Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmReportes.cs",
+              "DocumentMoniker": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmReportes.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmReportes.cs",
+              "ToolTip": "C:\\Users\\NoxiePC\\source\\repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\frmReportes.cs",
+              "RelativeToolTip": "CapaPresentacion\\frmReportes.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAgwPIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T14:36:56.565Z",
+              "EditorCaption": ""
             }
           ]
         }

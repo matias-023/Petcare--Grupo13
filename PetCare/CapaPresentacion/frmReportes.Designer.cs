@@ -40,8 +40,14 @@
             TFechaFin = new DateTimePicker();
             iconDropDownButton1 = new FontAwesome.Sharp.IconDropDownButton();
             dgvData = new DataGridView();
+            pictureBox1 = new PictureBox();
+            pictureBoxLeyenda = new PictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLeyenda).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -164,7 +170,7 @@
             // dgvData
             // 
             dgvData.AllowUserToAddRows = false;
-            dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -184,22 +190,63 @@
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvData.RowTemplate.Height = 28;
-            dgvData.Size = new Size(1017, 424);
+            dgvData.Size = new Size(540, 424);
             dgvData.TabIndex = 60;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.WhiteSmoke;
+            pictureBox1.Location = new Point(3, 2);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(465, 280);
+            pictureBox1.TabIndex = 61;
+            pictureBox1.TabStop = false;
+            pictureBox1.Paint += pictureBox1_Paint;
+            // 
+            // pictureBoxLeyenda
+            // 
+            pictureBoxLeyenda.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBoxLeyenda.Location = new Point(3, 287);
+            pictureBoxLeyenda.Name = "pictureBoxLeyenda";
+            pictureBoxLeyenda.Size = new Size(465, 134);
+            pictureBoxLeyenda.TabIndex = 62;
+            pictureBoxLeyenda.TabStop = false;
+            pictureBoxLeyenda.Paint += pictureBoxLeyenda_Paint;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(pictureBoxLeyenda, 0, 1);
+            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Location = new Point(569, 120);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 67F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33F));
+            tableLayoutPanel1.Size = new Size(471, 424);
+            tableLayoutPanel1.TabIndex = 63;
             // 
             // frmReportes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 562);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(dgvData);
             Controls.Add(panel2);
             Name = "frmReportes";
-            Text = "4";
             Load += frmReportes_Load;
+            SizeChanged += frmReportes_SizeChanged;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLeyenda).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -214,5 +261,8 @@
         private ComboBox CTipoReporte;
         private FontAwesome.Sharp.IconDropDownButton iconDropDownButton1;
         private DataGridView dgvData;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxLeyenda;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }
