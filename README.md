@@ -41,6 +41,16 @@ Antes de ejecutar la aplicación, es necesario:
 
 ---
 
+## Usuarios del Sistema
+
+- **Administrador:** DNI: 10101010 - Contraseña: 123
+- **Cajero:** DNI: 20202020 - Contraseña: 123
+- **Reabastecedor:** DNI: 10101111 - Contraseña: 123
+
+> Para esta primer entrega el usuario a ser utilizado es el usuario Reabastecedor.
+
+---
+
 ## Derechos de autor
 
 © 2025 Grupo N°13. Todos los derechos reservados.  
