@@ -78,36 +78,39 @@
             // TDocumento
             // 
             TDocumento.BackColor = SystemColors.Control;
-            TDocumento.Font = new Font("Segoe UI", 9F);
+            TDocumento.Font = new Font("Microsoft Sans Serif", 12F);
             TDocumento.Location = new Point(261, 53);
             TDocumento.Name = "TDocumento";
-            TDocumento.Size = new Size(232, 23);
+            TDocumento.Size = new Size(245, 26);
             TDocumento.TabIndex = 3;
             // 
             // TContraseña
             // 
             TContraseña.BackColor = SystemColors.Control;
+            TContraseña.Font = new Font("Microsoft Sans Serif", 12F);
             TContraseña.Location = new Point(261, 115);
             TContraseña.Name = "TContraseña";
             TContraseña.PasswordChar = '*';
-            TContraseña.Size = new Size(232, 23);
+            TContraseña.Size = new Size(245, 26);
             TContraseña.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(261, 35);
+            label3.Font = new Font("Microsoft Sans Serif", 11F);
+            label3.Location = new Point(262, 31);
             label3.Name = "label3";
-            label3.Size = new Size(133, 15);
+            label3.Size = new Size(164, 18);
             label3.TabIndex = 5;
             label3.Text = "Número de Documento";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(261, 97);
+            label4.Font = new Font("Microsoft Sans Serif", 11F);
+            label4.Location = new Point(262, 93);
             label4.Name = "label4";
-            label4.Size = new Size(67, 15);
+            label4.Size = new Size(85, 18);
             label4.TabIndex = 6;
             label4.Text = "Contraseña";
             // 
@@ -117,15 +120,15 @@
             BIngresar.Cursor = Cursors.Hand;
             BIngresar.FlatAppearance.BorderColor = Color.Black;
             BIngresar.FlatStyle = FlatStyle.Flat;
-            BIngresar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BIngresar.ForeColor = Color.White;
+            BIngresar.Font = new Font("Microsoft Sans Serif", 11F);
+            BIngresar.ForeColor = Color.Black;
             BIngresar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-            BIngresar.IconColor = Color.White;
+            BIngresar.IconColor = Color.Black;
             BIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BIngresar.IconSize = 30;
-            BIngresar.Location = new Point(261, 175);
+            BIngresar.Location = new Point(252, 175);
             BIngresar.Name = "BIngresar";
-            BIngresar.Size = new Size(100, 40);
+            BIngresar.Size = new Size(117, 40);
             BIngresar.TabIndex = 7;
             BIngresar.Text = "Ingresar";
             BIngresar.TextAlign = ContentAlignment.MiddleRight;
@@ -139,14 +142,15 @@
             BCancelar.Cursor = Cursors.Hand;
             BCancelar.FlatAppearance.BorderColor = Color.Black;
             BCancelar.FlatStyle = FlatStyle.Flat;
+            BCancelar.Font = new Font("Microsoft Sans Serif", 11F);
             BCancelar.ForeColor = Color.White;
             BCancelar.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
             BCancelar.IconColor = Color.White;
             BCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BCancelar.IconSize = 30;
-            BCancelar.Location = new Point(393, 176);
+            BCancelar.Location = new Point(389, 176);
             BCancelar.Name = "BCancelar";
-            BCancelar.Size = new Size(100, 40);
+            BCancelar.Size = new Size(117, 40);
             BCancelar.TabIndex = 8;
             BCancelar.Text = "Cancelar";
             BCancelar.TextAlign = ContentAlignment.MiddleRight;

@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvDataProd = new DataGridView();
             BSeleccionar = new DataGridViewButtonColumn();
             idProducto = new DataGridViewTextBoxColumn();
@@ -60,10 +61,12 @@
             // dgvDataProd
             // 
             dgvDataProd.AllowUserToAddRows = false;
+            dgvDataProd.AllowUserToDeleteRows = false;
+            dgvDataProd.AllowUserToOrderColumns = true;
             dgvDataProd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -72,27 +75,36 @@
             dgvDataProd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDataProd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDataProd.Columns.AddRange(new DataGridViewColumn[] { BSeleccionar, idProducto, codigo, nombre, idCategoria, categoria, idMarca, marca, stock, stock_minimo, precio, precioVenta, estadoValor, estado });
-            dgvDataProd.Location = new Point(23, 107);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDataProd.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvDataProd.Location = new Point(23, 94);
             dgvDataProd.MultiSelect = false;
             dgvDataProd.Name = "dgvDataProd";
             dgvDataProd.ReadOnly = true;
+            dgvDataProd.RowHeadersVisible = false;
             dgvDataProd.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvDataProd.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvDataProd.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvDataProd.RowTemplate.Height = 28;
-            dgvDataProd.Size = new Size(1001, 435);
-            dgvDataProd.TabIndex = 15;
+            dgvDataProd.Size = new Size(1001, 474);
+            dgvDataProd.TabIndex = 5;
             dgvDataProd.CellContentClick += dgvDataProd_CellContentClick;
             dgvDataProd.CellPainting += dgvDataProd_CellPainting;
             // 
             // BSeleccionar
             // 
-            BSeleccionar.HeaderText = "";
-            BSeleccionar.MinimumWidth = 6;
+            BSeleccionar.HeaderText = "Editar";
+            BSeleccionar.MinimumWidth = 60;
             BSeleccionar.Name = "BSeleccionar";
             BSeleccionar.ReadOnly = true;
-            BSeleccionar.Width = 35;
+            BSeleccionar.Width = 60;
             // 
             // idProducto
             // 
@@ -109,7 +121,6 @@
             codigo.MinimumWidth = 6;
             codigo.Name = "codigo";
             codigo.ReadOnly = true;
-            codigo.Width = 150;
             // 
             // nombre
             // 
@@ -117,7 +128,7 @@
             nombre.MinimumWidth = 6;
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 300;
+            nombre.Width = 275;
             // 
             // idCategoria
             // 
@@ -134,7 +145,7 @@
             categoria.MinimumWidth = 6;
             categoria.Name = "categoria";
             categoria.ReadOnly = true;
-            categoria.Width = 175;
+            categoria.Width = 150;
             // 
             // idMarca
             // 
@@ -148,7 +159,7 @@
             marca.HeaderText = "Marca";
             marca.Name = "marca";
             marca.ReadOnly = true;
-            marca.Width = 170;
+            marca.Width = 150;
             // 
             // stock
             // 
@@ -156,13 +167,13 @@
             stock.MinimumWidth = 6;
             stock.Name = "stock";
             stock.ReadOnly = true;
-            stock.Width = 150;
             // 
             // stock_minimo
             // 
             stock_minimo.HeaderText = "Stock Mín.";
             stock_minimo.Name = "stock_minimo";
             stock_minimo.ReadOnly = true;
+            stock_minimo.Width = 125;
             // 
             // precio
             // 
@@ -195,7 +206,7 @@
             estado.MinimumWidth = 6;
             estado.Name = "estado";
             estado.ReadOnly = true;
-            estado.Width = 150;
+            estado.Width = 120;
             // 
             // BAgregar
             // 
@@ -211,10 +222,10 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(846, 557);
+            BAgregar.Location = new Point(822, 574);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(178, 50);
-            BAgregar.TabIndex = 19;
+            BAgregar.Size = new Size(202, 50);
+            BAgregar.TabIndex = 6;
             BAgregar.Text = "Agregar producto";
             BAgregar.TextAlign = ContentAlignment.MiddleRight;
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -241,28 +252,30 @@
             // 
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBusqueda.Font = new Font("Segoe UI", 11F);
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(458, 27);
+            CBusqueda.Location = new Point(421, 23);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(174, 23);
-            CBusqueda.TabIndex = 29;
+            CBusqueda.Size = new Size(221, 28);
+            CBusqueda.TabIndex = 1;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(638, 27);
+            TBusqueda.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBusqueda.Location = new Point(648, 24);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(216, 23);
-            TBusqueda.TabIndex = 30;
+            TBusqueda.Size = new Size(216, 27);
+            TBusqueda.TabIndex = 2;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(16, 22);
+            label7.Location = new Point(14, 20);
             label7.Name = "label7";
-            label7.Size = new Size(214, 25);
+            label7.Size = new Size(235, 29);
             label7.TabIndex = 0;
             label7.Text = "Lista de productos:";
             // 
@@ -271,11 +284,11 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(210, 120, 61);
-            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(386, 31);
+            label1.Location = new Point(328, 28);
             label1.Name = "label1";
-            label1.Size = new Size(69, 15);
+            label1.Size = new Size(85, 18);
             label1.TabIndex = 26;
             label1.Text = "Buscar por:";
             // 
@@ -290,11 +303,11 @@
             BBusqueda.IconChar = FontAwesome.Sharp.IconChar.Search;
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(860, 24);
+            BBusqueda.IconSize = 23;
+            BBusqueda.Location = new Point(870, 22);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
-            BBusqueda.TabIndex = 27;
+            BBusqueda.TabIndex = 3;
             BBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BBusqueda.UseVisualStyleBackColor = false;
@@ -311,11 +324,11 @@
             BLimpiarBusqueda.IconChar = FontAwesome.Sharp.IconChar.Broom;
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(913, 24);
+            BLimpiarBusqueda.IconSize = 23;
+            BLimpiarBusqueda.Location = new Point(925, 22);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(47, 29);
-            BLimpiarBusqueda.TabIndex = 28;
+            BLimpiarBusqueda.TabIndex = 4;
             BLimpiarBusqueda.TextAlign = ContentAlignment.MiddleRight;
             BLimpiarBusqueda.TextImageRelation = TextImageRelation.ImageBeforeText;
             BLimpiarBusqueda.UseVisualStyleBackColor = false;

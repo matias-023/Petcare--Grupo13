@@ -20,6 +20,8 @@ namespace CapaPresentacion
         public frmProductos()
         {
             InitializeComponent();
+            DoubleBuffered = true;
+            EnableDoubleBuffer(dgvDataProd);
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
@@ -51,6 +53,13 @@ namespace CapaPresentacion
                     dgvDataProd.Rows[rowIndex].DefaultCellStyle.BackColor = System.Drawing.Color.LightCoral; // Cambia el color de fondo si el stock se encuentra por debajo del stock mínimo
                 }
             }
+        }
+        private void EnableDoubleBuffer(DataGridView dgv)
+        {
+            Type dgvType = dgv.GetType();
+            System.Reflection.PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            pi.SetValue(dgv, true, null);
         }
 
         private void dgvDataProd_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdProductos));
             panel1 = new Panel();
             BCerrar = new PictureBox();
             titulo = new Label();
@@ -88,11 +89,12 @@
             // 
             // titulo
             // 
+            titulo.AutoSize = true;
             titulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titulo.ForeColor = Color.White;
-            titulo.Location = new Point(126, 4);
+            titulo.Location = new Point(182, 5);
             titulo.Name = "titulo";
-            titulo.Size = new Size(297, 26);
+            titulo.Size = new Size(171, 25);
             titulo.TabIndex = 9;
             titulo.Text = "Crear Producto";
             titulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -101,7 +103,7 @@
             // 
             TIndice.Location = new Point(458, 41);
             TIndice.Name = "TIndice";
-            TIndice.Size = new Size(26, 23);
+            TIndice.Size = new Size(26, 21);
             TIndice.TabIndex = 33;
             TIndice.Text = "-1";
             TIndice.Visible = false;
@@ -110,7 +112,7 @@
             // 
             TIdProducto.Location = new Point(490, 41);
             TIdProducto.Name = "TIdProducto";
-            TIdProducto.Size = new Size(26, 23);
+            TIdProducto.Size = new Size(26, 21);
             TIdProducto.TabIndex = 34;
             TIdProducto.Text = "0";
             TIdProducto.Visible = false;
@@ -152,9 +154,9 @@
             BAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BAgregar.IconSize = 30;
             BAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            BAgregar.Location = new Point(270, 442);
+            BAgregar.Location = new Point(253, 442);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(107, 36);
+            BAgregar.Size = new Size(124, 36);
             BAgregar.TabIndex = 10;
             BAgregar.Text = "Agregar";
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -163,173 +165,177 @@
             // 
             // TCodigo
             // 
-            TCodigo.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TCodigo.Font = new Font("Microsoft Sans Serif", 11F);
             TCodigo.Location = new Point(24, 77);
             TCodigo.Name = "TCodigo";
-            TCodigo.Size = new Size(222, 22);
+            TCodigo.Size = new Size(222, 24);
             TCodigo.TabIndex = 1;
             // 
             // LCodigoProd
             // 
             LCodigoProd.AutoSize = true;
-            LCodigoProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LCodigoProd.Location = new Point(24, 59);
+            LCodigoProd.Font = new Font("Microsoft Sans Serif", 11F);
+            LCodigoProd.Location = new Point(24, 56);
             LCodigoProd.Name = "LCodigoProd";
-            LCodigoProd.Size = new Size(57, 16);
+            LCodigoProd.Size = new Size(64, 18);
             LCodigoProd.TabIndex = 37;
             LCodigoProd.Text = "Codigo: ";
             // 
             // TNombre
             // 
-            TNombre.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TNombre.Font = new Font("Microsoft Sans Serif", 11F);
             TNombre.Location = new Point(24, 137);
             TNombre.Name = "TNombre";
-            TNombre.Size = new Size(222, 22);
+            TNombre.Size = new Size(222, 24);
             TNombre.TabIndex = 2;
             // 
             // LNombreProd
             // 
             LNombreProd.AutoSize = true;
-            LNombreProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LNombreProd.Location = new Point(24, 119);
+            LNombreProd.Font = new Font("Microsoft Sans Serif", 11F);
+            LNombreProd.Location = new Point(24, 116);
             LNombreProd.Name = "LNombreProd";
-            LNombreProd.Size = new Size(59, 16);
+            LNombreProd.Size = new Size(66, 18);
             LNombreProd.TabIndex = 40;
             LNombreProd.Text = "Nombre:";
             // 
             // LStockProd
             // 
             LStockProd.AutoSize = true;
-            LStockProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LStockProd.Location = new Point(24, 299);
+            LStockProd.Font = new Font("Microsoft Sans Serif", 11F);
+            LStockProd.Location = new Point(24, 296);
             LStockProd.Name = "LStockProd";
-            LStockProd.Size = new Size(44, 16);
+            LStockProd.Size = new Size(51, 18);
             LStockProd.TabIndex = 42;
             LStockProd.Text = "Stock:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            label1.Location = new Point(24, 359);
+            label1.Font = new Font("Microsoft Sans Serif", 11F);
+            label1.Location = new Point(24, 357);
             label1.Name = "label1";
-            label1.Size = new Size(90, 16);
+            label1.Size = new Size(104, 18);
             label1.TabIndex = 44;
             label1.Text = "Stock mínimo:";
             // 
             // LPrecio
             // 
             LPrecio.AutoSize = true;
-            LPrecio.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LPrecio.Location = new Point(294, 59);
+            LPrecio.Font = new Font("Microsoft Sans Serif", 11F);
+            LPrecio.Location = new Point(294, 56);
             LPrecio.Name = "LPrecio";
-            LPrecio.Size = new Size(49, 16);
+            LPrecio.Size = new Size(55, 18);
             LPrecio.TabIndex = 46;
             LPrecio.Text = "Precio:";
             // 
             // LPrecioVenta
             // 
             LPrecioVenta.AutoSize = true;
-            LPrecioVenta.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LPrecioVenta.Location = new Point(294, 119);
+            LPrecioVenta.Font = new Font("Microsoft Sans Serif", 11F);
+            LPrecioVenta.Location = new Point(294, 116);
             LPrecioVenta.Name = "LPrecioVenta";
-            LPrecioVenta.Size = new Size(87, 16);
+            LPrecioVenta.Size = new Size(96, 18);
             LPrecioVenta.TabIndex = 47;
             LPrecioVenta.Text = "Precio Venta:";
             // 
             // CCategoria
             // 
             CCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-            CCategoria.Font = new Font("Microsoft Sans Serif", 9.75F);
+            CCategoria.Font = new Font("Microsoft Sans Serif", 11F);
             CCategoria.FormattingEnabled = true;
             CCategoria.Location = new Point(24, 197);
             CCategoria.Name = "CCategoria";
-            CCategoria.Size = new Size(222, 24);
+            CCategoria.Size = new Size(222, 26);
             CCategoria.TabIndex = 3;
             // 
             // LCategoriaProd
             // 
             LCategoriaProd.AutoSize = true;
-            LCategoriaProd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LCategoriaProd.Location = new Point(23, 179);
+            LCategoriaProd.Font = new Font("Microsoft Sans Serif", 11F);
+            LCategoriaProd.Location = new Point(24, 176);
             LCategoriaProd.Name = "LCategoriaProd";
-            LCategoriaProd.Size = new Size(69, 16);
+            LCategoriaProd.Size = new Size(76, 18);
             LCategoriaProd.TabIndex = 49;
             LCategoriaProd.Text = "Categoria:";
             // 
             // CEstado
             // 
             CEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            CEstado.Font = new Font("Microsoft Sans Serif", 9.75F);
+            CEstado.Font = new Font("Microsoft Sans Serif", 11F);
             CEstado.FormattingEnabled = true;
             CEstado.Location = new Point(294, 197);
             CEstado.Name = "CEstado";
-            CEstado.Size = new Size(222, 24);
+            CEstado.Size = new Size(222, 26);
             CEstado.TabIndex = 9;
             // 
             // LEstado
             // 
             LEstado.AutoSize = true;
-            LEstado.Font = new Font("Microsoft Sans Serif", 9.75F);
-            LEstado.Location = new Point(294, 179);
+            LEstado.Font = new Font("Microsoft Sans Serif", 11F);
+            LEstado.Location = new Point(294, 176);
             LEstado.Name = "LEstado";
-            LEstado.Size = new Size(53, 16);
+            LEstado.Size = new Size(59, 18);
             LEstado.TabIndex = 52;
             LEstado.Text = "Estado:";
             // 
             // CMarca
             // 
             CMarca.DropDownStyle = ComboBoxStyle.DropDownList;
-            CMarca.Font = new Font("Microsoft Sans Serif", 9.75F);
+            CMarca.Font = new Font("Microsoft Sans Serif", 11F);
             CMarca.FormattingEnabled = true;
             CMarca.Location = new Point(24, 257);
             CMarca.Name = "CMarca";
-            CMarca.Size = new Size(222, 24);
+            CMarca.Size = new Size(222, 26);
             CMarca.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            label2.Location = new Point(23, 239);
+            label2.Font = new Font("Microsoft Sans Serif", 11F);
+            label2.Location = new Point(24, 236);
             label2.Name = "label2";
-            label2.Size = new Size(48, 16);
+            label2.Size = new Size(54, 18);
             label2.TabIndex = 53;
             label2.Text = "Marca:";
             // 
             // numStock
             // 
+            numStock.Font = new Font("Microsoft Sans Serif", 11F);
             numStock.Location = new Point(23, 317);
             numStock.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numStock.Name = "numStock";
-            numStock.Size = new Size(223, 23);
+            numStock.Size = new Size(223, 24);
             numStock.TabIndex = 5;
             // 
             // numStockMin
             // 
+            numStockMin.Font = new Font("Microsoft Sans Serif", 11F);
             numStockMin.Location = new Point(23, 378);
             numStockMin.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numStockMin.Name = "numStockMin";
-            numStockMin.Size = new Size(223, 23);
+            numStockMin.Size = new Size(223, 24);
             numStockMin.TabIndex = 6;
             // 
             // numPrecio
             // 
             numPrecio.DecimalPlaces = 2;
+            numPrecio.Font = new Font("Microsoft Sans Serif", 11F);
             numPrecio.Location = new Point(294, 77);
             numPrecio.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numPrecio.Name = "numPrecio";
-            numPrecio.Size = new Size(223, 23);
-            numPrecio.TabIndex = 54;
+            numPrecio.Size = new Size(223, 24);
+            numPrecio.TabIndex = 7;
             // 
             // numPrecioVenta
             // 
             numPrecioVenta.DecimalPlaces = 2;
+            numPrecioVenta.Font = new Font("Microsoft Sans Serif", 11F);
             numPrecioVenta.Location = new Point(294, 137);
             numPrecioVenta.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             numPrecioVenta.Name = "numPrecioVenta";
-            numPrecioVenta.Size = new Size(223, 23);
-            numPrecioVenta.TabIndex = 55;
+            numPrecioVenta.Size = new Size(223, 24);
+            numPrecioVenta.TabIndex = 8;
             // 
             // mdProductos
             // 
@@ -359,13 +365,16 @@
             Controls.Add(TIndice);
             Controls.Add(TIdProducto);
             Controls.Add(panel1);
+            Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "mdProductos";
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "mdProductos";
             Load += mdProductos_Load;
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)numStock).EndInit();
             ((System.ComponentModel.ISupportInitialize)numStockMin).EndInit();

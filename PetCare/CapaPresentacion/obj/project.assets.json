@@ -930,11 +930,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
       "packagesPath": "C:\\Users\\NoxiePC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaPresentacion\\obj\\",
+      "outputPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NoxiePC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -951,11 +951,11 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare---Grupo-12\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
+            "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
+              "projectPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
             }
           }
         }
