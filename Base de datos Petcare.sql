@@ -29,7 +29,6 @@ CREATE TABLE PERMISO(
 )
 go
 
-
 CREATE TABLE CLIENTE(
 	idCliente INT IDENTITY,
 	documento varchar(50) not null,
@@ -150,30 +149,24 @@ CREATE TABLE DETALLE_VENTA(
 )
 go
 
+--Se insertan los distintos roles
 INSERT INTO ROL(descripcion)
 VALUES('ADMINISTRADOR')
 go
-
-
 INSERT INTO ROL(descripcion)
 VALUES('REABASTECEDOR')
 go
-
 INSERT INTO ROL (descripcion)
 VALUES ('CAJERO')
 go
 
+--se insertan los distintos usuarios
 INSERT INTO USUARIO(documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, idRol, telefono)
-
 VALUES('10101010', 'ADMIN', 'admin@gmail.com', '123', '2004-05-10', 'Hombre', 1, '3794111111')
-
 go
-
-/* cambios 6/9 */
 INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, idRol, telefono)
 VALUES ('10101111', 'REABASTECEDOR', 'reabastecedor@gmail.com', '123', '2004-05-10', 'Hombre', 2, '3794222222')
 go
-
 INSERT INTO USUARIO (documento, nombreCompleto, correo, clave, fechaNacimiento, sexo, idRol, telefono)
 VALUES ('20202020', 'CAJERO', 'cajero@gmail.com', '123','2000-05-10', 'Mujer', 3, '3794343434')
 go
@@ -201,77 +194,12 @@ inner join ROL r on r.idRol = p.idRol
 inner join USUARIO u on u.idRol = r.idRol
 WHERE u.idUsuario = 4
 
-/* cambios 8/9 */
-
-CREATE TABLE PROVEEDOR(
-	idProveedor INT IDENTITY,
-	documento VARCHAR(50) not null,
-	razonSocial VARCHAR(100) not null,
-	correo VARCHAR(100),
-	telefono VARCHAR(50) not null,
-	estado BIT DEFAULT 1,
-	fechaRegistro DATETIME CONSTRAINT DF_Proveedor_fechaRegistro DEFAULT getdate(),
-	CONSTRAINT PK_Proveedor_id PRIMARY KEY (idProveedor),
-	CONSTRAINT UQ_Proveedor_documento UNIQUE (documento),
-	CONSTRAINT UQ_Proveedor_correo UNIQUE (correo),
-	CONSTRAINT UQ_Proveedor_telefono UNIQUE (telefono)
-)
-go
-
-CREATE TABLE COMPRA(
-	idCompra INT IDENTITY,
-	idUsuario INT,
-	idProveedor INT,
-	tipoDocumento VARCHAR(50),
-	montoTotal DECIMAL(10,2),
-	fechaRegistro DATETIME CONSTRAINT DF_Compra_fechaRegistro DEFAULT getdate(),
-	CONSTRAINT PK_Compra_id PRIMARY KEY (idCompra),
-	CONSTRAINT FK_Compra_Usuario FOREIGN KEY (idUsuario) REFERENCES USUARIO (idUsuario),
-	CONSTRAINT FK_Compra_Proveedor FOREIGN KEY (idProveedor) REFERENCES PROVEEDOR(idProveedor),
-	CONSTRAINT CK_Compra_montoTotal CHECK (montoTotal >= 0),
-	CONSTRAINT CK_Compra_tipoDocumento CHECK (tipoDocumento in ('Boleta', 'Factura'))
-)
-go
-
-CREATE TABLE DETALLE_COMPRA(
-	idDetalleCompra INT IDENTITY,
-	idCompra INT,
-	idProducto INT,
-	precioCompra DECIMAL(10,2) DEFAULT 0,
-	precioVenta DECIMAL(10,2) DEFAULT 0,
-	cantidad INT,
-	montoTotal DECIMAL(10,2),
-	fechaRegistro DATETIME CONSTRAINT DF_DetalleCompra_fechaRegistro DEFAULT getdate(),
-	CONSTRAINT PK_DetalleCompra_id PRIMARY KEY (idDetalleCompra),
-	CONSTRAINT FK_DetalleCompra_Compra FOREIGN KEY (idCompra) REFERENCES COMPRA(idCompra),
-	CONSTRAINT FK_DetalleCompra_Producto FOREIGN KEY (idProducto) REFERENCES PRODUCTO(idProducto),
-	CONSTRAINT CK_DetalleCompra_montoTotal CHECK (montoTotal >= 0),
-	CONSTRAINT CK_DetalleCompra_cantidad CHECK (cantidad > 0)
-)
-go
-
-/*
-INSERT INTO PERMISO (idRol, nombreMenu)
-VALUES (1, 'menuCompras'),
-(1, 'menuProveedores')
-go
-
-INSERT INTO PERMISO (idRol, nombreMenu)
-VALUES(2, 'menuCompras'),
-(2, 'menuProveedores')
-go
-
-INSERT INTO PERMISO (idRol, nombreMenu)
-VALUES(2, 'menuReportes')
-go
-*/
-SELECT * FROM PERMISO
-/* cambios 9/9 */
-
+--codigo para listar usuarios, implementado dentro del codigo de la aplicacion
 select U.idUsuario, U.documento, U.nombreCompleto, U.correo, U.clave, U.estado, U.telefono, R.idRol, R.descripcion from USUARIO u
 inner join ROL r on r.idRol = U.idRol
 go
 
+--Proc Almacenado para registrar usuarios
 CREATE PROC SP_REGISTRARUSUARIO(
 @documento varchar(50),
 @nombreCompleto varchar(150),
@@ -311,9 +239,7 @@ begin
 end
 go
 
-
-/*cambios 11/9 */
-	
+--Proc Almacenado para editar usuarios	
 CREATE PROC SP_EDITARUSUARIO(
 @idUsuario int,
 @documento varchar(50),
@@ -364,20 +290,19 @@ begin
 end
 go
 
---restricción para numeros de documento.
-
+--restricción para numeros de documento de usuarios.
 ALTER TABLE USUARIO
 ADD CONSTRAINT CK_Usuario_Dni
 CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
 go
 
---restriccion para nombres completos.
+--restriccion para nombres completos de usuarios.
 ALTER TABLE USUARIO
 ADD CONSTRAINT CK_Usuario_Nombre
 CHECK (nombreCompleto LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and nombreCompleto NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
 go
 
---restriccion para correos validos.
+--restriccion para correos validos de usuarios.
 ALTER TABLE USUARIO
 ADD CONSTRAINT CK_Usuario_Correo
 CHECK (
@@ -386,13 +311,11 @@ CHECK (
     AND CHARINDEX(' ', correo) = 0
 );
 
---restriccion para numeros de telefono validos
+--restriccion para numeros de telefono validos de usuarios
 ALTER TABLE USUARIO
 ADD CONSTRAINT CK_Usuario_Telefono
 CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
 go
-
-/* cambios 3/10 */
 
 --Procedimiento almacenado para registrar categorias de productos.
 CREATE PROC SP_REGISTRARCATEGORIA(
@@ -508,10 +431,7 @@ begin
 end
 go
 
---Cambios 14/10
-Select * from CLIENTE
-go
-
+--Procedimiento almacenado para registrar clientes.
 CREATE PROC sp_RegistrarCliente(
 @documento varchar(50),
 @nombreCompleto varchar(150),
@@ -544,6 +464,7 @@ begin
 end
 go
 
+--Procedimiento almacenado para modificar clientes.
 create PROC sp_ModificarCliente(
 @idCliente int,
 @documento varchar(50),
@@ -583,22 +504,19 @@ begin
 end
 go
 
-select * from CLIENTE
-go
-
---restricción para numeros de documento.
+--restricción para numeros de documento de clientes.
 ALTER TABLE CLIENTE
 ADD CONSTRAINT CK_Cliente_Dni
 CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
 go
 
---restriccion para nombres completos.
+--restriccion para nombres completos de clientes.
 ALTER TABLE CLIENTE
 ADD CONSTRAINT CK_Cliente_Nombre
 CHECK (nombreCompleto LIKE '%[A-Za-zÑñÁÉÍÓÚáéíóú ]%' and nombreCompleto NOT LIKE '%[^A-Za-zÑñÁÉÍÓÚáéíóú ]%')
 go
 
---restriccion para correos validos.
+--restriccion para correos validos de clientes.
 ALTER TABLE CLIENTE
 ADD CONSTRAINT CK_Cliente_Correo
 CHECK (
@@ -607,113 +525,13 @@ CHECK (
     AND CHARINDEX(' ', correo) = 0
 );
 go
---restriccion para numeros de telefono validos
+--restriccion para numeros de telefono validos de clientes.
 ALTER TABLE CLIENTE
 ADD CONSTRAINT CK_Cliente_Telefono
 CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
 go
 
-
---cambios 14-10
---Procedimientos para proveedor
-create PROC sp_RegistrarProveedor(
-@documento varchar(50),
-@razonSocial varchar(150),
-@correo varchar(150),
-@telefono varchar(50),
-@estado bit,
-@Resultado int output,
-@Mensaje varchar(500) output
-)as
-begin 
-	SET @Resultado = 0
-	DECLARE @IDPROVEEDOR INT
-	if not exists(select * from PROVEEDOR where documento = @documento or correo = @correo or telefono = @telefono)
-	begin
-		insert into PROVEEDOR (documento, razonSocial, correo, telefono, estado) 
-		VALUES(@documento, @razonSocial, @correo, @telefono, @estado)
-
-		set @Resultado = SCOPE_IDENTITY()
-		set @Mensaje = 'Proveedor registrado con éxito!'
-	end
-	else
-	begin
-		if exists(select * from PROVEEDOR where documento = @documento)
-			set @Mensaje = 'Ya existe un proveedor registrado con ese documento.'
-		else if exists(select * from PROVEEDOR where correo = @correo)
-			set @Mensaje = 'Ya existe un proveedor registrado con ese correo.'
-		else if exists(select * from PROVEEDOR where telefono = @telefono)
-			set @Mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
-		end
-end
-go
-
-
-CREATE PROC sp_ModificarProveedor(
-@idProveedor int,
-@documento varchar(50),
-@razonSocial varchar(150),
-@correo varchar(150),
-@telefono varchar(50),
-@estado bit,
-@Resultado int output,
-@Mensaje varchar(500) output
-)as
-begin 
-	SET @Resultado = 0
-	DECLARE @IDPERSONA INT
-	if not exists(select * from PROVEEDOR
-	WHERE (documento = @documento or telefono = @telefono or correo = @correo) and idProveedor != @idProveedor)
-	begin
-		UPDATE PROVEEDOR SET
-		documento = @documento,
-		razonSocial = @razonSocial,
-		correo = @correo,
-		telefono = @telefono,
-		estado = @estado
-		WHERE idProveedor = @idProveedor
-
-		set @resultado = 1;
-		set @mensaje = 'Proveedor: ' + @razonSocial + ', modificado con éxito!'
-	end
-	else
-	begin
-		if exists(select * from PROVEEDOR where documento = @documento and idProveedor != @idProveedor)
-			set @mensaje = 'Ya existe un proveedor registrado con ese documento.'
-		else if exists(select * from PROVEEDOR where correo = @correo and idProveedor != @idProveedor)
-			set @mensaje = 'Ya existe un proveedor registrado con ese correo.'
-		else if exists(select * from PROVEEDOR where telefono = @telefono and idProveedor != @idProveedor)
-			set @mensaje = 'Ya existe un proveedor registrado con ese teléfono.'
-		end
-end
-go
-
-
---restricción para numeros de documento.
-ALTER TABLE PROVEEDOR
-ADD CONSTRAINT CK_Proveedor_Dni
-CHECK (documento LIKE '%[0-9]%' AND documento NOT LIKE '%[^0-9]%' AND LEN(documento) >= 7)
-go
-
---restriccion para correos validos.
-ALTER TABLE PROVEEDOR
-ADD CONSTRAINT CK_Proveedor_Correo
-CHECK (
-    correo LIKE '%_@__%.__%' 
-    AND correo NOT LIKE '%[^A-Za-z0-9@._-]%' 
-    AND CHARINDEX(' ', correo) = 0
-);
-go
---restriccion para numeros de telefono validos
-ALTER TABLE PROVEEDOR
-ADD CONSTRAINT CK_Proveedor_Telefono
-CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
-go
-
-select * from PROVEEDOR
-go
-
---Cambios 16/10
+--Procedimiento almacenado para registrar productos.
 CREATE PROC SP_REGISTRARPRODUCTO(
 @codigo varchar(50),
 @nombre varchar(150),
@@ -746,6 +564,7 @@ begin
 end
 go
 
+--Procedimiento almacenado para modificar productos.
 CREATE PROC SP_EDITARPRODUCTO(
 @idProducto int,
 @codigo varchar(50),
@@ -789,24 +608,14 @@ begin
 end
 go
 
+--Restriccion para códigos de productos validos.
 ALTER TABLE PRODUCTO
 ADD CONSTRAINT CK_Producto_Codigo
 CHECK (codigo LIKE '%[0-9]%' AND codigo NOT LIKE '%[^0-9]%')
 go
 
-select p.idProducto, p.codigo, p.nombre, m.idMarca, m.descripcion[descMarca], c.idCategoria, c.descripcion[descCategoria], p.stock_min, p.stock, p.precio, p.precioVenta, p.estado from PRODUCTO p
-inner join Marca m on p.idMarca = m.idMarca
-inner join CATEGORIA c on p.idCategoria = c.idCategoria
-
-
---Cambios 21/10
-
-INSERT INTO PROVEEDOR(documento, razonSocial, correo, telefono, estado)
-VALUES('252525250', 'Purina SA', 'purina@gmail.com', '3794888888', 1)
-go
-
---cambios 22/10
 --Procesos para registrar una venta
+--Se crea el Datatable del detalle de ventas.
 CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
 	[idProducto] int null,
 	[precioVenta] decimal (18,2) NULL,
@@ -816,6 +625,7 @@ CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
 
 GO
 
+--Proc almacenado para registrar ventas.
 CREATE PROCEDURE usp_RegistrarVenta(
 	@idUsuario int,
 	@tipoDocumento varchar (500),
@@ -857,7 +667,7 @@ begin
 END
 go
 
---cambios 23/10
+--inserciones a la tabla Marca
 INSERT INTO MARCA (descripcion)
 VALUES 
 ('Purina'),
@@ -882,6 +692,7 @@ VALUES
 ('Sergeant''s')
 go
 
+--inserciones a la tabla Categoria
 INSERT INTO CATEGORIA (descripcion, estado)
 VALUES 
 ('Alimentos', 1),
@@ -898,6 +709,7 @@ VALUES
 ('Arena y Lechos', 1);
 GO
 
+--inserciones a la tabla Producto
 INSERT INTO PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
 VALUES
 ('1000', 'Purina Dog Chow Adultos 20kg', 1, 1, 10, 50, 3500.00, 4500.00, 1),
@@ -940,21 +752,7 @@ INSERT INTO CLIENTE (documento, nombreCompleto, correo, telefono, estado) VALUES
 ('90123456', 'Diego Castillo', 'diego.castillo@gmail.com', '3201234567', 1)
 go
 
-select v.idVenta, v.idUsuario, u.nombreCompleto, u.documento, v.documentoCliente, v.nombreCliente, v.tipoDocumento,
-v.numeroDocumento, v.montoPago, v.montoCambio, v.montoTotal, v.fechaRegistro from venta v
-inner join USUARIO u on u.idUSuario = v.idUsuario
-where v.numeroDocumento = '00001'
-
-select * from VENTA
-
-select p.nombre, m.descripcion, dv.precioVenta, dv.cantidad, dv.subTotal from DETALLE_VENTA dv
-inner join PRODUCTO p on p.idProducto = dv.idProducto
-inner join marca m on p.idMarca = m.idMarca
-where dv.idVenta = 1
-go
-
-
---cambios 26-10
+--Proc almacenado para obtener el reporte de las ventas.
 CREATE PROC sp_ReporteVentas(
 @fechainicio VARCHAR(10),
 @fechafin VARCHAR (10),
@@ -985,11 +783,8 @@ END
 GO
 
 --Ejemplo
-
 EXEC sp_ReporteVentas '26/10/2024', '30/10/2024', 1, 1
 go
-
---cambios 4/11
 
 --Proc almacenado para ver los productos más vendidos.
 CREATE PROC SP_ReporteProdMasVendidos(
@@ -1092,11 +887,3 @@ where
 		)
 END 
 GO
-
-EXEC SP_ReporteProductosSinVentas '4/10/2024', '5/11/2024'
-go
-
-EXEC SP_ReporteProdMasVendidos '4/10/2024', '5/11/2024'
-go
-
-select * from CATEGORIA
