@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             BCerrar = new PictureBox();
             titulo = new Label();
@@ -40,10 +41,10 @@
             BLimpiarBusqueda = new FontAwesome.Sharp.IconButton();
             TBusqueda = new TextBox();
             dgvData = new DataGridView();
+            BAgregar = new FontAwesome.Sharp.IconButton();
             idCliente = new DataGridViewTextBoxColumn();
             nroDocumento = new DataGridViewTextBoxColumn();
             nombreCompleto = new DataGridViewTextBoxColumn();
-            BAgregar = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BCerrar).BeginInit();
             panel2.SuspendLayout();
@@ -106,11 +107,11 @@
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.BackColor = Color.FromArgb(210, 120, 61);
-            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(13, 10);
+            label9.Location = new Point(13, 7);
             label9.Name = "label9";
-            label9.Size = new Size(69, 15);
+            label9.Size = new Size(85, 18);
             label9.TabIndex = 20;
             label9.Text = "Buscar por:";
             // 
@@ -118,10 +119,11 @@
             // 
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBusqueda.Font = new Font("Microsoft Sans Serif", 11F);
             CBusqueda.FormattingEnabled = true;
             CBusqueda.Location = new Point(13, 28);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(168, 23);
+            CBusqueda.Size = new Size(168, 26);
             CBusqueda.TabIndex = 21;
             // 
             // BBusqueda
@@ -136,7 +138,7 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(395, 24);
+            BBusqueda.Location = new Point(395, 27);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 23;
@@ -157,7 +159,7 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(448, 24);
+            BLimpiarBusqueda.Location = new Point(448, 27);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(47, 29);
             BLimpiarBusqueda.TabIndex = 24;
@@ -169,9 +171,10 @@
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(187, 28);
+            TBusqueda.Font = new Font("Microsoft Sans Serif", 11F);
+            TBusqueda.Location = new Point(187, 30);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(202, 23);
+            TBusqueda.Size = new Size(202, 24);
             TBusqueda.TabIndex = 22;
             // 
             // dgvData
@@ -180,7 +183,7 @@
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -189,42 +192,27 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { idCliente, nroDocumento, nombreCompleto });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             dgvData.Location = new Point(13, 115);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.RowTemplate.Height = 28;
             dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(518, 331);
             dgvData.TabIndex = 16;
             dgvData.CellDoubleClick += dgvData_CellDoubleClick;
-            // 
-            // idCliente
-            // 
-            idCliente.HeaderText = "id";
-            idCliente.Name = "idCliente";
-            idCliente.ReadOnly = true;
-            idCliente.Visible = false;
-            // 
-            // nroDocumento
-            // 
-            nroDocumento.HeaderText = "Número de documento";
-            nroDocumento.MinimumWidth = 6;
-            nroDocumento.Name = "nroDocumento";
-            nroDocumento.ReadOnly = true;
-            nroDocumento.Width = 175;
-            // 
-            // nombreCompleto
-            // 
-            nombreCompleto.HeaderText = "Nombre completo";
-            nombreCompleto.MinimumWidth = 6;
-            nombreCompleto.Name = "nombreCompleto";
-            nombreCompleto.ReadOnly = true;
-            nombreCompleto.Width = 250;
             // 
             // BAgregar
             // 
@@ -249,6 +237,29 @@
             BAgregar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BAgregar.UseVisualStyleBackColor = false;
             BAgregar.Click += BAgregar_Click;
+            // 
+            // idCliente
+            // 
+            idCliente.HeaderText = "id";
+            idCliente.Name = "idCliente";
+            idCliente.ReadOnly = true;
+            idCliente.Visible = false;
+            // 
+            // nroDocumento
+            // 
+            nroDocumento.HeaderText = "Número de documento";
+            nroDocumento.MinimumWidth = 6;
+            nroDocumento.Name = "nroDocumento";
+            nroDocumento.ReadOnly = true;
+            nroDocumento.Width = 200;
+            // 
+            // nombreCompleto
+            // 
+            nombreCompleto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            nombreCompleto.HeaderText = "Nombre completo";
+            nombreCompleto.MinimumWidth = 6;
+            nombreCompleto.Name = "nombreCompleto";
+            nombreCompleto.ReadOnly = true;
             // 
             // mdBuscarCliente
             // 

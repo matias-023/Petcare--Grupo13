@@ -34,6 +34,11 @@ namespace CapaPresentacion.Modals
             CBusqueda.ValueMember = "valor";
             CBusqueda.SelectedIndex = 0;
 
+            listarProductos();
+        }
+
+        private void listarProductos()
+        {
             //Se listan todos los productos activos
             List<Producto> listaProducto = new CN_Producto().listar().Where(p => p.stock > 0).ToList();
 

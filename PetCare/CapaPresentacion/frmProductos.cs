@@ -37,6 +37,12 @@ namespace CapaPresentacion
             CBusqueda.ValueMember = "valor";
             CBusqueda.SelectedIndex = 0;
 
+            listarProductos();
+        }
+
+        private void listarProductos()
+        {
+            
             //Se listan todos los productos
             List<Producto> listaProducto = new CN_Producto().listar();
 
@@ -54,6 +60,7 @@ namespace CapaPresentacion
                 }
             }
         }
+
         private void EnableDoubleBuffer(DataGridView dgv)
         {
             Type dgvType = dgv.GetType();

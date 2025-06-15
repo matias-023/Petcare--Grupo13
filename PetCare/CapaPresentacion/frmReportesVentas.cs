@@ -41,7 +41,15 @@ namespace CapaPresentacion
 
         private void BBuscarReporte_Click(object sender, EventArgs e)
         {
+            buscarVentas();
+        }
+
+        private void buscarVentas()
+        {
             List<reporteVenta> lista = new List<reporteVenta>();
+
+            //Se envia el usuario para verificar si se trata de un administrador o un cajero, ya que un administrador
+            // debe poder ver todas las ventas del sistema, y un cajero solo las suyas.
 
             lista = new CN_Reporte().Venta(txtfechainicio.Value.ToString(), txtfechafin.Value.ToString(), user);
 
@@ -93,6 +101,11 @@ namespace CapaPresentacion
 
         private void BDescargarExcel_Click(object sender, EventArgs e)
         {
+            descargarExcel();
+        }
+
+        private void descargarExcel()
+        {
             if (dgvData.Rows.Count < 1)
             {
                 MessageBox.Show("No hay registros para exportar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -104,7 +117,7 @@ namespace CapaPresentacion
                 foreach (DataGridViewColumn columna in dgvData.Columns)
                 {
                     if (columna.Name != "idVenta" && columna.Name != "verDetalle")
-                    dt.Columns.Add(columna.HeaderText, typeof(string));
+                        dt.Columns.Add(columna.HeaderText, typeof(string));
                 }
 
                 foreach (DataGridViewRow row in dgvData.Rows)

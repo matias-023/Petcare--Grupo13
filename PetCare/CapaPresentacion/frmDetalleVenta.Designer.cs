@@ -30,14 +30,11 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             TTipoDocumento = new TextBox();
             TFecha = new TextBox();
             TIdVenta = new TextBox();
             dgvData = new DataGridView();
-            producto = new DataGridViewTextBoxColumn();
-            precio = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
             TTotal = new TextBox();
             TMontoPago = new TextBox();
             TMontoCambio = new TextBox();
@@ -106,6 +103,10 @@
             label28 = new Label();
             label29 = new Label();
             iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
+            producto = new DataGridViewTextBoxColumn();
+            precio = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).BeginInit();
@@ -128,25 +129,25 @@
             // 
             TTipoDocumento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TTipoDocumento.Enabled = false;
-            TTipoDocumento.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TTipoDocumento.Font = new Font("Microsoft Sans Serif", 12F);
             TTipoDocumento.Location = new Point(370, 19);
             TTipoDocumento.Name = "TTipoDocumento";
-            TTipoDocumento.Size = new Size(242, 22);
+            TTipoDocumento.Size = new Size(242, 26);
             TTipoDocumento.TabIndex = 5;
             // 
             // TFecha
             // 
             TFecha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TFecha.Enabled = false;
-            TFecha.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TFecha.Font = new Font("Microsoft Sans Serif", 12F);
             TFecha.Location = new Point(3, 19);
             TFecha.Name = "TFecha";
-            TFecha.Size = new Size(156, 22);
+            TFecha.Size = new Size(156, 26);
             TFecha.TabIndex = 4;
             // 
             // TIdVenta
             // 
-            TIdVenta.Location = new Point(428, 26);
+            TIdVenta.Location = new Point(389, 22);
             TIdVenta.Name = "TIdVenta";
             TIdVenta.Size = new Size(59, 23);
             TIdVenta.TabIndex = 13;
@@ -158,7 +159,7 @@
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -167,78 +168,54 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { producto, precio, cantidad, subTotal });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             dgvData.Location = new Point(17, 242);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1040, 308);
             dgvData.TabIndex = 15;
-            // 
-            // producto
-            // 
-            producto.HeaderText = "Producto";
-            producto.MinimumWidth = 6;
-            producto.Name = "producto";
-            producto.ReadOnly = true;
-            producto.Width = 250;
-            // 
-            // precio
-            // 
-            precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
-            precio.Name = "precio";
-            precio.ReadOnly = true;
-            precio.Width = 150;
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.MinimumWidth = 6;
-            cantidad.Name = "cantidad";
-            cantidad.ReadOnly = true;
-            cantidad.Width = 150;
-            // 
-            // subTotal
-            // 
-            subTotal.HeaderText = "Sub Total";
-            subTotal.MinimumWidth = 6;
-            subTotal.Name = "subTotal";
-            subTotal.ReadOnly = true;
-            subTotal.Width = 200;
             // 
             // TTotal
             // 
             TTotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TTotal.Enabled = false;
-            TTotal.Font = new Font("Microsoft Sans Serif", 11.25F);
-            TTotal.Location = new Point(3, 23);
+            TTotal.Font = new Font("Microsoft Sans Serif", 12F);
+            TTotal.Location = new Point(3, 22);
             TTotal.Name = "TTotal";
-            TTotal.Size = new Size(274, 24);
+            TTotal.Size = new Size(274, 26);
             TTotal.TabIndex = 16;
             // 
             // TMontoPago
             // 
             TMontoPago.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TMontoPago.Enabled = false;
-            TMontoPago.Font = new Font("Microsoft Sans Serif", 11.25F);
-            TMontoPago.Location = new Point(283, 23);
+            TMontoPago.Font = new Font("Microsoft Sans Serif", 12F);
+            TMontoPago.Location = new Point(283, 22);
             TMontoPago.Name = "TMontoPago";
-            TMontoPago.Size = new Size(212, 24);
+            TMontoPago.Size = new Size(212, 26);
             TMontoPago.TabIndex = 20;
             // 
             // TMontoCambio
             // 
             TMontoCambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TMontoCambio.Enabled = false;
-            TMontoCambio.Font = new Font("Microsoft Sans Serif", 11.25F);
-            TMontoCambio.Location = new Point(501, 23);
+            TMontoCambio.Font = new Font("Microsoft Sans Serif", 12F);
+            TMontoCambio.Location = new Point(501, 22);
             TMontoCambio.Name = "TMontoCambio";
-            TMontoCambio.Size = new Size(230, 24);
+            TMontoCambio.Size = new Size(230, 26);
             TMontoCambio.TabIndex = 22;
             // 
             // BDescargar
@@ -267,20 +244,20 @@
             // 
             TNombreCajero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TNombreCajero.Enabled = false;
-            TNombreCajero.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TNombreCajero.Font = new Font("Microsoft Sans Serif", 12F);
             TNombreCajero.Location = new Point(149, 19);
             TNombreCajero.Name = "TNombreCajero";
-            TNombreCajero.Size = new Size(267, 22);
+            TNombreCajero.Size = new Size(267, 26);
             TNombreCajero.TabIndex = 8;
             // 
             // TDocumentoCajero
             // 
             TDocumentoCajero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TDocumentoCajero.Enabled = false;
-            TDocumentoCajero.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TDocumentoCajero.Font = new Font("Microsoft Sans Serif", 12F);
             TDocumentoCajero.Location = new Point(3, 19);
             TDocumentoCajero.Name = "TDocumentoCajero";
-            TDocumentoCajero.Size = new Size(140, 22);
+            TDocumentoCajero.Size = new Size(140, 26);
             TDocumentoCajero.TabIndex = 7;
             // 
             // label5
@@ -484,14 +461,14 @@
             // BLimpiar
             // 
             BLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BLimpiar.Font = new Font("Microsoft Sans Serif", 9F);
+            BLimpiar.Font = new Font("Microsoft Sans Serif", 12F);
             BLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
             BLimpiar.IconColor = Color.Black;
             BLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiar.IconSize = 18;
-            BLimpiar.Location = new Point(908, 25);
+            BLimpiar.Location = new Point(892, 19);
             BLimpiar.Name = "BLimpiar";
-            BLimpiar.Size = new Size(91, 23);
+            BLimpiar.Size = new Size(109, 38);
             BLimpiar.TabIndex = 10;
             BLimpiar.Text = "Limpiar";
             BLimpiar.TextAlign = ContentAlignment.MiddleRight;
@@ -502,14 +479,14 @@
             // BBuscar
             // 
             BBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BBuscar.Font = new Font("Microsoft Sans Serif", 9F);
+            BBuscar.Font = new Font("Microsoft Sans Serif", 12F);
             BBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             BBuscar.IconColor = Color.Black;
             BBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBuscar.IconSize = 18;
-            BBuscar.Location = new Point(810, 25);
+            BBuscar.Location = new Point(781, 19);
             BBuscar.Name = "BBuscar";
-            BBuscar.Size = new Size(92, 23);
+            BBuscar.Size = new Size(105, 38);
             BBuscar.TabIndex = 9;
             BBuscar.Text = "Buscar";
             BBuscar.TextAlign = ContentAlignment.MiddleRight;
@@ -520,9 +497,10 @@
             // TCodigoVenta
             // 
             TCodigoVenta.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TCodigoVenta.Location = new Point(632, 25);
+            TCodigoVenta.Font = new Font("Microsoft Sans Serif", 12F);
+            TCodigoVenta.Location = new Point(585, 26);
             TCodigoVenta.Name = "TCodigoVenta";
-            TCodigoVenta.Size = new Size(172, 23);
+            TCodigoVenta.Size = new Size(187, 26);
             TCodigoVenta.TabIndex = 8;
             TCodigoVenta.KeyDown += TCodigoVenta_KeyDown;
             // 
@@ -556,7 +534,7 @@
             // 
             // TNroDocumento
             // 
-            TNroDocumento.Location = new Point(316, 26);
+            TNroDocumento.Location = new Point(292, 24);
             TNroDocumento.Name = "TNroDocumento";
             TNroDocumento.Size = new Size(45, 23);
             TNroDocumento.TabIndex = 56;
@@ -567,11 +545,11 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.FromArgb(210, 120, 61);
-            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(517, 29);
+            label1.Location = new Point(451, 28);
             label1.Name = "label1";
-            label1.Size = new Size(98, 15);
+            label1.Size = new Size(128, 20);
             label1.TabIndex = 55;
             label1.Text = "Código de venta:";
             // 
@@ -708,20 +686,20 @@
             // 
             TNombreCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TNombreCliente.Enabled = false;
-            TNombreCliente.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TNombreCliente.Font = new Font("Microsoft Sans Serif", 12F);
             TNombreCliente.Location = new Point(151, 19);
             TNombreCliente.Name = "TNombreCliente";
-            TNombreCliente.Size = new Size(262, 22);
+            TNombreCliente.Size = new Size(262, 26);
             TNombreCliente.TabIndex = 8;
             // 
             // TDocumentoCliente
             // 
             TDocumentoCliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TDocumentoCliente.Enabled = false;
-            TDocumentoCliente.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TDocumentoCliente.Font = new Font("Microsoft Sans Serif", 12F);
             TDocumentoCliente.Location = new Point(3, 19);
             TDocumentoCliente.Name = "TDocumentoCliente";
-            TDocumentoCliente.Size = new Size(142, 22);
+            TDocumentoCliente.Size = new Size(142, 26);
             TDocumentoCliente.TabIndex = 7;
             // 
             // label4
@@ -824,10 +802,10 @@
             // 
             TMedioPago.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TMedioPago.Enabled = false;
-            TMedioPago.Font = new Font("Microsoft Sans Serif", 9.75F);
+            TMedioPago.Font = new Font("Microsoft Sans Serif", 12F);
             TMedioPago.Location = new Point(618, 19);
             TMedioPago.Name = "TMedioPago";
-            TMedioPago.Size = new Size(312, 22);
+            TMedioPago.Size = new Size(312, 26);
             TMedioPago.TabIndex = 6;
             TMedioPago.Visible = false;
             // 
@@ -846,10 +824,10 @@
             // 
             THora.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             THora.Enabled = false;
-            THora.Font = new Font("Microsoft Sans Serif", 9.75F);
+            THora.Font = new Font("Microsoft Sans Serif", 12F);
             THora.Location = new Point(165, 19);
             THora.Name = "THora";
-            THora.Size = new Size(199, 22);
+            THora.Size = new Size(199, 26);
             THora.TabIndex = 8;
             // 
             // label25
@@ -969,6 +947,38 @@
             iconPictureBox6.TabIndex = 62;
             iconPictureBox6.TabStop = false;
             // 
+            // producto
+            // 
+            producto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            producto.HeaderText = "Producto";
+            producto.MinimumWidth = 300;
+            producto.Name = "producto";
+            producto.ReadOnly = true;
+            // 
+            // precio
+            // 
+            precio.HeaderText = "Precio";
+            precio.MinimumWidth = 200;
+            precio.Name = "precio";
+            precio.ReadOnly = true;
+            precio.Width = 200;
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.MinimumWidth = 150;
+            cantidad.Name = "cantidad";
+            cantidad.ReadOnly = true;
+            cantidad.Width = 150;
+            // 
+            // subTotal
+            // 
+            subTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            subTotal.HeaderText = "Sub Total";
+            subTotal.MinimumWidth = 200;
+            subTotal.Name = "subTotal";
+            subTotal.ReadOnly = true;
+            // 
             // frmDetalleVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1083,10 +1093,10 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox6;
         private Label label27;
         private TextBox TMedioPago;
+        private TextBox TNroDocumento;
         private DataGridViewTextBoxColumn producto;
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn cantidad;
         private DataGridViewTextBoxColumn subTotal;
-        private TextBox TNroDocumento;
     }
 }

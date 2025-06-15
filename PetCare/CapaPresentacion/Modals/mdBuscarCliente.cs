@@ -90,6 +90,11 @@ namespace CapaPresentacion.Modals
             CBusqueda.ValueMember = "valor";
             CBusqueda.SelectedIndex = 0;
 
+            listarClientes();
+        }
+
+        private void listarClientes()
+        {
             //Se listan todos los clientes activos.
             List<Cliente> listaCliente = new CN_Cliente().listar().Where(c => c.estado == true).ToList();
 

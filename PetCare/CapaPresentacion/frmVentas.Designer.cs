@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel2 = new Panel();
             TIdCliente = new TextBox();
             label2 = new Label();
@@ -209,18 +210,20 @@
             TNombreCompleto.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TNombreCompleto.BackColor = SystemColors.Window;
             TNombreCompleto.Enabled = false;
+            TNombreCompleto.Font = new Font("Microsoft Sans Serif", 12F);
             TNombreCompleto.Location = new Point(780, 32);
             TNombreCompleto.Name = "TNombreCompleto";
-            TNombreCompleto.Size = new Size(236, 23);
+            TNombreCompleto.Size = new Size(236, 26);
             TNombreCompleto.TabIndex = 3;
             // 
             // TDocumentoCliente
             // 
             TDocumentoCliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TDocumentoCliente.BackColor = SystemColors.Window;
+            TDocumentoCliente.Font = new Font("Microsoft Sans Serif", 12F);
             TDocumentoCliente.Location = new Point(536, 32);
             TDocumentoCliente.Name = "TDocumentoCliente";
-            TDocumentoCliente.Size = new Size(185, 23);
+            TDocumentoCliente.Size = new Size(185, 26);
             TDocumentoCliente.TabIndex = 1;
             TDocumentoCliente.KeyDown += TDocumentoCliente_KeyDown;
             // 
@@ -238,7 +241,7 @@
             BBuscarCliente.IconSize = 22;
             BBuscarCliente.Location = new Point(727, 32);
             BBuscarCliente.Name = "BBuscarCliente";
-            BBuscarCliente.Size = new Size(47, 23);
+            BBuscarCliente.Size = new Size(47, 27);
             BBuscarCliente.TabIndex = 2;
             BBuscarCliente.TextAlign = ContentAlignment.MiddleRight;
             BBuscarCliente.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -248,11 +251,11 @@
             // TFecha
             // 
             TFecha.BackColor = SystemColors.Window;
-            TFecha.Enabled = false;
-            TFecha.Font = new Font("Microsoft Sans Serif", 11.25F);
-            TFecha.Location = new Point(3, 20);
+            TFecha.Font = new Font("Microsoft Sans Serif", 14F);
+            TFecha.Location = new Point(3, 21);
             TFecha.Name = "TFecha";
-            TFecha.Size = new Size(109, 24);
+            TFecha.ReadOnly = true;
+            TFecha.Size = new Size(109, 29);
             TFecha.TabIndex = 14;
             // 
             // dgvData
@@ -261,7 +264,7 @@
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -270,14 +273,22 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, nombre, precio, cantidad, subTotal, BEditar, BEliminar });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             dgvData.Location = new Point(12, 195);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1040, 290);
             dgvData.TabIndex = 10;
@@ -295,19 +306,19 @@
             // 
             // nombre
             // 
+            nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             nombre.HeaderText = "Producto";
-            nombre.MinimumWidth = 6;
+            nombre.MinimumWidth = 300;
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 300;
             // 
             // precio
             // 
+            precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             precio.HeaderText = "Precio";
-            precio.MinimumWidth = 6;
+            precio.MinimumWidth = 150;
             precio.Name = "precio";
             precio.ReadOnly = true;
-            precio.Width = 150;
             // 
             // cantidad
             // 
@@ -319,16 +330,16 @@
             // 
             // subTotal
             // 
+            subTotal.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             subTotal.HeaderText = "Sub Total";
-            subTotal.MinimumWidth = 6;
+            subTotal.MinimumWidth = 175;
             subTotal.Name = "subTotal";
             subTotal.ReadOnly = true;
-            subTotal.Width = 150;
             // 
             // BEditar
             // 
             BEditar.HeaderText = "";
-            BEditar.MinimumWidth = 6;
+            BEditar.MinimumWidth = 35;
             BEditar.Name = "BEditar";
             BEditar.ReadOnly = true;
             BEditar.Width = 35;
@@ -336,7 +347,7 @@
             // BEliminar
             // 
             BEliminar.HeaderText = "";
-            BEliminar.MinimumWidth = 6;
+            BEliminar.MinimumWidth = 35;
             BEliminar.Name = "BEliminar";
             BEliminar.ReadOnly = true;
             BEliminar.Resizable = DataGridViewTriState.True;
@@ -357,18 +368,20 @@
             // 
             TCambio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TCambio.Enabled = false;
-            TCambio.Location = new Point(3, 75);
+            TCambio.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TCambio.Location = new Point(3, 74);
             TCambio.Name = "TCambio";
-            TCambio.Size = new Size(155, 22);
+            TCambio.Size = new Size(155, 26);
             TCambio.TabIndex = 21;
             // 
             // TPagaCon
             // 
             TPagaCon.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TPagaCon.BackColor = SystemColors.Window;
-            TPagaCon.Location = new Point(3, 20);
+            TPagaCon.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TPagaCon.Location = new Point(3, 21);
             TPagaCon.Name = "TPagaCon";
-            TPagaCon.Size = new Size(155, 22);
+            TPagaCon.Size = new Size(155, 26);
             TPagaCon.TabIndex = 20;
             TPagaCon.KeyDown += TPagaCon_KeyDown;
             TPagaCon.KeyPress += TPagaCon_KeyPress;
@@ -395,12 +408,12 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Controls.Add(label14, 0, 0);
             tableLayoutPanel3.Controls.Add(THora, 0, 1);
-            tableLayoutPanel3.Location = new Point(9, 74);
+            tableLayoutPanel3.Location = new Point(9, 71);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 36.17021F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 63.82979F));
-            tableLayoutPanel3.Size = new Size(120, 47);
+            tableLayoutPanel3.Size = new Size(120, 56);
             tableLayoutPanel3.TabIndex = 63;
             // 
             // label14
@@ -417,11 +430,11 @@
             // THora
             // 
             THora.BackColor = SystemColors.Window;
-            THora.Enabled = false;
-            THora.Font = new Font("Microsoft Sans Serif", 11.25F);
-            THora.Location = new Point(3, 20);
+            THora.Font = new Font("Microsoft Sans Serif", 14F);
+            THora.Location = new Point(3, 23);
             THora.Name = "THora";
-            THora.Size = new Size(109, 24);
+            THora.ReadOnly = true;
+            THora.Size = new Size(109, 29);
             THora.TabIndex = 16;
             // 
             // tableLayoutPanel2
@@ -433,21 +446,22 @@
             tableLayoutPanel2.Controls.Add(CTipoDocumento, 1, 1);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(label15, 1, 0);
-            tableLayoutPanel2.Location = new Point(9, 21);
+            tableLayoutPanel2.Location = new Point(9, 16);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 36.17021F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 63.82979F));
-            tableLayoutPanel2.Size = new Size(361, 47);
+            tableLayoutPanel2.Size = new Size(361, 52);
             tableLayoutPanel2.TabIndex = 62;
             // 
             // CTipoDocumento
             // 
             CTipoDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
+            CTipoDocumento.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             CTipoDocumento.FormattingEnabled = true;
-            CTipoDocumento.Location = new Point(118, 20);
+            CTipoDocumento.Location = new Point(118, 21);
             CTipoDocumento.Name = "CTipoDocumento";
-            CTipoDocumento.Size = new Size(239, 24);
+            CTipoDocumento.Size = new Size(239, 28);
             CTipoDocumento.TabIndex = 17;
             // 
             // label1
@@ -491,9 +505,9 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 6;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.4247208F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.179015F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.865242F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.402235F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 6.36871529F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.6256981F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.8933983F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.61549F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.0221272F));
@@ -533,9 +547,10 @@
             // 
             TCodProducto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TCodProducto.BackColor = SystemColors.Window;
+            TCodProducto.Font = new Font("Microsoft Sans Serif", 12F);
             TCodProducto.Location = new Point(3, 19);
             TCodProducto.Name = "TCodProducto";
-            TCodProducto.Size = new Size(132, 22);
+            TCodProducto.Size = new Size(105, 26);
             TCodProducto.TabIndex = 5;
             TCodProducto.KeyDown += TCodProducto_KeyDown;
             // 
@@ -553,11 +568,12 @@
             // TCantidad
             // 
             TCantidad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TCantidad.Font = new Font("Microsoft Sans Serif", 12F);
             TCantidad.Location = new Point(735, 19);
             TCantidad.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             TCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.Name = "TCantidad";
-            TCantidad.Size = new Size(157, 22);
+            TCantidad.Size = new Size(157, 26);
             TCantidad.TabIndex = 11;
             TCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.KeyDown += TCantidad_KeyDown;
@@ -574,9 +590,9 @@
             BBuscarProducto.IconColor = Color.Black;
             BBuscarProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBuscarProducto.IconSize = 20;
-            BBuscarProducto.Location = new Point(141, 19);
+            BBuscarProducto.Location = new Point(114, 19);
             BBuscarProducto.Name = "BBuscarProducto";
-            BBuscarProducto.Size = new Size(49, 23);
+            BBuscarProducto.Size = new Size(51, 26);
             BBuscarProducto.TabIndex = 6;
             BBuscarProducto.TextAlign = ContentAlignment.MiddleRight;
             BBuscarProducto.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -588,9 +604,10 @@
             TStock.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TStock.BackColor = SystemColors.Window;
             TStock.Enabled = false;
+            TStock.Font = new Font("Microsoft Sans Serif", 12F);
             TStock.Location = new Point(623, 19);
             TStock.Name = "TStock";
-            TStock.Size = new Size(106, 22);
+            TStock.Size = new Size(106, 26);
             TStock.TabIndex = 10;
             // 
             // label10
@@ -606,7 +623,7 @@
             // 
             // TIdProducto
             // 
-            TIdProducto.Location = new Point(141, 3);
+            TIdProducto.Location = new Point(114, 3);
             TIdProducto.Name = "TIdProducto";
             TIdProducto.Size = new Size(23, 22);
             TIdProducto.TabIndex = 14;
@@ -628,9 +645,10 @@
             TPrecio.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TPrecio.BackColor = SystemColors.Window;
             TPrecio.Enabled = false;
+            TPrecio.Font = new Font("Microsoft Sans Serif", 12F);
             TPrecio.Location = new Point(463, 19);
             TPrecio.Name = "TPrecio";
-            TPrecio.Size = new Size(154, 22);
+            TPrecio.Size = new Size(154, 26);
             TPrecio.TabIndex = 9;
             // 
             // label6
@@ -638,7 +656,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(196, 0);
+            label6.Location = new Point(171, 0);
             label6.Name = "label6";
             label6.Size = new Size(73, 16);
             label6.TabIndex = 16;
@@ -649,9 +667,10 @@
             TProducto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TProducto.BackColor = SystemColors.Window;
             TProducto.Enabled = false;
-            TProducto.Location = new Point(196, 19);
+            TProducto.Font = new Font("Microsoft Sans Serif", 12F);
+            TProducto.Location = new Point(171, 19);
             TProducto.Name = "TProducto";
-            TProducto.Size = new Size(261, 22);
+            TProducto.Size = new Size(286, 26);
             TProducto.TabIndex = 7;
             // 
             // BAgregar
@@ -753,10 +772,10 @@
             tableLayoutPanel4.Location = new Point(300, 21);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 5;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 35.5555573F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 64.44444F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 13F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 13F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 18F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanel4.Size = new Size(161, 100);
             tableLayoutPanel4.TabIndex = 61;
@@ -777,9 +796,9 @@
             label18.AutoSize = true;
             label18.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             label18.ForeColor = Color.White;
-            label18.Location = new Point(3, 58);
+            label18.Location = new Point(3, 53);
             label18.Name = "label18";
-            label18.Size = new Size(64, 13);
+            label18.Size = new Size(64, 16);
             label18.TabIndex = 60;
             label18.Text = "Cambio:";
             // 
@@ -868,6 +887,9 @@
         private TextBox TIdCliente;
         private TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Timer timer1;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label label14;
+        private TextBox THora;
         private DataGridViewTextBoxColumn idProducto;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn precio;
@@ -875,8 +897,5 @@
         private DataGridViewTextBoxColumn subTotal;
         private DataGridViewButtonColumn BEditar;
         private DataGridViewButtonColumn BEliminar;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Label label14;
-        private TextBox THora;
     }
 }

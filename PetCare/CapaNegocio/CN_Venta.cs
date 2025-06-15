@@ -43,6 +43,8 @@ namespace CapaNegocio
                 {
                     if (oVenta.oUsuario.idUsuario == idUsuario)
                     {
+                        //Si el usuario no es administrador entonces se verifica que el usuario actual haya realizado la venta buscada
+                        //ya que un cajero solo puede ver detalles de sus propias ventas.
                         List<DetalleVenta> oDetalleVenta = objcd_venta.obtenerDetalleVenta(oVenta.idVenta);
                         oVenta.oDetalleVenta = oDetalleVenta;
                     }

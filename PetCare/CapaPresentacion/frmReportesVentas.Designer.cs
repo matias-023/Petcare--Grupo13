@@ -32,6 +32,8 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             BBuscarReporte = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label3 = new Label();
@@ -45,6 +47,11 @@
             panel2 = new Panel();
             label1 = new Label();
             dgvDetalle = new DataGridView();
+            codigo = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            cantidad = new DataGridViewTextBoxColumn();
+            precioVta = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             label9 = new Label();
             dgvData = new DataGridView();
@@ -62,11 +69,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel3 = new Panel();
             LDetalleVenta = new Label();
-            codigo = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            cantidad = new DataGridViewTextBoxColumn();
-            precioVta = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDetalle).BeginInit();
             panel1.SuspendLayout();
@@ -78,14 +80,14 @@
             // BBuscarReporte
             // 
             BBuscarReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BBuscarReporte.Font = new Font("Microsoft Sans Serif", 9F);
+            BBuscarReporte.Font = new Font("Microsoft Sans Serif", 12F);
             BBuscarReporte.IconChar = FontAwesome.Sharp.IconChar.Search;
             BBuscarReporte.IconColor = Color.Black;
             BBuscarReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBuscarReporte.IconSize = 18;
-            BBuscarReporte.Location = new Point(901, 18);
+            BBuscarReporte.Location = new Point(886, 13);
             BBuscarReporte.Name = "BBuscarReporte";
-            BBuscarReporte.Size = new Size(92, 23);
+            BBuscarReporte.Size = new Size(116, 32);
             BBuscarReporte.TabIndex = 3;
             BBuscarReporte.Text = "Buscar";
             BBuscarReporte.TextAlign = ContentAlignment.MiddleRight;
@@ -100,7 +102,7 @@
             label4.BackColor = Color.FromArgb(210, 120, 61);
             label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(676, 21);
+            label4.Location = new Point(643, 21);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(87, 18);
@@ -114,7 +116,7 @@
             label3.BackColor = Color.FromArgb(210, 120, 61);
             label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(427, 21);
+            label3.Location = new Point(375, 21);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(104, 18);
@@ -125,12 +127,12 @@
             // 
             txtfechafin.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtfechafin.CustomFormat = "dd/MM/yyyy";
-            txtfechafin.Font = new Font("Microsoft Sans Serif", 9F);
+            txtfechafin.Font = new Font("Microsoft Sans Serif", 13F);
             txtfechafin.Format = DateTimePickerFormat.Short;
-            txtfechafin.Location = new Point(783, 19);
+            txtfechafin.Location = new Point(738, 18);
             txtfechafin.Margin = new Padding(4, 2, 4, 2);
             txtfechafin.Name = "txtfechafin";
-            txtfechafin.Size = new Size(112, 21);
+            txtfechafin.Size = new Size(132, 27);
             txtfechafin.TabIndex = 2;
             // 
             // txtfechainicio
@@ -138,30 +140,32 @@
             txtfechainicio.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtfechainicio.CalendarMonthBackground = Color.FromArgb(210, 120, 61);
             txtfechainicio.CustomFormat = "dd/MM/yyyy";
-            txtfechainicio.Font = new Font("Microsoft Sans Serif", 9F);
+            txtfechainicio.Font = new Font("Microsoft Sans Serif", 13F);
             txtfechainicio.Format = DateTimePickerFormat.Short;
-            txtfechainicio.Location = new Point(545, 20);
+            txtfechainicio.Location = new Point(487, 18);
             txtfechainicio.Margin = new Padding(4, 2, 4, 2);
             txtfechainicio.Name = "txtfechainicio";
-            txtfechainicio.Size = new Size(112, 21);
+            txtfechainicio.Size = new Size(137, 27);
             txtfechainicio.TabIndex = 1;
             // 
             // CBusqueda
             // 
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBusqueda.Font = new Font("Microsoft Sans Serif", 12F);
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(463, 14);
+            CBusqueda.Location = new Point(410, 14);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(174, 23);
+            CBusqueda.Size = new Size(227, 28);
             CBusqueda.TabIndex = 5;
             // 
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            TBusqueda.Font = new Font("Microsoft Sans Serif", 12F);
             TBusqueda.Location = new Point(643, 15);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(216, 21);
+            TBusqueda.Size = new Size(250, 26);
             TBusqueda.TabIndex = 6;
             // 
             // BLimpiarBusqueda
@@ -176,7 +180,7 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(922, 10);
+            BLimpiarBusqueda.Location = new Point(952, 12);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(50, 29);
             BLimpiarBusqueda.TabIndex = 8;
@@ -187,13 +191,14 @@
             // 
             // BDescargarExcel
             // 
+            BDescargarExcel.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BDescargarExcel.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
             BDescargarExcel.IconColor = Color.Black;
             BDescargarExcel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BDescargarExcel.IconSize = 18;
-            BDescargarExcel.Location = new Point(35, 15);
+            BDescargarExcel.Location = new Point(28, 7);
             BDescargarExcel.Name = "BDescargarExcel";
-            BDescargarExcel.Size = new Size(145, 23);
+            BDescargarExcel.Size = new Size(168, 35);
             BDescargarExcel.TabIndex = 4;
             BDescargarExcel.Text = "Descargar Excel";
             BDescargarExcel.TextAlign = ContentAlignment.MiddleRight;
@@ -213,7 +218,7 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(869, 10);
+            BBusqueda.Location = new Point(899, 12);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 7;
@@ -255,7 +260,7 @@
             dgvDetalle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -264,16 +269,54 @@
             dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDetalle.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDetalle.Columns.AddRange(new DataGridViewColumn[] { codigo, nombre, cantidad, precioVta, subTotal });
-            dgvDetalle.Location = new Point(3, 229);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDetalle.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvDetalle.Location = new Point(3, 235);
             dgvDetalle.MultiSelect = false;
             dgvDetalle.Name = "dgvDetalle";
             dgvDetalle.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvDetalle.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvDetalle.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvDetalle.RowTemplate.Height = 28;
-            dgvDetalle.Size = new Size(1011, 181);
+            dgvDetalle.Size = new Size(1011, 175);
             dgvDetalle.TabIndex = 58;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.Width = 125;
+            // 
+            // nombre
+            // 
+            nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            // 
+            // cantidad
+            // 
+            cantidad.HeaderText = "Cantidad";
+            cantidad.Name = "cantidad";
+            cantidad.Width = 150;
+            // 
+            // precioVta
+            // 
+            precioVta.HeaderText = "Precio Vta";
+            precioVta.Name = "precioVta";
+            precioVta.Width = 150;
+            // 
+            // subTotal
+            // 
+            subTotal.HeaderText = "Sub Total";
+            subTotal.Name = "subTotal";
+            subTotal.Width = 175;
             // 
             // panel1
             // 
@@ -297,11 +340,11 @@
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.BackColor = Color.FromArgb(210, 120, 61);
-            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 12F);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(388, 18);
+            label9.Location = new Point(314, 18);
             label9.Name = "label9";
-            label9.Size = new Size(69, 15);
+            label9.Size = new Size(90, 20);
             label9.TabIndex = 54;
             label9.Text = "Buscar por:";
             // 
@@ -309,24 +352,32 @@
             // 
             dgvData.AllowUserToAddRows = false;
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new Padding(1);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new Padding(1);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { idVenta, verDetalle, fechaRegistro, horaRegistro, tipoDocumento, numeroVenta, documentoUsuario, nombreUsuario, documentoCliente, nombreCliente, montoTotal });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvData.DefaultCellStyle = dataGridViewCellStyle5;
             dgvData.Location = new Point(3, 3);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.SelectionBackColor = Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dgvData.RowTemplate.Height = 28;
             dgvData.Size = new Size(1011, 179);
             dgvData.TabIndex = 57;
@@ -350,13 +401,13 @@
             // 
             // fechaRegistro
             // 
-            fechaRegistro.HeaderText = "Fecha Registro";
+            fechaRegistro.HeaderText = "Fecha";
             fechaRegistro.MinimumWidth = 6;
             fechaRegistro.Name = "fechaRegistro";
             // 
             // horaRegistro
             // 
-            horaRegistro.HeaderText = "Hora Registro";
+            horaRegistro.HeaderText = "Hora";
             horaRegistro.Name = "horaRegistro";
             // 
             // tipoDocumento
@@ -419,8 +470,8 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 45F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.6222763F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 43.5835342F));
             tableLayoutPanel1.Size = new Size(1017, 413);
             tableLayoutPanel1.TabIndex = 57;
             // 
@@ -433,7 +484,7 @@
             panel3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             panel3.Location = new Point(3, 188);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1011, 35);
+            panel3.Size = new Size(1011, 41);
             panel3.TabIndex = 59;
             // 
             // LDetalleVenta
@@ -446,35 +497,6 @@
             LDetalleVenta.Size = new Size(166, 24);
             LDetalleVenta.TabIndex = 1;
             LDetalleVenta.Text = "Detalle de venta:";
-            // 
-            // codigo
-            // 
-            codigo.HeaderText = "Código Producto";
-            codigo.Name = "codigo";
-            codigo.Width = 125;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.Width = 250;
-            // 
-            // cantidad
-            // 
-            cantidad.HeaderText = "Cantidad";
-            cantidad.Name = "cantidad";
-            // 
-            // precioVta
-            // 
-            precioVta.HeaderText = "Precio Vta";
-            precioVta.Name = "precioVta";
-            precioVta.Width = 125;
-            // 
-            // subTotal
-            // 
-            subTotal.HeaderText = "Sub Total";
-            subTotal.Name = "subTotal";
-            subTotal.Width = 125;
             // 
             // frmReportesVentas
             // 

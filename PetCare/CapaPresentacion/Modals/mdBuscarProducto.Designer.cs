@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             BCerrar = new PictureBox();
             titulo = new Label();
@@ -62,7 +63,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(1, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(542, 34);
+            panel1.Size = new Size(728, 34);
             panel1.TabIndex = 1;
             // 
             // BCerrar
@@ -71,7 +72,7 @@
             BCerrar.BackColor = Color.FromArgb(210, 120, 61);
             BCerrar.Cursor = Cursors.Hand;
             BCerrar.Image = Properties.Resources.cerrar;
-            BCerrar.Location = new Point(512, 5);
+            BCerrar.Location = new Point(698, 5);
             BCerrar.Name = "BCerrar";
             BCerrar.Size = new Size(25, 25);
             BCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -83,7 +84,7 @@
             // 
             titulo.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titulo.ForeColor = Color.White;
-            titulo.Location = new Point(93, 4);
+            titulo.Location = new Point(157, 4);
             titulo.Name = "titulo";
             titulo.Size = new Size(353, 26);
             titulo.TabIndex = 9;
@@ -102,7 +103,7 @@
             panel2.Controls.Add(BBusqueda);
             panel2.Location = new Point(18, 41);
             panel2.Name = "panel2";
-            panel2.Size = new Size(507, 68);
+            panel2.Size = new Size(693, 68);
             panel2.TabIndex = 14;
             // 
             // label9
@@ -110,11 +111,11 @@
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.BackColor = Color.FromArgb(210, 120, 61);
-            label9.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(14, 8);
+            label9.Location = new Point(43, 6);
             label9.Name = "label9";
-            label9.Size = new Size(69, 15);
+            label9.Size = new Size(85, 18);
             label9.TabIndex = 15;
             label9.Text = "Buscar por:";
             // 
@@ -122,10 +123,11 @@
             // 
             CBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            CBusqueda.Font = new Font("Microsoft Sans Serif", 11.25F);
             CBusqueda.FormattingEnabled = true;
-            CBusqueda.Location = new Point(15, 27);
+            CBusqueda.Location = new Point(43, 27);
             CBusqueda.Name = "CBusqueda";
-            CBusqueda.Size = new Size(165, 23);
+            CBusqueda.Size = new Size(199, 26);
             CBusqueda.TabIndex = 16;
             // 
             // BLimpiarBusqueda
@@ -140,7 +142,7 @@
             BLimpiarBusqueda.IconColor = Color.Black;
             BLimpiarBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BLimpiarBusqueda.IconSize = 20;
-            BLimpiarBusqueda.Location = new Point(434, 23);
+            BLimpiarBusqueda.Location = new Point(590, 24);
             BLimpiarBusqueda.Name = "BLimpiarBusqueda";
             BLimpiarBusqueda.Size = new Size(47, 29);
             BLimpiarBusqueda.TabIndex = 19;
@@ -152,9 +154,10 @@
             // TBusqueda
             // 
             TBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            TBusqueda.Location = new Point(186, 27);
+            TBusqueda.Font = new Font("Microsoft Sans Serif", 11.25F);
+            TBusqueda.Location = new Point(248, 27);
             TBusqueda.Name = "TBusqueda";
-            TBusqueda.Size = new Size(189, 23);
+            TBusqueda.Size = new Size(283, 24);
             TBusqueda.TabIndex = 17;
             // 
             // BBusqueda
@@ -169,7 +172,7 @@
             BBusqueda.IconColor = Color.Black;
             BBusqueda.IconFont = FontAwesome.Sharp.IconFont.Auto;
             BBusqueda.IconSize = 20;
-            BBusqueda.Location = new Point(381, 23);
+            BBusqueda.Location = new Point(537, 23);
             BBusqueda.Name = "BBusqueda";
             BBusqueda.Size = new Size(47, 29);
             BBusqueda.TabIndex = 18;
@@ -184,7 +187,7 @@
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -193,19 +196,27 @@
             dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { idProducto, codigo, nombre, marca, categoria, stock, precioCompra, precioVenta });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvData.DefaultCellStyle = dataGridViewCellStyle2;
             dgvData.Location = new Point(18, 115);
             dgvData.MultiSelect = false;
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = SystemColors.ActiveCaption;
             dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvData.RowTemplate.Height = 28;
             dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvData.Size = new Size(507, 350);
+            dgvData.Size = new Size(693, 350);
             dgvData.TabIndex = 15;
             dgvData.CellDoubleClick += dgvData_CellDoubleClick;
             // 
@@ -224,14 +235,15 @@
             codigo.MinimumWidth = 6;
             codigo.Name = "codigo";
             codigo.ReadOnly = true;
+            codigo.Width = 85;
             // 
             // nombre
             // 
+            nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             nombre.HeaderText = "Nombre";
             nombre.MinimumWidth = 6;
             nombre.Name = "nombre";
             nombre.ReadOnly = true;
-            nombre.Width = 175;
             // 
             // marca
             // 
@@ -246,7 +258,7 @@
             categoria.HeaderText = "Categoria";
             categoria.Name = "categoria";
             categoria.ReadOnly = true;
-            categoria.Width = 125;
+            categoria.Width = 175;
             // 
             // stock
             // 
@@ -277,7 +289,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(544, 486);
+            ClientSize = new Size(730, 486);
             Controls.Add(dgvData);
             Controls.Add(panel2);
             Controls.Add(panel1);

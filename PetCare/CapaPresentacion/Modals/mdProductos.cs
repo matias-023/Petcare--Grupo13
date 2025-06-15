@@ -51,31 +51,22 @@ namespace CapaPresentacion.Modals
             CEstado.ValueMember = "valor";
             CEstado.SelectedIndex = 0;
 
+            listarCategorias();
+            listarMarcas();
+
             if (fila != null)
             {
-                listarCategorias(1);
-                listarMarcas(1);
                 BAgregar.Text = "Editar";
                 BAgregar.IconChar = FontAwesome.Sharp.IconChar.Edit;
                 titulo.Text = "Editar Producto";
                 rellenarCampos();
             }
-            else
-            {
-                listarCategorias(0);
-                listarMarcas(0);
-            }
         }
 
-        private void listarCategorias(int aux, string nombreCat = null)
+        private void listarCategorias()
         {
             List<Categoria> listaCategoria = new CN_Categoria().listar();
-
-            if (aux == 0)
-                listaCategoria = listaCategoria.Where(c => c.estado == true).ToList();
-            if (aux == 1 && nombreCat != null)
-                listaCategoria = listaCategoria.Where(c => c.estado == true || c.descripcion == nombreCat).ToList();
-
+            listaCategoria = listaCategoria.Where(c => c.estado == true).ToList();
 
             CCategoria.Items.Clear();
             foreach (Categoria item in listaCategoria)
@@ -87,15 +78,10 @@ namespace CapaPresentacion.Modals
             CCategoria.SelectedIndex = 0;
         }
 
-        private void listarMarcas(int aux, string nombreMarca = null)
+        private void listarMarcas()
         {
             List<Marca> listaMarca = new CN_Marca().listar();
-
-            if (aux == 0)
-                listaMarca = listaMarca.Where(m => m.estado == true).ToList();
-            if (aux == 1 && nombreMarca != null)
-                listaMarca = listaMarca.Where(m => m.estado == true || m.descripcion == nombreMarca).ToList();
-
+            listaMarca = listaMarca.Where(m => m.estado == true).ToList();
 
             CMarca.Items.Clear();
             foreach (Marca item in listaMarca)
@@ -105,8 +91,6 @@ namespace CapaPresentacion.Modals
             CMarca.DisplayMember = "texto";
             CMarca.ValueMember = "valor";
             CMarca.SelectedIndex = 0;
-
-
         }
 
         private void BAgregar_Click(object sender, EventArgs e)
@@ -202,52 +186,6 @@ namespace CapaPresentacion.Modals
                 {
                     int indice_combo = CMarca.Items.IndexOf(oc);
                     CMarca.SelectedIndex = indice_combo;
-
-                    Marca marcaSeleccionada = new CN_Marca().listar().FirstOrDefault(m => m.descripcion == oc.texto);
-                    string nombreMarcaSeleccionada = oc.texto;
-
-                    if (marcaSeleccionada != null && !marcaSeleccionada.estado)
-                    {
-                        numStock.Enabled = false;
-
-                        listarMarcas(1, oc.texto);
-                    }
-                    else
-                    {
-                        listarMarcas(0);
-                    }
-
-                    int indiceSeleccionado = CMarca.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreMarcaSeleccionada);
-                    CMarca.SelectedIndex = indiceSeleccionado;
-
-
-                    break;
-                }
-
-                if (oc.texto == fila.Cells["categoria"].Value.ToString())
-                {
-                    int indice_combo = CCategoria.Items.IndexOf(oc);
-                    CCategoria.SelectedIndex = indice_combo;
-
-                    Categoria categoriaSeleccionada = new CN_Categoria().listar().FirstOrDefault(c => c.descripcion == oc.texto);
-
-                    string nombreCategoriaSeleccionada = oc.texto;
-
-                    if (categoriaSeleccionada != null && !categoriaSeleccionada.estado)
-                    {
-                        numStock.Enabled = false;
-
-                        listarCategorias(1, oc.texto);
-                    }
-
-                    else
-                    {
-                        listarCategorias(0);
-                    }
-
-                    int indiceSeleccionado = CCategoria.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreCategoriaSeleccionada);
-                    CCategoria.SelectedIndex = indiceSeleccionado;
-
                     break;
                 }
             }
@@ -258,26 +196,6 @@ namespace CapaPresentacion.Modals
                 {
                     int indice_combo = CCategoria.Items.IndexOf(oc);
                     CCategoria.SelectedIndex = indice_combo;
-
-                    Categoria categoriaSeleccionada = new CN_Categoria().listar().FirstOrDefault(c => c.descripcion == oc.texto);
-
-                    string nombreCategoriaSeleccionada = oc.texto;
-
-                    if (categoriaSeleccionada != null && !categoriaSeleccionada.estado)
-                    {
-                        numStock.Enabled = false;
-
-                        listarCategorias(1, oc.texto);
-                    }
-
-                    else
-                    {
-                        listarCategorias(0);
-                    }
-
-                    int indiceSeleccionado = CCategoria.Items.Cast<opcionCombo>().ToList().FindIndex(item => item.texto == nombreCategoriaSeleccionada);
-                    CCategoria.SelectedIndex = indiceSeleccionado;
-
                     break;
                 }
             }
@@ -293,7 +211,6 @@ namespace CapaPresentacion.Modals
             }
 
             opcionCombo seleccion = (opcionCombo)CEstado.SelectedItem;
-
             if (Convert.ToInt32(seleccion.valor) == 0)
             {
                 numStock.Enabled = false;

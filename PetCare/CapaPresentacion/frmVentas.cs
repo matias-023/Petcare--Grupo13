@@ -151,11 +151,7 @@ namespace CapaPresentacion
                 if (fila.Cells["idProducto"].Value.ToString() == TIdProducto.Text)
                 {
                     producto_existe = true;
-                    bool respuesta = new CN_Venta().RestarStock(
-                    Convert.ToInt32(TIdProducto.Text),
-                    Convert.ToInt32(TCantidad.Value),
-                    out mensaje
-                    );
+                    bool respuesta = restarStock(Convert.ToInt32(TIdProducto.Text), Convert.ToInt32(TCantidad.Value), out mensaje);
                     if (respuesta)
                     {
                         // Actualizar la cantidad sumando la nueva cantidad
@@ -182,12 +178,7 @@ namespace CapaPresentacion
 
             if (!producto_existe)
             {
-                bool respuesta = new CN_Venta().RestarStock(
-                    Convert.ToInt32(TIdProducto.Text),
-                    Convert.ToInt32(TCantidad.Value),
-                    out mensaje
-                    );
-
+                bool respuesta = restarStock(Convert.ToInt32(TIdProducto.Text), Convert.ToInt32(TCantidad.Value), out mensaje);
                 if (respuesta)
                 {
                     dgvData.Rows.Add(new object[]
@@ -206,7 +197,15 @@ namespace CapaPresentacion
                     MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
 
+        private bool restarStock(int idProducto, int cantidad, out string mensaje)
+        {
+            return new CN_Venta().RestarStock(idProducto, cantidad, out mensaje);
+        }
+        private bool sumarStock(int idProducto, int cantidad)
+        {
+            return new CN_Venta().SumarStock(idProducto, cantidad);
         }
 
         private void limpiarProducto()
@@ -232,7 +231,7 @@ namespace CapaPresentacion
 
         private void calcularCambio()
         {
-            if (TTotal.Text.Trim() == "")
+            if (TTotal.Text.Trim() == "0")
             {
                 MessageBox.Show("No existen productos en la venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -274,7 +273,7 @@ namespace CapaPresentacion
                     DialogResult ask = MessageBox.Show("Desea eliminar el producto: " + nombreProducto + ", de la lista?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     if (ask == DialogResult.Yes)
                     {
-                        bool respuesta = new CN_Venta().SumarStock(
+                        bool respuesta = sumarStock(
                         Convert.ToInt32(dgvData.Rows[indice].Cells["idProducto"].Value.ToString()),
                         Convert.ToInt32(dgvData.Rows[indice].Cells["cantidad"].Value.ToString())
                         );
@@ -485,7 +484,7 @@ namespace CapaPresentacion
                             int idProducto = Convert.ToInt32(fila.Cells["idProducto"].Value);
                             int cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
 
-                            bool respuesta = new CN_Venta().SumarStock(idProducto, cantidad);
+                            bool respuesta = sumarStock(idProducto, cantidad);
 
                             if (!respuesta)
                             {

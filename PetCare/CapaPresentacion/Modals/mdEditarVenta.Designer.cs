@@ -125,18 +125,19 @@
             // TCantidad
             // 
             TCantidad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TCantidad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TCantidad.Location = new Point(153, 112);
             TCantidad.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             TCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.Name = "TCantidad";
-            TCantidad.Size = new Size(251, 24);
+            TCantidad.Size = new Size(251, 26);
             TCantidad.TabIndex = 12;
             TCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             TCantidad.KeyDown += TCantidad_KeyDown;
             // 
             // LProducto
             // 
-            LProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LProducto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LProducto.Location = new Point(59, 46);
             LProducto.Name = "LProducto";
             LProducto.Size = new Size(447, 52);

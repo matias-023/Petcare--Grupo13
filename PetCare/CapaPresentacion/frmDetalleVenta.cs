@@ -46,6 +46,7 @@ namespace CapaPresentacion
             }
 
             Venta oVenta = new Venta();
+            //si el usuario es administrador se envia un 0 como parámetro.
             if(user.oRol.idRol == 1)
             {
                 oVenta = new CN_Venta().obtenerVenta(TCodigoVenta.Text, 0);
@@ -92,6 +93,11 @@ namespace CapaPresentacion
         }
 
         private void BLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
+        private void limpiar()
         {
             TNroDocumento.Text = "";
             TIdVenta.Text = "";
