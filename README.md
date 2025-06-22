@@ -47,8 +47,9 @@ Antes de ejecutar la aplicación, es necesario:
 - **Cajero:** DNI: 20202020 - Contraseña: 123
 - **Reabastecedor:** DNI: 10101111 - Contraseña: 123
 
-> Para esta primer entrega el usuario a ser utilizado es el usuario Reabastecedor.
-> Para esta segunda entrega los usuarios que serán utilizados son: Cajero y Reabastecedor.
+> ✅ Para esta primer entrega el usuario a ser utilizado es el usuario Reabastecedor.
+
+> ✅ Para esta segunda entrega los usuarios que serán utilizados son: Cajero y Reabastecedor.
 
 ---
 
