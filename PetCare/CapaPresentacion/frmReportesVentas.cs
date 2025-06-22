@@ -18,6 +18,7 @@ namespace CapaPresentacion
 {
     public partial class frmReportesVentas : Form
     {
+        string fechaInicio, fechaFin;
         private static Usuario user;
         public frmReportesVentas(Usuario objUsuario)
         {
@@ -47,18 +48,29 @@ namespace CapaPresentacion
         private void buscarVentas()
         {
             List<reporteVenta> lista = new List<reporteVenta>();
+            if (txtfechainicio.Value > txtfechafin.Value)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser mayor que la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            fechaInicio = txtfechainicio.Value.ToString();
+            fechaFin = txtfechafin.Value.ToString();
 
             //Se envia el usuario para verificar si se trata de un administrador o un cajero, ya que un administrador
             // debe poder ver todas las ventas del sistema, y un cajero solo las suyas.
 
-            lista = new CN_Reporte().Venta(txtfechainicio.Value.ToString(), txtfechafin.Value.ToString(), user);
+            lista = new CN_Reporte().Venta(fechaInicio, fechaFin, user);
 
             dgvData.Rows.Clear();
 
-            foreach (reporteVenta rv in lista)
+            if (lista.Count == 0)
+                MessageBox.Show("No se encontraron resultados.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
             {
-                dgvData.Rows.Add(new object[]
+                foreach (reporteVenta rv in lista)
                 {
+                    dgvData.Rows.Add(new object[]
+                    {
                     rv.idVenta,
                     "",
                     rv.fechaRegistro,
@@ -70,11 +82,17 @@ namespace CapaPresentacion
                     rv.documentoCliente,
                     rv.nombreCliente,
                     rv.montoTotal
-                });
+                    });
+                }
             }
         }
 
         private void BBusqueda_Click(object sender, EventArgs e)
+        {
+            realizarBusqueda();
+        }
+
+        private void realizarBusqueda()
         {
             string columnaFiltro = ((opcionCombo)CBusqueda.SelectedItem).valor.ToString();
 
@@ -220,7 +238,10 @@ namespace CapaPresentacion
             }
         }
 
-
-
+        private void TBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            realizarBusqueda();
+        }
     }
 }

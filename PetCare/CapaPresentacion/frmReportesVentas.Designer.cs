@@ -167,6 +167,7 @@
             TBusqueda.Name = "TBusqueda";
             TBusqueda.Size = new Size(250, 26);
             TBusqueda.TabIndex = 6;
+            TBusqueda.KeyDown += TBusqueda_KeyDown;
             // 
             // BLimpiarBusqueda
             // 

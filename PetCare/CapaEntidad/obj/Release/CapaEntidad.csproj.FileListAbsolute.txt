@@ -1,0 +1,9 @@
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\bin\Release\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\bin\Release\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\bin\Release\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\bin\Release\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\obj\Release\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\obj\Release\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\obj\Release\CapaEnti.526B9C87.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\obj\Release\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaEntidad\obj\Release\CapaEntidad.pdb

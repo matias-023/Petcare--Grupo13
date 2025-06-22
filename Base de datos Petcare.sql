@@ -106,7 +106,9 @@ CREATE TABLE PRODUCTO(
 	CONSTRAINT CK_Producto_stock_min CHECK (stock_min >= 0),
 	CONSTRAINT CK_Producto_stock CHECK (stock >= 0),
 	CONSTRAINT CK_Producto_precio CHECK (precio >= 0),
-	CONSTRAINT CK_Producto_precioVenta CHECK (precioVenta >= 0)
+	CONSTRAINT CK_Producto_precioVenta CHECK (precioVenta >= 0),
+	CONSTRAINT CK_Producto_precio_overflow CHECK (precio <= 99999999.99),
+	CONSTRAINT CK_Producto_precioVenta_overflow CHECK (precioVenta <= 99999999.99)
 )
 go
 
@@ -531,6 +533,24 @@ ADD CONSTRAINT CK_Cliente_Telefono
 CHECK (telefono LIKE '%[0-9]%' AND telefono NOT LIKE '%[^0-9]%' AND LEN(telefono) >= 8)
 go
 
+-- Se crea una función para hacer más modulares los procedimientos almacenados para registrar y editar productos
+CREATE FUNCTION buscarCodigoProductoDuplicado
+(
+    @codigo VARCHAR(50),
+    @idProducto INT -- 0 si es un nuevo producto
+)
+RETURNS VARCHAR(150)
+AS
+BEGIN
+    DECLARE @msg VARCHAR(150) = '';
+
+    IF EXISTS(SELECT 1 FROM PRODUCTO WHERE codigo = @codigo AND idProducto != @idProducto)
+        SET @msg = 'Ya existe un producto registrado con ese código.';
+
+    RETURN @msg;
+END
+GO
+
 --Procedimiento almacenado para registrar productos.
 CREATE PROC SP_REGISTRARPRODUCTO(
 @codigo varchar(50),
@@ -545,24 +565,25 @@ CREATE PROC SP_REGISTRARPRODUCTO(
 @idProductoResultado int output,
 @mensaje varchar(150) output
 )
-as
-begin
-	set @idProductoResultado = 0
-	set @mensaje = ''
+AS
+BEGIN
+    SET @idProductoResultado = 0;
+    SET @mensaje = '';
 
-	if not exists(select * from PRODUCTO where codigo = @codigo)
-	begin 
+    -- Validación
+    SET @mensaje = dbo.buscarCodigoProductoDuplicado(@codigo, 0);
+    IF @mensaje <> ''
+        RETURN;
+	ELSE
+	BEGIN 
 		insert into PRODUCTO (codigo, nombre, idMarca, idCategoria, stock_min, stock, precio, precioVenta, estado)
 		VALUES (@codigo, @nombre, @idMarca, @idCategoria, @stock_min, @stock, @precio, @precioVenta, @estado)
 
-		set @idProductoResultado = SCOPE_IDENTITY() --Almacena el ultimo Id registrado
-		set @mensaje = 'Producto registrado con éxito!'
-
-	end 
-	else 
-		set @mensaje = 'Ya existe un producto registrado con ese código.'
-end
-go
+        SET @idProductoResultado = SCOPE_IDENTITY();
+        SET @mensaje = 'Producto registrado con éxito!';
+	END
+END
+GO
 
 --Procedimiento almacenado para modificar productos.
 CREATE PROC SP_EDITARPRODUCTO(
@@ -584,9 +605,12 @@ begin
 	set @respuesta = 0
 	set @mensaje = ''
 
-	if not exists(select * from PRODUCTO
-	WHERE (codigo = @codigo) and idProducto != @idProducto)
-	begin 
+	-- Validación
+    SET @mensaje = dbo.buscarCodigoProductoDuplicado(@codigo, @idProducto);
+    IF @mensaje <> ''
+        RETURN;
+	ELSE
+	BEGIN 
 		update PRODUCTO set
 		codigo = @codigo,
 		nombre = @nombre,
@@ -601,10 +625,7 @@ begin
 
 		set @respuesta = 1
 		set @mensaje = 'Producto modificado con éxito!'
-
-	end 
-	else 
-		set @mensaje = 'Ya existe un producto registrado con ese código.'
+	END
 end
 go
 
@@ -761,7 +782,7 @@ CREATE PROC sp_ReporteVentas(
 )
 AS
 BEGIN
-SET DATEFORMAT dmy;
+SET DATEFORMAT dmy; --Se asigna el formato de fechas a día-mes-año
 SELECT 
 v.idVenta,
 CONVERT (CHAR (10), v.fechaRegistro,103)[fechaRegistro],
@@ -781,10 +802,6 @@ AND (@rol = 1 OR v.idUsuario = @idUsuario)
 
 END 
 GO
-
---Ejemplo
-EXEC sp_ReporteVentas '26/10/2024', '30/10/2024', 1, 1
-go
 
 --Proc almacenado para ver los productos más vendidos.
 CREATE PROC SP_ReporteProdMasVendidos(
@@ -836,7 +853,7 @@ CREATE PROC SP_ReporteCatMasVendidas(
 )
 AS
 BEGIN
-SET DATEFORMAT dmy;
+SET DATEFORMAT dmy; --se asigna el formato
 select c.descripcion [Nombre Categoria], sum(dv.cantidad) [Cant. Vendida] from detalle_venta dv
 inner join PRODUCTO p on dv.idProducto = p.idProducto
 inner join CATEGORIA c on p.idCategoria = c.idCategoria

@@ -925,19 +925,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NoxiePC\\.nuget\\packages\\": {}
+    "C:\\Users\\stemb\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "projectUniqueName": "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
       "projectName": "CapaPresentacion",
-      "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
-      "packagesPath": "C:\\Users\\NoxiePC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NoxiePC\\Source\\Repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\obj\\",
+      "projectPath": "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\CapaPresentacion.csproj",
+      "packagesPath": "C:\\Users\\stemb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaPresentacion\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\NoxiePC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stemb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -945,17 +950,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
+            "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj": {
+              "projectPath": "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaEntidad\\CapaEntidad.csproj"
             },
-            "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
-              "projectPath": "C:\\Users\\NoxiePC\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
+            "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj": {
+              "projectPath": "C:\\Users\\stemb\\source\\repos\\Petcare--Grupo13\\PetCare\\CapaNegocio\\CapaNegocio.csproj"
             }
           }
         }
@@ -1015,7 +1021,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1024,7 +1030,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"iTextSharp 5.5.13.4\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'iTextSharp 5.5.13.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "iTextSharp",
       "targetGraphs": [
         "net8.0-windows7.0"
@@ -1034,7 +1040,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"itextsharp.xmlworker 5.5.13.4\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'itextsharp.xmlworker 5.5.13.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "itextsharp.xmlworker",
       "targetGraphs": [
         "net8.0-windows7.0"

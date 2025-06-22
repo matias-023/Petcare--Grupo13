@@ -82,7 +82,6 @@ namespace CapaDatos
                     cmd.Parameters.Add("idProductoResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     objConexion.Open();

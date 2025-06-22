@@ -322,7 +322,7 @@
             numPrecio.DecimalPlaces = 2;
             numPrecio.Font = new Font("Microsoft Sans Serif", 11F);
             numPrecio.Location = new Point(294, 77);
-            numPrecio.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numPrecio.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
             numPrecio.Name = "numPrecio";
             numPrecio.Size = new Size(223, 24);
             numPrecio.TabIndex = 7;
@@ -332,7 +332,7 @@
             numPrecioVenta.DecimalPlaces = 2;
             numPrecioVenta.Font = new Font("Microsoft Sans Serif", 11F);
             numPrecioVenta.Location = new Point(294, 137);
-            numPrecioVenta.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numPrecioVenta.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
             numPrecioVenta.Name = "numPrecioVenta";
             numPrecioVenta.Size = new Size(223, 24);
             numPrecioVenta.TabIndex = 8;
@@ -371,7 +371,7 @@
             Name = "mdProductos";
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "mdProductos";
+            Text = "Crear Producto";
             Load += mdProductos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

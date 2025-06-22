@@ -1,0 +1,11 @@
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\bin\Release\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\obj\Release\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\obj\Release\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\obj\Release\CapaDatos.csproj.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\obj\Release\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaDatos\obj\Release\CapaDatos.pdb

@@ -251,6 +251,12 @@ namespace CapaPresentacion
                 {
                     TCambio.Text = "0.00";
                 }
+                if (pagacon > 99999999.99m)
+                {
+                    MessageBox.Show("El valor ingresado en 'Paga con' excede el límite permitido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TPagaCon.Text = "0";
+                    TCambio.Text = "0.00";
+                }
                 else
                 {
                     decimal cambio = pagacon - total;
@@ -373,20 +379,25 @@ namespace CapaPresentacion
                         frmDetalleVenta frmDetalle = new frmDetalleVenta(user);
                         frmDetalle.guardarPDF(numeroDocumento);
                     }
-                        
-
-                    TDocumentoCliente.Text = "";
-                    TNombreCompleto.Text = "";
-                    dgvData.Rows.Clear();
-                    calcularTotal();
-                    TPagaCon.Text = "";
-                    TCambio.Text = "";
+                    limpiarVenta();
                 }
                 else
                 {
                     MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void limpiarVenta()
+        {
+            TIdCliente.Text = "0";
+            TDocumentoCliente.Text = "";
+            TNombreCompleto.Text = "";
+            limpiarProducto();
+            dgvData.Rows.Clear();
+            calcularTotal();
+            TPagaCon.Text = "";
+            TCambio.Text = "";
         }
 
         private void TPagaCon_KeyDown(object sender, KeyEventArgs e)

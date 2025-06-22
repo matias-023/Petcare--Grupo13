@@ -1,0 +1,13 @@
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaNegocio.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaDatos.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaEntidad.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\System.Data.SqlClient.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaDatos.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\CapaEntidad.pdb
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\bin\Release\System.Data.SqlClient.xml
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\obj\Release\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\obj\Release\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\obj\Release\CapaNego.81B9D119.Up2Date
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\obj\Release\CapaNegocio.dll
+C:\Users\NoxiePC\source\repos\Petcare--Grupo13\PetCare\CapaNegocio\obj\Release\CapaNegocio.pdb
